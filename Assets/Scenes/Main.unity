@@ -305,12 +305,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1178590089}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.89, y: -214.18}
-  m_SizeDelta: {x: 673.78, y: 180.35}
+  m_AnchoredPosition: {x: 0.89, y: -232.26}
+  m_SizeDelta: {x: 673.78, y: 144.19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &613730980
 MonoBehaviour:
@@ -333,7 +333,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -477,10 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df657402c213986449bd98dbb252d69c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 1178590088}
-  guiText: {fileID: 613730980}
   dialoguePlaying: 0
-  activeNpc: {fileID: 0}
 --- !u!1 &1178590085
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,6 +565,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1677506414}
+  - {fileID: 1601334462}
   - {fileID: 613730979}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -598,7 +596,7 @@ GameObject:
   - component: {fileID: 1562472714}
   - component: {fileID: 1562472713}
   - component: {fileID: 1562472712}
-  - component: {fileID: 1562472711}
+  - component: {fileID: 1562472715}
   m_Layer: 9
   m_Name: Henry
   m_TagString: Untagged
@@ -606,21 +604,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1562472711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1562472710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e66a721bce94847bad0fab1721ea58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-  - Test text 1
-  - Test text 2
-  dialoguePlace: 0
 --- !u!61 &1562472712
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -705,6 +688,100 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1562472715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1562472710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32913fd69fe8b9c4ca671dbe349c5684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: 
+  dialogue: []
+  initialDialogue:
+  - Hi! My name is Henry! I'm the sherriff!
+  - I like sniffing butts!
+  - Nora likes it when I don't wear pants, but I don't know why!
+  repeatingDialogue:
+  - What can I do you for?
+--- !u!1 &1601334461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1601334462}
+  - component: {fileID: 1601334463}
+  - component: {fileID: 1601334464}
+  m_Layer: 5
+  m_Name: NameText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1601334462
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1601334461}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178590089}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -174.22, y: -137.6}
+  m_SizeDelta: {x: 323.56, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1601334463
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1601334461}
+  m_CullTransparentMesh: 0
+--- !u!114 &1601334464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1601334461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 24
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
 --- !u!1 &1677506413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +1111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: {fileID: 811711060}
+  canvas: {fileID: 1178590088}
+  nameText: {fileID: 1601334464}
+  dialogueText: {fileID: 613730980}
 --- !u!4 &2146486961
 Transform:
   m_ObjectHideFlags: 0

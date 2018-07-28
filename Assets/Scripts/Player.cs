@@ -13,6 +13,7 @@ public class Player : SpriteParent
     private Rigidbody2D rb2d;
     private BoxCollider2D boxCollider2D;
     private Direction facing = Direction.Down;
+    private DialogueManager dialogueManager;
     private bool walking = false;
 
     private enum Direction { Right, Up, Left, Down };
@@ -24,6 +25,7 @@ public class Player : SpriteParent
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
+        dialogueManager = FindObjectOfType<DialogueManager>();
     }
     
     // Update is called once per frame
@@ -36,10 +38,10 @@ public class Player : SpriteParent
             // If we're not currently talking to an NPC, 
             // find if an NPC is in front of us and 
             // start talking to them.
-            if (gameState.activeNpc == null) {
+            if (gameState.dialoguePlaying == false) {
             	Interact(facing);
             } else {
-                gameState.activeNpc.Interact(gameState);
+                dialogueManager.DisplayNextSentence();
             }
         }
     }
@@ -125,7 +127,7 @@ public class Player : SpriteParent
         {
             Interactable interactable = hit.collider.GetComponent<Interactable>();
             if (interactable != null) {
-				interactable.Interact(gameState);
+				interactable.Interact();
             }
         }
     }
