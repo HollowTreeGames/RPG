@@ -1,0 +1,1527 @@
+fileFormatVersion: 2
+guid: 18e7cb5cb7930c048b2b7c1c73c63946
+timeCreated: 1519077569
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_0
+    21300002: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_1
+    21300004: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_2
+    21300006: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_3
+    21300008: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_4
+    21300010: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_5
+    21300012: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_6
+    21300014: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_7
+    21300016: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_8
+    21300018: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_9
+    21300020: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_10
+    21300022: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_11
+    21300024: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_12
+    21300026: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_13
+    21300028: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_14
+    21300030: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_15
+    21300032: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_16
+    21300034: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_17
+    21300036: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_18
+    21300038: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_19
+    21300040: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_20
+    21300042: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_21
+    21300044: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_22
+    21300046: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_23
+    21300048: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_24
+    21300050: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_25
+    21300052: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_26
+    21300054: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_27
+    21300056: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_28
+    21300058: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_29
+    21300060: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_30
+    21300062: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_31
+    21300064: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_32
+    21300066: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_33
+    21300068: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_34
+    21300070: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_35
+    21300072: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_36
+    21300074: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_37
+    21300076: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_38
+    21300078: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_39
+    21300080: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_40
+    21300082: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_41
+    21300084: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_42
+    21300086: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_43
+    21300088: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_44
+    21300090: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_45
+    21300092: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_46
+    21300094: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_47
+    21300096: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_48
+    21300098: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_49
+    21300100: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_50
+    21300102: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_51
+    21300104: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_52
+    21300106: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_53
+    21300108: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_54
+    21300110: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_55
+    21300112: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_56
+    21300114: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_57
+    21300116: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_58
+    21300118: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_59
+    21300120: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_60
+    21300122: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_61
+    21300124: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_62
+    21300126: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_63
+    21300128: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_64
+    21300130: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_65
+    21300132: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_66
+    21300134: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_67
+    21300136: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_68
+    21300138: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_69
+    21300140: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_70
+    21300142: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_71
+    21300144: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_72
+    21300146: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_73
+    21300148: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_74
+    21300150: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_75
+    21300152: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_76
+    21300154: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_77
+    21300156: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_78
+    21300158: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_79
+    21300160: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_80
+    21300162: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_81
+    21300164: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_82
+    21300166: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_83
+    21300168: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_84
+    21300170: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_85
+    21300172: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_86
+    21300174: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_87
+    21300176: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_88
+    21300178: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_89
+    21300180: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_90
+    21300182: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_91
+    21300184: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_92
+    21300186: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_93
+    21300188: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_94
+    21300190: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_95
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 32
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 595.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 595.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_2
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 595.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_3
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 595.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_4
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 595.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_5
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 595.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_6
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 595.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_7
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 595.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_8
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 595.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_9
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 595.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_10
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 595.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_11
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 595.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 510.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_13
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 510.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_14
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 510.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_15
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 510.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_16
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 510.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_17
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 510.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_18
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 510.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_19
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 510.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_20
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 510.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_21
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 510.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_22
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 510.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_23
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 510.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 425.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_25
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 425.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_26
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 425.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_27
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 425.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_28
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 425.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_29
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 425.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_30
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 425.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_31
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 425.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_32
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 425.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_33
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 425.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_34
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 425.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_35
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 425.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 340.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_37
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 340.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_38
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 340.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_39
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 340.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_40
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 340.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_41
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 340.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_42
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 340.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_43
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 340.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_44
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 340.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_45
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 340.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_46
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 340.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_47
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 340.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 255.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_49
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 255.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_50
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 255.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_51
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 255.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_52
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 255.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_53
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 255.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_54
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 255.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_55
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 255.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_56
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 255.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_57
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 255.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_58
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 255.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_59
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 255.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 170.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_61
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 170.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_62
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 170.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_63
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 170.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_64
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 170.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_65
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 170.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_66
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 170.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_67
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 170.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_68
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 170.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_69
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 170.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_70
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 170.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_71
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 170.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 85.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_73
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 85.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_74
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 85.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_75
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 85.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_76
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 85.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_77
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 85.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_78
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 85.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_79
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 85.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_80
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 85.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_81
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 85.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_82
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 85.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_83
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 85.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_85
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 0.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_86
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 0.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_87
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 0.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_88
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 0.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_89
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 0.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_90
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 0.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_91
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 0.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_92
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 0.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_93
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 0.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_94
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 0.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wario_rpg_maker_mv_by_retrospriteresources-dau6a1u_95
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 0.875
+        width: 85.333336
+        height: 85.125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
