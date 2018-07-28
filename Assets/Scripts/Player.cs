@@ -29,9 +29,7 @@ public class Player : SpriteParent
     // Update is called once per frame
     void Update()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
-        Move(x, y);
+        Move();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -46,32 +44,42 @@ public class Player : SpriteParent
         }
     }
 
-    void Move(float x, float y)
+    void Move()
     {
+        float x, y;
         if (gameState.dialoguePlaying)
-            return;
-
-        walking = true;
-
-        if (x > 0.5f)
         {
-            facing = Direction.Right;
-        }
-        else if (x < -0.5f)
-        {
-            facing = Direction.Left;
-        }
-        else if (y > 0.5f)
-        {
-            facing = Direction.Up;
-        }
-        else if (y < -0.5f)
-        {
-            facing = Direction.Down;
+            walking = false;
+            x = 0;
+            y = 0;
         }
         else
         {
-            walking = false;
+            x = Input.GetAxisRaw("Horizontal");
+            y = Input.GetAxisRaw("Vertical");
+
+            walking = true;
+
+            if (x > 0.5f)
+            {
+                facing = Direction.Right;
+            }
+            else if (x < -0.5f)
+            {
+                facing = Direction.Left;
+            }
+            else if (y > 0.5f)
+            {
+                facing = Direction.Up;
+            }
+            else if (y < -0.5f)
+            {
+                facing = Direction.Down;
+            }
+            else
+            {
+                walking = false;
+            }
         }
         animator.SetInteger("facing", (int)facing);
         animator.SetBool("walking", walking);
