@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Enums;
 
 public class NPC : Talkable
 {
@@ -8,24 +9,23 @@ public class NPC : Talkable
     private int facing;
     private Animator animator;
 
-
     protected override void Start()
     {
         base.Start();
         animator = GetComponent<Animator>();
-        animator.SetInteger("facing", 3);  // Face down by default
+        animator.SetInteger("facing", (int)Direction.Down);  // Face down by default
     }
 
     public override void Interact()
     {
         Player player = FindObjectOfType<Player>();
-        TurnToPlayer((int)player.facing);
+        TurnToPlayer(player.facing);
         base.Interact();
     }
 
-    public void TurnToPlayer(int playerFacing)
+    public void TurnToPlayer(Direction playerFacing)
     {
-        animator.SetInteger("facing", (playerFacing + 2) % 4);
+        animator.SetInteger("facing", ((int)playerFacing + 2) % 4);
     }
 
 }

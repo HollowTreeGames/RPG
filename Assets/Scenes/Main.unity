@@ -585,6 +585,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialoguePlaying: 0
   findTheDankHerb: 0
+  reputation: 0
+  friendshipHenry: 0
 --- !u!1 &868408512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,6 +1387,7 @@ MonoBehaviour:
   speed: 60
   interactDistance: 1
   gameState: {fileID: 811711060}
+  dialogueManager: {fileID: 2146486960}
   facing: 3
 --- !u!50 &1895763258
 Rigidbody2D:
