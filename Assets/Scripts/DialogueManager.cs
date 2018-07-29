@@ -12,6 +12,8 @@ public class DialogueManager : MonoBehaviour {
 
     private CanvasGroup canvasGroup;
     private Queue<string> sentences;
+    private bool writingSentence = false;
+    private bool forceWriteSentence = false;
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +38,12 @@ public class DialogueManager : MonoBehaviour {
 
     public void DisplayNextSentence()
     {
+        if (writingSentence)
+        {
+            forceWriteSentence = true;
+            return;
+        }
+
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -49,13 +57,20 @@ public class DialogueManager : MonoBehaviour {
 
     IEnumerator TypeSentence(string sentence)
     {
+        writingSentence = true;
         dialogueText.text = "";
 
         foreach (char letter in sentence.ToCharArray())
         {
+            if (forceWriteSentence)
+                break;
             dialogueText.text += letter;
             yield return null;
         }
+
+        dialogueText.text = sentence;
+        writingSentence = false;
+        forceWriteSentence = false;
     }
 
     void EndDialogue()
