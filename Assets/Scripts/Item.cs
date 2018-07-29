@@ -5,19 +5,28 @@ using UnityEngine;
 public class Item : Interactable {
 
     public string itemName;
+    public Sprite sprite;
+
+    private InventoryManager inventoryManager;
+    
+    // Use this for initialization
+    protected override void Start()
+    {
+        base.Start();
+        sprite = GetComponent<SpriteRenderer>().sprite;
+        inventoryManager = FindObjectOfType<InventoryManager>();
+    }
 
     public override void Interact()
     {
-        Player player = FindObjectOfType<Player>();
         List<string> message = new List<string>();
-        if (player.holdingItem != "")
+        if (inventoryManager.SetInventory("Dank Herb", sprite))
         {
-            message.Add("Belfry tried to pick up the " + itemName + ", but her hands are full!");
+            message.Add("Belfry picked up a " + itemName + "!");
         }
         else
         {
-            message.Add("Belfry picked up a " + itemName + "!");
-            player.holdingItem = "Dank Herb";
+            message.Add("Belfry tried to pick up the " + itemName + ", but her hands are full!");
         }
 
         FindObjectOfType<DialogueManager>().StartDialogue("", message.ToArray());

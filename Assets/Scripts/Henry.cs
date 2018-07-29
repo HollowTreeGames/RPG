@@ -35,10 +35,10 @@ public class Henry : Talkable {
             return initialDialogue;
         }
 
-        Player player = FindObjectOfType<Player>();
-        if (player.holdingItem == "Dank Herb")
+        InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
+        if (inventoryManager.GetInventory() == "Dank Herb")
         {
-            player.holdingItem = "";
+            inventoryManager.ClearInventory();
             return itemDialogue;
         }
 
