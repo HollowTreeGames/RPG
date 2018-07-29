@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Enums;
 
 public class Henry : NPC {
     
@@ -56,34 +57,31 @@ public class Henry : NPC {
 
     protected override string[] GetDialogue()
     {
-        if (!interactedWith)
+        switch(gameState.findTheDankHerb)
         {
-            interactedWith = true;
-            return initialDialogue;
+            case QuestState.Unavailable:
+                gameState.findTheDankHerb = QuestState.Available;
+                return initialDialogue;
+            case QuestState.Available:
+                gameState.findTheDankHerb = QuestState.InProgress;
+                return questDialogue;
+            case QuestState.InProgress:
+                if (inventoryManager.GetInventory() == "Dank Herb")
+                {
+                    gameState.reputation += 1;
+                    gameState.friendshipHenry += 1;
+                    inventoryManager.ClearInventory();
+                    gameState.findTheDankHerb = QuestState.Done;
+                    return itemDialogue;
+                }
+                else
+                    return questReminderDialogue;
+            case QuestState.Done:
+                return thanksDialogue;
+            default:
+                break;
         }
 
-        if (!gameState.findTheDankHerb)
-        {
-            gameState.findTheDankHerb = true;
-            return questDialogue;
-        }
-
-        if (!gotItem)
-        {
-            if (inventoryManager.GetInventory() == "Dank Herb")
-            {
-                gameState.reputation += 1;
-                gameState.friendshipHenry += 1;
-                inventoryManager.ClearInventory();
-                gotItem = true;
-                return itemDialogue;
-            }
-            else
-            {
-                return questReminderDialogue;
-            }
-        }
-
-        return thanksDialogue;
+        return repeatingDialogue;
     }
 }

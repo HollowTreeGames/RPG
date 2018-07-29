@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Enums;
 
 public class GameState : MonoBehaviour {
-    
+
 	public bool dialoguePlaying = false;
 
     // Quests
-    public bool findTheDankHerb = false;
+    public QuestState findTheDankHerb = QuestState.Unavailable;
 
     // Reputation
     public int reputation = 0;

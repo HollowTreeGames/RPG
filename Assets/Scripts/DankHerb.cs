@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Enums;
 
 public class DankHerb : Item
 {
@@ -17,7 +18,7 @@ public class DankHerb : Item
 
     public override void Interact()
     {
-        if (gameState.findTheDankHerb)
+        if (gameState.findTheDankHerb == QuestState.InProgress)
         {
             base.Interact();
         }
