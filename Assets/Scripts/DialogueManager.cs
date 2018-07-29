@@ -58,6 +58,7 @@ public class DialogueManager : MonoBehaviour {
     IEnumerator TypeSentence(string sentence)
     {
         writingSentence = true;
+        forceWriteSentence = false;
         dialogueText.text = "";
 
         foreach (char letter in sentence.ToCharArray())
