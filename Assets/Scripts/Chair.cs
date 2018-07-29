@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chair : Interactable
+public class Chair 
 {
 
    // protected override void Start()

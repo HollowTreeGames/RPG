@@ -14,6 +14,10 @@ public class Henry : Talkable {
     {
         "What can I do you for?"
     };
+    public string[] itemDialogue =
+    {
+        "Wow, thank you! Nora will be so happy to smoke this straight killer kush!"
+    };
 
     protected override void Start()
     {
@@ -29,6 +33,13 @@ public class Henry : Talkable {
         {
             interactedWith = true;
             return initialDialogue;
+        }
+
+        Player player = FindObjectOfType<Player>();
+        if (player.holdingItem == "Dank Herb")
+        {
+            player.holdingItem = "";
+            return itemDialogue;
         }
 
         return repeatingDialogue;

@@ -8,6 +8,7 @@ public class Player : SpriteParent
     public float speed = 60;
     public float interactDistance = 1;
     public GameState gameState;
+    public string holdingItem = "";
     
     private Animator animator;
     private Rigidbody2D rb2d;

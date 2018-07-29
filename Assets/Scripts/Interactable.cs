@@ -5,5 +5,5 @@ using UnityEngine.UI;
 
 public abstract class Interactable : SpriteParent {
 
-    public virtual void Interact() {}
+    public abstract void Interact();
 }
