@@ -20,6 +20,12 @@ public class DialogueManager : MonoBehaviour {
         sentences = new Queue<string>();
         canvasGroup = canvas.GetComponent<CanvasGroup>();
 	}
+    
+    public void StartDialogue(string name, string dialogue)
+    {
+        string[] message = { dialogue };
+        StartDialogue(name, message);
+    }
 
     public void StartDialogue(string name, string[] dialogue)
     {

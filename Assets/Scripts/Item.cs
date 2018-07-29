@@ -8,6 +8,7 @@ public class Item : Interactable {
     public Sprite sprite;
 
     private InventoryManager inventoryManager;
+    private DialogueManager dialogueManager;
     
     // Use this for initialization
     protected override void Start()
@@ -15,21 +16,21 @@ public class Item : Interactable {
         base.Start();
         sprite = GetComponent<SpriteRenderer>().sprite;
         inventoryManager = FindObjectOfType<InventoryManager>();
+        dialogueManager = FindObjectOfType<DialogueManager>();
     }
 
     public override void Interact()
     {
-        List<string> message = new List<string>();
+        string message;
         if (inventoryManager.SetInventory("Dank Herb", sprite))
         {
-            message.Add("Belfry picked up a " + itemName + "!");
+            message = "Belfry picked up a " + itemName + "!";
         }
         else
         {
-            message.Add("Belfry tried to pick up the " + itemName + ", but her hands are full!");
+            message = "Belfry tried to pick up the " + itemName + ", but her hands are full!";
         }
 
-        FindObjectOfType<DialogueManager>().StartDialogue("", message.ToArray());
-
+        dialogueManager.StartDialogue("", message);
     }
 }
