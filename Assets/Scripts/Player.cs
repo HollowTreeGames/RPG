@@ -9,14 +9,15 @@ public class Player : SpriteParent
     public float interactDistance = 1;
     public GameState gameState;
 
+    public Direction facing = Direction.Down;
+
     private Animator animator;
     private Rigidbody2D rb2d;
     private BoxCollider2D boxCollider2D;
-    private Direction facing = Direction.Down;
     private DialogueManager dialogueManager;
     private bool walking = false;
 
-    private enum Direction { Right, Up, Left, Down };
+    public enum Direction { Right, Up, Left, Down };
 
     // Use this for initialization
     protected override void Start()

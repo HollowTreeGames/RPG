@@ -927,6 +927,7 @@ GameObject:
   - component: {fileID: 1562472714}
   - component: {fileID: 1562472713}
   - component: {fileID: 1562472712}
+  - component: {fileID: 1562472711}
   - component: {fileID: 1562472715}
   m_Layer: 9
   m_Name: Henry
@@ -935,6 +936,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &1562472711
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1562472710}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a46a5cefcefbbf442ba2db72012440f0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &1562472712
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1032,6 +1051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charName: 
   dialogue: []
+  facing: 0
   initialDialogue:
   - Hi! My name is Henry! I'm the sherriff!
   - I like sniffing butts!
