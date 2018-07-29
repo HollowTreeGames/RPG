@@ -6,14 +6,12 @@ using Enums;
 public class DankHerb : Item
 {
     private GameState gameState;
-    private DialogueManager dialogueManager;
 
     protected override void Start()
     {
         base.Start();
         itemName = "Dank Herb";
         gameState = FindObjectOfType<GameState>();
-        dialogueManager = FindObjectOfType<DialogueManager>();
     }
 
     public override void Interact()

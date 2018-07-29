@@ -8,7 +8,7 @@ public class Item : Interactable {
     public Sprite sprite;
 
     private InventoryManager inventoryManager;
-    private DialogueManager dialogueManager;
+    protected DialogueManager dialogueManager;
     
     // Use this for initialization
     protected override void Start()
