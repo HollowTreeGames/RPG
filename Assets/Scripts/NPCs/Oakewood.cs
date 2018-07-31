@@ -17,9 +17,12 @@ public class Oakewood : NPC {
         "*sigh*"
     };
     private IEnumerator<string> cyclingDialogueEnumerator;
-    private string[] defaultDialogue =
+    private string[] friendlyDialogue =
     {
-        "I feel pretty, oh so pretty."
+        "That was extremely unnecessary.",
+        "You know that poor fox has a horrible marijuana addiction.", 
+        "... oh, don't look at me like that.", 
+        "*sigh* FINE, I'll talk to Parsley so he'll stop giving you the silent treatment."
     };
 
     protected override void Start()
@@ -43,6 +46,13 @@ public class Oakewood : NPC {
 
     protected override string[] GetDialogue()
     {
+        if ((gameState.reputation > 0) && (gameState.friendshipParsley < 1))
+        {
+            gameState.reputation += 1;
+            gameState.friendshipParsley += 1;
+            return friendlyDialogue;
+        }
+
         cyclingDialogueEnumerator.MoveNext();
         string[] dialogue = { cyclingDialogueEnumerator.Current };
         return dialogue;

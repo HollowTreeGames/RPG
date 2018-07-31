@@ -16,5 +16,7 @@ public class GameState : MonoBehaviour {
 
     // Friendship levels
     public int friendshipHenry = 0;
+    public int friendshipOakewood = 0;
+    public int friendshipParsley = 0;
 
 }
