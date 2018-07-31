@@ -43,8 +43,6 @@ public class Henry : NPC {
         "Please hurry back with a few leafs of the devil's lettuce!"
     };
 
-    private bool gotItem = false;
-
     protected override void Start()
     {
         base.Start();
