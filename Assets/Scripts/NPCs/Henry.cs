@@ -51,8 +51,6 @@ public class Henry : NPC {
         inventoryManager = FindObjectOfType<InventoryManager>();
     }
 
-    private bool interactedWith = false;
-
     protected override string[] GetDialogue()
     {
         switch(gameState.findTheDankHerb)
