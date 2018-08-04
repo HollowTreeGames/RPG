@@ -18,6 +18,8 @@ public class Player : SpriteParent
     private BoxCollider2D boxCollider2D;
     private bool walking = false;
 
+    private float lastX = 0, lastY = 0;
+
     // Use this for initialization
     protected override void Start()
     {
@@ -59,31 +61,29 @@ public class Player : SpriteParent
             x = Input.GetAxisRaw("Horizontal");
             y = Input.GetAxisRaw("Vertical");
 
-            walking = true;
+            walking = false;
 
-            if (x > 0.5f)
+            if ((x > 0.5f) || (x < -0.5f))
             {
-                facing = Direction.Right;
+                lastX = x;
+                lastY = 0;
+                facing = (x > 0.5f) ? Direction.Right : Direction.Left;
+                walking = true;
             }
-            else if (x < -0.5f)
+
+            if ((y > 0.5f) || (y < -0.5f))
             {
-                facing = Direction.Left;
-            }
-            else if (y > 0.5f)
-            {
-                facing = Direction.Up;
-            }
-            else if (y < -0.5f)
-            {
-                facing = Direction.Down;
-            }
-            else
-            {
-                walking = false;
+                lastX = 0;
+                lastY = y;
+                facing = (y > 0.5f) ? Direction.Up : Direction.Down;
+                walking = true;
             }
         }
-        animator.SetInteger("facing", (int)facing);
         animator.SetBool("walking", walking);
+        animator.SetFloat("moveX", x);
+        animator.SetFloat("moveY", y);
+        animator.SetFloat("lastMoveX", lastX);
+        animator.SetFloat("lastMoveY", lastY);
 
         rb2d.velocity = new Vector2(speed * x * Time.deltaTime, speed * y * Time.deltaTime);
     }
