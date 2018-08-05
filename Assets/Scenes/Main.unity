@@ -3050,7 +3050,7 @@ Animator:
   m_GameObject: {fileID: 573231923}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a353faf024fc1e4429ef284283a505cd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0473025c97cd15c4a88b6ef85db7fac9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6745,7 +6745,7 @@ Animator:
   m_GameObject: {fileID: 1478656368}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9c678d864418da841b19bebb95e5b57c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7ed306747fd705149bd4f9ad89a2ae86, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7006,7 +7006,7 @@ Animator:
   m_GameObject: {fileID: 1562472710}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a46a5cefcefbbf442ba2db72012440f0, type: 2}
+  m_Controller: {fileID: 9100000, guid: b8f3f77a5c31b3f41bc2fde6336fcc0f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7949,6 +7949,8 @@ MonoBehaviour:
   gameState: {fileID: 811711060}
   dialogueManager: {fileID: 2146486960}
   facing: 3
+  lastX: 0
+  lastY: -1
 --- !u!50 &1895763258
 Rigidbody2D:
   serializedVersion: 4

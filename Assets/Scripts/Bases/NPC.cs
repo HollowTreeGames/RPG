@@ -5,27 +5,30 @@ using Enums;
 
 public class NPC : Talkable
 {
-
-    private int facing;
+    
     private Animator animator;
+    private BoxCollider2D boxCollider2D;
 
     protected override void Start()
     {
         base.Start();
         animator = GetComponent<Animator>();
-        animator.SetInteger("facing", (int)Direction.Down);  // Face down by default
+        boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     public override void Interact()
     {
         Player player = FindObjectOfType<Player>();
-        TurnToPlayer(player.facing);
+        TurnToPlayer(player.transform.position);
         base.Interact();
     }
 
-    public void TurnToPlayer(Direction playerFacing)
+    public void TurnToPlayer(Vector3 playerPosition)
     {
-        animator.SetInteger("facing", ((int)playerFacing + 2) % 4);
+        // Set facing vector towards the player
+        Vector3 facingVector = playerPosition - boxCollider2D.transform.position;
+        animator.SetFloat("lastMoveX", facingVector.x);
+        animator.SetFloat("lastMoveY", facingVector.y);
     }
 
 }

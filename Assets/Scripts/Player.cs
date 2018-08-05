@@ -11,14 +11,12 @@ public class Player : SpriteParent
     public GameState gameState;
     public DialogueManager dialogueManager;
 
-    public Direction facing = Direction.Down;
-
     private Animator animator;
     private Rigidbody2D rb2d;
     private BoxCollider2D boxCollider2D;
     private bool walking = false;
 
-    private float lastX = 0, lastY = 0;
+    public float lastX = 0, lastY = -1;
 
     // Use this for initialization
     protected override void Start()
@@ -39,10 +37,12 @@ public class Player : SpriteParent
             // If we're not currently talking to an NPC, 
             // find if an NPC is in front of us and 
             // start talking to them.
-            if (gameState.dialoguePlaying == false) {
-            	Interact(facing);
-            } else {
+            if (gameState.dialoguePlaying)
+            {
                 dialogueManager.DisplayNextSentence();
+            } else
+            {
+                Interact();
             }
         }
     }
@@ -50,9 +50,10 @@ public class Player : SpriteParent
     void Move()
     {
         float x, y;
+        walking = false;
+
         if (gameState.dialoguePlaying)
         {
-            walking = false;
             x = 0;
             y = 0;
         }
@@ -61,21 +62,17 @@ public class Player : SpriteParent
             x = Input.GetAxisRaw("Horizontal");
             y = Input.GetAxisRaw("Vertical");
 
-            walking = false;
-
             if ((x > 0.5f) || (x < -0.5f))
             {
-                lastX = x;
+                lastX = Mathf.Round(x);
                 lastY = 0;
-                facing = (x > 0.5f) ? Direction.Right : Direction.Left;
                 walking = true;
             }
 
             if ((y > 0.5f) || (y < -0.5f))
             {
                 lastX = 0;
-                lastY = y;
-                facing = (y > 0.5f) ? Direction.Up : Direction.Down;
+                lastY = Mathf.Round(y);
                 walking = true;
             }
         }
@@ -88,33 +85,11 @@ public class Player : SpriteParent
         rb2d.velocity = new Vector2(speed * x * Time.deltaTime, speed * y * Time.deltaTime);
     }
 
-    void Interact(Direction facing)
+    void Interact()
     {
         Vector3 position = boxCollider2D.transform.position;
         Vector2 start = new Vector2(position.x, position.y) + boxCollider2D.offset;
-
-        float x = 0;
-        float y = 0;
-
-        switch (facing)
-        {
-            case Direction.Down:
-                y = -1;
-                break;
-            case Direction.Up:
-                y = 1;
-                break;
-            case Direction.Right:
-                x = 1;
-                break;
-            case Direction.Left:
-                x = -1;
-                break;
-            default:
-                break;
-        }
-
-        Vector2 end = start + new Vector2(x * interactDistance, y * interactDistance);
+        Vector2 end = start + new Vector2(lastX * interactDistance, lastY * interactDistance);
 
 //        int layerMask = 1 << LayerMask.NameToLayer("Interactable");
 //        Debug.Log(string.Format("LayerMask: {0}", layerMask));
