@@ -14,15 +14,15 @@ public class Oakewood : NPC {
     {
         "Everyone's still mad at you, you know.",
         "You've been known to screw things up in the past, Belfry, but this time just takes the cake.", 
-        "*sigh*"
+        "*sigh*",
+        "Why are you still talking to me?",
+        "I'm sure that big brute of a sheriff has something to say to you."
     };
     private IEnumerator<string> cyclingDialogueEnumerator;
     private string[] friendlyDialogue =
     {
         "That was extremely unnecessary.",
         "You know that poor fox has a horrible marijuana addiction.", 
-        "... oh, don't look at me like that.", 
-        "*sigh* FINE, I'll talk to Parsley so he'll stop giving you the silent treatment."
     };
 
     protected override void Start()
@@ -46,10 +46,8 @@ public class Oakewood : NPC {
 
     protected override string[] GetDialogue()
     {
-        if ((gameState.reputation > 0) && (gameState.friendshipParsley < 1))
+        if (gameState.friendshipHenry == 2)
         {
-            gameState.reputation += 1;
-            gameState.friendshipParsley += 1;
             return friendlyDialogue;
         }
 

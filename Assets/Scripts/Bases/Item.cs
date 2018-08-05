@@ -22,7 +22,7 @@ public class Item : Interactable {
     public override void Interact()
     {
         string message;
-        if (inventoryManager.SetInventory("Dank Herb", sprite))
+        if (inventoryManager.SetInventory(itemName, sprite))
         {
             message = "Belfry picked up a " + itemName + "!";
         }
