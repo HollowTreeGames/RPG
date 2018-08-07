@@ -14,7 +14,7 @@ public class Player : SpriteParent
     private Animator animator;
     private Rigidbody2D rb2d;
     private BoxCollider2D boxCollider2D;
-    private bool walking = false;
+    public bool walking = false;
 
     public float lastX = 0, lastY = -1;
 
