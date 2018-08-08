@@ -48,6 +48,7 @@ public class NPC : Talkable
             if (timeToMoveCounter < 0f)
             {
                 walking = false;
+                animator.SetBool("walking", false);
                 timeBetweenMoveCounter = timeBetweenMove;
             }
         } else
@@ -57,14 +58,14 @@ public class NPC : Talkable
 
             if (timeBetweenMoveCounter < 0f)
             {
-                walking = true; 
+                walking = true;
+                animator.SetBool("walking", true);
                 timeToMoveCounter = timeToMove;
 
                 chooseDirection = Random.Range(-1, 2);
                 if (chooseDirection > 0) {
                     int NPCY = random.Next(-1, 2);
                     moveDirection = new Vector3(0, NPCY * moveSpeed, 0f);
-                    Debug.Log("ydirection" + NPCY);
                     animator.SetFloat("moveX", 0);
                     animator.SetFloat("moveY", NPCY);
                     animator.SetFloat("lastMoveX", 0);
@@ -73,7 +74,6 @@ public class NPC : Talkable
                 {
                     int NPCX = random.Next(-1, 2);
                     moveDirection = new Vector3(NPCX * moveSpeed, 0, 0f);
-                    Debug.Log("xdirection" + NPCX);
                     animator.SetFloat("moveX", NPCX);
                     animator.SetFloat("moveY", 0);
                     animator.SetFloat("lastMoveX", NPCX);

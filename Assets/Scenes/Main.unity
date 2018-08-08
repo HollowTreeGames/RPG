@@ -1284,7 +1284,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   moveSpeed: 1
   timeBetweenMove: 5
-  timeToMove: 1
+  timeToMove: 5
 --- !u!95 &573231926
 Animator:
   serializedVersion: 3
@@ -3389,7 +3389,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   moveSpeed: 1
   timeBetweenMove: 5
-  timeToMove: 1
+  timeToMove: 5
 --- !u!95 &1478656371
 Animator:
   serializedVersion: 3
@@ -3603,7 +3603,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.534375, y: 0.03125}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1, y: 1}
     newSize: {x: 0.85333335, y: 0.85125}
     adaptiveTilingThreshold: 0.5
@@ -3688,7 +3688,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   moveSpeed: 1
   timeBetweenMove: 5
-  timeToMove: 1
+  timeToMove: 5
 --- !u!50 &1562472716
 Rigidbody2D:
   serializedVersion: 4
