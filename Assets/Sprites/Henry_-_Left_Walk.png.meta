@@ -1,14 +1,11 @@
 fileFormatVersion: 2
-guid: 3182e7ef65286ac498ffbd33ca47b59f
+guid: 917921a77619bdf428a07d70cc27a411
 TextureImporter:
   fileIDToRecycleName:
-    21300000: BelfryWalkDown_0
-    21300002: BelfryWalkDown_1
-    21300004: BelfryWalkDown_2
-    21300006: BelfryWalkDown_3
-    21300008: BelfryWalkDown_4
-    21300010: BelfryWalkDown_5
-    21300012: BelfryWalkDown_6
+    21300000: Henry_-_Left_Walk_0
+    21300002: Henry_-_Left_Walk_1
+    21300004: Henry_-_Left_Walk_2
+    21300006: Henry_-_Left_Walk_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -67,8 +64,8 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
-    resizeAlgorithm: 1
+    maxTextureSize: 128
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -78,8 +75,8 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 256
-    resizeAlgorithm: 1
+    maxTextureSize: 128
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -89,8 +86,8 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: WebGL
-    maxTextureSize: 256
-    resizeAlgorithm: 1
+    maxTextureSize: 128
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -102,141 +99,81 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BelfryWalkDown_0
+      name: Henry_-_Left_Walk_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.53125, y: 0.03125}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8846e21020f8a684ca661493c51f20ab
+      spriteID: 2d8496bef5720c44ab0d5f5d298292db
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BelfryWalkDown_1
+      name: Henry_-_Left_Walk_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.53125, y: 0.03125}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8e1785f06e7282429636877191a4d40
+      spriteID: a2332f1cba46f5d488357246eba5b875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BelfryWalkDown_2
+      name: Henry_-_Left_Walk_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.53125, y: 0.03125}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13caa3a30905e8941b907269c0a29f8e
+      spriteID: 0c5b0c159720f894da2b093b876c991d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BelfryWalkDown_3
+      name: Henry_-_Left_Walk_3
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.53125, y: 0.03125}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 757ae10775d63194a84f4db742b2b47d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BelfryWalkDown_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.53125, y: 0.03125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b28c72b7995c3d04289652fb72773982
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BelfryWalkDown_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.53125, y: 0.03125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c1fa71232fe57ec4f8ea4d7f9ed045a5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BelfryWalkDown_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.53125, y: 0.03125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 24f0a90fa60dc2f41b42327c590a77b9
+      spriteID: 907d69ecd5494d64797170e5595b7607
       vertices: []
       indices: 
       edges: []
@@ -244,7 +181,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5d409a768ff7a9f40a15604d548594bc
+    spriteID: 44d18d424a1475a498cf5687064b3f23
     vertices: []
     indices: 
     edges: []
