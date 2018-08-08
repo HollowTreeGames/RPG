@@ -9,22 +9,25 @@ public class NPC : Talkable
     public Animator animator;
     private BoxCollider2D boxCollider2D;
     private Rigidbody2D myRigidbody;
-    private System.Random random = new System.Random();
+    private System.Random random;
+    private GameState gameState;
 
     public float moveSpeed;
     private bool walking;
-    public float timeBetweenMove;
+    public int timeBetweenMove;
     private float timeBetweenMoveCounter;
-    public float timeToMove;
+    public int timeToMove;
     private float timeToMoveCounter;
     private float chooseDirection;
     private Vector3 moveDirection;
+    public Collision collision;
 
     protected override void Start()
     {
-        timeBetweenMoveCounter = Random.Range (timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
-        timeToMoveCounter = timeToMove;
+        random = new System.Random(this.GetHashCode());
+        timeBetweenMoveCounter = random.Next (1, timeBetweenMove);
         myRigidbody = GetComponent<Rigidbody2D>();
+        gameState = FindObjectOfType<GameState>();
 
         base.Start();
         animator = GetComponent<Animator>();
@@ -40,46 +43,60 @@ public class NPC : Talkable
 
     public void Update()
     {
+        if (gameState.dialoguePlaying)
+        {
+            walking = false;
+            animator.SetBool("walking", false);
+            myRigidbody.velocity = Vector2.zero;
+            return;
+        }
+
         if (walking)
         {
             timeToMoveCounter -= Time.deltaTime;
-            myRigidbody.velocity = moveDirection;
 
             if (timeToMoveCounter < 0f)
             {
                 walking = false;
                 animator.SetBool("walking", false);
-                timeBetweenMoveCounter = timeBetweenMove;
+                myRigidbody.velocity = Vector2.zero;
+                timeBetweenMoveCounter = random.Next(1, timeBetweenMove);
             }
         } else
         {
             timeBetweenMoveCounter -= Time.deltaTime;
-            myRigidbody.velocity = Vector2.zero;
 
             if (timeBetweenMoveCounter < 0f)
             {
                 walking = true;
                 animator.SetBool("walking", true);
-                timeToMoveCounter = timeToMove;
+                timeToMoveCounter = random.Next(1, timeToMove);
 
                 chooseDirection = Random.Range(-1, 2);
                 if (chooseDirection > 0) {
-                    int NPCY = random.Next(-1, 2);
-                    moveDirection = new Vector3(0, NPCY * moveSpeed, 0f);
-                    animator.SetFloat("moveX", 0);
+                    float NPCY = random.Next(-1, 2);
+                    myRigidbody.velocity = new Vector2(0f, NPCY * moveSpeed);
+                    if (NPCY == 0f) {
+                        walking = false;
+                        animator.SetBool("walking", false);
+                    }
+                    animator.SetFloat("moveX", 0f);
                     animator.SetFloat("moveY", NPCY);
-                    animator.SetFloat("lastMoveX", 0);
+                    animator.SetFloat("lastMoveX", 0f);
                     animator.SetFloat("lastMoveY", NPCY);
                 } else
                 {
-                    int NPCX = random.Next(-1, 2);
-                    moveDirection = new Vector3(NPCX * moveSpeed, 0, 0f);
+                    float NPCX = random.Next(-1, 2);
+                    myRigidbody.velocity = new Vector2(NPCX * moveSpeed, 0f);
+                    if (NPCX == 0f) {
+                        walking = false;
+                        animator.SetBool("walking", false);
+                    }
                     animator.SetFloat("moveX", NPCX);
-                    animator.SetFloat("moveY", 0);
+                    animator.SetFloat("moveY", 0f);
                     animator.SetFloat("lastMoveX", NPCX);
-                    animator.SetFloat("lastMoveY", 0);
+                    animator.SetFloat("lastMoveY", 0f);
                 }
-                
             }
         }
     }
