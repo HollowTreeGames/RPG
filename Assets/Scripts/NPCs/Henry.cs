@@ -11,12 +11,6 @@ public class Henry : NPC {
     private bool hasTalked = false;
     private System.Random random = new System.Random();
 
-    public GameObject portraitPanel;
-    public Image portraitImage;
-    public Sprite Happy;
-    public Sprite Sad;
-
-
     // Initial dialogues
     private string[] initialDialogue =
     {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Enums;
 
 public class NPC : Talkable
@@ -20,7 +21,16 @@ public class NPC : Talkable
     private float timeToMoveCounter;
     private float chooseDirection;
     private Vector3 moveDirection;
-    public Collision collision;
+
+    public Collider2D walkZone;
+    private Vector2 minWalkPoint;
+    private Vector2 maxWalkPoint;
+    private bool hasWalkZone;
+
+    public GameObject portraitPanel;
+    public Image portraitImage;
+    public Sprite Happy;
+    public Sprite Sad;
 
     protected override void Start()
     {
@@ -28,7 +38,16 @@ public class NPC : Talkable
         timeBetweenMoveCounter = random.Next (1, timeBetweenMove);
         myRigidbody = GetComponent<Rigidbody2D>();
         gameState = FindObjectOfType<GameState>();
+        portraitPanel = GameObject.Find("PortraitPanel");
+        portraitImage = portraitPanel.GetComponent<Image>();
 
+        if (walkZone != null)
+        {
+            minWalkPoint = walkZone.bounds.min;
+            maxWalkPoint = walkZone.bounds.max;
+            hasWalkZone = true;
+        }
+        
         base.Start();
         animator = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
@@ -76,6 +95,13 @@ public class NPC : Talkable
                 if (chooseDirection > 0) {
                     float NPCY = random.Next(-1, 2);
                     myRigidbody.velocity = new Vector2(0f, NPCY * moveSpeed);
+                    if(hasWalkZone && transform.position.y > maxWalkPoint.y || transform.position.y < minWalkPoint.y)
+                    {
+                        walking = false;
+                        animator.SetBool("walking", false);
+                        myRigidbody.velocity = Vector2.zero;
+                        timeBetweenMoveCounter = random.Next(1, timeBetweenMove);
+                    }
                     if (NPCY == 0f) {
                         walking = false;
                         animator.SetBool("walking", false);
@@ -88,6 +114,13 @@ public class NPC : Talkable
                 {
                     float NPCX = random.Next(-1, 2);
                     myRigidbody.velocity = new Vector2(NPCX * moveSpeed, 0f);
+                    if (hasWalkZone && transform.position.x > maxWalkPoint.x || transform.position.x < minWalkPoint.x)
+                    {
+                        walking = false;
+                        animator.SetBool("walking", false);
+                        myRigidbody.velocity = Vector2.zero;
+                        timeBetweenMoveCounter = random.Next(1, timeBetweenMove);
+                    }
                     if (NPCX == 0f) {
                         walking = false;
                         animator.SetBool("walking", false);
