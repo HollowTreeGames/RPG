@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using Enums;
 
-public class Book : Item
-{
+public class LibraryBook : Item {
+
     private GameState gameState;
 
     protected override void Start()
     {
         base.Start();
-        itemName = "Herb Book";
+        itemName = "Library Book";
         gameState = FindObjectOfType<GameState>();
     }
 
     public override void Interact()
     {
-        if (gameState.findHerbBook == QuestState.InProgress || gameState.findLibraryBook == QuestState.InProgress)
+        if (gameState.findLibraryBook == QuestState.InProgress)
         {
             base.Interact();
         }
         else
         {
-            dialogueManager.StartDialogue("", "This is one of those ... illicit books. ABOUT DRUGS!");
+            dialogueManager.StartDialogue("", "Fur Couture: How to Knit With Your Own Sheddings. Knitting's a healthy pastime, right?");
         }
     }
 }

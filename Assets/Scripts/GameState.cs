@@ -11,6 +11,7 @@ public class GameState : MonoBehaviour {
     // Quests
     public QuestState findTheDankHerb = QuestState.Unavailable;
     public QuestState findHerbBook = QuestState.Unavailable;
+    public QuestState findLibraryBook = QuestState.Unavailable;
 
     // Reputation
     public int reputation = 0;

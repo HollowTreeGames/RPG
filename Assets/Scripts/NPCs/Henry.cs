@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Enums;
 
 public class Henry : NPC {
@@ -9,6 +10,12 @@ public class Henry : NPC {
     private InventoryManager inventoryManager;
     private bool hasTalked = false;
     private System.Random random = new System.Random();
+
+    public GameObject portraitPanel;
+    public Image portraitImage;
+    public Sprite Happy;
+    public Sprite Sad;
+
 
     // Initial dialogues
     private string[] initialDialogue =
@@ -73,6 +80,8 @@ public class Henry : NPC {
         charName = "Henry";
         gameState = FindObjectOfType<GameState>();
         inventoryManager = FindObjectOfType<InventoryManager>();
+        portraitPanel = GameObject.Find("PortraitPanel");
+        portraitImage = portraitPanel.GetComponent < Image >();
     }
 
     protected override string[] GetDialogue()
@@ -111,6 +120,7 @@ public class Henry : NPC {
         {
             case QuestState.Available:
                 gameState.findTheDankHerb = QuestState.InProgress;
+                portraitImage.sprite = Sad;
                 return questHerbDialogue;
             case QuestState.InProgress:
                 if (inventoryManager.GetInventory() == "Dank Herb")
