@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Enums;
 
 public class Oakewood : NPC {
@@ -9,6 +10,8 @@ public class Oakewood : NPC {
     private GameState gameState;
     private InventoryManager inventoryManager;
     private System.Random random = new System.Random();
+
+    public Sprite LibraryBook;
 
     private string[] cyclingDialogue =
     {

@@ -11,10 +11,13 @@ public class Henry : NPC {
     private bool hasTalked = false;
     private System.Random random = new System.Random();
 
+    public Sprite DankHerb;
+    public Sprite HerbBook;
+
     // Initial dialogues
     private string[] initialDialogue =
     {
-        "Hi! My name is Henry! I'm the sherriff!",
+        "Hi! My name is Henry! I'm the sheriff!",
         "I like sniffing butts!",
         "Nora likes it when I don't wear pants, but I don't know why!"
     };
@@ -74,6 +77,7 @@ public class Henry : NPC {
         charName = "Henry";
         gameState = FindObjectOfType<GameState>();
         inventoryManager = FindObjectOfType<InventoryManager>();
+
         portraitPanel = GameObject.Find("PortraitPanel");
         portraitImage = portraitPanel.GetComponent < Image >();
     }
@@ -119,6 +123,7 @@ public class Henry : NPC {
             case QuestState.InProgress:
                 if (inventoryManager.GetInventory() == "Dank Herb")
                 {
+                    portraitImage.sprite = Happy;
                     gameState.reputation += 1;
                     gameState.friendshipHenry += 1;
                     inventoryManager.ClearInventory();

@@ -32,14 +32,24 @@ public class NPC : Talkable
     public Sprite Happy;
     public Sprite Sad;
 
+    public GameObject questPanel;
+    public Image itemImage;
+    public CanvasGroup questCanvas;
+
     protected override void Start()
     {
         random = new System.Random(this.GetHashCode());
         timeBetweenMoveCounter = random.Next (1, timeBetweenMove);
         myRigidbody = GetComponent<Rigidbody2D>();
         gameState = FindObjectOfType<GameState>();
+
         portraitPanel = GameObject.Find("PortraitPanel");
         portraitImage = portraitPanel.GetComponent<Image>();
+
+        questPanel = GameObject.Find("QuestCanvas");
+        itemImage = questPanel.GetComponent<Image>();
+        questCanvas = questPanel.GetComponent<CanvasGroup>();
+        questCanvas.alpha = 1f;
 
         if (walkZone != null)
         {

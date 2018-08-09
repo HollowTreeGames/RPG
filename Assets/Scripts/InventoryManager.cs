@@ -40,4 +40,12 @@ public class InventoryManager : MonoBehaviour {
         inventoryName = "";
         inventoryImage.sprite = null;
     }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown("z"))
+        {
+            ClearInventory();
+        }
+    }
 }

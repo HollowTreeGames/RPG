@@ -6,7 +6,7 @@ using Enums;
 
 public class Player : SpriteParent
 {
-    public float speed = 60;
+    public float speed;
     public float interactDistance = 1;
     public GameState gameState;
     public DialogueManager dialogueManager;
@@ -30,6 +30,7 @@ public class Player : SpriteParent
     // Update is called once per frame
     void Update()
     {
+
         Move();
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -81,6 +82,16 @@ public class Player : SpriteParent
         animator.SetFloat("moveY", y);
         animator.SetFloat("lastMoveX", lastX);
         animator.SetFloat("lastMoveY", lastY);
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            speed *= 3;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speed /= 3;
+        }
 
         rb2d.velocity = new Vector2(speed * x * Time.deltaTime, speed * y * Time.deltaTime);
     }
