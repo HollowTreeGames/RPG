@@ -46,10 +46,10 @@ public class NPC : Talkable
         portraitPanel = GameObject.Find("PortraitPanel");
         portraitImage = portraitPanel.GetComponent<Image>();
 
-        questPanel = GameObject.Find("QuestCanvas");
+        /*questPanel = GameObject.Find("QuestCanvas");
         itemImage = questPanel.GetComponent<Image>();
         questCanvas = questPanel.GetComponent<CanvasGroup>();
-        questCanvas.alpha = 1f;
+        questCanvas.alpha = 1f;*/
 
         if (walkZone != null)
         {
