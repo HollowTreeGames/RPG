@@ -73,6 +73,19 @@ public class NPC : Talkable
         base.Interact();
     }
 
+    public void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.name == "Player")
+        {
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                Player player = FindObjectOfType<Player>();
+                TurnToPlayer(player.transform.position);
+                base.Interact();
+            }
+        }
+    }
+
     public void Update()
     {
         if (gameState.dialoguePlaying)
