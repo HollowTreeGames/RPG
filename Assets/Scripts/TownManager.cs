@@ -7,6 +7,7 @@ public class TownManager : MonoBehaviour {
     private GameState gameState;
     private GameObject[] tents;
     private DialogueManager theDM;
+    private bool tentsShown = false;
 
     private string[] level1 =
     {
@@ -24,26 +25,24 @@ public class TownManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (gameState.reputation >= 4)
+		if ((gameState.reputation >= 4) && (!tentsShown))
         {
-            theDM.StartDialogue("The Town", level1);
             ShowTents();
+            theDM.StartDialogue("The Town", level1);
         }
 	}
 
     void HideTents()
     {
-        foreach (GameObject tent in tents)
-        {
-            tent.SetActive(false);
-        }
+        ShowTents(false);
     }
 
-    void ShowTents()
+    void ShowTents(bool show=true)
     {
+        tentsShown = show;
         foreach (GameObject tent in tents)
         {
-            tent.SetActive(true);
+            tent.SetActive(show);
         }
     } 
 }
