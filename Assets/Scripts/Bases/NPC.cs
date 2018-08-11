@@ -49,11 +49,6 @@ public class NPC : Talkable
         portraitPanel = GameObject.Find("PortraitPanel");
         portraitImage = portraitPanel.GetComponent<Image>();
 
-        /*questPanel = GameObject.Find("QuestCanvas");
-        itemImage = questPanel.GetComponent<Image>();
-        questCanvas = questPanel.GetComponent<CanvasGroup>();
-        questCanvas.alpha = 1f;*/
-
         if (walkZone != null)
         {
             minWalkPoint = walkZone.bounds.min;
@@ -71,19 +66,6 @@ public class NPC : Talkable
         Player player = FindObjectOfType<Player>();
         TurnToPlayer(player.transform.position);
         base.Interact();
-    }
-
-    public void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject.name == "Player")
-        {
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                Player player = FindObjectOfType<Player>();
-                TurnToPlayer(player.transform.position);
-                base.Interact();
-            }
-        }
     }
 
     public void Update()
