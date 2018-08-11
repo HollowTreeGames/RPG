@@ -11771,7 +11771,6 @@ GameObject:
   - component: {fileID: 573231926}
   - component: {fileID: 573231925}
   - component: {fileID: 573231929}
-  - component: {fileID: 573231930}
   m_Layer: 9
   m_Name: Oakewood
   m_TagString: NPC
@@ -11927,31 +11926,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &573231930
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 573231923}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.03125, y: 0.46875}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.53125, y: 0.03125}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 0.85333335, y: 0.85125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &590475403
 GameObject:
   m_ObjectHideFlags: 0
@@ -15191,7 +15165,6 @@ GameObject:
   - component: {fileID: 1478656371}
   - component: {fileID: 1478656370}
   - component: {fileID: 1478656374}
-  - component: {fileID: 1478656375}
   m_Layer: 9
   m_Name: Parsley
   m_TagString: NPC
@@ -15346,31 +15319,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1478656375
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1478656368}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.03125, y: 0.46875}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.53125, y: 0.03125}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 0.85333335, y: 0.85125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &1478739515
 GameObject:
   m_ObjectHideFlags: 0
@@ -15510,7 +15458,6 @@ GameObject:
   - component: {fileID: 1562472711}
   - component: {fileID: 1562472715}
   - component: {fileID: 1562472716}
-  - component: {fileID: 1562472717}
   m_Layer: 9
   m_Name: Henry
   m_TagString: NPC
@@ -15673,31 +15620,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &1562472717
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1562472710}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 0.85333335, y: 0.85125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!4 &1566486687 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4116208367648876, guid: a0a08a5ca3967944fb8c8f89064ad394,
