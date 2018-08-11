@@ -100,13 +100,14 @@ public class Player : SpriteParent
     {
         Vector3 position = boxCollider2D.transform.position;
         Vector2 start = new Vector2(position.x, position.y) + boxCollider2D.offset;
-        Vector2 end = start + new Vector2(lastX * interactDistance, lastY * interactDistance);
+        Vector2 direction = new Vector2(lastX, lastY);
 
-//        int layerMask = 1 << LayerMask.NameToLayer("Interactable");
-//        Debug.Log(string.Format("LayerMask: {0}", layerMask));
-        RaycastHit2D hit = Physics2D.Linecast(start, end);
+        //        int layerMask = 1 << LayerMask.NameToLayer("Interactable");
+        //        Debug.Log(string.Format("LayerMask: {0}", layerMask));
+        RaycastHit2D hit = Physics2D.BoxCast(start, boxCollider2D.size, 0, direction, interactDistance);
+        //RaycastHit2D hit = Physics2D.Linecast(start, end);
         Debug.Log(hit.collider);
-        DrawLine(start, end, Color.green);
+        //DrawLine(start, end, Color.green);
 
         if (hit.collider != null)
         {
