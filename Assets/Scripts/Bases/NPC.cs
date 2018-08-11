@@ -11,7 +11,8 @@ public class NPC : Talkable
     private BoxCollider2D boxCollider2D;
     private Rigidbody2D myRigidbody;
     private System.Random random;
-    private GameState gameState;
+    protected GameState gameState;
+    protected InventoryManager inventoryManager;
 
     public float moveSpeed;
     private bool walking;
@@ -38,8 +39,10 @@ public class NPC : Talkable
 
     protected override void Start()
     {
+        base.Start();
+
         random = new System.Random(this.GetHashCode());
-        timeBetweenMoveCounter = random.Next (1, timeBetweenMove);
+        timeBetweenMoveCounter = random.Next(1, timeBetweenMove);
         myRigidbody = GetComponent<Rigidbody2D>();
         gameState = FindObjectOfType<GameState>();
 
@@ -58,9 +61,9 @@ public class NPC : Talkable
             hasWalkZone = true;
         }
         
-        base.Start();
         animator = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
+        inventoryManager = FindObjectOfType<InventoryManager>();
     }
 
     public override void Interact()

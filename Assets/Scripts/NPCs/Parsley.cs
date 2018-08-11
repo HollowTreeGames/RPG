@@ -7,11 +7,6 @@ using Enums;
 
 public class Parsley : NPC {
     
-    private GameState gameState;
-    private InventoryManager inventoryManager;
-
-    public Sprite CD;
-
     private string[] initialDialogue =
     {
         "Hmph."
@@ -70,9 +65,6 @@ public class Parsley : NPC {
     {
         base.Start();
         charName = "Parsley";
-        gameState = FindObjectOfType<GameState>();
-        inventoryManager = FindObjectOfType<InventoryManager>();
-
     }
 
     protected override string[] GetDialogue()

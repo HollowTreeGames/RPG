@@ -6,8 +6,6 @@ using Enums;
 
 public class Henry : NPC {
     
-    private GameState gameState;
-    private InventoryManager inventoryManager;
     private bool hasTalked = false;
     private System.Random random = new System.Random();
 
@@ -75,11 +73,9 @@ public class Henry : NPC {
     {
         base.Start();
         charName = "Henry";
-        gameState = FindObjectOfType<GameState>();
-        inventoryManager = FindObjectOfType<InventoryManager>();
 
         portraitPanel = GameObject.Find("PortraitPanel");
-        portraitImage = portraitPanel.GetComponent < Image >();
+        portraitImage = portraitPanel.GetComponent<Image>();
     }
 
     protected override string[] GetDialogue()

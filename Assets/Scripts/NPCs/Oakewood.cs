@@ -7,8 +7,6 @@ using Enums;
 
 public class Oakewood : NPC {
     
-    private GameState gameState;
-    private InventoryManager inventoryManager;
     private System.Random random = new System.Random();
 
     public Sprite LibraryBook;
@@ -67,8 +65,6 @@ public class Oakewood : NPC {
     {
         base.Start();
         charName = "Oakewood";
-        gameState = FindObjectOfType<GameState>();
-        inventoryManager = FindObjectOfType<InventoryManager>();
         cyclingDialogueEnumerator = CycleDialogue();
     }
 
