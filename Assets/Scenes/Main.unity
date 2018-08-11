@@ -15210,7 +15210,6 @@ MonoBehaviour:
   questPanel: {fileID: 0}
   itemImage: {fileID: 0}
   questCanvas: {fileID: 0}
-  CD: {fileID: 21300000, guid: d6d222c16cf3c0740b72eafe2d370435, type: 3}
 --- !u!95 &1478656371
 Animator:
   serializedVersion: 3
@@ -16032,7 +16031,6 @@ GameObject:
   - component: {fileID: 1895763255}
   - component: {fileID: 1895763254}
   - component: {fileID: 1895763257}
-  - component: {fileID: 1895763260}
   - component: {fileID: 1895763258}
   - component: {fileID: 1895763259}
   m_Layer: 8
@@ -16183,19 +16181,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.29928637, y: 0.2474029}
   m_EdgeRadius: 0
---- !u!114 &1895763260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1895763253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71e493f6efc416248bd5c07a93a47a69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: -3, y: 0}
-  shadow: {fileID: 0}
 --- !u!4 &1986070154 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4116208367648876, guid: a0a08a5ca3967944fb8c8f89064ad394,
