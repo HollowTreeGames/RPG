@@ -25,7 +25,7 @@ public class TownManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ((gameState.reputation >= 4) && (!tentsShown))
+		if ((!gameState.dialoguePlaying) && (gameState.reputation >= 4) && (!tentsShown))
         {
             ShowTents();
             theDM.StartDialogue("The Town", level1);

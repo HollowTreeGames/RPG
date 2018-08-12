@@ -78,13 +78,21 @@ public class Oakewood : NPC {
         }
     }
 
-    protected override string[] GetDialogue()
+    protected override void UpdateQuests()
     {
         if (gameState.friendshipHenry == 2 && gameState.findLibraryBook == QuestState.Unavailable)
         {
             gameState.findLibraryBook = QuestState.Available;
         }
+    }
 
+    protected override bool IsQuestAvailable()
+    {
+        return (gameState.findLibraryBook == QuestState.Available);
+    }
+
+    protected override string[] GetDialogue()
+    {
         if ((gameState.findTheDankHerb == QuestState.InProgress) || (gameState.findHerbBook == QuestState.InProgress))
         {
             return friendlyDialogue;

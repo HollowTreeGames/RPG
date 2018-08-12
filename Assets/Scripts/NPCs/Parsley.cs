@@ -67,15 +67,23 @@ public class Parsley : NPC {
         charName = "Parsley";
     }
 
+    protected override void UpdateQuests()
+    {
+        if (gameState.reputation >= 3 && gameState.findCD == QuestState.Unavailable)
+        {
+            gameState.findCD = QuestState.Available;
+        }
+    }
+
+    protected override bool IsQuestAvailable()
+    {
+        return (gameState.findCD == QuestState.Available);
+    }
+
     protected override string[] GetDialogue()
     {
         if (gameState.reputation < 2) {
             return initialDialogue;
-        }
-
-        if (gameState.reputation >= 3 && gameState.findCD == QuestState.Unavailable)
-        {
-            gameState.findCD = QuestState.Available;
         }
 
         switch (gameState.findCD)

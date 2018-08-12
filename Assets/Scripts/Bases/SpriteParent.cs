@@ -11,10 +11,10 @@ public class SpriteParent : MonoBehaviour
     protected virtual void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        makeShadow();
+        MakeShadow();
     }
 
-    private void makeShadow()
+    private void MakeShadow()
     {
         // New object
         shadow = new GameObject();

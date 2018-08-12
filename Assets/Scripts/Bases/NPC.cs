@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Enums;
 
-public class NPC : Talkable
+public abstract class NPC : Talkable
 {
     
     public Animator animator;
@@ -37,6 +37,10 @@ public class NPC : Talkable
     public Image itemImage;
     public CanvasGroup questCanvas;
 
+    private GameObject questMarker;
+    private SpriteRenderer questMarkerRenderer;
+    private Animator questMarkerAnimator;
+
     protected override void Start()
     {
         base.Start();
@@ -59,6 +63,38 @@ public class NPC : Talkable
         animator = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         inventoryManager = FindObjectOfType<InventoryManager>();
+
+        MakeQuestMarker();
+    }
+
+    private void MakeQuestMarker()
+    {
+        // New object
+        questMarker = new GameObject();
+        questMarker.name = "Quest Marker";
+        questMarker.transform.parent = transform;
+        questMarker.transform.position = transform.position - new Vector3(0, -1.1f, 0);
+        questMarker.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+
+        questMarker.SetActive(false);
+
+        // SpriteRenderer
+        questMarkerRenderer = questMarker.AddComponent<SpriteRenderer>();
+        questMarkerRenderer.sortingLayerName = "BlockingLayer";
+        Sprite sprite = Resources.Load<Sprite>("Quest-Exclamation Mark");
+        questMarkerRenderer.sprite = sprite;
+
+        // Animator
+        questMarkerAnimator = questMarker.AddComponent<Animator>();
+        RuntimeAnimatorController controller = Resources.Load<RuntimeAnimatorController>("QuestMarker");
+        questMarkerAnimator.runtimeAnimatorController = controller;
+    }
+
+    protected virtual void OnGUI()
+    {
+        base.OnGUI();
+        int x = (int)(transform.position.y * -1000);
+        questMarkerRenderer.sortingOrder = x;
     }
 
     public override void Interact()
@@ -68,8 +104,24 @@ public class NPC : Talkable
         base.Interact();
     }
 
+    public void TurnToPlayer(Vector3 playerPosition)
+    {
+        // Set facing vector towards the player
+        Vector3 facingVector = playerPosition - boxCollider2D.transform.position;
+        animator.SetFloat("lastMoveX", facingVector.x);
+        animator.SetFloat("lastMoveY", facingVector.y);
+    }
+
     public void Update()
     {
+        Walk();
+        UpdateQuests();
+        ShowQuestMarker();
+    }
+
+    private void Walk()
+    {
+
         if (gameState.dialoguePlaying)
         {
             walking = false;
@@ -89,7 +141,8 @@ public class NPC : Talkable
                 myRigidbody.velocity = Vector2.zero;
                 timeBetweenMoveCounter = random.Next(1, timeBetweenMove);
             }
-        } else
+        }
+        else
         {
             timeBetweenMoveCounter -= Time.deltaTime;
 
@@ -100,17 +153,19 @@ public class NPC : Talkable
                 timeToMoveCounter = random.Next(1, timeToMove);
 
                 chooseDirection = Random.Range(-1, 2);
-                if (chooseDirection > 0) {
+                if (chooseDirection > 0)
+                {
                     float NPCY = random.Next(-1, 2);
                     myRigidbody.velocity = new Vector2(0f, NPCY * moveSpeed);
-                    if(hasWalkZone && transform.position.y > maxWalkPoint.y || transform.position.y < minWalkPoint.y)
+                    if (hasWalkZone && transform.position.y > maxWalkPoint.y || transform.position.y < minWalkPoint.y)
                     {
                         walking = false;
                         animator.SetBool("walking", false);
                         myRigidbody.velocity = Vector2.zero;
                         timeBetweenMoveCounter = random.Next(1, timeBetweenMove);
                     }
-                    if (NPCY == 0f) {
+                    if (NPCY == 0f)
+                    {
                         walking = false;
                         animator.SetBool("walking", false);
                     }
@@ -118,7 +173,8 @@ public class NPC : Talkable
                     animator.SetFloat("moveY", NPCY);
                     animator.SetFloat("lastMoveX", 0f);
                     animator.SetFloat("lastMoveY", NPCY);
-                } else
+                }
+                else
                 {
                     float NPCX = random.Next(-1, 2);
                     myRigidbody.velocity = new Vector2(NPCX * moveSpeed, 0f);
@@ -129,7 +185,8 @@ public class NPC : Talkable
                         myRigidbody.velocity = Vector2.zero;
                         timeBetweenMoveCounter = random.Next(1, timeBetweenMove);
                     }
-                    if (NPCX == 0f) {
+                    if (NPCX == 0f)
+                    {
                         walking = false;
                         animator.SetBool("walking", false);
                     }
@@ -142,12 +199,22 @@ public class NPC : Talkable
         }
     }
 
-    public void TurnToPlayer(Vector3 playerPosition)
+    protected virtual void UpdateQuests()
     {
-        // Set facing vector towards the player
-        Vector3 facingVector = playerPosition - boxCollider2D.transform.position;
-        animator.SetFloat("lastMoveX", facingVector.x);
-        animator.SetFloat("lastMoveY", facingVector.y);
+        return;
     }
 
+    private void ShowQuestMarker()
+    {
+        if (gameState.dialoguePlaying)
+        {
+            return;
+        }
+        questMarker.SetActive(IsQuestAvailable());
+    }
+
+    protected virtual bool IsQuestAvailable()
+    {
+        return false;
+    }
 }

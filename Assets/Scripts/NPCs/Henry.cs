@@ -78,20 +78,23 @@ public class Henry : NPC {
         portraitImage = portraitPanel.GetComponent<Image>();
     }
 
-    protected override string[] GetDialogue()
+    protected override void UpdateQuests()
     {
         if (!hasTalked)
+            return;
+
+        if ((gameState.findTheDankHerb == QuestState.Unavailable) && (gameState.findHerbBook == QuestState.Unavailable))
         {
-            hasTalked = true;
             int randomNumber = random.Next(0, 2);
             Debug.Log(randomNumber);
-            if (randomNumber == 1) {
+            if (randomNumber == 1)
+            {
                 gameState.findTheDankHerb = QuestState.Available;
-            } else
+            }
+            else
             {
                 gameState.findHerbBook = QuestState.Available;
             }
-            return initialDialogue;
         }
 
         if ((gameState.findTheDankHerb == QuestState.Done) && (gameState.findHerbBook == QuestState.Unavailable))
@@ -99,14 +102,24 @@ public class Henry : NPC {
             gameState.findHerbBook = QuestState.Available;
         }
 
-        if ((gameState.findHerbBook == QuestState.Done) && (gameState.findTheDankHerb == QuestState.Unavailable))
+        if ((gameState.findTheDankHerb == QuestState.Unavailable) && (gameState.findHerbBook == QuestState.Done))
         {
             gameState.findTheDankHerb = QuestState.Available;
         }
+    }
 
-        if ((gameState.findHerbBook == QuestState.Done) && (gameState.findTheDankHerb == QuestState.Done))
+    protected override bool IsQuestAvailable()
+    {
+        return ((gameState.findTheDankHerb == QuestState.Available) ||
+                (gameState.findHerbBook == QuestState.Available));
+    }
+
+    protected override string[] GetDialogue()
+    {
+        if (!hasTalked)
         {
-            return thanksDialogue;
+            hasTalked = true;
+            return initialDialogue;
         }
 
         // Find dat dank herb
@@ -153,6 +166,6 @@ public class Henry : NPC {
                 break;
         }
 
-        return errorDialogue;
+        return thanksDialogue;
     }
 }
