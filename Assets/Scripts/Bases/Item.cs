@@ -8,9 +8,13 @@ public class Item : Interactable {
     public string itemName;
     public Sprite sprite;
 
-    private InventoryManager inventoryManager;
+    protected InventoryManager inventoryManager;
     protected DialogueManager dialogueManager;
-    
+
+    protected DLine[] pickUp = { new DLine("Belfry", "Sad", "OOPSIE WHOOPSIE WE MADE A FUCKY WUCKY") };
+    protected DLine[] handsFull = { new DLine("Belfry", "Sad", "OOPSIE WHOOPSIE WE MADE A FUCKY WUCKY") };
+    protected DLine[] defaultDialogue = { new DLine("Belfry", "Sad", "OOPSIE WHOOPSIE WE MADE A FUCKY WUCKY") };
+
     // Use this for initialization
     protected override void Start()
     {
@@ -20,18 +24,28 @@ public class Item : Interactable {
         dialogueManager = FindObjectOfType<DialogueManager>();
     }
 
+    protected virtual bool CheckForPickup()
+    {
+        return false;
+    }
+
     public override void Interact()
     {
-        DLine message;
-        if (inventoryManager.SetInventory(itemName, sprite))
+        if (CheckForPickup())
         {
-            message = new DLine("Belfry", "Default", "Belfry picked up a " + itemName + "!");
+            if (inventoryManager.GetInventory() == "")
+            {
+                dialogueManager.StartDialogue(pickUp);
+                inventoryManager.SetInventory(itemName, sprite);
+            }
+            else
+            {
+                dialogueManager.StartDialogue(handsFull);
+            }
         }
         else
         {
-            message = new DLine("Belfry", "Default", "Belfry tried to pick up the " + itemName + ", but her hands are full!");
+            dialogueManager.StartDialogue(defaultDialogue);
         }
-
-        dialogueManager.StartDialogue(message);
     }
 }

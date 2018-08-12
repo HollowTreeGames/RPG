@@ -13,17 +13,31 @@ public class Book : Item
         base.Start();
         itemName = "Herb Book";
         gameState = FindObjectOfType<GameState>();
+
+        DLine[] pickUp = 
+        {
+            new DLine("Belfry", "Default", "What's this?"),
+            new DLine("Belfry", "Sad", "Hashish and You: An Illustrated Guide to the Mile High Club"),
+            new DLine("Belfry", "Sad", "..."),
+            new DLine("Belfry", "Happy", "Sounds right to me!")
+        };
+        this.pickUp = pickUp;
+
+        DLine[] handsFull =
+        {
+            new DLine("Belfry", "Sad", "A book this heavy with knowledge needs two hands to carry.")
+        };
+        this.handsFull = handsFull;
+
+        DLine[] defaultDialogue =
+        {
+            new DLine("Belfry", "Sad", "This is one of those ... illicit books. ABOUT DRUGS!")
+        };
+        this.defaultDialogue = defaultDialogue;
     }
 
-    public override void Interact()
+    protected override bool CheckForPickup()
     {
-        if (gameState.findHerbBook == QuestState.InProgress || gameState.findLibraryBook == QuestState.InProgress)
-        {
-            base.Interact();
-        }
-        else
-        {
-            dialogueManager.StartDialogue(new DLine("Belfry", "Default", "This is one of those ... illicit books. ABOUT DRUGS!"));
-        }
+        return (gameState.findHerbBook == QuestState.InProgress || gameState.findLibraryBook == QuestState.InProgress);
     }
 }
