@@ -6,13 +6,10 @@ using MyDialogue;
 
 public class Book : Item
 {
-    private GameState gameState;
-
     protected override void Start()
     {
         base.Start();
         itemName = "Herb Book";
-        gameState = FindObjectOfType<GameState>();
 
         DLine[] pickUp = 
         {

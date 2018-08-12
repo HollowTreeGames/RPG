@@ -10,6 +10,7 @@ public class Item : Interactable {
 
     protected InventoryManager inventoryManager;
     protected DialogueManager dialogueManager;
+    protected GameState gameState;
 
     protected DLine[] pickUp = { new DLine("Belfry", "Sad", "OOPSIE WHOOPSIE WE MADE A FUCKY WUCKY") };
     protected DLine[] handsFull = { new DLine("Belfry", "Sad", "OOPSIE WHOOPSIE WE MADE A FUCKY WUCKY") };
@@ -22,6 +23,7 @@ public class Item : Interactable {
         sprite = GetComponent<SpriteRenderer>().sprite;
         inventoryManager = FindObjectOfType<InventoryManager>();
         dialogueManager = FindObjectOfType<DialogueManager>();
+        gameState = FindObjectOfType<GameState>();
     }
 
     protected virtual bool CheckForPickup()

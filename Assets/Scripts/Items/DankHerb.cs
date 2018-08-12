@@ -6,24 +6,34 @@ using MyDialogue;
 
 public class DankHerb : Item
 {
-    private GameState gameState;
-
     protected override void Start()
     {
         base.Start();
         itemName = "Dank Herb";
-        gameState = FindObjectOfType<GameState>();
+
+        DLine[] pickUp =
+        {
+            new DLine("Belfry", "Default", "I could smell this from where I spawned in."),
+            new DLine("Belfry", "Default", "I think that qualifies this as the dankest Mary Jane."),
+            new DLine("Belfry", "Sad", "Hopefully Henry will like it, even though his wife's name is Nora."),
+        };
+        this.pickUp = pickUp;
+
+        DLine[] handsFull =
+        {
+            new DLine("Belfry", "Sad", "That looks sublimely sticky with sweet dew. I don't want to get any of it on the other thing I'm carrying.")
+        };
+        this.handsFull = handsFull;
+
+        DLine[] defaultDialogue =
+        {
+            new DLine("Belfry", "Happy", "Mmmmm! That smells like some straight up bodacious bud!")
+        };
+        this.defaultDialogue = defaultDialogue;
     }
 
-    public override void Interact()
+    protected override bool CheckForPickup()
     {
-        if (gameState.findTheDankHerb == QuestState.InProgress)
-        {
-            base.Interact();
-        }
-        else
-        {
-            dialogueManager.StartDialogue(new DLine("Belfry", "Default", "Mmmmm! That smells like some straight up bodacious bud!"));
-        }
+        return (gameState.findTheDankHerb == QuestState.InProgress);
     }
 }
