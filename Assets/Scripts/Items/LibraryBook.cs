@@ -6,26 +6,36 @@ using MyDialogue;
 
 public class LibraryBook : Item {
 
-    private GameState gameState;
-
     protected override void Start()
     {
         base.Start();
         itemName = "Library Book";
         gameState = FindObjectOfType<GameState>();
+
+        DLine[] pickUp =
+        {
+            new DLine("Belfry", "Sad", "What a respectable, hefty tome!"),
+            new DLine("Belfry", "Default", "Let's see..."),
+            new DLine("Belfry", "Sad", "'Fur-Couture: How to Knit With Your Own Sheddings.'"),
+            new DLine("Belfry", "Sad", "...maybe Oakewood won't look too closely at the title.")
+        };
+        this.pickUp = pickUp;
+
+        DLine[] handsFull =
+        {
+            new DLine("Belfry", "Sad", "After what happened to my last library book, I should probably wait until I can carry this with two paws.")
+        };
+        this.handsFull = handsFull;
+
+        DLine[] defaultDialogue =
+        {
+            new DLine("Belfry", "Happy", "It's an old book! What's it doing under a tree in the middle of a forest?")
+        };
+        this.defaultDialogue = defaultDialogue;
     }
 
-    public override void Interact()
+    protected override bool CheckForPickup()
     {
-        if (gameState.findLibraryBook == QuestState.InProgress)
-        {
-            base.Interact();
-        }
-        else
-        {
-            dialogueManager.StartDialogue(
-                new DLine("Belfry", "Default", "Fur Couture: How to Knit With Your Own Sheddings. Knitting's a healthy pastime, right?")
-                );
-        }
+        return (gameState.findLibraryBook == QuestState.InProgress);
     }
 }
