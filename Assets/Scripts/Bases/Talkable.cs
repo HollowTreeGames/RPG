@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MyDialogue;
 
 public class Talkable : Interactable {
-
-    public string charName;
-    public string[] dialogue;
+    
+    public DLine[] dialogue;
 
     protected DialogueManager dialogueManager;
     
@@ -17,10 +17,10 @@ public class Talkable : Interactable {
 
     public override void Interact()
     {
-        dialogueManager.StartDialogue(charName, GetDialogue());
+        dialogueManager.StartDialogue(GetDialogue());
     }
 
-    protected virtual string[] GetDialogue()
+    protected virtual DLine[] GetDialogue()
     {
         return dialogue;
     }

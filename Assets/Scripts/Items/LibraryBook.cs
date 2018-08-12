@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Enums;
+using MyDialogue;
 
 public class LibraryBook : Item {
 
@@ -22,7 +23,9 @@ public class LibraryBook : Item {
         }
         else
         {
-            dialogueManager.StartDialogue("", "Fur Couture: How to Knit With Your Own Sheddings. Knitting's a healthy pastime, right?");
+            dialogueManager.StartDialogue(
+                new DLine("Belfry", "Default", "Fur Couture: How to Knit With Your Own Sheddings. Knitting's a healthy pastime, right?")
+                );
         }
     }
 }

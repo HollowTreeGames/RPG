@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MyDialogue;
 
 public class TownManager : MonoBehaviour {
 
@@ -9,9 +10,9 @@ public class TownManager : MonoBehaviour {
     private DialogueManager theDM;
     private bool tentsShown = false;
 
-    private string[] level1 =
+    private DLine[] level1 =
     {
-        "Congratulations! Your selfless acts have helped your fellow villagers start to rebuild. Treehollow has grown."
+        new DLine("The Town", "Default", "Congratulations! Your selfless acts have helped your fellow villagers start to rebuild. Treehollow has grown.")
     };
     
 	// Use this for initialization
@@ -28,7 +29,7 @@ public class TownManager : MonoBehaviour {
 		if ((!gameState.dialoguePlaying) && (gameState.reputation >= 4) && (!tentsShown))
         {
             ShowTents();
-            theDM.StartDialogue("The Town", level1);
+            theDM.StartDialogue(level1);
         }
 	}
 

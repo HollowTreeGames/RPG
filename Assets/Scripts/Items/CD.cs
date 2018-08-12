@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Enums;
+using MyDialogue;
 
 public class CD : Item {
 
@@ -22,7 +23,9 @@ public class CD : Item {
         }
         else
         {
-            dialogueManager.StartDialogue("", "America Online Installation CD-ROM. It's sure shiny! I like the way it catches the light!");
+            dialogueManager.StartDialogue(new DLine("Belfry", "Default", 
+                "America Online Installation CD-ROM. It's sure shiny! I like the way it catches the light!"
+                ));
         }
     }
 }

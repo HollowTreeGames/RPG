@@ -4,67 +4,68 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using Enums;
+using MyDialogue;
 
 public class Parsley : NPC {
     
-    private string[] initialDialogue =
+    private DLine[] initialDialogue =
     {
-        "Hmph."
-    };
-    private string[] friendlyDialogue =
-    {
-        "I guess you didn't MEAN to burn down the whole town...", 
-        "Fine, we can talk again. But don't think I'm ever loaning you another candle!"
+        new DLine("Parsley", "Default", "Hmph.")
     };
 
-    private string[] questCDDialogue =
+    private DLine[] friendlyDialogue =
     {
-        "Alright, alright!!",
-        "I'll give you a chance to redeem yourself.",
-        "Find the coolest possible thing you can. If it's cool enough, I might loan you another candle.",
-        "UNLIT, OF COURSE."
+        new DLine("Parsley", "Default", "I guess you didn't MEAN to burn down the whole town..."),
+        new DLine("Parsley", "Default", "Fine, we can talk again. But don't think I'm ever loaning you another candle!")
     };
 
-    private string[] questBookCDDialogue =
+    private DLine[] questCDDialogue =
     {
-        "I said bring the COOLEST possible thing.",
-        "Books are cool, but this one is lame."
+        new DLine("Parsley", "Default", "Oh alright, alright!!"),
+        new DLine("Parsley", "Default", "I'll give you a chance to redeem yourself."),
+        new DLine("Parsley", "Default", "Find the coolest possible thing you can. If it's cool enough, I might loan you another candle."),
+        new DLine("Parsley", "Default", "UNLIT, OF COURSE.")
     };
 
-    private string[] questHerbCDDialogue =
+    private DLine[] questBookCDDialogue =
     {
-        "That is literally marijuana.",
-        "I'm ten.",
-        "You're not supposed to give ten year olds marijuana.",
-        "Find something better."
+        new DLine("Parsley", "Default", "I said bring the COOLEST possible thing."),
+        new DLine("Parsley", "Default", "Books are cool, but this one is lame.")
     };
 
-    private string[] itemCDDialogue =
+    private DLine[] questHerbCDDialogue =
     {
-        "Whoa!!",
-        "I've been looking for one of these!",
-        "Hmm... it's no Nickelback, but I'll take it.",
-        "Thanks, Bel! You're the best!"
+        new DLine("Parsley", "Default", "That is literally marijuana."),
+        new DLine("Parsley", "Default", "I'm ten."),
+        new DLine("Parsley", "Default", "You're not supposed to give ten year olds marijuana."),
+        new DLine("Parsley", "Default", "Find something better.")
     };
 
-    private string[] thanksDialogue =
+    private DLine[] itemCDDialogue =
     {
-        "Have you heard these mad beats?",
-        "They sound like nothing I've ever heard before!",
-        "Here, listen!",
-        "<You hear the sound of a modem trying to start up.>"
+        new DLine("Parsley", "Default", "Whoa!!"),
+        new DLine("Parsley", "Default", "I've been looking for one of these!"),
+        new DLine("Parsley", "Default", "Hmm... it's no Nickelback, but I'll take it."),
+        new DLine("Parsley", "Default", "Thanks, Bel! You're the best!")
     };
 
-    private string[] reminderDialogue =
+    private DLine[] thanksDialogue =
     {
-        "Have you found the COOLEST THING EVER yet?",
-        "Please be sure it is quantifiably the coolest thing you've ever set paw upon."
+        new DLine("Parsley", "Default", "Have you heard these mad beats?"),
+        new DLine("Parsley", "Default", "They sound like nothing I've ever heard before!"),
+        new DLine("Parsley", "Default", "Here, listen!"),
+        new DLine("Parsley", "Default", "<You hear the sound of a modem trying to start up.>")
+    };
+
+    private DLine[] reminderDialogue =
+    {
+        new DLine("Parsley", "Default", "Have you found the COOLEST THING EVER yet?"),
+        new DLine("Parsley", "Default", "Please be sure it is quantifiably the coolest thing you've ever set paw upon.")
     };
 
     protected override void Start()
     {
         base.Start();
-        charName = "Parsley";
     }
 
     protected override void UpdateQuests()
@@ -80,9 +81,10 @@ public class Parsley : NPC {
         return (gameState.findCD == QuestState.Available);
     }
 
-    protected override string[] GetDialogue()
+    protected override DLine[] GetDialogue()
     {
-        if (gameState.reputation < 2) {
+        if (gameState.reputation < 2)
+        {
             return initialDialogue;
         }
 
@@ -110,7 +112,8 @@ public class Parsley : NPC {
                     inventoryManager.ClearInventory();
                     return questHerbCDDialogue;
                 }
-                else { 
+                else
+                {
                     return reminderDialogue;
                 }
             case QuestState.Done:

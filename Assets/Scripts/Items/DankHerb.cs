@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Enums;
+using MyDialogue;
 
 public class DankHerb : Item
 {
@@ -22,7 +23,7 @@ public class DankHerb : Item
         }
         else
         {
-            dialogueManager.StartDialogue("", "Mmmmm! That smells like some straight up bodacious bud!");
+            dialogueManager.StartDialogue(new DLine("Belfry", "Default", "Mmmmm! That smells like some straight up bodacious bud!"));
         }
     }
 }

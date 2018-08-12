@@ -11438,7 +11438,7 @@ GameObject:
   - component: {fileID: 316201534}
   - component: {fileID: 316201533}
   m_Layer: 5
-  m_Name: PortraitPanel
+  m_Name: Portrait Panel
   m_TagString: Portrait
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11802,20 +11802,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b0d7732265cb44aaa88884f2580b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charName: Oakewood
-  dialogue: []
   animator: {fileID: 0}
   moveSpeed: 1
   timeBetweenMove: 5
   timeToMove: 2
   walkZone: {fileID: 1739976972}
-  portraitPanel: {fileID: 0}
-  portraitImage: {fileID: 0}
-  Happy: {fileID: 21300000, guid: 9abfcedd43b4c2645b3c19bfb5af0d8d, type: 3}
-  Sad: {fileID: 21300000, guid: 43af2a7d6523a1e4f9818b282115a254, type: 3}
-  questPanel: {fileID: 0}
-  itemImage: {fileID: 0}
-  questCanvas: {fileID: 0}
   LibraryBook: {fileID: 21300000, guid: 214585f7fc25d6c47827dd0e4008b237, type: 3}
 --- !u!95 &573231926
 Animator:
@@ -15196,20 +15187,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7eb687aaf48fa742a119e0a4cbaf881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charName: Parsley
-  dialogue: []
   animator: {fileID: 0}
   moveSpeed: 1
   timeBetweenMove: 5
   timeToMove: 2
   walkZone: {fileID: 1739976972}
-  portraitPanel: {fileID: 0}
-  portraitImage: {fileID: 0}
-  Happy: {fileID: 21300000, guid: 9abfcedd43b4c2645b3c19bfb5af0d8d, type: 3}
-  Sad: {fileID: 21300000, guid: 43af2a7d6523a1e4f9818b282115a254, type: 3}
-  questPanel: {fileID: 0}
-  itemImage: {fileID: 0}
-  questCanvas: {fileID: 0}
 --- !u!95 &1478656371
 Animator:
   serializedVersion: 3
@@ -15583,20 +15565,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32913fd69fe8b9c4ca671dbe349c5684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charName: Henry
-  dialogue: []
   animator: {fileID: 0}
   moveSpeed: 1
   timeBetweenMove: 10
   timeToMove: 2
   walkZone: {fileID: 1739976972}
-  portraitPanel: {fileID: 316201531}
-  portraitImage: {fileID: 0}
-  Happy: {fileID: 21300000, guid: 9abfcedd43b4c2645b3c19bfb5af0d8d, type: 3}
-  Sad: {fileID: 21300000, guid: 43af2a7d6523a1e4f9818b282115a254, type: 3}
-  questPanel: {fileID: 0}
-  itemImage: {fileID: 0}
-  questCanvas: {fileID: 0}
   DankHerb: {fileID: 21300000, guid: 9c71bba9ff1531c4aa22c0a90cbf44a6, type: 3}
   HerbBook: {fileID: 21300000, guid: 214585f7fc25d6c47827dd0e4008b237, type: 3}
 --- !u!50 &1562472716
@@ -16657,6 +16630,7 @@ MonoBehaviour:
   gameState: {fileID: 811711060}
   canvas: {fileID: 3665699}
   nameText: {fileID: 952135130}
+  portraitPanel: {fileID: 316201531}
   dialogueText: {fileID: 1321954623}
 --- !u!4 &2146486961
 Transform:

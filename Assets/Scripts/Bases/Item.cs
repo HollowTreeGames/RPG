@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MyDialogue;
 
 public class Item : Interactable {
 
@@ -21,16 +22,16 @@ public class Item : Interactable {
 
     public override void Interact()
     {
-        string message;
+        DLine message;
         if (inventoryManager.SetInventory(itemName, sprite))
         {
-            message = "Belfry picked up a " + itemName + "!";
+            message = new DLine("Belfry", "Default", "Belfry picked up a " + itemName + "!");
         }
         else
         {
-            message = "Belfry tried to pick up the " + itemName + ", but her hands are full!";
+            message = new DLine("Belfry", "Default", "Belfry tried to pick up the " + itemName + ", but her hands are full!");
         }
 
-        dialogueManager.StartDialogue("", message);
+        dialogueManager.StartDialogue(message);
     }
 }

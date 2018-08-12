@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Enums;
+using MyDialogue;
 
 public class Oakewood : NPC {
     
@@ -11,69 +12,68 @@ public class Oakewood : NPC {
 
     public Sprite LibraryBook;
 
-    private string[] cyclingDialogue =
+    private DLine[] cyclingDialogue =
     {
-        "Everyone's still mad at you, you know.",
-        "You've been known to screw things up in the past, Belfry, but this time just takes the cake.", 
-        "*sigh*",
-        "Why are you still talking to me?",
-        "I'm sure that big brute of a sheriff has something to say to you."
+        new DLine("Oakewood", "Default", "Everyone's still mad at you, you know."),
+        new DLine("Oakewood", "Default", "You've been known to screw things up in the past, Belfry, but this time just takes the cake."), 
+        new DLine("Oakewood", "Default", "*sigh*"),
+        new DLine("Oakewood", "Default", "Why are you still talking to me?"),
+        new DLine("Oakewood", "Default", "I'm sure that big brute of a sheriff has something to say to you.")
     };
-    private IEnumerator<string> cyclingDialogueEnumerator;
-    private string[] friendlyDialogue =
+    private IEnumerator<DLine> cyclingDialogueEnumerator;
+    private DLine[] friendlyDialogue =
     {
-        "That was extremely unnecessary.",
-        "You know that poor fox has a horrible marijuana addiction." 
+        new DLine("Oakewood", "Default", "That was extremely unnecessary."),
+        new DLine("Oakewood", "Default", "You know that poor fox has a horrible marijuana addiction.")
     };
 
     // Start a new quest
-    private string[] questBookDialogue =
+    private DLine[] questBookDialogue =
     {
-        "As long as you're doing these ridiculous fetch quests, you might as well help me out.",
-        "As you well know, your last library book is overdue.",
-        "How long has it been?",
-        "Oh, right.",
-        "FIVE YEARS.",
-        "It's probably a pile of ashes after your last little stunt, so I'll tell you what.",
-        "Find me a new book, suitable for all ages, to start the new library.",
-        "Then I'll consider you off the hook.",
-        "For now."
+        new DLine("Oakewood", "Default", "As long as you're doing these ridiculous fetch quests, you might as well help me out."),
+        new DLine("Oakewood", "Default", "As you well know, your last library book is overdue."),
+        new DLine("Oakewood", "Default", "How long has it been?"),
+        new DLine("Oakewood", "Default", "Oh, right."),
+        new DLine("Oakewood", "Default", "FIVE YEARS."),
+        new DLine("Oakewood", "Default", "It's probably a pile of ashes after your last little stunt, so I'll tell you what."),
+        new DLine("Oakewood", "Default", "Find me a new book, suitable for all ages, to start the new library."),
+        new DLine("Oakewood", "Default", "Then I'll consider you off the hook."),
+        new DLine("Oakewood", "Default", "For now.")
     };
 
-    private string[] questBookReminderDialogue =
+    private DLine[] questBookReminderDialogue =
     {
-        "Have you found my new book yet?",
-        "Make sure it doesn't take you five years this time."
+        new DLine("Oakewood", "Default", "Have you found my new book yet?"),
+        new DLine("Oakewood", "Default", "Make sure it doesn't take you five years this time.")
     };
 
-    private string[] itemBookDialogue =
+    private DLine[] itemBookDialogue =
     {
-        "Hm.",
-        "The binding's a little worn, don't you think?",
-        "...",
-        "Oh, alright. This will do."
+        new DLine("Oakewood", "Default", "Hm."),
+        new DLine("Oakewood", "Default", "The binding's a little worn, don't you think?"),
+        new DLine("Oakewood", "Default", "..."),
+        new DLine("Oakewood", "Default", "Oh, alright. This will do.")
     };
 
-    private string[] itemWrongBookDialogue =
+    private DLine[] itemWrongBookDialogue =
     {
-        "I did say this book needs to be suitable for ALL AGES, didn't I?",
-        "We don't want Piper learning to roll a blunt, now do we?",
-        "Don't answer that."
+        new DLine("Oakewood", "Default", "I did say this book needs to be suitable for ALL AGES, didn't I?"),
+        new DLine("Oakewood", "Default", "We don't want Piper learning to roll a blunt, now do we?"),
+        new DLine("Oakewood", "Default", "Don't answer that.")
     };
 
     protected override void Start()
     {
         base.Start();
-        charName = "Oakewood";
         cyclingDialogueEnumerator = CycleDialogue();
     }
 
-    private IEnumerator<string> CycleDialogue()
+    private IEnumerator<DLine> CycleDialogue()
     {
         while (true) {
-            foreach (string sentence in cyclingDialogue)
+            foreach (DLine dLine in cyclingDialogue)
             {
-                yield return sentence;
+                yield return dLine;
             }
         }
     }
@@ -91,7 +91,7 @@ public class Oakewood : NPC {
         return (gameState.findLibraryBook == QuestState.Available);
     }
 
-    protected override string[] GetDialogue()
+    protected override DLine[] GetDialogue()
     {
         if ((gameState.findTheDankHerb == QuestState.InProgress) || (gameState.findHerbBook == QuestState.InProgress))
         {
@@ -117,7 +117,8 @@ public class Oakewood : NPC {
                 {
                     inventoryManager.ClearInventory();
                     return itemWrongBookDialogue;
-                } else
+                }
+                else
                     return questBookReminderDialogue;
 
             default:
@@ -125,7 +126,7 @@ public class Oakewood : NPC {
         }
 
         cyclingDialogueEnumerator.MoveNext();
-        string[] dialogue = { cyclingDialogueEnumerator.Current };
+        DLine[] dialogue = { cyclingDialogueEnumerator.Current };
         return dialogue;
     }
 }

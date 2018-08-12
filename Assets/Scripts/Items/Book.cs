@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Enums;
+using MyDialogue;
 
 public class Book : Item
 {
@@ -22,7 +23,7 @@ public class Book : Item
         }
         else
         {
-            dialogueManager.StartDialogue("", "This is one of those ... illicit books. ABOUT DRUGS!");
+            dialogueManager.StartDialogue(new DLine("Belfry", "Default", "This is one of those ... illicit books. ABOUT DRUGS!"));
         }
     }
 }

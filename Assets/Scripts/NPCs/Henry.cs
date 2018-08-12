@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Enums;
+using MyDialogue;
 
 public class Henry : NPC {
     
@@ -13,70 +14,61 @@ public class Henry : NPC {
     public Sprite HerbBook;
 
     // Initial dialogues
-    private string[] initialDialogue =
+    private DLine[] initialDialogue =
     {
-        "Hi! My name is Henry! I'm the sheriff!",
-        "I like sniffing butts!",
-        "Nora likes it when I don't wear pants, but I don't know why!"
+        new DLine("Henry", "Default", "Hi! My name is Henry! I'm the sheriff!"),
+        new DLine("Henry", "Default", "I like sniffing butts!"),
+        new DLine("Henry", "Sad", "Nora likes it when I don't wear pants, but I don't know why!"),
     };
-    private string[] errorDialogue =
+    private DLine[] errorDialogue =
     {
-        "ERR-OR, I AM A ROBOT, SOMETHING HAS GONE WRONG, BEEP BOOP"
+        new DLine("Henry", "Default", "ERR-OR, I AM A ROBOT, SOMETHING HAS GONE WRONG, BEEP BOOP")
     };
 
     // Find The Dank Herb, natch
-    private string[] questHerbDialogue =
+    private DLine[] questHerbDialogue =
     {
-        "Nora has been really stressed by her work lately. You know what she needs?",
-        "That's right! A little bit of kibbles and hits!",
-        "Would you please find me some nutritious nug to help Nora take the edge off?"
+        new DLine("Henry", "Default", "Nora has been really stressed by her work lately. You know what she needs?"),
+        new DLine("Henry", "Default", "That's right! A little bit of kibbles and hits!"),
+        new DLine("Henry", "Default", "Would you please find me some nutritious nug to help Nora take the edge off?")
     };
-    private string[] questHerbReminderDialogue =
+    private DLine[] questHerbReminderDialogue =
     {
-        "Have you found some leafs of the devil's lettuce?"
+        new DLine("Henry", "Default", "Have you found some leafs of the devil's lettuce?")
     };
-    private string[] itemHerbDialogue =
+    private DLine[] itemHerbDialogue =
     {
-        "Wow, thank you! Nora will be so happy to smoke this straight killer kush!"
+        new DLine("Henry", "Default", "Wow, thank you! Nora will be so happy to smoke this straight killer kush!")
     };
 
     // Find the book, y'all
-    private string[] questBookDialogue =
+    private DLine[] questBookDialogue =
     {
-        "So I wanted to get Nora a special book...",
-        "You didn't hear this from me, but it's a book about...",
-        "WEED.",
-        "Can you find one for me? She's hopeless at blazing 420 365 blaze it."
+        new DLine("Henry", "Default", "So I wanted to get Nora a special book..."),
+        new DLine("Henry", "Default", "You didn't hear this from me, but it's a book about..."),
+        new DLine("Henry", "Default", "WEED."),
+        new DLine("Henry", "Default", "Can you find one for me? She's hopeless at blazing 420 365 blaze it.")
     };
-    private string[] questBookReminderDialogue =
+    private DLine[] questBookReminderDialogue =
     {
-        "Have you found that book yet? Keep it on the down-low. I'm a sheriff, you know."
+        new DLine("Henry", "Default", "Have you found that book yet? Keep it on the down-low. I'm a sheriff, you know.")
     };
-    private string[] itemBookDialogue =
+    private DLine[] itemBookDialogue =
     {
-        "Thank goodness! I was worried Nora would choke on a blunt without this."
+        new DLine("Henry", "Default", "Thank goodness! I was worried Nora would choke on a blunt without this.")
     };
 
     // You've done all the quests! Thanks.
-    private string[] thanksDialogue =
+    private DLine[] thanksDialogue =
     {
-        "Thanks again for the dank dire doobies and this mad awesome book!",
-        "Nora asked me to stop saying dank, but it's too much fun!",
-        "Dank dank dank dank dank dank dank dank dank dank dank " +
-            "dank dank dank dank dank dank dank dank dank dank dank " +
-            "dank dank dank dank dank dank dank dank dank dank dank " +
-            "dank dank dank dank dank dank dank dank dank dank dank " +
-            "dank dank dank dank dank dank dank dank dank dank dank!"
+        new DLine("Henry", "Default", "Thanks again for the dank dire doobies and this mad awesome book!"),
+        new DLine("Henry", "Default", "Nora asked me to stop saying dank, but it's too much fun!"),
+        new DLine("Henry", "Default", "Dank dank dank dank dank dank dank dank dank dank dank " +
+                                        "dank dank dank dank dank dank dank dank dank dank dank " +
+                                        "dank dank dank dank dank dank dank dank dank dank dank " +
+                                        "dank dank dank dank dank dank dank dank dank dank dank " +
+                                        "dank dank dank dank dank dank dank dank dank dank dank!")
     };
-
-    protected override void Start()
-    {
-        base.Start();
-        charName = "Henry";
-
-        portraitPanel = GameObject.Find("PortraitPanel");
-        portraitImage = portraitPanel.GetComponent<Image>();
-    }
 
     protected override void UpdateQuests()
     {
@@ -114,7 +106,7 @@ public class Henry : NPC {
                 (gameState.findHerbBook == QuestState.Available));
     }
 
-    protected override string[] GetDialogue()
+    protected override DLine[] GetDialogue()
     {
         if (!hasTalked)
         {
@@ -127,12 +119,10 @@ public class Henry : NPC {
         {
             case QuestState.Available:
                 gameState.findTheDankHerb = QuestState.InProgress;
-                portraitImage.sprite = Sad;
                 return questHerbDialogue;
             case QuestState.InProgress:
                 if (inventoryManager.GetInventory() == "Dank Herb")
                 {
-                    portraitImage.sprite = Happy;
                     gameState.reputation += 1;
                     gameState.friendshipHenry += 1;
                     inventoryManager.ClearInventory();

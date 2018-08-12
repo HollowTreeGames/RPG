@@ -28,15 +28,6 @@ public abstract class NPC : Talkable
     private Vector2 maxWalkPoint;
     private bool hasWalkZone;
 
-    public GameObject portraitPanel;
-    public Image portraitImage;
-    public Sprite Happy;
-    public Sprite Sad;
-
-    public GameObject questPanel;
-    public Image itemImage;
-    public CanvasGroup questCanvas;
-
     private GameObject questMarker;
     private SpriteRenderer questMarkerRenderer;
     private Animator questMarkerAnimator;
@@ -49,9 +40,6 @@ public abstract class NPC : Talkable
         timeBetweenMoveCounter = random.Next(1, timeBetweenMove);
         myRigidbody = GetComponent<Rigidbody2D>();
         gameState = FindObjectOfType<GameState>();
-
-        portraitPanel = GameObject.Find("PortraitPanel");
-        portraitImage = portraitPanel.GetComponent<Image>();
 
         if (walkZone != null)
         {
@@ -90,7 +78,7 @@ public abstract class NPC : Talkable
         questMarkerAnimator.runtimeAnimatorController = controller;
     }
 
-    protected virtual void OnGUI()
+    protected override void OnGUI()
     {
         base.OnGUI();
         int x = (int)(transform.position.y * -1000);

@@ -2,40 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using MyDialogue;
 
 public class DialogueManager : MonoBehaviour {
 
     public GameState gameState;
     public Canvas canvas;
     public Text nameText;
+    public GameObject portraitPanel;
     public Text dialogueText;
 
     private CanvasGroup canvasGroup;
-    private Queue<string> sentences;
+    private Queue<DLine> dLines;
     private bool writingSentence = false;
     private bool forceWriteSentence = false;
+    private Image portraitImage;
 
 	// Use this for initialization
 	void Start () {
-        sentences = new Queue<string>();
+        dLines = new Queue<DLine>();
         canvasGroup = canvas.GetComponent<CanvasGroup>();
-	}
+        portraitImage = portraitPanel.GetComponent<Image>();
+        Faces.InitFaces();
+    }
     
-    public void StartDialogue(string name, string dialogue)
+    public void StartDialogue(DLine dialogue)
     {
-        string[] message = { dialogue };
-        StartDialogue(name, message);
+        DLine[] message = { dialogue };
+        StartDialogue(message);
     }
 
-    public void StartDialogue(string name, string[] dialogue)
+    public void StartDialogue(DLine[] dialogue)
     {
         gameState.dialoguePlaying = true;
-        nameText.text = name;
-        sentences.Clear();
+        dLines.Clear();
 
-        foreach (string sentence in dialogue)
+        foreach (DLine dline in dialogue)
         {
-            sentences.Enqueue(sentence);
+            dLines.Enqueue(dline);
         }
 
         ShowCanvas();
@@ -50,24 +54,27 @@ public class DialogueManager : MonoBehaviour {
             return;
         }
 
-        if (sentences.Count == 0)
+        if (dLines.Count == 0)
         {
             EndDialogue();
             return;
         }
 
-        string sentence = sentences.Dequeue();
+        DLine dLine = dLines.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(dLine));
     }
 
-    IEnumerator TypeSentence(string sentence)
+    IEnumerator TypeSentence(DLine dLine)
     {
+        nameText.text = dLine.name;
+        portraitImage.sprite = dLine.getFace();
+
         writingSentence = true;
         forceWriteSentence = false;
         dialogueText.text = "";
 
-        foreach (char letter in sentence.ToCharArray())
+        foreach (char letter in dLine.line.ToCharArray())
         {
             if (forceWriteSentence)
                 break;
@@ -75,7 +82,7 @@ public class DialogueManager : MonoBehaviour {
             yield return null;
         }
 
-        dialogueText.text = sentence;
+        dialogueText.text = dLine.line;
         writingSentence = false;
         forceWriteSentence = false;
     }
