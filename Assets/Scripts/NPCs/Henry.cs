@@ -17,7 +17,7 @@ public class Henry : NPC {
     private DLine[] initialDialogue =
     {
         new DLine("Henry", "Default", "Hi! My name is Henry! I'm the sheriff!"),
-        new DLine("Henry", "Default", "I like sniffing butts!"),
+        new DLine("Henry", "Happy", "I like sniffing butts!"),
         new DLine("Henry", "Sad", "Nora likes it when I don't wear pants, but I don't know why!"),
     };
     private DLine[] errorDialogue =
