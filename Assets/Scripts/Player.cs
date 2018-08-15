@@ -18,6 +18,8 @@ public class Player : SpriteParent
 
     public float lastX = 0, lastY = -1;
 
+    private static bool playerExists;
+
     // Use this for initialization
     protected override void Start()
     {
@@ -25,6 +27,18 @@ public class Player : SpriteParent
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
+        gameState = FindObjectOfType<GameState>();
+        dialogueManager = FindObjectOfType<DialogueManager>();
+
+        if (!playerExists)
+        {
+            playerExists = true;
+            DontDestroyOnLoad(transform.gameObject);
+        } else
+        {
+            Destroy(gameObject);
+        }
+        
     }
     
     // Update is called once per frame
