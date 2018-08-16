@@ -52,7 +52,7 @@ public class Player : SpriteParent
             // If we're not currently talking to an NPC, 
             // find if an NPC is in front of us and 
             // start talking to them.
-            if (gameState.dialoguePlaying)
+            if (gameState.pause)
             {
                 dialogueManager.DisplayNextSentence();
             } else
@@ -67,7 +67,7 @@ public class Player : SpriteParent
         float x, y;
         walking = false;
 
-        if (gameState.dialoguePlaying)
+        if (gameState.pause)
         {
             x = 0;
             y = 0;

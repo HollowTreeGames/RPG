@@ -46,7 +46,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(DLine[] dialogue)
     {
-        gameState.dialoguePlaying = true;
+        gameState.pause = true;
         dLines.Clear();
 
         foreach (DLine dline in dialogue)
@@ -101,7 +101,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        gameState.dialoguePlaying = false;
+        gameState.pause = false;
         HideCanvas();
     }
 

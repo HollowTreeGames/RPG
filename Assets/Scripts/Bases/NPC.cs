@@ -110,7 +110,7 @@ public abstract class NPC : Talkable
     private void Walk()
     {
 
-        if (gameState.dialoguePlaying)
+        if (gameState.pause)
         {
             walking = false;
             animator.SetBool("walking", false);
@@ -194,7 +194,7 @@ public abstract class NPC : Talkable
 
     private void ShowQuestMarker()
     {
-        if (gameState.dialoguePlaying)
+        if (gameState.pause)
         {
             return;
         }

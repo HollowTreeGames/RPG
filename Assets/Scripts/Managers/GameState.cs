@@ -6,7 +6,7 @@ using Enums;
 
 public class GameState : MonoBehaviour
 {
-    public bool dialoguePlaying = false;
+    public bool pause = false;
 
     // Quests
     public QuestState findTheDankHerb = QuestState.Unavailable;
