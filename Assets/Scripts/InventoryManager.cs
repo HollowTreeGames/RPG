@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour {
 
-    public string inventoryName = "";
-    public Canvas canvas;
-    public Image inventoryImage;
 
-    private CanvasGroup canvasGroup;
+    public string inventoryName = "";
+    public GameObject inventory;
+    private SpriteRenderer inventoryRenderer;
 
     // Use this for initialization
     protected void Start()
     {
-        canvasGroup = canvas.GetComponent<CanvasGroup>();
+        inventoryRenderer = inventory.GetComponent<SpriteRenderer>();
+        inventory.SetActive(false);
     }
 
     public string GetInventory()
@@ -29,16 +29,16 @@ public class InventoryManager : MonoBehaviour {
             return false;
         }
         inventoryName = name;
-        inventoryImage.sprite = sprite;
-        canvasGroup.alpha = 1;
+        inventoryRenderer.sprite = sprite;
+        inventory.SetActive(true);
         return true;
     }
 
     public void ClearInventory()
     {
-        canvasGroup.alpha = 0;
+        inventory.SetActive(false);
         inventoryName = "";
-        inventoryImage.sprite = null;
+        inventoryRenderer.sprite = null;
     }
 
     public void Update()
