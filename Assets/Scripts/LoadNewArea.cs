@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class LoadNewArea : MonoBehaviour {
     
@@ -10,12 +8,20 @@ public class LoadNewArea : MonoBehaviour {
     public float startX;
     public float startY;
 
+    private FadeCameraAndLoad fadeCamera;
+
+    private void Start()
+    {
+        fadeCamera = FindObjectOfType<FadeCameraAndLoad>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         GameObject otherObject = other.gameObject;
         if (otherObject.name == "Player") {
-            SceneManager.LoadScene(levelToLoad);
-            otherObject.transform.position = new Vector2(startX, startY);
+            fadeCamera.StartLoad(otherObject, levelToLoad, startX, startY);
         }
     }
+
+    
 }
