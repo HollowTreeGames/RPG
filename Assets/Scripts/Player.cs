@@ -6,7 +6,8 @@ using Enums;
 
 public class Player : SpriteParent
 {
-    public float speed;
+    public float walkSpeed;
+    public float runSpeed;
     public float interactDistance = 1;
     public GameState gameState;
     public DialogueManager dialogueManager;
@@ -97,17 +98,9 @@ public class Player : SpriteParent
         animator.SetFloat("lastMoveX", lastX);
         animator.SetFloat("lastMoveY", lastY);
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            speed *= 3;
-        }
+        float moveSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
 
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            speed /= 3;
-        }
-
-        rb2d.velocity = new Vector2(speed * x * Time.deltaTime, speed * y * Time.deltaTime);
+        rb2d.velocity = new Vector2(moveSpeed * x * Time.deltaTime, moveSpeed * y * Time.deltaTime);
     }
 
     void Interact()
