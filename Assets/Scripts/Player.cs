@@ -6,6 +6,8 @@ using Enums;
 
 public class Player : SpriteParent
 {
+    //private static bool instanceExists = false;
+
     public float walkSpeed;
     public float runSpeed;
     public float interactDistance = 1;
@@ -19,27 +21,24 @@ public class Player : SpriteParent
 
     public float lastX = 0, lastY = -1;
 
-    private static bool playerExists;
-
     // Use this for initialization
     protected override void Start()
     {
+        //if (instanceExists)
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
+
+        //instanceExists = true;
+        //DontDestroyOnLoad(transform.gameObject);
+
         base.Start();
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         gameState = FindObjectOfType<GameState>();
         dialogueManager = FindObjectOfType<DialogueManager>();
-
-        if (!playerExists)
-        {
-            playerExists = true;
-            DontDestroyOnLoad(transform.gameObject);
-        } else
-        {
-            Destroy(gameObject);
-        }
-        
     }
     
     // Update is called once per frame

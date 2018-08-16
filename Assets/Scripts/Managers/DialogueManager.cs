@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using MyDialogue;
 
-public class DialogueManager : MonoBehaviour {
+public class DialogueManager : MonoBehaviour
+{
 
     public GameState gameState;
     public Canvas canvas;
@@ -18,25 +19,12 @@ public class DialogueManager : MonoBehaviour {
     private bool forceWriteSentence = false;
     private Image portraitImage;
 
-    public static DialogueManager instance = null;
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         dLines = new Queue<DLine>();
         canvasGroup = canvas.GetComponent<CanvasGroup>();
         portraitImage = portraitPanel.GetComponent<Image>();
         Faces.InitFaces();
-
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-
-        DontDestroyOnLoad(gameObject);
     }
     
     public void StartDialogue(DLine dialogue)

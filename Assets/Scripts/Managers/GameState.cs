@@ -6,8 +6,6 @@ using Enums;
 
 public class GameState : MonoBehaviour {
 
-    public static GameState GSinstance = null;
-
 	public bool dialoguePlaying = false;
 
     // Quests
@@ -23,18 +21,5 @@ public class GameState : MonoBehaviour {
     public int friendshipHenry = 0;
     public int friendshipOakewood = 0;
     public int friendshipParsley = 0;
-
-    private void Start()
-    {
-        if (GSinstance == null)
-        {
-            GSinstance = this;
-        } else if (GSinstance != this)
-        {
-            Destroy(gameObject);
-        }
-
-        DontDestroyOnLoad(gameObject);
-    }
 
 }

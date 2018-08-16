@@ -16,7 +16,8 @@ public class TownManager : MonoBehaviour {
     };
     
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         tents = GameObject.FindGameObjectsWithTag("Tent");
         gameState = FindObjectOfType<GameState>();
         theDM = FindObjectOfType<DialogueManager>();

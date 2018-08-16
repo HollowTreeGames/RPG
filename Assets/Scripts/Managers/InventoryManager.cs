@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour {
 
-
     public string inventoryName = "";
     public GameObject inventory;
     private SpriteRenderer inventoryRenderer;
