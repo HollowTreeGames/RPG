@@ -5,25 +5,17 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoadNewArea : MonoBehaviour {
-
-    private Player theplayer;
+    
     public string levelToLoad;
-
-
-	// Use this for initialization
-	void Start () {
-
-    }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public float startX;
+    public float startY;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Player") {
+        GameObject otherObject = other.gameObject;
+        if (otherObject.name == "Player") {
             SceneManager.LoadScene(levelToLoad);
+            otherObject.transform.position = new Vector2(startX, startY);
         }
     }
 }

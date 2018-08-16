@@ -185,6 +185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad: Bel_Tent_Inside
+  startX: -2.5
+  startY: -3.5
 --- !u!1 &89721620
 GameObject:
   m_ObjectHideFlags: 0
@@ -14467,6 +14469,11 @@ Prefab:
     - target: {fileID: 4065741010732820, guid: e6b4e8cbcd31117449d817f1c9c33756, type: 2}
       propertyPath: m_RootOrder
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114966960620502506, guid: e6b4e8cbcd31117449d817f1c9c33756,
+        type: 2}
+      propertyPath: reputation
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6b4e8cbcd31117449d817f1c9c33756, type: 2}

@@ -499,6 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7239fe5bfe84f1f4a86ef949985ce319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasShadow: 1
 --- !u!212 &395474688
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -864,6 +865,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad: Main
+  startX: -1.7
+  startY: 2.5
 --- !u!61 &1340863929
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -930,6 +933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7239fe5bfe84f1f4a86ef949985ce319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasShadow: 1
 --- !u!212 &1460888633
 SpriteRenderer:
   m_ObjectHideFlags: 0
