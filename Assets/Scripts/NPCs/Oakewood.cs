@@ -7,10 +7,6 @@ using Enums;
 using MyDialogue;
 
 public class Oakewood : NPC {
-    
-    private System.Random random = new System.Random();
-
-    public Sprite LibraryBook;
 
     private DLine[] cyclingDialogue =
     {
