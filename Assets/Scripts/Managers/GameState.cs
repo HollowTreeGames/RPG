@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Enums;
 
-public class GameState : MonoBehaviour {
-
-	public bool dialoguePlaying = false;
+public class GameState : MonoBehaviour
+{
+    public bool dialoguePlaying = false;
 
     // Quests
     public QuestState findTheDankHerb = QuestState.Unavailable;
@@ -22,4 +22,20 @@ public class GameState : MonoBehaviour {
     public int friendshipOakewood = 0;
     public int friendshipParsley = 0;
 
+
+
+
+    private static bool instanceExists = false;
+
+    void Start()
+    {
+        if (instanceExists)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instanceExists = true;
+        DontDestroyOnLoad(gameObject);
+    }
 }

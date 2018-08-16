@@ -6,6 +6,7 @@ using MyDialogue;
 
 public class DialogueManager : MonoBehaviour
 {
+    private static bool instanceExists = false;
 
     public GameState gameState;
     public Canvas canvas;
@@ -20,7 +21,17 @@ public class DialogueManager : MonoBehaviour
     private Image portraitImage;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        if (instanceExists)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instanceExists = true;
+        DontDestroyOnLoad(transform.gameObject);
+
         dLines = new Queue<DLine>();
         canvasGroup = canvas.GetComponent<CanvasGroup>();
         portraitImage = portraitPanel.GetComponent<Image>();

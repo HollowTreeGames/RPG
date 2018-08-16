@@ -6,7 +6,7 @@ using Enums;
 
 public class Player : SpriteParent
 {
-    //private static bool instanceExists = false;
+    private static bool instanceExists = false;
 
     public float walkSpeed;
     public float runSpeed;
@@ -24,14 +24,14 @@ public class Player : SpriteParent
     // Use this for initialization
     protected override void Start()
     {
-        //if (instanceExists)
-        //{
-        //    Destroy(gameObject);
-        //    return;
-        //}
+        if (instanceExists)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
-        //instanceExists = true;
-        //DontDestroyOnLoad(transform.gameObject);
+        instanceExists = true;
+        DontDestroyOnLoad(transform.gameObject);
 
         base.Start();
         animator = GetComponent<Animator>();

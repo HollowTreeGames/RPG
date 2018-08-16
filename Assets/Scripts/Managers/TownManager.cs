@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using MyDialogue;
 
-public class TownManager : MonoBehaviour {
+public class TownManager : MonoBehaviour
+{
+    private static bool instanceExists = false;
 
     private GameState gameState;
     private GameObject[] tents;
@@ -18,6 +20,15 @@ public class TownManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        if (instanceExists)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instanceExists = true;
+        DontDestroyOnLoad(transform.gameObject);
+
         tents = GameObject.FindGameObjectsWithTag("Tent");
         gameState = FindObjectOfType<GameState>();
         theDM = FindObjectOfType<DialogueManager>();

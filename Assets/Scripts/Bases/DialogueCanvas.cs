@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Persistent : MonoBehaviour {
+public class DialogueCanvas : MonoBehaviour {
 
     private static bool instanceExists = false;
     

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryManager : MonoBehaviour {
+public class InventoryManager : MonoBehaviour
+{
+    private static bool instanceExists = false;
 
     public string inventoryName = "";
     public GameObject inventory;
@@ -12,6 +14,15 @@ public class InventoryManager : MonoBehaviour {
     // Use this for initialization
     protected void Start()
     {
+        if (instanceExists)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instanceExists = true;
+        DontDestroyOnLoad(transform.gameObject);
+
         inventoryRenderer = inventory.GetComponent<SpriteRenderer>();
         inventory.SetActive(false);
     }
