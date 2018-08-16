@@ -28,7 +28,7 @@ public class SpriteParent : MonoBehaviour
         // SpriteRenderer
         shadowRenderer = shadow.AddComponent<SpriteRenderer>();
         shadowRenderer.sortingLayerName = "BlockingLayer";
-        Sprite sprite = Resources.Load<Sprite>("Shadow");
+        Sprite sprite = Resources.Load<Sprite>("shadow1");
         shadowRenderer.sprite = sprite;
     }
 
