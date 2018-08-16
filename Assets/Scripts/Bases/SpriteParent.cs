@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpriteParent : MonoBehaviour
 {
+    public bool hasShadow = true;
+
     private SpriteRenderer spriteRenderer;
     private GameObject shadow;
     private SpriteRenderer shadowRenderer;
@@ -11,7 +13,8 @@ public class SpriteParent : MonoBehaviour
     protected virtual void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        MakeShadow();
+        if (hasShadow)
+            MakeShadow();
     }
 
     private void MakeShadow()
@@ -33,6 +36,7 @@ public class SpriteParent : MonoBehaviour
     {
         int x = (int)(transform.position.y * -1000);
         spriteRenderer.sortingOrder = x;
-        shadowRenderer.sortingOrder = x - 1;
+        if (hasShadow)
+            shadowRenderer.sortingOrder = x - 1;
     }
 }
