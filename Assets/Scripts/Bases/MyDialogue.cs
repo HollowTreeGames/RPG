@@ -47,15 +47,33 @@ namespace MyDialogue
     public class DLine
     {
 
+        public string line;
         public string name;
         public string face;
-        public string line;
+        public float wait;
+        public float speed;
+        public float jitter;
+        public bool pause;
 
-        public DLine(string name, string face, string line)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="line">The dialogue string to show up on the screen.</param>
+        /// <param name="name">Name of the NPC to go in the name plate, and which portrait to load. If null, Dialogue manager will use the last name provided.</param>
+        /// <param name="face">Emotion to show a portrait for, e.g. Happy, Sad. If null, will use Default portrait.</param>
+        /// <param name="wait">Number of seconds to wait until playing the text.</param>
+        /// <param name="speed">Speed to display the text at.</param>
+        /// <param name="jitter">Makes the letters jitter, if the character needs to be frightened.</param>
+        /// <param name="pause">Whether to pause at the end of a line and wait for user input.</param>
+        public DLine(string line, string name=null, string face=null, float wait=0, float speed=1, float jitter=0, bool pause=true)
         {
+            this.line = line;
             this.name = name;
             this.face = face;
-            this.line = line;
+            this.wait = wait;
+            this.speed = speed;
+            this.jitter = jitter;
+            this.pause = pause;
         }
 
         public Sprite getFace()
