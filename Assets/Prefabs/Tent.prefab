@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212660896370649480}
   - component: {fileID: 114367233494771288}
   - component: {fileID: 61709669729635174}
+  - component: {fileID: 95095384140035636}
   m_Layer: 9
   m_Name: Tent
   m_TagString: Tent
@@ -67,6 +68,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3, y: 0.99}
   m_EdgeRadius: 0
+--- !u!95 &95095384140035636
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1768321932929948}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 590a28f7f514c3c4fbe2d2a433b398d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114367233494771288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -78,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7239fe5bfe84f1f4a86ef949985ce319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasShadow: 1
 --- !u!212 &212660896370649480
 SpriteRenderer:
   m_ObjectHideFlags: 1

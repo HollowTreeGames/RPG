@@ -1,24 +1,23 @@
 fileFormatVersion: 2
-guid: 40f5334d936a02849a83c49ad48d1004
+guid: 4402372fab49d994db435b2390b7cb60
 TextureImporter:
   fileIDToRecycleName:
-    21300000: house_appearance_animation_0
-    21300002: house_appearance_animation_1
-    21300004: house_appearance_animation_2
-    21300006: house_appearance_animation_3
-    21300008: house_appearance_animation_4
-    21300010: house_appearance_animation_5
-    21300012: house_appearance_animation_6
-    21300014: house_appearance_animation_7
-    21300016: house_appearance_animation_8
-    21300018: house_appearance_animation_9
-    21300020: house_appearance_animation_10
-    21300022: house_appearance_animation_11
-    21300024: house_appearance_animation_12
-    21300026: house_appearance_animation_13
-    21300028: house_appearance_animation_14
-    21300030: house_appearance_animation_15
-    21300032: house_appearance_animation_16
+    21300000: parsley_-_walking_0
+    21300002: parsley_-_walking_1
+    21300004: parsley_-_walking_2
+    21300006: parsley_-_walking_3
+    21300008: parsley_-_walking_4
+    21300010: parsley_-_walking_5
+    21300012: parsley_-_walking_6
+    21300014: parsley_-_walking_7
+    21300016: parsley_-_walking_8
+    21300018: parsley_-_walking_9
+    21300020: parsley_-_walking_10
+    21300022: parsley_-_walking_11
+    21300024: parsley_-_walking_12
+    21300026: parsley_-_walking_13
+    21300028: parsley_-_walking_14
+    21300030: parsley_-_walking_15
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -48,7 +47,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -62,7 +61,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -78,9 +77,9 @@ TextureImporter:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -89,9 +88,9 @@ TextureImporter:
   - serializedVersion: 2
     buildTarget: Standalone
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,341 +100,321 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: house_appearance_animation_0
+      name: parsley_-_walking_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.53125, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e306c699adfe9344bcc642d656433f2
+      spriteID: 3ccb096bb3b283249a4984ea7e3e186e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: house_appearance_animation_1
+      name: parsley_-_walking_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.53125, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 976906229c1605d4da95b865725b8d4c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: parsley_-_walking_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 256
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.53125, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05c1c9ea9ce44a14eb3678c57502c61a
+      spriteID: ed0d21fa2c470044f84bf44b050980ee
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: house_appearance_animation_2
+      name: parsley_-_walking_3
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.53125, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdcb07462c40ee747bac3cb60d9ba8c7
+      spriteID: 65d43945385d3e049a79247018d17c74
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: house_appearance_animation_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 256
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bfb8d4712e700e246b35a86c16099068
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: house_appearance_animation_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d800b628050d8745ba3543e16c4edb9
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: house_appearance_animation_5
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 192
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 80407758ef1d0db4e9de33ee10e3f0fc
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: house_appearance_animation_6
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 192
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 57f677bc79b06f6458843cb9f828631d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: house_appearance_animation_7
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 192
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9a4765c39f2448441bcdd5ab2db7c0e2
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: house_appearance_animation_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3fc9351f90730fc469f644c72682bf80
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: house_appearance_animation_9
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae470dbaf7dd23543a17cbebab9e0494
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: house_appearance_animation_10
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c00a34c73646a1b4c9cc7d81cb382a07
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: house_appearance_animation_11
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 128
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4f381b99291fdf4880c7dd9c3c04b7d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: house_appearance_animation_12
+      name: parsley_-_walking_4
       rect:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.46875, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83f5b3140cf73374d81267a0529dac85
+      spriteID: 5ebe5101648f362409e0c579a5ff6cb7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: house_appearance_animation_13
+      name: parsley_-_walking_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.46875, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 507948a8010a8984390d13b3b9978eb6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: parsley_-_walking_6
       rect:
         serializedVersion: 2
         x: 64
         y: 64
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.46875, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb31e5bf5b349db49bc83b976fae7a8e
+      spriteID: e61638cf254fa5d448dbc1ba598a9020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: house_appearance_animation_14
+      name: parsley_-_walking_7
       rect:
         serializedVersion: 2
-        x: 128
+        x: 96
         y: 64
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.46875, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 119cd0a76adb0444a8ff5d6431ccdab7
+      spriteID: bb97cdd1442303a468137835ee360ff0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: house_appearance_animation_15
+      name: parsley_-_walking_8
       rect:
         serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.53125, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9af0c38ef8730d478b10855f7670993
+      spriteID: 9d6178e3f172eba4cb6a378bcd60e0cf
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: house_appearance_animation_16
+      name: parsley_-_walking_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.53125, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80a979d1bf87f31468e2e84a1b2f5769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: parsley_-_walking_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.53125, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 904273304bf022b46863b66b21cbc7f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: parsley_-_walking_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.53125, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de8d605df80af1746b2c458a2f872c2a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: parsley_-_walking_12
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.53125, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 236aeda549d0a974dafa75941e5a2bc7
+      spriteID: 9e9b3ad0eda463645a9bd0af5591f11a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: parsley_-_walking_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.53125, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecdd7554533abc64082acf5fc63448ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: parsley_-_walking_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.53125, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb92ccd267766264f9cf9304d627ef90
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: parsley_-_walking_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.53125, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d954040bada36f498ea30b94e06ab1f
       vertices: []
       indices: 
       edges: []
@@ -443,7 +422,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 048130166f1d750439c99541e2379ccc
+    spriteID: 70e94c1248803f54b8a431bbdc7819ed
     vertices: []
     indices: 
     edges: []
