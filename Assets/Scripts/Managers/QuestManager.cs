@@ -29,7 +29,11 @@ public class QuestManager : MonoBehaviour
 
     private static bool instanceExists = false;
 
+    public Canvas questCanvas;
+    public Text questText;
+
     private GameState gameState;
+    private CanvasGroup canvasGroup;
 
     void Start()
     {
@@ -43,6 +47,7 @@ public class QuestManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         gameState = FindObjectOfType<GameState>();
+        canvasGroup = questCanvas.GetComponent<CanvasGroup>();
     }
 
     public Quest FindQuest(string id)
@@ -53,6 +58,18 @@ public class QuestManager : MonoBehaviour
                 return quest;
         }
         throw new System.MissingMemberException("No quest found with the id: " + id);
+    }
+
+    public void SetQuestText(Quest quest)
+    {
+        if (quest == null)
+        {
+            canvasGroup.alpha = 0f;
+            return;
+        }
+
+        questText.text = quest.GetQuestName();
+        canvasGroup.alpha = 1f;
     }
 
     void Update()

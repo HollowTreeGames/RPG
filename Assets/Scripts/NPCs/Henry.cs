@@ -77,7 +77,7 @@ public class Henry : NPC {
                                         "dank dank dank dank dank dank dank dank dank dank dank!")
     };
 
-    private bool hasTalked = false;
+    private bool hasTalked = true;
     private System.Random random = new System.Random();
 
     public Quest questDankHerb;
@@ -138,6 +138,7 @@ public class Henry : NPC {
         {
             case QuestState.Available:
                 questDankHerb.SetQuestState(QuestState.InProgress);
+                questManager.SetQuestText(questDankHerb);
                 return questHerbDialogue;
             case QuestState.InProgress:
                 if (inventoryManager.GetInventory() == "Dank Herb")
@@ -145,6 +146,7 @@ public class Henry : NPC {
                     inventoryManager.ClearInventory();
                     questDankHerb.Finish(gameState);
                     questDankHerb.SetQuestState(QuestState.Done);
+                    questManager.SetQuestText(null);
                     return itemHerbDialogue;
                 }
                 else
@@ -158,6 +160,7 @@ public class Henry : NPC {
         {
             case QuestState.Available:
                 questDankBook.SetQuestState(QuestState.InProgress);
+                questManager.SetQuestText(questDankBook);
                 return questBookDialogue;
             case QuestState.InProgress:
                 if (inventoryManager.GetInventory() == "Herb Book")
@@ -165,6 +168,7 @@ public class Henry : NPC {
                     inventoryManager.ClearInventory();
                     questDankBook.Finish(gameState);
                     questDankBook.SetQuestState(QuestState.Done);
+                    questManager.SetQuestText(null);
                     return itemBookDialogue;
                 }
                 else
