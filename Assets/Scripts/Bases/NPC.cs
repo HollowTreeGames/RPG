@@ -82,7 +82,7 @@ public abstract class NPC : Talkable
     {
         base.OnGUI();
         int x = (int)(transform.position.y * -1000);
-        questMarkerRenderer.sortingOrder = x;
+        questMarkerRenderer.sortingOrder = x + 1;
     }
 
     public override void Interact()
