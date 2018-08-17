@@ -87,6 +87,7 @@ public class Parsley : NPC {
         {
             case QuestState.Available:
                 questFindCd.SetQuestState(QuestState.InProgress);
+                questManager.SetQuestText(questFindCd);
                 return questCDDialogue;
             case QuestState.InProgress:
                 if (inventoryManager.GetInventory() == "CD")
@@ -94,6 +95,7 @@ public class Parsley : NPC {
                     inventoryManager.ClearInventory();
                     questFindCd.Finish(gameState);
                     questFindCd.SetQuestState(QuestState.Done);
+                    questManager.SetQuestText(null);
                     return itemCDDialogue;
                 }
                 else if (inventoryManager.GetInventory() == "Library Book" || inventoryManager.GetInventory() == "Herb Book")
