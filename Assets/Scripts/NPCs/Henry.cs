@@ -137,16 +137,13 @@ public class Henry : NPC {
         switch (questDankHerb.GetQuestState())
         {
             case QuestState.Available:
-                questDankHerb.SetQuestState(QuestState.InProgress);
-                questManager.SetQuestText(questDankHerb);
+                questManager.StartQuest(questDankHerb);
                 return questHerbDialogue;
             case QuestState.InProgress:
                 if (inventoryManager.GetInventory() == "Dank Herb")
                 {
                     inventoryManager.ClearInventory();
-                    questDankHerb.Finish(gameState);
-                    questDankHerb.SetQuestState(QuestState.Done);
-                    questManager.SetQuestText(null);
+                    questManager.FinishQuest(questDankHerb);
                     return itemHerbDialogue;
                 }
                 else
@@ -159,16 +156,13 @@ public class Henry : NPC {
         switch (questDankBook.GetQuestState())
         {
             case QuestState.Available:
-                questDankBook.SetQuestState(QuestState.InProgress);
-                questManager.SetQuestText(questDankBook);
+                questManager.StartQuest(questDankBook);
                 return questBookDialogue;
             case QuestState.InProgress:
                 if (inventoryManager.GetInventory() == "Herb Book")
                 {
                     inventoryManager.ClearInventory();
-                    questDankBook.Finish(gameState);
-                    questDankBook.SetQuestState(QuestState.Done);
-                    questManager.SetQuestText(null);
+                    questManager.FinishQuest(questDankBook);
                     return itemBookDialogue;
                 }
                 else

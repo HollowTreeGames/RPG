@@ -60,6 +60,19 @@ public class QuestManager : MonoBehaviour
         throw new System.MissingMemberException("No quest found with the id: " + id);
     }
 
+    public void StartQuest(Quest quest)
+    {
+        quest.SetQuestState(QuestState.InProgress);
+        SetQuestText(quest);
+    }
+
+    public void FinishQuest(Quest quest)
+    {
+        quest.Finish(gameState);
+        quest.SetQuestState(QuestState.Done);
+        SetQuestText(null);
+    }
+
     public void SetQuestText(Quest quest)
     {
         if (quest == null)

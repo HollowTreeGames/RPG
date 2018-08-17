@@ -98,16 +98,13 @@ public class Oakewood : NPC {
         switch (questLibraryBook.GetQuestState())
         {
             case QuestState.Available:
-                questLibraryBook.SetQuestState(QuestState.InProgress);
-                questManager.SetQuestText(questLibraryBook);
+                questManager.StartQuest(questLibraryBook);
                 return questBookDialogue;
             case QuestState.InProgress:
                 if (inventoryManager.GetInventory() == "Library Book")
                 {
                     inventoryManager.ClearInventory();
-                    questLibraryBook.Finish(gameState);
-                    questLibraryBook.SetQuestState(QuestState.Done);
-                    questManager.SetQuestText(null);
+                    questManager.FinishQuest(questLibraryBook);
                     return itemBookDialogue;
                 }
                 else if (inventoryManager.GetInventory() == "Herb Book")
