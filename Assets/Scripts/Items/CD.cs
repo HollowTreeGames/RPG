@@ -22,6 +22,8 @@ public class CD : Item
         new DLine("Belfry", "Happy", "It's a shiny...circle...disk thingy!!")
     };
 
+    private Quest questFindCd;
+
     protected override void Start()
     {
         base.Start();
@@ -30,10 +32,12 @@ public class CD : Item
         this.pickUp = myPickUp;
         this.handsFull = myHandsFull;
         this.defaultDialogue = myDefaultDialogue;
-    }
+
+        questFindCd = questManager.FindQuest("parsleyFindCD");
+}
 
     protected override bool CheckForPickup()
     {
-        return (gameState.findCD == QuestState.InProgress);
+        return questFindCd.IsInProgress();
     }
 }

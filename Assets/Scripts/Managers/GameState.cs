@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Enums;
 
+[System.Serializable]
 public class GameState : MonoBehaviour
 {
     public bool pause = false;
@@ -24,11 +25,11 @@ public class GameState : MonoBehaviour
     {
         if (friendshipDict.ContainsKey(friend))
         {
-            friendshipDict[friend] = gain;
+            friendshipDict[friend] += gain;
         }
         else
         {
-            friendshipDict[friend] += gain;
+            friendshipDict[friend] = gain;
         }
     }
     #endregion

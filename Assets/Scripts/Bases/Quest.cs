@@ -1,9 +1,14 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 using Enums;
 
+[System.Serializable]
 public class Quest
 {
+    [SerializeField]
+    string questId;
     string questName;
+    [SerializeField]
     QuestState questState = QuestState.Unavailable;
     bool automaticallySetQuestAvailable = true;
     int preReqReputation = 0;
@@ -12,8 +17,9 @@ public class Quest
     Dictionary<string, int> friendshipGains = new Dictionary<string, int>();
 
     #region Constructor
-    public Quest(string name)
+    public Quest(string id, string name)
     {
+        questId = id;
         questName = name;
     }
 
@@ -25,7 +31,7 @@ public class Quest
 
     public Quest AddPrereqFriendship(string friend, int rep)
     {
-        friendshipGains[friend] = rep;
+        preReqFriendship[friend] = rep;
         return this;
     }
 
@@ -48,20 +54,57 @@ public class Quest
     }
     #endregion
 
+    public string GetQuestId()
+    {
+        return questId;
+    }
+
     public string GetQuestName()
     {
         return questName;
     }
 
+    #region QuestState
     public QuestState GetQuestState()
     {
         return questState;
+    }
+
+    public bool CheckQuestState(QuestState questState)
+    {
+        return this.questState == questState;
+    }
+
+    public bool IsUnavailable()
+    {
+        return questState == QuestState.Unavailable;
+    }
+
+    public bool IsAvailable()
+    {
+        return questState == QuestState.Available;
+    }
+
+    public bool IsInProgress()
+    {
+        return questState == QuestState.InProgress;
+    }
+
+    public bool IsDone()
+    {
+        return questState == QuestState.Done;
+    }
+
+    public bool IsDisabled()
+    {
+        return questState == QuestState.Disabled;
     }
 
     public void SetQuestState(QuestState questState)
     {
         this.questState = questState;
     }
+    #endregion
 
     public void CheckPreReqs(GameState gameState)
     {
@@ -76,6 +119,7 @@ public class Quest
             if (preReqFriendship[pair.Key] > gameState.GetFriendship(pair.Key))
                 return;
         }
+        Debug.Log("Enabling quest " + questId);
         questState = QuestState.Available;
     } 
 

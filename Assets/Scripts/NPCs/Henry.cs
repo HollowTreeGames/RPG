@@ -6,12 +6,6 @@ using Enums;
 using MyDialogue;
 
 public class Henry : NPC {
-    
-    private bool hasTalked = false;
-    private System.Random random = new System.Random();
-
-    public Sprite DankHerb;
-    public Sprite HerbBook;
 
     // Initial dialogues
     private DLine[] initialDialogue =
@@ -25,10 +19,10 @@ public class Henry : NPC {
         new DLine("Henry", "Sad", "Nora likes it when I don't wear pants, but I don't know why!"),
         new DLine("Belfry", "Sad", "...")
     };
-    private DLine[] errorDialogue =
-    {
-        new DLine("Henry", "Sad", "ERR-OR, I AM A ROBOT, SOMETHING HAS GONE WRONG, BEEP BOOP")
-    };
+    //private DLine[] errorDialogue =
+    //{
+    //    new DLine("Henry", "Sad", "ERR-OR, I AM A ROBOT, SOMETHING HAS GONE WRONG, BEEP BOOP")
+    //};
 
     // Find The Dank Herb, natch
     private DLine[] questHerbDialogue =
@@ -83,40 +77,52 @@ public class Henry : NPC {
                                         "dank dank dank dank dank dank dank dank dank dank dank!")
     };
 
+    private bool hasTalked = false;
+    private System.Random random = new System.Random();
+
+    public Quest questDankHerb;
+    public Quest questDankBook;
+
+    protected override void Start()
+    {
+        base.Start();
+        questDankHerb = questManager.FindQuest("henryDankHerb");
+        questDankBook = questManager.FindQuest("henryDankBook");
+    }
+
     protected override void UpdateQuests()
     {
         if (!hasTalked)
             return;
 
-        if ((gameState.findTheDankHerb == QuestState.Unavailable) && (gameState.findHerbBook == QuestState.Unavailable))
+        if ((questDankHerb.IsUnavailable()) && (questDankBook.IsUnavailable()))
         {
             int randomNumber = random.Next(0, 2);
             Debug.Log(randomNumber);
             if (randomNumber == 1)
             {
-                gameState.findTheDankHerb = QuestState.Available;
+                questDankHerb.SetQuestState(QuestState.Available);
             }
             else
             {
-                gameState.findHerbBook = QuestState.Available;
+                questDankBook.SetQuestState(QuestState.Available);
             }
         }
 
-        if ((gameState.findTheDankHerb == QuestState.Done) && (gameState.findHerbBook == QuestState.Unavailable))
+        if (questDankHerb.IsDone() && questDankBook.IsUnavailable())
         {
-            gameState.findHerbBook = QuestState.Available;
+            questDankBook.SetQuestState(QuestState.Available);
         }
 
-        if ((gameState.findTheDankHerb == QuestState.Unavailable) && (gameState.findHerbBook == QuestState.Done))
+        if (questDankBook.IsDone() && questDankHerb.IsUnavailable())
         {
-            gameState.findTheDankHerb = QuestState.Available;
+            questDankHerb.SetQuestState(QuestState.Available);
         }
     }
 
     protected override bool IsQuestAvailable()
     {
-        return ((gameState.findTheDankHerb == QuestState.Available) ||
-                (gameState.findHerbBook == QuestState.Available));
+        return questDankHerb.IsAvailable() || questDankBook.IsAvailable();
     }
 
     protected override DLine[] GetDialogue()
@@ -128,18 +134,17 @@ public class Henry : NPC {
         }
 
         // Find dat dank herb
-        switch (gameState.findTheDankHerb)
+        switch (questDankHerb.GetQuestState())
         {
             case QuestState.Available:
-                gameState.findTheDankHerb = QuestState.InProgress;
+                questDankHerb.SetQuestState(QuestState.InProgress);
                 return questHerbDialogue;
             case QuestState.InProgress:
                 if (inventoryManager.GetInventory() == "Dank Herb")
                 {
-                    gameState.reputation += 1;
-                    gameState.friendshipHenry += 1;
                     inventoryManager.ClearInventory();
-                    gameState.findTheDankHerb = QuestState.Done;
+                    questDankHerb.Finish(gameState);
+                    questDankHerb.SetQuestState(QuestState.Done);
                     return itemHerbDialogue;
                 }
                 else
@@ -149,18 +154,17 @@ public class Henry : NPC {
         }
 
         // Get you some herb book, son
-        switch (gameState.findHerbBook)
+        switch (questDankBook.GetQuestState())
         {
             case QuestState.Available:
-                gameState.findHerbBook = QuestState.InProgress;
+                questDankBook.SetQuestState(QuestState.InProgress);
                 return questBookDialogue;
             case QuestState.InProgress:
                 if (inventoryManager.GetInventory() == "Herb Book")
                 {
-                    gameState.reputation += 1;
-                    gameState.friendshipHenry += 1;
                     inventoryManager.ClearInventory();
-                    gameState.findHerbBook = QuestState.Done;
+                    questDankBook.Finish(gameState);
+                    questDankBook.SetQuestState(QuestState.Done);
                     return itemBookDialogue;
                 }
                 else

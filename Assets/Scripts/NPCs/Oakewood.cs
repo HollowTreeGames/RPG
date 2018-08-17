@@ -58,11 +58,19 @@ public class Oakewood : NPC {
         new DLine("Oakewood", "Sad", "Don't answer that.")
     };
 
+    public Quest questLibraryBook;
+    public Quest questDankHerb;
+    public Quest questDankBook;
+
     protected override void Start()
     {
         base.Start();
         cyclingDialogueEnumerator = CycleDialogue();
-    }
+
+        questLibraryBook = questManager.FindQuest("oakewoodLibraryBook");
+        questDankHerb = questManager.FindQuest("henryDankHerb");
+        questDankBook = questManager.FindQuest("henryDankBook");
+}
 
     private IEnumerator<DLine> CycleDialogue()
     {
@@ -74,39 +82,30 @@ public class Oakewood : NPC {
         }
     }
 
-    protected override void UpdateQuests()
-    {
-        if (gameState.friendshipHenry == 2 && gameState.findLibraryBook == QuestState.Unavailable)
-        {
-            gameState.findLibraryBook = QuestState.Available;
-        }
-    }
-
     protected override bool IsQuestAvailable()
     {
-        return (gameState.findLibraryBook == QuestState.Available);
+        return questLibraryBook.IsAvailable();
     }
 
     protected override DLine[] GetDialogue()
     {
-        if ((gameState.findTheDankHerb == QuestState.InProgress) || (gameState.findHerbBook == QuestState.InProgress))
+        if (questDankHerb.IsInProgress() || questDankBook.IsInProgress())
         {
             return friendlyDialogue;
         }
 
         // Find a library book
-        switch (gameState.findLibraryBook)
+        switch (questLibraryBook.GetQuestState())
         {
             case QuestState.Available:
-                gameState.findLibraryBook = QuestState.InProgress;
+                questLibraryBook.SetQuestState(QuestState.InProgress);
                 return questBookDialogue;
             case QuestState.InProgress:
                 if (inventoryManager.GetInventory() == "Library Book")
                 {
-                    gameState.reputation += 1;
-                    gameState.friendshipOakewood += 1;
                     inventoryManager.ClearInventory();
-                    gameState.findLibraryBook = QuestState.Done;
+                    questLibraryBook.Finish(gameState);
+                    questLibraryBook.SetQuestState(QuestState.Done);
                     return itemBookDialogue;
                 }
                 else if (inventoryManager.GetInventory() == "Herb Book")

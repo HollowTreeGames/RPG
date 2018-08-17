@@ -21,6 +21,7 @@ public class DankHerb : Item
         new DLine("Belfry", "Happy", "Mmmmm! That smells like some straight up bodacious bud!")
     };
 
+    private Quest questDankHerb;
 
     protected override void Start()
     {
@@ -30,10 +31,12 @@ public class DankHerb : Item
         this.pickUp = myPickUp;
         this.handsFull = myHandsFull;
         this.defaultDialogue = myDefaultDialogue;
-    }
+
+        questDankHerb = questManager.FindQuest("henryDankHerb");
+}
 
     protected override bool CheckForPickup()
     {
-        return (gameState.findTheDankHerb == QuestState.InProgress);
+        return questDankHerb.IsInProgress();
     }
 }

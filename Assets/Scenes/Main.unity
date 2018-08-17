@@ -11703,6 +11703,27 @@ MonoBehaviour:
   timeBetweenMove: 5
   timeToMove: 2
   walkZone: {fileID: 1739976972}
+  questLibraryBook:
+    questId: oakewoodLibraryBook
+    questName: Find a Library Book
+    questState: 0
+    automaticallySetQuestAvailable: 1
+    preReqReputation: 0
+    reputationGain: 1
+  questDankHerb:
+    questId: henryDankHerb
+    questName: Find the Dank Herb
+    questState: 0
+    automaticallySetQuestAvailable: 0
+    preReqReputation: 0
+    reputationGain: 1
+  questDankBook:
+    questId: henryDankBook
+    questName: Find the Dank Book
+    questState: 0
+    automaticallySetQuestAvailable: 0
+    preReqReputation: 0
+    reputationGain: 1
 --- !u!95 &573231926
 Animator:
   serializedVersion: 3
@@ -12084,6 +12105,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4865371628702338, guid: 3c198e48ebd7d6a4b9351e1cff8c4091,
     type: 2}
   m_PrefabInternal: {fileID: 674071012}
+--- !u!1 &681534316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 681534318}
+  - component: {fileID: 681534317}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &681534317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 681534316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ef626a86ce9bd4793ffa3d3f3a4aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questList:
+  - questId: henryDankHerb
+    questName: Find the Dank Herb
+    questState: 0
+    automaticallySetQuestAvailable: 0
+    preReqReputation: 0
+    reputationGain: 1
+  - questId: henryDankBook
+    questName: Find the Dank Book
+    questState: 0
+    automaticallySetQuestAvailable: 0
+    preReqReputation: 0
+    reputationGain: 1
+  - questId: oakewoodLibraryBook
+    questName: Find a Library Book
+    questState: 0
+    automaticallySetQuestAvailable: 1
+    preReqReputation: 0
+    reputationGain: 1
+  - questId: parsleyFindCD
+    questName: Find something cool for Parsley
+    questState: 0
+    automaticallySetQuestAvailable: 1
+    preReqReputation: 3
+    reputationGain: 1
+--- !u!4 &681534318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 681534316}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &701810339
 Prefab:
   m_ObjectHideFlags: 0
@@ -14470,11 +14556,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 114966960620502506, guid: e6b4e8cbcd31117449d817f1c9c33756,
-        type: 2}
-      propertyPath: reputation
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6b4e8cbcd31117449d817f1c9c33756, type: 2}
   m_IsPrefabAsset: 0
@@ -14783,6 +14864,13 @@ MonoBehaviour:
   timeBetweenMove: 5
   timeToMove: 2
   walkZone: {fileID: 1739976972}
+  questFindCd:
+    questId: parsleyFindCD
+    questName: Find something cool for Parsley
+    questState: 0
+    automaticallySetQuestAvailable: 1
+    preReqReputation: 3
+    reputationGain: 1
 --- !u!95 &1478656371
 Animator:
   serializedVersion: 3
@@ -15163,8 +15251,20 @@ MonoBehaviour:
   timeBetweenMove: 10
   timeToMove: 2
   walkZone: {fileID: 1739976972}
-  DankHerb: {fileID: 21300000, guid: 9c71bba9ff1531c4aa22c0a90cbf44a6, type: 3}
-  HerbBook: {fileID: 21300000, guid: 214585f7fc25d6c47827dd0e4008b237, type: 3}
+  questDankHerb:
+    questId: henryDankHerb
+    questName: Find the Dank Herb
+    questState: 0
+    automaticallySetQuestAvailable: 0
+    preReqReputation: 0
+    reputationGain: 1
+  questDankBook:
+    questId: henryDankBook
+    questName: Find the Dank Book
+    questState: 0
+    automaticallySetQuestAvailable: 0
+    preReqReputation: 0
+    reputationGain: 1
 --- !u!50 &1562472716
 Rigidbody2D:
   serializedVersion: 4

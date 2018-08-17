@@ -22,6 +22,9 @@ public class Book : Item
         new DLine("Belfry", "Sad", "This is one of those ... illicit books. ABOUT DRUGS!")
     };
 
+    private Quest questDankBook;
+    private Quest questLibraryBook;
+
     protected override void Start()
     {
         base.Start();
@@ -30,10 +33,13 @@ public class Book : Item
         this.pickUp = myPickUp;
         this.handsFull = myHandsFull;
         this.defaultDialogue = myDefaultDialogue;
-    }
+
+        questDankBook = questManager.FindQuest("henryDankBook");
+        questLibraryBook = questManager.FindQuest("oakewoodLibraryBook");
+}
 
     protected override bool CheckForPickup()
     {
-        return (gameState.findHerbBook == QuestState.InProgress || gameState.findLibraryBook == QuestState.InProgress);
+        return (questDankBook.IsInProgress() || questLibraryBook.IsInProgress());
     }
 }

@@ -63,22 +63,17 @@ public class Parsley : NPC {
         new DLine("Parsley", "Happy", "Please be sure it is quantifiably the coolest thing you've ever set paw upon.")
     };
 
+    public Quest questFindCd;
+
     protected override void Start()
     {
         base.Start();
-    }
-
-    protected override void UpdateQuests()
-    {
-        if (gameState.reputation >= 3 && gameState.findCD == QuestState.Unavailable)
-        {
-            gameState.findCD = QuestState.Available;
-        }
+        questFindCd = questManager.FindQuest("parsleyFindCD");
     }
 
     protected override bool IsQuestAvailable()
     {
-        return (gameState.findCD == QuestState.Available);
+        return questFindCd.IsAvailable();
     }
 
     protected override DLine[] GetDialogue()
@@ -88,18 +83,17 @@ public class Parsley : NPC {
             return initialDialogue;
         }
 
-        switch (gameState.findCD)
+        switch (questFindCd.GetQuestState())
         {
             case QuestState.Available:
-                gameState.findCD = QuestState.InProgress;
+                questFindCd.SetQuestState(QuestState.InProgress);
                 return questCDDialogue;
             case QuestState.InProgress:
                 if (inventoryManager.GetInventory() == "CD")
                 {
-                    gameState.reputation += 1;
-                    gameState.friendshipParsley += 1;
                     inventoryManager.ClearInventory();
-                    gameState.findCD = QuestState.Done;
+                    questFindCd.Finish(gameState);
+                    questFindCd.SetQuestState(QuestState.Done);
                     return itemCDDialogue;
                 }
                 else if (inventoryManager.GetInventory() == "Library Book" || inventoryManager.GetInventory() == "Herb Book")

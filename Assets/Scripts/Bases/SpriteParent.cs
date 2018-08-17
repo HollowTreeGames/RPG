@@ -6,12 +6,15 @@ public class SpriteParent : MonoBehaviour
 {
     public bool hasShadow = true;
 
+    protected QuestManager questManager;
+
     private SpriteRenderer spriteRenderer;
     private GameObject shadow;
     private SpriteRenderer shadowRenderer;
 
     protected virtual void Start()
     {
+        questManager = FindObjectOfType<QuestManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (hasShadow)
             MakeShadow();

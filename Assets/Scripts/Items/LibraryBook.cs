@@ -22,6 +22,8 @@ public class LibraryBook : Item
         new DLine("Belfry", "Happy", "It's an old book! What's it doing under a tree in the middle of a forest?")
     };
 
+    private Quest questLibraryBook;
+
     protected override void Start()
     {
         base.Start();
@@ -30,10 +32,12 @@ public class LibraryBook : Item
         this.pickUp = myPickUp;
         this.handsFull = myHandsFull;
         this.defaultDialogue = myDefaultDialogue;
-    }
+
+        questLibraryBook = questManager.FindQuest("oakewoodLibraryBook");
+}
 
     protected override bool CheckForPickup()
     {
-        return (gameState.findLibraryBook == QuestState.InProgress);
+        return questLibraryBook.IsInProgress();
     }
 }
