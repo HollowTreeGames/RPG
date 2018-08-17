@@ -26,7 +26,7 @@ public class QuestManager : MonoBehaviour
             .AddFriendship("Parsley", 1)
     };
 
-
+    #region Boring Code Stuff
     private static bool instanceExists = false;
 
     public Canvas questCanvas;
@@ -92,4 +92,5 @@ public class QuestManager : MonoBehaviour
             quest.CheckPreReqs(gameState);
         }
     }
+    #endregion
 }
