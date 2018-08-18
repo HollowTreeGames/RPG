@@ -77,7 +77,7 @@ public class Henry : NPC {
                                         "dank dank dank dank dank dank dank dank dank dank dank!")
     };
 
-    private bool hasTalked = true;
+    private bool hasTalked = false;
     private System.Random random = new System.Random();
 
     public Quest questDankHerb;
