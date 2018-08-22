@@ -76,23 +76,24 @@ public class Henry : NPC {
                                         "dank dank dank dank dank dank dank dank dank dank dank " +
                                         "dank dank dank dank dank dank dank dank dank dank dank!")
     };
-
-    private bool hasTalked = false;
+    
     private System.Random random = new System.Random();
 
+    public Quest questGreeting;
     public Quest questDankHerb;
     public Quest questDankBook;
 
     protected override void Start()
     {
         base.Start();
+        questGreeting = questManager.FindQuest("henryGreeting");
         questDankHerb = questManager.FindQuest("henryDankHerb");
         questDankBook = questManager.FindQuest("henryDankBook");
     }
 
     protected override void UpdateQuests()
     {
-        if (!hasTalked)
+        if (questGreeting.IsAvailable())
             return;
 
         if ((questDankHerb.IsUnavailable()) && (questDankBook.IsUnavailable()))
@@ -127,9 +128,9 @@ public class Henry : NPC {
 
     protected override DLine[] GetDialogue()
     {
-        if (!hasTalked)
+        if (questGreeting.IsAvailable())
         {
-            hasTalked = true;
+            questGreeting.Finish(gameState);
             return initialDialogue;
         }
 

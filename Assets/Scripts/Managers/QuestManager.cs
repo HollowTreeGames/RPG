@@ -8,6 +8,8 @@ public class QuestManager : MonoBehaviour
 {
     public Quest[] questList =
     {
+        new Quest("henryGreeting", "Say Hello to that dog dude over there")
+            .AddReputation(0),
         new Quest("henryDankHerb", "Find the Dank Herb")
             .DoNotCheckPreReqsAutomatically()
             .AddReputation(1)
