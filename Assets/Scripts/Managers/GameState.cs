@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Enums;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 [System.Serializable]
 public class GameState : MonoBehaviour
 {
+    public QuestManager questManager;
+
     public bool pause = false;
     // Reputation
     public int reputation = 0;
@@ -47,6 +51,31 @@ public class GameState : MonoBehaviour
 
         instanceExists = true;
         DontDestroyOnLoad(gameObject);
+    }
+    #endregion
+
+    #region Save/Load Game
+    public Save CreateSaveObject()
+    {
+        Save save = new Save();
+
+        save.questList = questManager.GetQuestList();
+        save.values.Add("pause", pause);
+        save.values.Add("reputation", reputation);
+        save.values.Add("friendshipDict", friendshipDict);
+
+        return save;
+    }
+
+    public void SaveGame()
+    {
+        Save save = CreateSaveObject();
+
+        // 2
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
+        bf.Serialize(file, save);
+        file.Close();
     }
     #endregion
 }
