@@ -79,9 +79,12 @@ public class Henry : NPC {
     
     private System.Random random = new System.Random();
 
-    public Quest questGreeting;
-    public Quest questDankHerb;
-    public Quest questDankBook;
+    [SerializeField]
+    private Quest questGreeting;
+    [SerializeField]
+    private Quest questDankHerb;
+    [SerializeField]
+    private Quest questDankBook;
 
     protected override void Start()
     {
@@ -94,6 +97,11 @@ public class Henry : NPC {
     protected override void UpdateQuests()
     {
         if (questGreeting.IsAvailable())
+        {
+            questManager.StartQuest(questGreeting);
+            return;
+        }
+        if (questGreeting.IsInProgress())
             return;
 
         if ((questDankHerb.IsUnavailable()) && (questDankBook.IsUnavailable()))
@@ -123,14 +131,14 @@ public class Henry : NPC {
 
     protected override bool IsQuestAvailable()
     {
-        return questDankHerb.IsAvailable() || questDankBook.IsAvailable();
+        return questGreeting.IsInProgress() || questDankHerb.IsAvailable() || questDankBook.IsAvailable();
     }
 
     protected override DLine[] GetDialogue()
     {
-        if (questGreeting.IsAvailable())
+        if (questGreeting.IsInProgress())
         {
-            questGreeting.Finish(gameState);
+            questManager.FinishQuest(questGreeting);
             return initialDialogue;
         }
 

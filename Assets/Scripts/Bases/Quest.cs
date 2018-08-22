@@ -52,6 +52,12 @@ public class Quest
         friendshipGains[friend] = gain;
         return this;
     }
+
+    public Quest InitialState(QuestState questState)
+    {
+        SetQuestState(questState);
+        return this;
+    }
     #endregion
 
     public string GetQuestId()

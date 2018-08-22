@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using Enums;
 
+[System.Serializable]
 public class QuestManager : MonoBehaviour
 {
-    public Quest[] questList =
+    [SerializeField]
+    private Quest[] questList =
     {
         new Quest("henryGreeting", "Say Hello to that dog dude over there")
-            .AddReputation(0),
+            .AddReputation(0)
+            .InitialState(QuestState.Available),
         new Quest("henryDankHerb", "Find the Dank Herb")
             .DoNotCheckPreReqsAutomatically()
             .AddReputation(1)
@@ -50,6 +53,11 @@ public class QuestManager : MonoBehaviour
 
         gameState = FindObjectOfType<GameState>();
         canvasGroup = questCanvas.GetComponent<CanvasGroup>();
+    }
+
+    public Quest[] GetQuestList()
+    {
+        return questList;
     }
 
     public Quest FindQuest(string id)

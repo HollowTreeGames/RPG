@@ -11710,12 +11710,15 @@ MonoBehaviour:
   walkZone: {fileID: 1739976972}
   questLibraryBook:
     questId: oakewoodLibraryBook
+    questName: 
     questState: 0
   questDankHerb:
     questId: henryDankHerb
+    questName: 
     questState: 0
   questDankBook:
     questId: henryDankBook
+    questName: 
     questState: 0
 --- !u!95 &573231926
 Animator:
@@ -12126,13 +12129,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questList:
-  - questId: henryDankHerb
+  - questId: henryGreeting
+    questName: Say Hello to that dog dude over there
     questState: 1
+  - questId: henryDankHerb
+    questName: Find the Dank Herb
+    questState: 0
   - questId: henryDankBook
+    questName: Find the Dank Book
     questState: 0
   - questId: oakewoodLibraryBook
+    questName: Find a Library Book
     questState: 0
   - questId: parsleyFindCD
+    questName: Find something cool for Parsley
     questState: 0
   questCanvas: {fileID: 855451935}
   questText: {fileID: 1962176497}
@@ -15080,6 +15090,7 @@ MonoBehaviour:
   walkZone: {fileID: 1739976972}
   questFindCd:
     questId: parsleyFindCD
+    questName: 
     questState: 0
 --- !u!95 &1478656371
 Animator:
@@ -15461,11 +15472,17 @@ MonoBehaviour:
   timeBetweenMove: 10
   timeToMove: 2
   walkZone: {fileID: 1739976972}
+  questGreeting:
+    questId: 
+    questName: 
+    questState: 0
   questDankHerb:
-    questId: henryDankHerb
+    questId: 
+    questName: 
     questState: 0
   questDankBook:
-    questId: henryDankBook
+    questId: 
+    questName: 
     questState: 0
 --- !u!50 &1562472716
 Rigidbody2D:
@@ -15547,6 +15564,21 @@ Prefab:
       propertyPath: portraitPanel
       value: 
       objectReference: {fileID: 316201531}
+    - target: {fileID: 114142525367620828, guid: b6fb8c236d6f01f46900e5275482a08f,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114142525367620828, guid: b6fb8c236d6f01f46900e5275482a08f,
+        type: 2}
+      propertyPath: timeBetweenMove
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114142525367620828, guid: b6fb8c236d6f01f46900e5275482a08f,
+        type: 2}
+      propertyPath: timeToMove
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6fb8c236d6f01f46900e5275482a08f, type: 2}
   m_IsPrefabAsset: 0
