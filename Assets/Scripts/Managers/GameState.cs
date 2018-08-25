@@ -69,13 +69,19 @@ public class GameState : MonoBehaviour
 
     public void SaveGame()
     {
+        Debug.Log("Saving game...");
         Save save = CreateSaveObject();
-
-        // 2
+        
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
-        bf.Serialize(file, save);
-        file.Close();
+        try
+        {
+            bf.Serialize(file, save);
+        }
+        finally
+        {
+            file.Close();
+        }
     }
     #endregion
 }

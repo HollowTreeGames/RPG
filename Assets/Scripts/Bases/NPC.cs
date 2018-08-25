@@ -7,7 +7,7 @@ using Enums;
 public abstract class NPC : Talkable
 {
     
-    public Animator animator;
+    protected Animator animator;
     private BoxCollider2D boxCollider2D;
     private Rigidbody2D myRigidbody;
     private System.Random random;

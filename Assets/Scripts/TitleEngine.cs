@@ -17,13 +17,11 @@ public class TitleEngine : MonoBehaviour {
 
     CanvasGroup introCanvasGroup;
     CanvasGroup buttonCanvasGroup;
-    int phase = 0;
+    public int phase = -2;
     float timeLeft = 0;
 
 	// Use this for initialization
 	void Start () {
-        phase = -2;
-
         Title1.SetActive(false);
         Title2.SetActive(false);
         Title3.SetActive(false);
