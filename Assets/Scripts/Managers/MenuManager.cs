@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
 {
     public GameState gameState;
     public Canvas menuCanvas;
+    public Button saveButton;
 
     private CanvasGroup menuCanvasGroup;
     
@@ -32,15 +33,15 @@ public class MenuManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (menuCanvasGroup.alpha == 0)
+            if (menuCanvas.enabled)
             {
-                menuCanvasGroup.alpha = 1;
-                gameState.pause = true;
+                menuCanvas.enabled = false;
+                gameState.pause = false;
             }
             else
             {
-                menuCanvasGroup.alpha = 0;
-                gameState.pause = false;
+                menuCanvas.enabled = true;
+                gameState.pause = true;
             }
         }
     }
