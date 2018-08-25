@@ -41,8 +41,9 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void TestButton()
+    public void SaveGame()
     {
-        Debug.Log("boop");
+        Debug.Log("Saving game...");
+        gameState.SaveGame();
     }
 }

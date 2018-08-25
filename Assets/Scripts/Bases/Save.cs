@@ -6,6 +6,6 @@ using UnityEngine;
 public class Save {
     
     public Quest[] questList;
-    public Dictionary<string, object> values;
+    public Dictionary<string, object> values = new Dictionary<string, object>();
 	
 }

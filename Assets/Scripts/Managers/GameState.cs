@@ -69,7 +69,6 @@ public class GameState : MonoBehaviour
 
     public void SaveGame()
     {
-        Debug.Log("Saving game...");
         Save save = CreateSaveObject();
         
         BinaryFormatter bf = new BinaryFormatter();
