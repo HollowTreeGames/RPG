@@ -9,9 +9,6 @@ public class MenuManager : MonoBehaviour
 {
     public GameState gameState;
     public Canvas menuCanvas;
-    public Button saveButton;
-
-    private CanvasGroup menuCanvasGroup;
     
     private static bool instanceExists = false;
 
@@ -25,8 +22,6 @@ public class MenuManager : MonoBehaviour
 
         instanceExists = true;
         DontDestroyOnLoad(gameObject);
-
-        menuCanvasGroup = menuCanvas.GetComponent<CanvasGroup>();
     }
 
     private void Update()
