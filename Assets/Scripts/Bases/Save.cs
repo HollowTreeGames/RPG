@@ -18,13 +18,9 @@ public class Save {
 
     public override string ToString()
     {
-        string s = "Quests = ";
-        foreach (Quest quest in questList)
-        {
-            s += "\n\t" + quest.ToString();
-        }
-        s += "\npause = ";
-        return s;
+
+        return string.Format("Save(questList={0}, reputation={1}, friendshipArray={2}", 
+            questList, reputation, friendshipArray);
     }
 
     private FriendshipPair[] DictToArray(Dictionary<string, int> dict)
