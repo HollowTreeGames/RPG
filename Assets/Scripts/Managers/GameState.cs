@@ -51,36 +51,37 @@ public class GameState : MonoBehaviour
 
         instanceExists = true;
         DontDestroyOnLoad(gameObject);
+
+        friendshipDict.Add("Fred", 1);
+        friendshipDict.Add("Ginny", 2);
+        friendshipDict.Add("Bob", 3);
     }
     #endregion
 
     #region Save/Load Game
-    public Save CreateSaveObject()
-    {
-        Save save = new Save();
-
-        save.questList = questManager.GetQuestList();
-        save.values.Add("pause", pause);
-        save.values.Add("reputation", reputation);
-        save.values.Add("friendshipDict", friendshipDict);
-
-        return save;
-    }
 
     public void SaveGame()
     {
-        Save save = CreateSaveObject();
+        Save save = new Save(questManager, this);
+        Debug.Log(save);
+
+        string json = JsonUtility.ToJson(save);
+
+        Debug.Log(json);
+
+        Save newSave = JsonUtility.FromJson<Save>(json);
+        Debug.Log(newSave);
         
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
-        try
-        {
-            bf.Serialize(file, save);
-        }
-        finally
-        {
-            file.Close();
-        }
+        //BinaryFormatter bf = new BinaryFormatter();
+        //FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
+        //try
+        //{
+        //    bf.Serialize(file, save);
+        //}
+        //finally
+        //{
+        //    file.Close();
+        //}
     }
     #endregion
 }
