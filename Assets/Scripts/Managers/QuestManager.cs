@@ -8,7 +8,7 @@ using Enums;
 public class QuestManager : MonoBehaviour
 {
     [SerializeField]
-    private Quest[] questList =
+    Quest[] questList =
     {
         new Quest("henryGreeting", "Say Hello to that dog dude over there")
             .AddReputation(0)
@@ -58,6 +58,11 @@ public class QuestManager : MonoBehaviour
     public Quest[] GetQuestList()
     {
         return questList;
+    }
+
+    public void SetQuestList(Quest[] questList)
+    {
+        this.questList = questList;
     }
 
     public Quest FindQuest(string id)

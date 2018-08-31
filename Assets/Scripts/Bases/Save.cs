@@ -16,6 +16,13 @@ public class Save {
         friendshipArray = DictToArray(gameState.friendshipDict);
     }
 
+    public void LoadData(QuestManager questManager, GameState gameState)
+    {
+        questManager.SetQuestList(questList);
+        gameState.reputation = reputation;
+        gameState.friendshipDict = ArrayToDict(friendshipArray);
+    }
+
     public override string ToString()
     {
 

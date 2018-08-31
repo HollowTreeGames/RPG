@@ -59,29 +59,27 @@ public class GameState : MonoBehaviour
     #endregion
 
     #region Save/Load Game
-
     public void SaveGame()
     {
         Save save = new Save(questManager, this);
-        Debug.Log(save);
 
         string json = JsonUtility.ToJson(save);
 
-        Debug.Log(json);
+        File.WriteAllText(
+            Application.persistentDataPath + "/gamesave.save",
+            json
+        );
+    }
 
-        Save newSave = JsonUtility.FromJson<Save>(json);
-        Debug.Log(newSave);
-        
-        //BinaryFormatter bf = new BinaryFormatter();
-        //FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
-        //try
-        //{
-        //    bf.Serialize(file, save);
-        //}
-        //finally
-        //{
-        //    file.Close();
-        //}
+    public void LoadGame()
+    {
+        string json = File.ReadAllText(
+            Application.persistentDataPath + "/gamesave.save"
+        );
+
+        Save save = JsonUtility.FromJson<Save>(json);
+
+        save.LoadData(questManager, this);
     }
     #endregion
 }
