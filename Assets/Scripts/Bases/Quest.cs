@@ -7,13 +7,19 @@ public class Quest
 {
     [SerializeField]
     string questId;
+    [SerializeField]
     string questName;
     [SerializeField]
     QuestState questState = QuestState.Unavailable;
+    [SerializeField]
     bool automaticallySetQuestAvailable = true;
+    [SerializeField]
     int preReqReputation = 0;
+    [SerializeField]
     Dictionary<string, int> preReqFriendship = new Dictionary<string, int>();
+    [SerializeField]
     int reputationGain = 0;
+    [SerializeField]
     Dictionary<string, int> friendshipGains = new Dictionary<string, int>();
 
     #region Constructor
