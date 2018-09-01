@@ -7,8 +7,7 @@ using Enums;
 [System.Serializable]
 public class QuestManager : MonoBehaviour
 {
-    [SerializeField]
-    Quest[] questList =
+    private Quest[] questList =
     {
         new Quest("henryGreeting", "Say Hello to that dog dude over there")
             .AddReputation(0)
