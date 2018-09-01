@@ -5,14 +5,26 @@ using Enums;
 [System.Serializable]
 public class Quest
 {
+    [SerializeField]
     private string questId;
+    [SerializeField]
     private string questName;
+    [SerializeField]
     private QuestState questState = QuestState.Unavailable;
+    [SerializeField]
     private bool automaticallySetQuestAvailable = true;
+    [SerializeField]
     private int preReqReputation = 0;
     private Dictionary<string, int> preReqFriendship = new Dictionary<string, int>();
+    [SerializeField]
     private int reputationGain = 0;
     private Dictionary<string, int> friendshipGains = new Dictionary<string, int>();
+
+    // Used for serializing when saving game
+    [SerializeField]
+    private Utils.ArrayPair[] preReqFriendshipArray;
+    [SerializeField]
+    private Utils.ArrayPair[] friendshipGainsArray;
 
     #region Constructor
     public Quest(string id, string name)
@@ -134,5 +146,17 @@ public class Quest
         {
             gameState.AddFriendship(pair.Key, pair.Value);
         }
+    }
+
+    public void ConvertDictsToArrays()
+    {
+        preReqFriendshipArray = Utils.DictToArray(preReqFriendship);
+        friendshipGainsArray = Utils.DictToArray(friendshipGains);
+    }
+
+    public void ConvertArraysToDicts()
+    {
+        preReqFriendship = Utils.ArrayToDict(preReqFriendshipArray);
+        friendshipGains = Utils.ArrayToDict(friendshipGainsArray);
     }
 }
