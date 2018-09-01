@@ -35,6 +35,17 @@ public class GameState : MonoBehaviour
         {
             friendshipDict[friend] = gain;
         }
+        Debug.Log(PrintDict());
+    }
+
+    public string PrintDict()
+    {
+        List<string> s = new List<string>();
+        foreach (KeyValuePair<string, int> pair in friendshipDict)
+        {
+            s.Add(string.Format("{0}: {1}", pair.Key, pair.Value));
+        }
+        return "[" + string.Join(", ", s.ToArray()) + "]";
     }
     #endregion
 
@@ -51,10 +62,6 @@ public class GameState : MonoBehaviour
 
         instanceExists = true;
         DontDestroyOnLoad(gameObject);
-
-        friendshipDict.Add("Fred", 1);
-        friendshipDict.Add("Ginny", 2);
-        friendshipDict.Add("Bob", 3);
     }
     #endregion
 
@@ -80,6 +87,8 @@ public class GameState : MonoBehaviour
         Save save = JsonUtility.FromJson<Save>(json);
 
         save.LoadData(questManager, this);
+
+        Debug.Log(PrintDict());
     }
     #endregion
 }

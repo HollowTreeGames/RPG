@@ -46,4 +46,10 @@ public class MenuManager : MonoBehaviour
         Debug.Log("Saving game...");
         gameState.SaveGame();
     }
+
+    public void LoadGame()
+    {
+        Debug.Log("Loading game...");
+        gameState.LoadGame();
+    }
 }
