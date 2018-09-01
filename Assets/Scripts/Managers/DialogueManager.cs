@@ -9,7 +9,7 @@ public class DialogueManager : MonoBehaviour
     private static bool instanceExists = false;
 
     public GameState gameState;
-    public Canvas canvas;
+    public Canvas dialogueCanvas;
     public Text nameText;
     public GameObject portraitPanel;
     public Text dialogueText;
@@ -33,7 +33,7 @@ public class DialogueManager : MonoBehaviour
         DontDestroyOnLoad(transform.gameObject);
 
         dLines = new Queue<DLine>();
-        canvasGroup = canvas.GetComponent<CanvasGroup>();
+        canvasGroup = dialogueCanvas.GetComponent<CanvasGroup>();
         portraitImage = portraitPanel.GetComponent<Image>();
         Faces.InitFaces();
     }
