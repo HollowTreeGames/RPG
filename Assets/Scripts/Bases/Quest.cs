@@ -15,16 +15,18 @@ public class Quest
     private bool automaticallySetQuestAvailable = true;
     [SerializeField]
     private int preReqReputation = 0;
-    private Dictionary<string, int> preReqFriendship = new Dictionary<string, int>();
+    [SerializeField]
+    private Utils.DictionaryStringInt preReqFriendship = new Utils.DictionaryStringInt();
     [SerializeField]
     private int reputationGain = 0;
-    private Dictionary<string, int> friendshipGains = new Dictionary<string, int>();
+    [SerializeField]
+    private Utils.DictionaryStringInt friendshipGains = new Utils.DictionaryStringInt();
 
     // Used for serializing when saving game
-    [SerializeField]
-    private Utils.ArrayPair[] preReqFriendshipArray;
-    [SerializeField]
-    private Utils.ArrayPair[] friendshipGainsArray;
+    //[SerializeField]
+    //private Utils.ArrayPair[] preReqFriendshipArray;
+    //[SerializeField]
+    //private Utils.ArrayPair[] friendshipGainsArray;
 
     #region Constructor
     public Quest(string id, string name)
@@ -150,13 +152,13 @@ public class Quest
 
     public void ConvertDictsToArrays()
     {
-        preReqFriendshipArray = Utils.DictToArray(preReqFriendship);
-        friendshipGainsArray = Utils.DictToArray(friendshipGains);
+        //preReqFriendshipArray = Utils.DictToArray(preReqFriendship);
+        //friendshipGainsArray = Utils.DictToArray(friendshipGains);
     }
 
     public void ConvertArraysToDicts()
     {
-        preReqFriendship = Utils.ArrayToDict(preReqFriendshipArray);
-        friendshipGains = Utils.ArrayToDict(friendshipGainsArray);
+        //preReqFriendship = Utils.ArrayToDict(preReqFriendshipArray);
+        //friendshipGains = Utils.ArrayToDict(friendshipGainsArray);
     }
 }

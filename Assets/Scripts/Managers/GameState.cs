@@ -21,7 +21,7 @@ public class GameState : MonoBehaviour
 
     // Friendship levels
     [SerializeField]
-    public Dictionary<string, int> friendshipDict = new Dictionary<string, int>();
+    public Utils.DictionaryStringInt friendshipDict = new Utils.DictionaryStringInt();
 
     #region FriendshipDict methods
     public int GetFriendship(string friend)

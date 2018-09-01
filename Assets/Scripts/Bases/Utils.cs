@@ -41,4 +41,6 @@ public class Utils
             return string.Format("({0}, {1})", key, value);
         }
     }
+
+    [System.Serializable] public class DictionaryStringInt : SerializableDictionary<string, int> { }
 }

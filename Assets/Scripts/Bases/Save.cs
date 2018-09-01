@@ -9,7 +9,7 @@ public class Save {
     public int reputation;
     public string currentScene;
     public Vector2 startPosition;
-    public Utils.ArrayPair[] friendshipArray;
+    public Utils.DictionaryStringInt friendshipDict;
 
     public Save(QuestManager questManager, GameState gameState)
     {
@@ -17,7 +17,7 @@ public class Save {
         reputation = gameState.reputation;
         currentScene = gameState.currentScene;
         startPosition = gameState.startPosition;
-        friendshipArray = Utils.DictToArray(gameState.friendshipDict);
+        friendshipDict = gameState.friendshipDict;
     }
 
     public void LoadData(QuestManager questManager, GameState gameState)
@@ -26,13 +26,13 @@ public class Save {
         gameState.reputation = reputation;
         //gameState.currentScene = currentScene;
         //gameState.startPosition = startPosition;
-        gameState.friendshipDict = Utils.ArrayToDict(friendshipArray);
+        gameState.friendshipDict = friendshipDict;
     }
 
     public override string ToString()
     {
         return string.Format("Save(questList={0}, reputation={1}, friendshipArray={2}", 
-            questList, reputation, friendshipArray);
+            questList, reputation, friendshipDict);
     }
 }
 

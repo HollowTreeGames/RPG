@@ -56,19 +56,11 @@ public class QuestManager : MonoBehaviour
 
     public Quest[] GetQuestList()
     {
-        foreach (Quest quest in questList)
-        {
-            quest.ConvertDictsToArrays();
-        }
         return questList;
     }
 
     public void SetQuestList(Quest[] questList)
     {
-        foreach (Quest quest in questList)
-        {
-            quest.ConvertArraysToDicts();
-        }
         this.questList = questList;
     }
 
