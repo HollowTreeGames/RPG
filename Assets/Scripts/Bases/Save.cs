@@ -7,12 +7,16 @@ public class Save {
     
     public Quest[] questList;
     public int reputation;
+    public string currentScene;
+    public Vector2 startPosition;
     public FriendshipPair[] friendshipArray;
 
     public Save(QuestManager questManager, GameState gameState)
     {
         questList = questManager.GetQuestList();
-        this.reputation = gameState.reputation;
+        reputation = gameState.reputation;
+        currentScene = gameState.currentScene;
+        startPosition = gameState.startPosition;
         friendshipArray = DictToArray(gameState.friendshipDict);
     }
 
@@ -20,12 +24,13 @@ public class Save {
     {
         questManager.SetQuestList(questList);
         gameState.reputation = reputation;
+        //gameState.currentScene = currentScene;
+        //gameState.startPosition = startPosition;
         gameState.friendshipDict = ArrayToDict(friendshipArray);
     }
 
     public override string ToString()
     {
-
         return string.Format("Save(questList={0}, reputation={1}, friendshipArray={2}", 
             questList, reputation, friendshipArray);
     }
