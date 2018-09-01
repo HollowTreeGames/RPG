@@ -76,8 +76,15 @@ public class GameState : MonoBehaviour
 
         string json = JsonUtility.ToJson(save);
 
+        string savePath = Application.persistentDataPath + "/gamesave.save";
+
+        if (File.Exists(savePath))
+        {
+            File.Delete(savePath);
+        }
+
         File.WriteAllText(
-            Application.persistentDataPath + "/gamesave.save",
+            savePath,
             json
         );
     }
