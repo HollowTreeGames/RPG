@@ -89,6 +89,11 @@ public class Henry : NPC {
     protected override void Start()
     {
         base.Start();
+        LoadQuests();
+    }
+
+    public override void LoadQuests()
+    {
         questGreeting = questManager.FindQuest("henryGreeting");
         questDankHerb = questManager.FindQuest("henryDankHerb");
         questDankBook = questManager.FindQuest("henryDankBook");

@@ -68,6 +68,11 @@ public class Parsley : NPC {
     protected override void Start()
     {
         base.Start();
+        LoadQuests();
+    }
+
+    public override void LoadQuests()
+    {
         questFindCd = questManager.FindQuest("parsleyFindCD");
     }
 

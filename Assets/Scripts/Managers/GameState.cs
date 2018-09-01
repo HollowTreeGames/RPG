@@ -100,6 +100,12 @@ public class GameState : MonoBehaviour
         save.LoadData(questManager, this);
 
         Debug.Log(PrintDict());
+
+        NPC[] npcs = FindObjectsOfType<NPC>();
+        foreach (NPC npc in npcs)
+        {
+            npc.LoadQuests();
+        }
     }
     #endregion
 }

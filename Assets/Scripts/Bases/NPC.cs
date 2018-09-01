@@ -187,6 +187,11 @@ public abstract class NPC : Talkable
         }
     }
 
+    public virtual void LoadQuests()
+    {
+        return;
+    }
+
     protected virtual void UpdateQuests()
     {
         return;
