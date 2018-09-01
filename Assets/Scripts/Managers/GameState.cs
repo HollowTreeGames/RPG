@@ -12,6 +12,10 @@ public class GameState : MonoBehaviour
     public QuestManager questManager;
 
     public bool pause = false;
+
+    public string currentScene = "Main";
+    public Vector2 startPosition = new Vector2(0, 0);
+
     // Reputation
     public int reputation = 0;
 

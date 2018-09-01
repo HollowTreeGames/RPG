@@ -7,7 +7,7 @@ using Enums;
 [System.Serializable]
 public class ButtonManager : MonoBehaviour
 {   
-    public void TestButton()
+    public void NewGame()
     {
         Debug.Log("Farts");
     }
