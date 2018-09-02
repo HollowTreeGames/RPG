@@ -35,9 +35,7 @@ public class QuestManager : MonoBehaviour
 
     public Canvas questCanvas;
     public Text questText;
-
-    private GameState gameState;
-    private CanvasGroup canvasGroup;
+    public GameState gameState;
 
     void Start()
     {
@@ -49,9 +47,6 @@ public class QuestManager : MonoBehaviour
 
         instanceExists = true;
         DontDestroyOnLoad(gameObject);
-
-        gameState = FindObjectOfType<GameState>();
-        canvasGroup = questCanvas.GetComponent<CanvasGroup>();
     }
 
     public Quest[] GetQuestList()
@@ -91,12 +86,12 @@ public class QuestManager : MonoBehaviour
     {
         if (quest == null)
         {
-            canvasGroup.alpha = 0f;
+            questCanvas.enabled = false;
             return;
         }
 
         questText.text = quest.GetQuestName();
-        canvasGroup.alpha = 1f;
+        questCanvas.enabled = true;
     }
 
     void Update()

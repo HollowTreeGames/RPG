@@ -1,16 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using Enums;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
 
 [System.Serializable]
 public class GameState : MonoBehaviour
 {
-    public QuestManager questManager;
-
     public bool pause = false;
 
     public string currentScene = "Main";
@@ -66,46 +60,6 @@ public class GameState : MonoBehaviour
 
         instanceExists = true;
         DontDestroyOnLoad(gameObject);
-    }
-    #endregion
-
-    #region Save/Load Game
-    public void SaveGame()
-    {
-        Save save = new Save(questManager, this);
-
-        string json = JsonUtility.ToJson(save);
-
-        string savePath = Application.persistentDataPath + "/gamesave.save";
-
-        if (File.Exists(savePath))
-        {
-            File.Delete(savePath);
-        }
-
-        File.WriteAllText(
-            savePath,
-            json
-        );
-    }
-
-    public void LoadGame()
-    {
-        string json = File.ReadAllText(
-            Application.persistentDataPath + "/gamesave.save"
-        );
-
-        Save save = JsonUtility.FromJson<Save>(json);
-
-        save.LoadData(questManager, this);
-
-        Debug.Log(PrintDict());
-
-        NPC[] npcs = FindObjectsOfType<NPC>();
-        foreach (NPC npc in npcs)
-        {
-            npc.LoadQuests();
-        }
     }
     #endregion
 }

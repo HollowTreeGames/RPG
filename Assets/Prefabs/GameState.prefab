@@ -33,8 +33,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1371078238837824}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 473.61407, y: 261.89777, z: 6.29132}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,12 +51,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df657402c213986449bd98dbb252d69c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePlaying: 0
-  findTheDankHerb: 0
-  findHerbBook: 0
-  findLibraryBook: 0
-  findCD: 0
+  questManager: {fileID: 0}
+  pause: 0
+  currentScene: Main
+  startPosition: {x: 0, y: 0}
   reputation: 0
-  friendshipHenry: 0
-  friendshipOakewood: 0
-  friendshipParsley: 0
+  friendshipDict:
+    _Buckets: ffffffffffffffffffffffff
+    _HashCodes: 000000000000000000000000
+    _Next: 000000000000000000000000
+    _Count: 0
+    _Version: 0
+    _FreeList: -1
+    _FreeCount: 0
+    _Keys:
+    - 
+    - 
+    - 
+    _Values: 000000000000000000000000

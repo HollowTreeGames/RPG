@@ -11328,6 +11328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ef626a86ce9bd4793ffa3d3f3a4aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveManager: {fileID: 1581696778}
   gameState: {fileID: 102065168}
   menuCanvas: {fileID: 509474951}
 --- !u!4 &378677423
@@ -11508,7 +11509,7 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 509474948}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -12116,11 +12117,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4413110545984154, guid: 968dc01e55c11b24c980394db2fd1aad, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.41400003
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4413110545984154, guid: 968dc01e55c11b24c980394db2fd1aad, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.388
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4413110545984154, guid: 968dc01e55c11b24c980394db2fd1aad, type: 2}
       propertyPath: m_LocalPosition.z
@@ -12145,16 +12146,6 @@ Prefab:
     - target: {fileID: 4413110545984154, guid: 968dc01e55c11b24c980394db2fd1aad, type: 2}
       propertyPath: m_RootOrder
       value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 114328769730518048, guid: 968dc01e55c11b24c980394db2fd1aad,
-        type: 2}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114328769730518048, guid: 968dc01e55c11b24c980394db2fd1aad,
-        type: 2}
-      propertyPath: inventoryImage
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114328769730518048, guid: 968dc01e55c11b24c980394db2fd1aad,
         type: 2}
@@ -12290,6 +12281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questCanvas: {fileID: 855451935}
   questText: {fileID: 1962176497}
+  gameState: {fileID: 102065168}
 --- !u!4 &681534318
 Transform:
   m_ObjectHideFlags: 0
@@ -12559,7 +12551,6 @@ GameObject:
   - component: {fileID: 855451935}
   - component: {fileID: 855451934}
   - component: {fileID: 855451933}
-  - component: {fileID: 855451932}
   - component: {fileID: 855451931}
   m_Layer: 5
   m_Name: Quest Canvas
@@ -12579,18 +12570,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a28b8f185fa934aad3c278b08a592e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!225 &855451932
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 225430137385542456, guid: 2c895a5ecd6ebeb45ae4fd296959e094,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 855451930}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 0
-  m_IgnoreParentGroups: 0
 --- !u!114 &855451933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14795,11 +14774,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4071994899012706, guid: 6c661e01ee84df74d92eeb07881452d8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4071994899012706, guid: 6c661e01ee84df74d92eeb07881452d8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4071994899012706, guid: 6c661e01ee84df74d92eeb07881452d8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -14969,15 +14948,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4065741010732820, guid: e6b4e8cbcd31117449d817f1c9c33756, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 473.61407
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4065741010732820, guid: e6b4e8cbcd31117449d817f1c9c33756, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 261.89777
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4065741010732820, guid: e6b4e8cbcd31117449d817f1c9c33756, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 6.29132
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4065741010732820, guid: e6b4e8cbcd31117449d817f1c9c33756, type: 2}
       propertyPath: m_LocalRotation.x
@@ -16240,6 +16219,48 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4116208367648876, guid: a0a08a5ca3967944fb8c8f89064ad394,
     type: 2}
   m_PrefabInternal: {fileID: 1437917010}
+--- !u!1 &1581696777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1581696779}
+  - component: {fileID: 1581696778}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1581696778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1581696777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 431058d4968bbed49b898b9ac125b19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: {fileID: 102065168}
+  questManager: {fileID: 681534317}
+--- !u!4 &1581696779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1581696777}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1633822605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4116208367648876, guid: a0a08a5ca3967944fb8c8f89064ad394,
@@ -16584,15 +16605,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4361898708602978, guid: 7dd3a66e34eda5740916398efa440d46, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.21106963
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4361898708602978, guid: 7dd3a66e34eda5740916398efa440d46, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.1680454
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4361898708602978, guid: 7dd3a66e34eda5740916398efa440d46, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.028320312
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4361898708602978, guid: 7dd3a66e34eda5740916398efa440d46, type: 2}
       propertyPath: m_LocalRotation.x
@@ -16621,7 +16642,7 @@ Prefab:
       objectReference: {fileID: 102065168}
     - target: {fileID: 114446612043391186, guid: 7dd3a66e34eda5740916398efa440d46,
         type: 2}
-      propertyPath: canvas
+      propertyPath: dialogueCanvas
       value: 
       objectReference: {fileID: 3665699}
     - target: {fileID: 114446612043391186, guid: 7dd3a66e34eda5740916398efa440d46,
@@ -16639,11 +16660,6 @@ Prefab:
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 1321954623}
-    - target: {fileID: 114446612043391186, guid: 7dd3a66e34eda5740916398efa440d46,
-        type: 2}
-      propertyPath: dialogueCanvas
-      value: 
-      objectReference: {fileID: 3665699}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dd3a66e34eda5740916398efa440d46, type: 2}
   m_IsPrefabAsset: 0

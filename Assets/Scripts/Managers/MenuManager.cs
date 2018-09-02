@@ -7,6 +7,7 @@ using Enums;
 [System.Serializable]
 public class MenuManager : MonoBehaviour
 {
+    public SaveManager saveManager;
     public GameState gameState;
     public Canvas menuCanvas;
     
@@ -44,12 +45,12 @@ public class MenuManager : MonoBehaviour
     public void SaveGame()
     {
         Debug.Log("Saving game...");
-        gameState.SaveGame();
+        saveManager.SaveGame();
     }
 
     public void LoadGame()
     {
         Debug.Log("Loading game...");
-        gameState.LoadGame();
+        saveManager.LoadGame();
     }
 }
