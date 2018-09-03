@@ -7,10 +7,10 @@ using Enums;
 [System.Serializable]
 public class MenuManager : MonoBehaviour
 {
-    public SaveManager saveManager;
-    public GameState gameState;
     public Canvas menuCanvas;
-    
+
+    private SaveManager saveManager;
+    private GameState gameState;
     private static bool instanceExists = false;
 
     void Start()
@@ -23,6 +23,9 @@ public class MenuManager : MonoBehaviour
 
         instanceExists = true;
         DontDestroyOnLoad(gameObject);
+
+        gameState = FindObjectOfType<GameState>();
+        saveManager = FindObjectOfType<SaveManager>();
     }
 
     private void Update()

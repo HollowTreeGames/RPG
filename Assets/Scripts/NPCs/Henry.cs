@@ -70,20 +70,15 @@ public class Henry : NPC {
     {
         new DLine("Henry", "Default", "Thanks again for the dank dire doobies and this mad awesome book!"),
         new DLine("Henry", "Sad", "Nora asked me to stop saying dank, but it's too much fun!"),
-        new DLine("Henry", "Happy", "Dank dank dank dank dank dank dank dank dank dank dank " +
-                                        "dank dank dank dank dank dank dank dank dank dank dank " +
-                                        "dank dank dank dank dank dank dank dank dank dank dank " +
-                                        "dank dank dank dank dank dank dank dank dank dank dank " +
-                                        "dank dank dank dank dank dank dank dank dank dank dank!")
+        new DLine("Henry", "Happy", "Dank dank dank dank dank dank dank " +
+                                    "dank dank dank dank dank dank dank " +
+                                    "dank dank dank dank dank dank dank!")
     };
     
     private System.Random random = new System.Random();
-
-    [SerializeField]
+    
     private Quest questGreeting;
-    [SerializeField]
     private Quest questDankHerb;
-    [SerializeField]
     private Quest questDankBook;
 
     protected override void Start()

@@ -14804,6 +14804,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 1051045131490404, guid: 6c661e01ee84df74d92eeb07881452d8, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114920688381835650, guid: 6c661e01ee84df74d92eeb07881452d8,
+        type: 2}
+      propertyPath: gameState
+      value: 
+      objectReference: {fileID: 102065168}
+    - target: {fileID: 114920688381835650, guid: 6c661e01ee84df74d92eeb07881452d8,
+        type: 2}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 2146486960}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c661e01ee84df74d92eeb07881452d8, type: 2}
   m_IsPrefabAsset: 0

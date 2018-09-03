@@ -64,10 +64,16 @@ public class FadeCameraAndLoad : MonoBehaviour
 
     private void LoadScene()
     {
-        player.SetActive(false);
-        player.transform.position = new Vector2(startX, startY);
+        if (player != null)
+        {
+            player.SetActive(false);
+            player.transform.position = new Vector2(startX, startY);
+        }
         SceneManager.LoadScene(levelToLoad);
-        player.SetActive(true);
+        if (player != null)
+        {
+            player.SetActive(true);
+        }
         gameState.pause = false;
     }
 

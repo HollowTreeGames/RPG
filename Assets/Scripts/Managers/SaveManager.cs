@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-    public GameState gameState;
-    public QuestManager questManager;
+    private GameState gameState;
+    private QuestManager questManager;
 
     #region Singleton
     private static bool instanceExists = false;
@@ -19,6 +19,9 @@ public class SaveManager : MonoBehaviour
 
         instanceExists = true;
         DontDestroyOnLoad(gameObject);
+
+        gameState = FindObjectOfType<GameState>();
+        questManager = FindObjectOfType<QuestManager>();
     }
     #endregion
 

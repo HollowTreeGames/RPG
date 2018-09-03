@@ -5,9 +5,9 @@ using MyDialogue;
 
 public class TownManager : MonoBehaviour
 {
-    public GameState gameState;
     public DialogueManager dialogueManager;
 
+    private GameState gameState;
     private GameObject[] tents;
     private bool tentsShown = false;
 
@@ -30,6 +30,7 @@ public class TownManager : MonoBehaviour
         instanceExists = true;
         DontDestroyOnLoad(transform.gameObject);
 
+        gameState = FindObjectOfType<GameState>();
         tents = GameObject.FindGameObjectsWithTag("Tent");
 
         HideTents();

@@ -33,9 +33,10 @@ public class QuestManager : MonoBehaviour
     #region Boring Code Stuff
     private static bool instanceExists = false;
 
-    public Canvas questCanvas;
-    public Text questText;
-    public GameState gameState;
+    private QuestCanvas questCanvas;
+    private Canvas canvas;
+    private Text questText;
+    private GameState gameState;
 
     void Start()
     {
@@ -47,6 +48,11 @@ public class QuestManager : MonoBehaviour
 
         instanceExists = true;
         DontDestroyOnLoad(gameObject);
+
+        questCanvas = FindObjectOfType<QuestCanvas>();
+        canvas = questCanvas.GetComponent<Canvas>();
+        questText = questCanvas.GetComponentInChildren<Text>();
+        gameState = FindObjectOfType<GameState>();
     }
 
     public Quest[] GetQuestList()
@@ -86,12 +92,13 @@ public class QuestManager : MonoBehaviour
     {
         if (quest == null)
         {
-            questCanvas.enabled = false;
+            questText.text = "";
+            canvas.enabled = false;
             return;
         }
 
         questText.text = quest.GetQuestName();
-        questCanvas.enabled = true;
+        canvas.enabled = true;
     }
 
     void Update()
