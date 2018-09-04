@@ -4,10 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using Enums;
 
+[System.Serializable]
 public class QuestManager : MonoBehaviour
 {
-    public Quest[] questList =
+    private Quest[] questList =
     {
+        new Quest("henryGreeting", "Say Hello to that dog dude over there")
+            .AddReputation(0)
+            .InitialState(QuestState.Available),
         new Quest("henryDankHerb", "Find the Dank Herb")
             .DoNotCheckPreReqsAutomatically()
             .AddReputation(1)
@@ -29,11 +33,10 @@ public class QuestManager : MonoBehaviour
     #region Boring Code Stuff
     private static bool instanceExists = false;
 
-    public Canvas questCanvas;
-    public Text questText;
-
+    private QuestCanvas questCanvas;
+    private Canvas canvas;
+    private Text questText;
     private GameState gameState;
-    private CanvasGroup canvasGroup;
 
     void Start()
     {
@@ -46,8 +49,20 @@ public class QuestManager : MonoBehaviour
         instanceExists = true;
         DontDestroyOnLoad(gameObject);
 
+        questCanvas = FindObjectOfType<QuestCanvas>();
+        canvas = questCanvas.GetComponent<Canvas>();
+        questText = questCanvas.GetComponentInChildren<Text>();
         gameState = FindObjectOfType<GameState>();
-        canvasGroup = questCanvas.GetComponent<CanvasGroup>();
+    }
+
+    public Quest[] GetQuestList()
+    {
+        return questList;
+    }
+
+    public void SetQuestList(Quest[] questList)
+    {
+        this.questList = questList;
     }
 
     public Quest FindQuest(string id)
@@ -77,12 +92,13 @@ public class QuestManager : MonoBehaviour
     {
         if (quest == null)
         {
-            canvasGroup.alpha = 0f;
+            questText.text = "";
+            canvas.enabled = false;
             return;
         }
 
         questText.text = quest.GetQuestName();
-        canvasGroup.alpha = 1f;
+        canvas.enabled = true;
     }
 
     void Update()

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Enums;
+using System;
 
 public abstract class NPC : Talkable
 {
     
-    public Animator animator;
+    protected Animator animator;
     private BoxCollider2D boxCollider2D;
     private Rigidbody2D myRigidbody;
     private System.Random random;
@@ -36,7 +37,10 @@ public abstract class NPC : Talkable
     {
         base.Start();
 
-        random = new System.Random(this.GetHashCode());
+        int millEpoch = (int)new DateTime().ToUniversalTime().Subtract(
+            new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
+            ).TotalMilliseconds;
+        random = new System.Random(this.GetHashCode() * millEpoch);
         timeBetweenMoveCounter = random.Next(1, timeBetweenMove);
         myRigidbody = GetComponent<Rigidbody2D>();
         gameState = FindObjectOfType<GameState>();
@@ -140,7 +144,7 @@ public abstract class NPC : Talkable
                 animator.SetBool("walking", true);
                 timeToMoveCounter = random.Next(1, timeToMove);
 
-                chooseDirection = Random.Range(-1, 2);
+                chooseDirection = UnityEngine.Random.Range(-1, 2);
                 if (chooseDirection > 0)
                 {
                     float NPCY = random.Next(-1, 2);
@@ -185,6 +189,11 @@ public abstract class NPC : Talkable
                 }
             }
         }
+    }
+
+    public virtual void LoadQuests()
+    {
+        return;
     }
 
     protected virtual void UpdateQuests()

@@ -6,15 +6,27 @@ using Enums;
 public class Quest
 {
     [SerializeField]
-    string questId;
-    string questName;
+    private string questId;
     [SerializeField]
-    QuestState questState = QuestState.Unavailable;
-    bool automaticallySetQuestAvailable = true;
-    int preReqReputation = 0;
-    Dictionary<string, int> preReqFriendship = new Dictionary<string, int>();
-    int reputationGain = 0;
-    Dictionary<string, int> friendshipGains = new Dictionary<string, int>();
+    private string questName;
+    [SerializeField]
+    private QuestState questState = QuestState.Unavailable;
+    [SerializeField]
+    private bool automaticallySetQuestAvailable = true;
+    [SerializeField]
+    private int preReqReputation = 0;
+    [SerializeField]
+    private Utils.DictionaryStringInt preReqFriendship = new Utils.DictionaryStringInt();
+    [SerializeField]
+    private int reputationGain = 0;
+    [SerializeField]
+    private Utils.DictionaryStringInt friendshipGains = new Utils.DictionaryStringInt();
+
+    // Used for serializing when saving game
+    //[SerializeField]
+    //private Utils.ArrayPair[] preReqFriendshipArray;
+    //[SerializeField]
+    //private Utils.ArrayPair[] friendshipGainsArray;
 
     #region Constructor
     public Quest(string id, string name)
@@ -50,6 +62,12 @@ public class Quest
     public Quest AddFriendship(string friend, int gain)
     {
         friendshipGains[friend] = gain;
+        return this;
+    }
+
+    public Quest InitialState(QuestState questState)
+    {
+        SetQuestState(questState);
         return this;
     }
     #endregion
@@ -130,5 +148,17 @@ public class Quest
         {
             gameState.AddFriendship(pair.Key, pair.Value);
         }
+    }
+
+    public void ConvertDictsToArrays()
+    {
+        //preReqFriendshipArray = Utils.DictToArray(preReqFriendship);
+        //friendshipGainsArray = Utils.DictToArray(friendshipGains);
+    }
+
+    public void ConvertArraysToDicts()
+    {
+        //preReqFriendship = Utils.ArrayToDict(preReqFriendshipArray);
+        //friendshipGains = Utils.ArrayToDict(friendshipGainsArray);
     }
 }

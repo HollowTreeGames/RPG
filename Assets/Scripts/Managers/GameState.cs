@@ -1,19 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using Enums;
 
 [System.Serializable]
 public class GameState : MonoBehaviour
 {
     public bool pause = false;
+
+    public string currentScene = "Main";
+    public Vector2 startPosition = new Vector2(0, 0);
+
     // Reputation
     public int reputation = 0;
 
     // Friendship levels
     [SerializeField]
-    public Dictionary<string, int> friendshipDict = new Dictionary<string, int>();
+    public Utils.DictionaryStringInt friendshipDict = new Utils.DictionaryStringInt();
 
     #region FriendshipDict methods
     public int GetFriendship(string friend)
@@ -31,6 +33,17 @@ public class GameState : MonoBehaviour
         {
             friendshipDict[friend] = gain;
         }
+        Debug.Log(PrintDict());
+    }
+
+    public string PrintDict()
+    {
+        List<string> s = new List<string>();
+        foreach (KeyValuePair<string, int> pair in friendshipDict)
+        {
+            s.Add(string.Format("{0}: {1}", pair.Key, pair.Value));
+        }
+        return "[" + string.Join(", ", s.ToArray()) + "]";
     }
     #endregion
 

@@ -66,11 +66,14 @@ public class Oakewood : NPC {
     {
         base.Start();
         cyclingDialogueEnumerator = CycleDialogue();
+    }
 
+    public override void LoadQuests()
+    {
         questLibraryBook = questManager.FindQuest("oakewoodLibraryBook");
         questDankHerb = questManager.FindQuest("henryDankHerb");
         questDankBook = questManager.FindQuest("henryDankBook");
-}
+    }
 
     private IEnumerator<DLine> CycleDialogue()
     {

@@ -70,29 +70,38 @@ public class Henry : NPC {
     {
         new DLine("Henry", "Default", "Thanks again for the dank dire doobies and this mad awesome book!"),
         new DLine("Henry", "Sad", "Nora asked me to stop saying dank, but it's too much fun!"),
-        new DLine("Henry", "Happy", "Dank dank dank dank dank dank dank dank dank dank dank " +
-                                        "dank dank dank dank dank dank dank dank dank dank dank " +
-                                        "dank dank dank dank dank dank dank dank dank dank dank " +
-                                        "dank dank dank dank dank dank dank dank dank dank dank " +
-                                        "dank dank dank dank dank dank dank dank dank dank dank!")
+        new DLine("Henry", "Happy", "Dank dank dank dank dank dank dank " +
+                                    "dank dank dank dank dank dank dank " +
+                                    "dank dank dank dank dank dank dank!")
     };
-
-    private bool hasTalked = false;
+    
     private System.Random random = new System.Random();
-
-    public Quest questDankHerb;
-    public Quest questDankBook;
+    
+    private Quest questGreeting;
+    private Quest questDankHerb;
+    private Quest questDankBook;
 
     protected override void Start()
     {
         base.Start();
+        LoadQuests();
+    }
+
+    public override void LoadQuests()
+    {
+        questGreeting = questManager.FindQuest("henryGreeting");
         questDankHerb = questManager.FindQuest("henryDankHerb");
         questDankBook = questManager.FindQuest("henryDankBook");
     }
 
     protected override void UpdateQuests()
     {
-        if (!hasTalked)
+        if (questGreeting.IsAvailable())
+        {
+            questManager.StartQuest(questGreeting);
+            return;
+        }
+        if (questGreeting.IsInProgress())
             return;
 
         if ((questDankHerb.IsUnavailable()) && (questDankBook.IsUnavailable()))
@@ -122,14 +131,14 @@ public class Henry : NPC {
 
     protected override bool IsQuestAvailable()
     {
-        return questDankHerb.IsAvailable() || questDankBook.IsAvailable();
+        return questGreeting.IsInProgress() || questDankHerb.IsAvailable() || questDankBook.IsAvailable();
     }
 
     protected override DLine[] GetDialogue()
     {
-        if (!hasTalked)
+        if (questGreeting.IsInProgress())
         {
-            hasTalked = true;
+            questManager.FinishQuest(questGreeting);
             return initialDialogue;
         }
 
