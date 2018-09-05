@@ -47,7 +47,7 @@ public class Player : SpriteParent
 
         Move();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
             // If we're not currently talking to an NPC, 
             // find if an NPC is in front of us and 
@@ -97,7 +97,7 @@ public class Player : SpriteParent
         animator.SetFloat("lastMoveX", lastX);
         animator.SetFloat("lastMoveY", lastY);
 
-        float moveSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
+        float moveSpeed = Input.GetButton("Fire1") ? runSpeed : walkSpeed;
 
         rb2d.velocity = new Vector2(moveSpeed * x * Time.deltaTime, moveSpeed * y * Time.deltaTime);
     }

@@ -11328,8 +11328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ef626a86ce9bd4793ffa3d3f3a4aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveManager: {fileID: 1581696778}
-  gameState: {fileID: 102065168}
   menuCanvas: {fileID: 509474951}
 --- !u!4 &378677423
 Transform:
@@ -11459,6 +11457,7 @@ GameObject:
   - component: {fileID: 509474951}
   - component: {fileID: 509474950}
   - component: {fileID: 509474949}
+  - component: {fileID: 509474953}
   m_Layer: 5
   m_Name: Menu Canvas
   m_TagString: Untagged
@@ -11542,6 +11541,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &509474953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 509474948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c1dae732fa4ce4199bee4dfc79f96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &527899753
 Prefab:
   m_ObjectHideFlags: 0
@@ -12279,9 +12289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e0edd9eb5e1b349b176b036a2f6619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questCanvas: {fileID: 855451935}
-  questText: {fileID: 1962176497}
-  gameState: {fileID: 102065168}
 --- !u!4 &681534318
 Transform:
   m_ObjectHideFlags: 0
@@ -16108,105 +16115,6 @@ MonoBehaviour:
   timeBetweenMove: 10
   timeToMove: 2
   walkZone: {fileID: 1739976972}
-  questGreeting:
-    questId: 
-    questName: 
-    questState: 0
-    automaticallySetQuestAvailable: 0
-    preReqReputation: 0
-    preReqFriendship:
-      _Buckets: ffffffffffffffffffffffff
-      _HashCodes: 000000000000000000000000
-      _Next: 000000000000000000000000
-      _Count: 0
-      _Version: 0
-      _FreeList: -1
-      _FreeCount: 0
-      _Keys:
-      - 
-      - 
-      - 
-      _Values: 000000000000000000000000
-    reputationGain: 0
-    friendshipGains:
-      _Buckets: ffffffffffffffffffffffff
-      _HashCodes: 000000000000000000000000
-      _Next: 000000000000000000000000
-      _Count: 0
-      _Version: 0
-      _FreeList: -1
-      _FreeCount: 0
-      _Keys:
-      - 
-      - 
-      - 
-      _Values: 000000000000000000000000
-  questDankHerb:
-    questId: 
-    questName: 
-    questState: 0
-    automaticallySetQuestAvailable: 0
-    preReqReputation: 0
-    preReqFriendship:
-      _Buckets: ffffffffffffffffffffffff
-      _HashCodes: 000000000000000000000000
-      _Next: 000000000000000000000000
-      _Count: 0
-      _Version: 0
-      _FreeList: -1
-      _FreeCount: 0
-      _Keys:
-      - 
-      - 
-      - 
-      _Values: 000000000000000000000000
-    reputationGain: 0
-    friendshipGains:
-      _Buckets: ffffffffffffffffffffffff
-      _HashCodes: 000000000000000000000000
-      _Next: 000000000000000000000000
-      _Count: 0
-      _Version: 0
-      _FreeList: -1
-      _FreeCount: 0
-      _Keys:
-      - 
-      - 
-      - 
-      _Values: 000000000000000000000000
-  questDankBook:
-    questId: 
-    questName: 
-    questState: 0
-    automaticallySetQuestAvailable: 0
-    preReqReputation: 0
-    preReqFriendship:
-      _Buckets: ffffffffffffffffffffffff
-      _HashCodes: 000000000000000000000000
-      _Next: 000000000000000000000000
-      _Count: 0
-      _Version: 0
-      _FreeList: -1
-      _FreeCount: 0
-      _Keys:
-      - 
-      - 
-      - 
-      _Values: 000000000000000000000000
-    reputationGain: 0
-    friendshipGains:
-      _Buckets: ffffffffffffffffffffffff
-      _HashCodes: 000000000000000000000000
-      _Next: 000000000000000000000000
-      _Count: 0
-      _Version: 0
-      _FreeList: -1
-      _FreeCount: 0
-      _Keys:
-      - 
-      - 
-      - 
-      _Values: 000000000000000000000000
 --- !u!50 &1562472716
 Rigidbody2D:
   serializedVersion: 4
@@ -16260,8 +16168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431058d4968bbed49b898b9ac125b19e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: {fileID: 102065168}
-  questManager: {fileID: 681534317}
 --- !u!4 &1581696779
 Transform:
   m_ObjectHideFlags: 0
