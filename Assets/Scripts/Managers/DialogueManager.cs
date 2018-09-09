@@ -47,6 +47,9 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(DLine[] dialogue)
     {
+        if (dialogue.Length == 0)
+            return;
+
         gameState.pause = true;
         dLines.Clear();
 
