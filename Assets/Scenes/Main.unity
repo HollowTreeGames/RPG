@@ -367,6 +367,36 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0a08a5ca3967944fb8c8f89064ad394, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &159307865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 159307866}
+  m_Layer: 0
+  m_Name: WalkZones
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &159307866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 159307865}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.30441576, y: 0.14768876, z: -0.0034179688}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1739976973}
+  - {fileID: 2095279301}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &192280336
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +424,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &192280339
 BoxCollider2D:
@@ -6941,7 +6971,7 @@ Transform:
   - {fileID: 1478739516}
   - {fileID: 2009607333}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &303171013
 GameObject:
@@ -11832,7 +11862,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 573231923}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2795842, y: -0.326, z: 0.0034179688}
+  m_LocalPosition: {x: -1.263, y: -0.614, z: 0.0034179688}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 89721621}
@@ -11850,9 +11880,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasShadow: 1
-  moveSpeed: 1
+  moveSpeed: 0.5
   timeBetweenMove: 5
-  timeToMove: 2
+  timeToMove: 4
   walkZone: {fileID: 1739976972}
   questLibraryBook:
     questId: 
@@ -12418,7 +12448,7 @@ Transform:
   - {fileID: 1375578892}
   - {fileID: 771338359}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &763941993
 Prefab:
@@ -15610,7 +15640,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1478656368}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.772, y: 0.877, z: 0.0034179688}
+  m_LocalPosition: {x: 2.875, y: 0.671, z: 0.0034179688}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 89721621}
@@ -15628,10 +15658,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasShadow: 1
-  moveSpeed: 1
+  moveSpeed: 0.5
   timeBetweenMove: 5
-  timeToMove: 2
-  walkZone: {fileID: 1739976972}
+  timeToMove: 4
+  walkZone: {fileID: 2095279302}
   questFindCd:
     questId: 
     questName: 
@@ -16111,7 +16141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasShadow: 1
-  moveSpeed: 1
+  moveSpeed: 0
   timeBetweenMove: 10
   timeToMove: 2
   walkZone: {fileID: 1739976972}
@@ -16238,7 +16268,7 @@ Prefab:
     - target: {fileID: 114142525367620828, guid: b6fb8c236d6f01f46900e5275482a08f,
         type: 2}
       propertyPath: moveSpeed
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114142525367620828, guid: b6fb8c236d6f01f46900e5275482a08f,
         type: 2}
@@ -16492,7 +16522,7 @@ GameObject:
   - component: {fileID: 1739976973}
   - component: {fileID: 1739976972}
   m_Layer: 8
-  m_Name: NPC Walk Zone
+  m_Name: Oakewood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16510,7 +16540,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.10992241, y: 0.05356598}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -16521,7 +16551,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.208754, y: 2.2278957}
   m_EdgeRadius: 10
 --- !u!4 &1739976973
 Transform:
@@ -16529,12 +16559,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1739976971}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8, y: 0.8, z: 0}
-  m_LocalScale: {x: -8.22, y: -3.84, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.351, y: -0.628, z: 0.0034179688}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 159307866}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1843024827
 Prefab:
@@ -17023,7 +17053,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2009607332
 GameObject:
@@ -17507,6 +17537,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2095279300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2095279301}
+  - component: {fileID: 2095279302}
+  m_Layer: 8
+  m_Name: Parsley
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2095279301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2095279300}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.684, y: 0.788, z: 0.0034179688}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 159307866}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2095279302
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2095279300}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.10992241, y: 0.05356598}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.208754, y: 2.2278957}
+  m_EdgeRadius: 10
 --- !u!1 &2129551253
 GameObject:
   m_ObjectHideFlags: 0
@@ -17548,7 +17632,7 @@ Transform:
   - {fileID: 204796856}
   - {fileID: 930898830}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2146486960 stripped
 MonoBehaviour:

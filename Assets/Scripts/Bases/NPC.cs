@@ -112,47 +112,67 @@ public abstract class NPC : Talkable
     #region Walk code
     private void Walk()
     {
+        if (moveSpeed == 0)
+        {
+            return;
+        }
+
         if (gameState.pause)
         {
             StopWalking(endWalkTimer: false);
             return;
         }
 
-        if (walkZone != null)
-        {
-            if (!IsStillInWalkZone())
-            {
-                StopWalking(endWalkTimer: false);
-                PushBackIntoWalkZone();
-            }
-        }
-
         if (walking)
         {
-            timeToMoveCounter -= Time.deltaTime;
+            if (walkZone != null)
+            {
+                if (MovingOutsideWalkZone())
+                {
+                    Debug.Log(this.name + " STAHP!");
+                    StopWalking();
+                    resetTimeBetweenMoveCounter();
+                }
+            }
+
+            timeToMoveCounter -= Time.deltaTime * 1000;
 
             if (timeToMoveCounter < 0f)
             {
                 StopWalking();
-                timeBetweenMoveCounter = random.Next(1, timeBetweenMove);
+                resetTimeBetweenMoveCounter();
             }
         }
         else
         {
-            timeBetweenMoveCounter -= Time.deltaTime;
+            timeBetweenMoveCounter -= Time.deltaTime * 1000;
 
             if (timeBetweenMoveCounter < 0f)
             {
                 StartWalking(PickRandomDirection());
-                timeToMoveCounter = random.Next(1, timeToMove);
+                resetTimeToMoveCounter();
             }
         }
     }
 
-    private bool IsStillInWalkZone()
+    private void resetTimeBetweenMoveCounter()
     {
-        return (transform.position.x > minWalkPoint.x && transform.position.x < maxWalkPoint.x &&
-                transform.position.y > minWalkPoint.y && transform.position.y < maxWalkPoint.y);
+        timeBetweenMoveCounter = random.Next(1000, timeBetweenMove * 1000);
+    }
+
+    private void resetTimeToMoveCounter()
+    {
+        timeToMoveCounter = random.Next(1000, timeToMove * 1000);
+    }
+
+    private bool MovingOutsideWalkZone()
+    {
+        return (
+            (transform.position.x <= minWalkPoint.x && lastMoveDirection.x < 0) ||
+            (transform.position.x >= maxWalkPoint.x && lastMoveDirection.x > 0) ||
+            (transform.position.y <= minWalkPoint.y && lastMoveDirection.y < 0) ||
+            (transform.position.y >= maxWalkPoint.y && lastMoveDirection.y > 0)
+        );
     }
 
     private void PushBackIntoWalkZone()
@@ -177,34 +197,47 @@ public abstract class NPC : Talkable
 
     private Vector2 PickRandomDirection()
     {
-        int x, y;
-        int rand = random.Next(1, 5);
-        Debug.Log(string.Format("{0} {1}", this.name, rand));
-
-        switch (rand)
+        if (random.Next(2) == 0)
         {
-            case 1:
-                x = 1;
-                y = 0;
-                break;
-            case 2:
-                x = -1;
-                y = 0;
-                break;
-            case 3:
-                x = 0;
-                y = 1;
-                break;
-            case 4:
-                x = 0;
-                y = -1;
-                break;
-            default:
-                x = 0;
-                y = 0;
-                break;
+            if (transform.position.x <= minWalkPoint.x)
+                return new Vector2(1, 0);
+            if (transform.position.x >= maxWalkPoint.x)
+                return new Vector2(-1, 0);
+            return new Vector2(random.Next(2) == 0 ? 1 : -1, 0);
         }
-        return new Vector2(x, y);
+        else
+        {
+            if (transform.position.y <= minWalkPoint.y)
+                return new Vector2(0, 1);
+            if (transform.position.y >= maxWalkPoint.y)
+                return new Vector2(0, -1);
+            return new Vector2(0, random.Next(2) == 0 ? 1 : -1);
+        }
+        
+        //switch (rand)
+        //{
+        //    case 1:
+        //        x =  ? 1 : -1;
+        //        y = 0;
+        //        break;
+        //    case 2:
+        //        x =  ? -1 : 1;
+        //        y = 0;
+        //        break;
+        //    case 3:
+        //        x = 0;
+        //        y = transform.position.y <= minWalkPoint.y ? 1 : -1;
+        //        break;
+        //    case 4:
+        //        x = 0;
+        //        y = transform.position.y >= maxWalkPoint.y ? -1 : 1;
+        //        break;
+        //    default:
+        //        x = 0;
+        //        y = 0;
+        //        break;
+        //}
+        //return new Vector2(x, y);
     }
 
     private void StartWalking(Vector2 direction)
@@ -213,6 +246,7 @@ public abstract class NPC : Talkable
         walking = true;
         animator.SetBool("walking", true);
         myRigidbody.velocity = direction * moveSpeed;
+        lastMoveDirection = direction;
 
         animator.SetFloat("moveX", direction.x);
         animator.SetFloat("moveY", direction.y);
@@ -227,7 +261,8 @@ public abstract class NPC : Talkable
 
     private void StopWalking(bool endWalkTimer)
     {
-        walking = false;
+        if (endWalkTimer)
+            walking = false;
         animator.SetBool("walking", false);
         myRigidbody.velocity = Vector2.zero;
 
