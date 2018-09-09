@@ -15,19 +15,20 @@ public abstract class NPC : Talkable
     protected GameState gameState;
     protected InventoryManager inventoryManager;
 
+    #region NPC Walk
     public float moveSpeed;
-    private bool walking;
     public int timeBetweenMove;
-    private float timeBetweenMoveCounter;
     public int timeToMove;
+
+    private bool walking;
+    private float timeBetweenMoveCounter;
     private float timeToMoveCounter;
-    private float chooseDirection;
-    private Vector3 moveDirection;
+    private Vector2 lastMoveDirection;
 
     public Collider2D walkZone;
     private Vector2 minWalkPoint;
     private Vector2 maxWalkPoint;
-    private bool hasWalkZone;
+    #endregion
 
     private GameObject questMarker;
     private SpriteRenderer questMarkerRenderer;
@@ -36,11 +37,9 @@ public abstract class NPC : Talkable
     protected override void Start()
     {
         base.Start();
-
-        int millEpoch = (int)new DateTime().ToUniversalTime().Subtract(
-            new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
-            ).TotalMilliseconds;
-        random = new System.Random(this.GetHashCode() * millEpoch);
+        
+        int seed = this.GetHashCode() * (DateTime.Now.Millisecond + 1);
+        random = new System.Random(seed);
         timeBetweenMoveCounter = random.Next(1, timeBetweenMove);
         myRigidbody = GetComponent<Rigidbody2D>();
         gameState = FindObjectOfType<GameState>();
@@ -49,7 +48,6 @@ public abstract class NPC : Talkable
         {
             minWalkPoint = walkZone.bounds.min;
             maxWalkPoint = walkZone.bounds.max;
-            hasWalkZone = true;
         }
         
         animator = GetComponent<Animator>();
@@ -111,15 +109,22 @@ public abstract class NPC : Talkable
         ShowQuestMarker();
     }
 
+    #region Walk code
     private void Walk()
     {
-
         if (gameState.pause)
         {
-            walking = false;
-            animator.SetBool("walking", false);
-            myRigidbody.velocity = Vector2.zero;
+            StopWalking(endWalkTimer: false);
             return;
+        }
+
+        if (walkZone != null)
+        {
+            if (!IsStillInWalkZone())
+            {
+                StopWalking(endWalkTimer: false);
+                PushBackIntoWalkZone();
+            }
         }
 
         if (walking)
@@ -128,9 +133,7 @@ public abstract class NPC : Talkable
 
             if (timeToMoveCounter < 0f)
             {
-                walking = false;
-                animator.SetBool("walking", false);
-                myRigidbody.velocity = Vector2.zero;
+                StopWalking();
                 timeBetweenMoveCounter = random.Next(1, timeBetweenMove);
             }
         }
@@ -140,56 +143,103 @@ public abstract class NPC : Talkable
 
             if (timeBetweenMoveCounter < 0f)
             {
-                walking = true;
-                animator.SetBool("walking", true);
+                StartWalking(PickRandomDirection());
                 timeToMoveCounter = random.Next(1, timeToMove);
-
-                chooseDirection = UnityEngine.Random.Range(-1, 2);
-                if (chooseDirection > 0)
-                {
-                    float NPCY = random.Next(-1, 2);
-                    myRigidbody.velocity = new Vector2(0f, NPCY * moveSpeed);
-                    if (hasWalkZone && transform.position.y > maxWalkPoint.y || transform.position.y < minWalkPoint.y)
-                    {
-                        walking = false;
-                        animator.SetBool("walking", false);
-                        myRigidbody.velocity = Vector2.zero;
-                        timeBetweenMoveCounter = random.Next(1, timeBetweenMove);
-                    }
-                    if (NPCY == 0f)
-                    {
-                        walking = false;
-                        animator.SetBool("walking", false);
-                    }
-                    animator.SetFloat("moveX", 0f);
-                    animator.SetFloat("moveY", NPCY);
-                    animator.SetFloat("lastMoveX", 0f);
-                    animator.SetFloat("lastMoveY", NPCY);
-                }
-                else
-                {
-                    float NPCX = random.Next(-1, 2);
-                    myRigidbody.velocity = new Vector2(NPCX * moveSpeed, 0f);
-                    if (hasWalkZone && transform.position.x > maxWalkPoint.x || transform.position.x < minWalkPoint.x)
-                    {
-                        walking = false;
-                        animator.SetBool("walking", false);
-                        myRigidbody.velocity = Vector2.zero;
-                        timeBetweenMoveCounter = random.Next(1, timeBetweenMove);
-                    }
-                    if (NPCX == 0f)
-                    {
-                        walking = false;
-                        animator.SetBool("walking", false);
-                    }
-                    animator.SetFloat("moveX", NPCX);
-                    animator.SetFloat("moveY", 0f);
-                    animator.SetFloat("lastMoveX", NPCX);
-                    animator.SetFloat("lastMoveY", 0f);
-                }
             }
         }
     }
+
+    private bool IsStillInWalkZone()
+    {
+        return (transform.position.x > minWalkPoint.x && transform.position.x < maxWalkPoint.x &&
+                transform.position.y > minWalkPoint.y && transform.position.y < maxWalkPoint.y);
+    }
+
+    private void PushBackIntoWalkZone()
+    {
+        if (transform.position.x <= minWalkPoint.x)
+        {
+            transform.position = new Vector2(minWalkPoint.x + 0.1f, transform.position.y);
+        }
+        if (transform.position.x >= maxWalkPoint.x)
+        {
+            transform.position = new Vector2(maxWalkPoint.x - 0.1f, transform.position.y);
+        }
+        if (transform.position.y <= minWalkPoint.y)
+        {
+            transform.position = new Vector2(transform.position.x, minWalkPoint.y + 0.1f);
+        }
+        if (transform.position.y >= maxWalkPoint.y)
+        {
+            transform.position = new Vector2(transform.position.x, maxWalkPoint.y - 0.1f);
+        }
+    }
+
+    private Vector2 PickRandomDirection()
+    {
+        int x, y;
+        int rand = random.Next(1, 5);
+        Debug.Log(string.Format("{0} {1}", this.name, rand));
+
+        switch (rand)
+        {
+            case 1:
+                x = 1;
+                y = 0;
+                break;
+            case 2:
+                x = -1;
+                y = 0;
+                break;
+            case 3:
+                x = 0;
+                y = 1;
+                break;
+            case 4:
+                x = 0;
+                y = -1;
+                break;
+            default:
+                x = 0;
+                y = 0;
+                break;
+        }
+        return new Vector2(x, y);
+    }
+
+    private void StartWalking(Vector2 direction)
+    {
+
+        walking = true;
+        animator.SetBool("walking", true);
+        myRigidbody.velocity = direction * moveSpeed;
+
+        animator.SetFloat("moveX", direction.x);
+        animator.SetFloat("moveY", direction.y);
+        animator.SetFloat("lastMoveX", direction.x);
+        animator.SetFloat("lastMoveY", direction.y);
+    }
+
+    private void StopWalking()
+    {
+        StopWalking(true);
+    }
+
+    private void StopWalking(bool endWalkTimer)
+    {
+        walking = false;
+        animator.SetBool("walking", false);
+        myRigidbody.velocity = Vector2.zero;
+
+        animator.SetFloat("moveX", 0);
+        animator.SetFloat("moveY", 0);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        StopWalking();
+    }
+    #endregion
 
     public virtual void LoadQuests()
     {

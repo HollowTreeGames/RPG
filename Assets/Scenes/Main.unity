@@ -12049,18 +12049,18 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 573231923}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!4 &594923342 stripped
 Transform:
@@ -15761,18 +15761,18 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1478656368}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &1478739515
 GameObject:
@@ -16123,13 +16123,13 @@ Rigidbody2D:
     type: 2}
   m_PrefabInternal: {fileID: 1663786339}
   m_GameObject: {fileID: 1562472710}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -16259,6 +16259,26 @@ Prefab:
         type: 2}
       propertyPath: questGreeting.questState
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 50249886573224400, guid: b6fb8c236d6f01f46900e5275482a08f,
+        type: 2}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50249886573224400, guid: b6fb8c236d6f01f46900e5275482a08f,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50249886573224400, guid: b6fb8c236d6f01f46900e5275482a08f,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50249886573224400, guid: b6fb8c236d6f01f46900e5275482a08f,
+        type: 2}
+      propertyPath: m_AngularDrag
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6fb8c236d6f01f46900e5275482a08f, type: 2}
@@ -16502,7 +16522,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 10
 --- !u!4 &1739976973
 Transform:
   m_ObjectHideFlags: 0
