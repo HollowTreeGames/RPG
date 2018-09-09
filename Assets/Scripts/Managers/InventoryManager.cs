@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
 {
     private static bool instanceExists = false;
 
-    public string inventoryName = "";
+    private Item itemInInventory;
     public GameObject inventory;
     private SpriteRenderer inventoryRenderer;
 
@@ -29,17 +29,19 @@ public class InventoryManager : MonoBehaviour
 
     public string GetInventory()
     {
-        return inventoryName;
+        if (itemInInventory == null)
+            return "";
+        return itemInInventory.itemName;
     }
 
-    public bool SetInventory(string name, Sprite sprite)
+    public bool SetInventory(Item item)
     {
-        if (inventoryName != "")
+        if (itemInInventory != null)
         {
             return false;
         }
-        inventoryName = name;
-        inventoryRenderer.sprite = sprite;
+        itemInInventory = item;
+        inventoryRenderer.sprite = item.sprite;
         inventory.SetActive(true);
         return true;
     }
@@ -47,7 +49,7 @@ public class InventoryManager : MonoBehaviour
     public void ClearInventory()
     {
         inventory.SetActive(false);
-        inventoryName = "";
+        itemInInventory = null;
         inventoryRenderer.sprite = null;
     }
 
@@ -55,7 +57,11 @@ public class InventoryManager : MonoBehaviour
     {
         if (Input.GetKeyDown("z"))
         {
-            ClearInventory();
+            if (itemInInventory != null)
+            {
+                itemInInventory.gameObject.SetActive(true);
+                ClearInventory();
+            }
         }
     }
 }

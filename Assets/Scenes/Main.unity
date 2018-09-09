@@ -6963,7 +6963,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 280457490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8457031, y: 0.8534426, z: 0.16113281}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1236690787}
@@ -14678,8 +14678,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasShadow: 1
-  itemName: 
-  sprite: {fileID: 0}
+  itemName: Herb Book
+  sprite: {fileID: 21300000, guid: 214585f7fc25d6c47827dd0e4008b237, type: 3}
+  spawnPoints: []
+  stickyObject: 0
+  respawnAfterPickup: 0
 --- !u!61 &1125029687
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14691,7 +14694,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.08}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -14887,7 +14890,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.08}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -14954,7 +14957,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1236690784}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.17070311, y: -1.5154426, z: -0.20097809}
+  m_LocalPosition: {x: 0.681, y: -0.352, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 280457491}
@@ -14972,8 +14975,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasShadow: 1
-  itemName: 
-  sprite: {fileID: 0}
+  itemName: Dank Herb
+  sprite: {fileID: 21300000, guid: 9c71bba9ff1531c4aa22c0a90cbf44a6, type: 3}
+  spawnPoints:
+  - {x: 0.681, y: -0.352}
+  - {x: -2.147, y: 1.671}
+  - {x: 1.302, y: 2.507}
+  stickyObject: 1
+  respawnAfterPickup: 1
 --- !u!4 &1249401125 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4116208367648876, guid: a0a08a5ca3967944fb8c8f89064ad394,
@@ -15849,6 +15858,9 @@ MonoBehaviour:
   hasShadow: 1
   itemName: Library Book
   sprite: {fileID: 21300000, guid: 0dbad9e9d336564408a768482454d83d, type: 3}
+  spawnPoints: []
+  stickyObject: 0
+  respawnAfterPickup: 0
 --- !u!61 &1478739518
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15860,7 +15872,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.08}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -17100,6 +17112,9 @@ MonoBehaviour:
   hasShadow: 1
   itemName: CD
   sprite: {fileID: 21300000, guid: d6d222c16cf3c0740b72eafe2d370435, type: 3}
+  spawnPoints: []
+  stickyObject: 0
+  respawnAfterPickup: 0
 --- !u!61 &2009607335
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17111,7 +17126,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.08}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}

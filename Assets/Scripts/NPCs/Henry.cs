@@ -98,9 +98,19 @@ public class Henry : NPC {
     {
         if (questGreeting.IsAvailable())
         {
-            questManager.StartQuest(questGreeting);
-            return;
+            if (Debug.isDebugBuild)
+            {
+                questGreeting.SetQuestState(QuestState.Done);
+                questDankBook.SetQuestState(QuestState.Available);
+                return;
+            } 
+            else
+            {
+                questManager.StartQuest(questGreeting);
+                return;
+            }
         }
+
         if (questGreeting.IsInProgress())
             return;
 
