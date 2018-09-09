@@ -43,4 +43,14 @@ public class Utils
     }
 
     [System.Serializable] public class DictionaryStringInt : SerializableDictionary<string, int> { }
+
+    public static void Log(params System.Object[] args)
+    {
+        List<string> s = new List<string>();
+        foreach(System.Object arg in args)
+        {
+            s.Add(arg.ToString());
+        }
+        Debug.Log(string.Join(" ", s.ToArray()));
+    }
 }
