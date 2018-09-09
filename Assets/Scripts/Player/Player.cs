@@ -113,7 +113,7 @@ public class Player : SpriteParent
         RaycastHit2D hit = Physics2D.BoxCast(start, boxCollider2D.size, 0, direction, interactDistance);
         //RaycastHit2D hit = Physics2D.Linecast(start, end);
         Debug.Log(hit.collider);
-        //DrawLine(start, end, Color.green);
+        //Debug.DrawLine(start, end, Color.green, 0.5);
 
         if (hit.collider != null)
         {
@@ -122,23 +122,5 @@ public class Player : SpriteParent
 				interactable.Interact();
             }
         }
-    }
-
-    private void DrawLine(Vector2 start, Vector2 end, Color color, float duration = 0.2f)
-    {
-        GameObject myLine = new GameObject();
-        myLine.transform.position = start;
-        myLine.AddComponent<LineRenderer>();
-        LineRenderer lr = myLine.GetComponent<LineRenderer>();
-        lr.name = "Interact Line";
-        lr.material = new Material(Shader.Find("Particles/Alpha Blended Premultiply"));
-        lr.startColor = color;
-        lr.endColor = color;
-        lr.startWidth = 0.1f;
-        lr.endWidth = 0.1f;
-        lr.sortingLayerName = "Drawing";
-        lr.SetPosition(0, start);
-        lr.SetPosition(1, end);
-        GameObject.Destroy(myLine, duration);
     }
 }
