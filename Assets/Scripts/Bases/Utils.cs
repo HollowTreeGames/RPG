@@ -53,4 +53,9 @@ public class Utils
         }
         Debug.Log(string.Join(" ", s.ToArray()));
     }
+
+    public static void LogFmt(string fmt, params System.Object[] args)
+    {
+        Debug.Log(string.Format(fmt, args));
+    }
 }
