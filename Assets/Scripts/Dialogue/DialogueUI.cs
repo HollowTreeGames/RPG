@@ -30,7 +30,7 @@ using UnityEngine.UI;
 using System.Text;
 using System.Collections.Generic;
 
-namespace Yarn.Unity.Example {
+namespace Yarn.Unity {
     /// Displays dialogue lines to the player, and sends
     /// user choices back to the dialogue system.
 
@@ -39,7 +39,7 @@ namespace Yarn.Unity.Example {
      * is that you provide the RunLine, RunOptions, RunCommand
      * and DialogueComplete coroutines; what they do is up to you.
      */
-    public class ExampleDialogueUI : Yarn.Unity.DialogueUIBehaviour
+    public class DialogueUI : Yarn.Unity.DialogueUIBehaviour
     {
 
         /// The object that contains the dialogue and the options.

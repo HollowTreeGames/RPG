@@ -31,7 +31,7 @@ using Yarn.Unity;
 
 /// An extremely simple implementation of DialogueUnityVariableStorage, which
 /// just stores everything in a Dictionary.
-public class ExampleVariableStorage : VariableStorageBehaviour
+public class DialogueVariableStorage : VariableStorageBehaviour
 {
 
     /// Where we actually keeping our variables
