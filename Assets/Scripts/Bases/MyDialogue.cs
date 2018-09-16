@@ -1,5 +1,8 @@
 ﻿using System.Reflection;
+using System.Text.RegularExpressions;
+using System.Globalization;
 using UnityEngine;
+using System.Text;
 
 namespace MyDialogue
 {
@@ -55,6 +58,9 @@ namespace MyDialogue
         public float jitter;
         public bool pause;
 
+        private static Regex re = new Regex(@"(.*?)( \((.*?)\))?:\s+(.*)");
+        private static TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+
         /// <summary>
         /// 
         /// </summary>
@@ -76,7 +82,7 @@ namespace MyDialogue
             this.pause = pause;
         }
 
-        public Sprite getFace()
+        public Sprite GetFace()
         {
             return Resources.Load<Sprite>("Faces/" + name + face);
         }
@@ -84,6 +90,23 @@ namespace MyDialogue
         public override string ToString()
         {
             return string.Format("{0}(name={1}, face={2}, line={3})", this.GetType(), name, face.ToString(), line);
+        }
+
+        public static DLine FromYarnLine(Yarn.Line line)
+        {
+            Match m = re.Match(line.text);
+            string face = m.Groups[2].Value;
+            if (face.Equals(""))
+                face = "Default";
+            // Convert text to title case
+            face = textInfo.ToTitleCase(face.ToLower());
+
+            foreach (Group group in m.Groups)
+            {
+                Debug.Log(group.Value);
+            }
+
+            return new DLine(m.Groups[0].Value, face, m.Groups[3].Value);
         }
     }
 }

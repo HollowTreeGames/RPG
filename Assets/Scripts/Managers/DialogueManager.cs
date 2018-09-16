@@ -84,7 +84,7 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeSentence(DLine dLine)
     {
         nameText.text = dLine.name;
-        portraitImage.sprite = dLine.getFace();
+        portraitImage.sprite = dLine.GetFace();
 
         writingSentence = true;
         forceWriteSentence = false;

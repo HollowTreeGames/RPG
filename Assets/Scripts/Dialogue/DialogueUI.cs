@@ -51,6 +51,10 @@ namespace Yarn.Unity {
         /// The UI element that displays lines
         public Text lineText;
 
+        /// The UI elements that display NPC name and portrait
+        public Text nameText;
+        public GameObject portraitPanel;
+
         /// A UI element that appears after lines have finished appearing
         public GameObject continuePrompt;
 
@@ -90,6 +94,9 @@ namespace Yarn.Unity {
         /// Show a line of dialogue, gradually
         public override IEnumerator RunLine (Yarn.Line line)
         {
+            // Convert line text to DLine
+
+
             // Show the text
             lineText.gameObject.SetActive (true);
 
