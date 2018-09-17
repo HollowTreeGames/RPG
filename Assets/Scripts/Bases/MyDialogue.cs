@@ -95,18 +95,18 @@ namespace MyDialogue
         public static DLine FromYarnLine(Yarn.Line line)
         {
             Match m = re.Match(line.text);
-            string face = m.Groups[2].Value;
+            string face = m.Groups[3].Value;
             if (face.Equals(""))
                 face = "Default";
             // Convert text to title case
             face = textInfo.ToTitleCase(face.ToLower());
 
-            foreach (Group group in m.Groups)
-            {
-                Debug.Log(group.Value);
-            }
+            //for (int i=0; i < m.Groups.Count; i++)
+            //{
+            //    Debug.LogFormat("{0}: {1}", i, m.Groups[i].Value);
+            //}
 
-            return new DLine(m.Groups[0].Value, face, m.Groups[3].Value);
+            return new DLine(m.Groups[1].Value, face, m.Groups[4].Value);
         }
     }
 }
