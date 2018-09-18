@@ -3,7 +3,7 @@
 --- !u!74 &7400000
 AnimationClip:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: PlayerIdleRight
   serializedVersion: 6
@@ -19,7 +19,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 4b459aeaa55f16f428841853e80a7c11, type: 3}
+      value: {fileID: 21300096, guid: 04d929924879bf24abe35df2d7536b65, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -39,7 +39,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 4b459aeaa55f16f428841853e80a7c11, type: 3}
+    - {fileID: 21300096, guid: 04d929924879bf24abe35df2d7536b65, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

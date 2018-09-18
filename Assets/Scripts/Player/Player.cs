@@ -19,6 +19,9 @@ public class Player : SpriteParent
     private BoxCollider2D boxCollider2D;
     public bool walking = false;
 
+    private float walkPitch;
+    private float runPitch;
+
     public float lastX = 0, lastY = -1;
 
     // Use this for initialization
@@ -39,6 +42,9 @@ public class Player : SpriteParent
         boxCollider2D = GetComponent<BoxCollider2D>();
         gameState = FindObjectOfType<GameState>();
         dialogueManager = FindObjectOfType<DialogueManager>();
+
+        walkPitch = 1.2f;
+        runPitch = 1.7f;
     }
     
     // Update is called once per frame
@@ -59,6 +65,19 @@ public class Player : SpriteParent
             {
                 Interact();
             }
+        }
+
+        if (walking)
+        {
+            GetComponent<AudioSource>().UnPause();
+            if (Input.GetButton("Fire1"))
+            {
+                GetComponent<AudioSource>().pitch = runPitch;
+            }
+        } else
+        {
+            GetComponent<AudioSource>().Pause();
+            GetComponent<AudioSource>().pitch = walkPitch;
         }
     }
 
