@@ -12,6 +12,8 @@ public class Item : Interactable {
     public bool stickyObject;
     public bool respawnAfterPickup;
 
+    private Player player;
+
     protected InventoryManager inventoryManager;
     protected DialogueManager dialogueManager;
     protected GameState gameState;
@@ -30,6 +32,9 @@ public class Item : Interactable {
         inventoryManager = FindObjectOfType<InventoryManager>();
         dialogueManager = FindObjectOfType<DialogueManager>();
         gameState = FindObjectOfType<GameState>();
+        player = FindObjectOfType<Player>();
+
+        player.hasItem = false;
 
         random = new System.Random(this.GetHashCode() * (DateTime.Now.Millisecond + 1));
 
@@ -58,6 +63,7 @@ public class Item : Interactable {
             {
                 dialogueManager.StartDialogue(pickUp);
                 inventoryManager.SetInventory(this);
+                GetComponent<Player>().hasItem = true;
                 Respawn();
             }
             else
