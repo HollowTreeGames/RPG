@@ -2,26 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MyDialogue;
+using Yarn.Unity;
 
 public class Talkable : Interactable {
-    
-    public DLine[] dialogue;
 
-    protected DialogueManager dialogueManager;
-    
+    protected DialogueRunner dialogueRunner;
+
+    [Header("Optional")]
+    public TextAsset scriptToLoad;
+
     protected override void Start()
     {
         base.Start();
-        dialogueManager = FindObjectOfType<DialogueManager>();
+        dialogueRunner = FindObjectOfType<DialogueRunner>();
+
+        if (scriptToLoad != null)
+        {
+            dialogueRunner.AddScript(scriptToLoad);
+        }
     }
 
     public override void Interact()
     {
-        dialogueManager.StartDialogue(GetDialogue());
+        dialogueRunner.StartDialogue(GetDialogueNode());
     }
 
-    protected virtual DLine[] GetDialogue()
+    protected virtual string GetDialogueNode()
     {
-        return dialogue;
+        return "Start";
     }
 }

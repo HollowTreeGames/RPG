@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Enums;
+using Yarn.Unity;
 
 public class Player : SpriteParent
 {
@@ -12,7 +13,7 @@ public class Player : SpriteParent
     public float runSpeed;
     public float interactDistance = 1;
     public GameState gameState;
-    public DialogueManager dialogueManager;
+    public DialogueRunner dialogueRunner;
 
     private Animator animator;
     private Rigidbody2D rb2d;
@@ -38,7 +39,7 @@ public class Player : SpriteParent
         rb2d = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         gameState = FindObjectOfType<GameState>();
-        dialogueManager = FindObjectOfType<DialogueManager>();
+        dialogueRunner = FindObjectOfType<DialogueRunner>();
     }
     
     // Update is called once per frame
@@ -52,11 +53,8 @@ public class Player : SpriteParent
             // If we're not currently talking to an NPC, 
             // find if an NPC is in front of us and 
             // start talking to them.
-            if (gameState.pause)
-            {
-                dialogueManager.DisplayNextSentence();
-            } else
-            {
+            if (!dialogueRunner.isDialogueRunning)
+            { 
                 Interact();
             }
         }
@@ -67,7 +65,7 @@ public class Player : SpriteParent
         float x, y;
         walking = false;
 
-        if (gameState.pause)
+        if (dialogueRunner.isDialogueRunning)
         {
             x = 0;
             y = 0;

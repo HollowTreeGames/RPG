@@ -81,46 +81,47 @@ public class Parsley : NPC {
         return questFindCd.IsAvailable();
     }
 
-    protected override DLine[] GetDialogue()
+    protected override string GetDialogueNode()
     {
-        if (gameState.reputation < 2)
-        {
-            return initialDialogue;
-        }
+        return "Start";
+        //if (gameState.reputation < 2)
+        //{
+        //    return initialDialogue;
+        //}
 
-        switch (questFindCd.GetQuestState())
-        {
-            case QuestState.Available:
-                questManager.StartQuest(questFindCd);
-                return questCDDialogue;
-            case QuestState.InProgress:
-                if (inventoryManager.GetInventory() == "CD")
-                {
-                    inventoryManager.ClearInventory();
-                    questManager.FinishQuest(questFindCd);
-                    return itemCDDialogue;
-                }
-                else if (inventoryManager.GetInventory() == "Library Book" || inventoryManager.GetInventory() == "Herb Book")
-                {
-                    inventoryManager.ClearInventory();
-                    return questBookCDDialogue;
-                }
-                else if (inventoryManager.GetInventory() == "Dank Herb")
-                {
-                    inventoryManager.ClearInventory();
-                    return questHerbCDDialogue;
-                }
-                else
-                {
-                    return reminderDialogue;
-                }
-            case QuestState.Done:
-                return thanksDialogue;
+        //switch (questFindCd.GetQuestState())
+        //{
+        //    case QuestState.Available:
+        //        questManager.StartQuest(questFindCd);
+        //        return questCDDialogue;
+        //    case QuestState.InProgress:
+        //        if (inventoryManager.GetInventory() == "CD")
+        //        {
+        //            inventoryManager.ClearInventory();
+        //            questManager.FinishQuest(questFindCd);
+        //            return itemCDDialogue;
+        //        }
+        //        else if (inventoryManager.GetInventory() == "Library Book" || inventoryManager.GetInventory() == "Herb Book")
+        //        {
+        //            inventoryManager.ClearInventory();
+        //            return questBookCDDialogue;
+        //        }
+        //        else if (inventoryManager.GetInventory() == "Dank Herb")
+        //        {
+        //            inventoryManager.ClearInventory();
+        //            return questHerbCDDialogue;
+        //        }
+        //        else
+        //        {
+        //            return reminderDialogue;
+        //        }
+        //    case QuestState.Done:
+        //        return thanksDialogue;
 
-            default:
-                break;
-        }
+        //    default:
+        //        break;
+        //}
 
-        return friendlyDialogue;
+        //return friendlyDialogue;
     }
 }

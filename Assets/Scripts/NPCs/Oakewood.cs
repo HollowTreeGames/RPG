@@ -90,40 +90,41 @@ public class Oakewood : NPC {
         return questLibraryBook.IsAvailable();
     }
 
-    protected override DLine[] GetDialogue()
+    protected override string GetDialogueNode()
     {
-        if (questDankHerb.IsInProgress() || questDankBook.IsInProgress())
-        {
-            return friendlyDialogue;
-        }
+        return "Start";
+        //if (questDankHerb.IsInProgress() || questDankBook.IsInProgress())
+        //{
+        //    return friendlyDialogue;
+        //}
 
-        // Find a library book
-        switch (questLibraryBook.GetQuestState())
-        {
-            case QuestState.Available:
-                questManager.StartQuest(questLibraryBook);
-                return questBookDialogue;
-            case QuestState.InProgress:
-                if (inventoryManager.GetInventory() == "Library Book")
-                {
-                    inventoryManager.ClearInventory();
-                    questManager.FinishQuest(questLibraryBook);
-                    return itemBookDialogue;
-                }
-                else if (inventoryManager.GetInventory() == "Herb Book")
-                {
-                    inventoryManager.ClearInventory();
-                    return itemWrongBookDialogue;
-                }
-                else
-                    return questBookReminderDialogue;
+        //// Find a library book
+        //switch (questLibraryBook.GetQuestState())
+        //{
+        //    case QuestState.Available:
+        //        questManager.StartQuest(questLibraryBook);
+        //        return questBookDialogue;
+        //    case QuestState.InProgress:
+        //        if (inventoryManager.GetInventory() == "Library Book")
+        //        {
+        //            inventoryManager.ClearInventory();
+        //            questManager.FinishQuest(questLibraryBook);
+        //            return itemBookDialogue;
+        //        }
+        //        else if (inventoryManager.GetInventory() == "Herb Book")
+        //        {
+        //            inventoryManager.ClearInventory();
+        //            return itemWrongBookDialogue;
+        //        }
+        //        else
+        //            return questBookReminderDialogue;
 
-            default:
-                break;
-        }
+        //    default:
+        //        break;
+        //}
 
-        cyclingDialogueEnumerator.MoveNext();
-        DLine[] dialogue = { cyclingDialogueEnumerator.Current };
-        return dialogue;
+        //cyclingDialogueEnumerator.MoveNext();
+        //DLine[] dialogue = { cyclingDialogueEnumerator.Current };
+        //return dialogue;
     }
 }

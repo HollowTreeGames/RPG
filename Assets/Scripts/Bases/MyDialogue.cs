@@ -50,7 +50,7 @@ namespace MyDialogue
     public class DLine
     {
 
-        public string line;
+        public string text;
         public string name;
         public string face;
         public float wait;
@@ -75,7 +75,7 @@ namespace MyDialogue
         {
             this.name = name;
             this.face = face;
-            this.line = line;
+            this.text = line;
             this.wait = wait;
             this.speed = speed;
             this.jitter = jitter;
@@ -89,7 +89,7 @@ namespace MyDialogue
 
         public override string ToString()
         {
-            return string.Format("{0}(name={1}, face={2}, line={3})", this.GetType(), name, face.ToString(), line);
+            return string.Format("{0}(name={1}, face={2}, line={3})", this.GetType(), name, face.ToString(), text);
         }
 
         public static DLine FromYarnLine(Yarn.Line line)
@@ -100,11 +100,6 @@ namespace MyDialogue
                 face = "Default";
             // Convert text to title case
             face = textInfo.ToTitleCase(face.ToLower());
-
-            //for (int i=0; i < m.Groups.Count; i++)
-            //{
-            //    Debug.LogFormat("{0}: {1}", i, m.Groups[i].Value);
-            //}
 
             return new DLine(m.Groups[1].Value, face, m.Groups[4].Value);
         }

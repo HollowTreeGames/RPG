@@ -21,7 +21,7 @@ public class MyDialogueTests {
 
         Assert.AreEqual("Henry", dLine.name);
         Assert.AreEqual("Default", dLine.face);
-        Assert.AreEqual("Test", dLine.line);
+        Assert.AreEqual("Test", dLine.text);
     }
 
     [Test]
@@ -32,7 +32,7 @@ public class MyDialogueTests {
 
         Assert.AreEqual("Nora", dLine.name);
         Assert.AreEqual("Sad", dLine.face);
-        Assert.AreEqual("Test Test (Test): More test.", dLine.line);
+        Assert.AreEqual("Test Test (Test): More test.", dLine.text);
     }
 
     [Test]
@@ -43,7 +43,7 @@ public class MyDialogueTests {
 
         Assert.AreEqual("Nora", dLine.name);
         Assert.AreEqual("Happy", dLine.face);
-        Assert.AreEqual("Test.", dLine.line);
+        Assert.AreEqual("Test.", dLine.text);
     }
 
     [Test]
@@ -54,7 +54,7 @@ public class MyDialogueTests {
 
         Assert.AreEqual("Nora", dLine.name);
         Assert.AreEqual("Happy", dLine.face);
-        Assert.AreEqual("Test.", dLine.line);
+        Assert.AreEqual("Test.", dLine.text);
     }
 
     [Test]
@@ -65,6 +65,6 @@ public class MyDialogueTests {
 
         Assert.AreEqual("Nora", dLine.name);
         Assert.AreEqual("Happy", dLine.face);
-        Assert.AreEqual("Test.", dLine.line);
+        Assert.AreEqual("Test.", dLine.text);
     }
 }

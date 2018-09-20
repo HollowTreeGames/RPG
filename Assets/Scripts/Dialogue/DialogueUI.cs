@@ -29,6 +29,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Text;
 using System.Collections.Generic;
+using MyDialogue;
 
 namespace Yarn.Unity {
     /// Displays dialogue lines to the player, and sends
@@ -46,7 +47,7 @@ namespace Yarn.Unity {
         /** This object will be enabled when conversation starts, and 
          * disabled when it ends.
          */
-        public GameObject dialogueContainer;
+        public Canvas dialogueCanvas;
 
         /// The UI element that displays lines
         public Text lineText;
@@ -54,6 +55,7 @@ namespace Yarn.Unity {
         /// The UI elements that display NPC name and portrait
         public Text nameText;
         public GameObject portraitPanel;
+        private Image portraitImage;
 
         /// A UI element that appears after lines have finished appearing
         public GameObject continuePrompt;
@@ -74,11 +76,28 @@ namespace Yarn.Unity {
         /// dialogue is active and to restore them when dialogue ends
         public RectTransform gameControlsContainer;
 
+        public bool talkButtonPressed = false;
+
+        private static bool instanceExists = false;
+
+        private void Start()
+        {
+            if (instanceExists)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            instanceExists = true;
+            DontDestroyOnLoad(transform.gameObject);
+
+            portraitImage = portraitPanel.GetComponent<Image>();
+        }
+
         void Awake ()
         {
             // Start by hiding the container, line and option buttons
-            if (dialogueContainer != null)
-                dialogueContainer.SetActive(false);
+            HideCanvas();
 
             lineText.gameObject.SetActive (false);
 
@@ -91,35 +110,54 @@ namespace Yarn.Unity {
                 continuePrompt.SetActive (false);
         }
 
+        public void Update()
+        {
+            if (Input.GetButtonDown("Jump"))
+                talkButtonPressed = true;
+        }
+
         /// Show a line of dialogue, gradually
         public override IEnumerator RunLine (Yarn.Line line)
         {
             // Convert line text to DLine
+            DLine dLine = DLine.FromYarnLine(line);
 
+            nameText.text = dLine.name;
+            portraitImage.sprite = dLine.GetFace();
 
             // Show the text
+            lineText.text = "";
             lineText.gameObject.SetActive (true);
 
-            if (textSpeed > 0.0f) {
-                // Display the line one character at a time
-                var stringBuilder = new StringBuilder ();
+            talkButtonPressed = false;
 
-                foreach (char c in line.text) {
-                    stringBuilder.Append (c);
-                    lineText.text = stringBuilder.ToString ();
-                    yield return new WaitForSeconds (textSpeed);
+            if (textSpeed > 0.0f)
+            {
+                // Display the line one character at a time
+                var stringBuilder = new StringBuilder();
+
+                foreach (char c in dLine.text)
+                {
+                    // Detect keypress to skip text animation
+                    if (talkButtonPressed)
+                    {
+                        talkButtonPressed = false;
+                        break;
+                    }
+                    stringBuilder.Append(c);
+                    lineText.text = stringBuilder.ToString();
+                    yield return new WaitForSeconds(textSpeed);
                 }
-            } else {
-                // Display the line immediately if textSpeed == 0
-                lineText.text = line.text;
             }
+            // Display the line immediately if textSpeed == 0
+            lineText.text = dLine.text;
 
             // Show the 'press any key' prompt when done, if we have one
             if (continuePrompt != null)
                 continuePrompt.SetActive (true);
 
             // Wait for any user input
-            while (Input.anyKeyDown == false) {
+            while (!talkButtonPressed) {
                 yield return null;
             }
 
@@ -132,90 +170,76 @@ namespace Yarn.Unity {
         }
 
         /// Show a list of options, and wait for the player to make a selection.
-        public override IEnumerator RunOptions (Yarn.Options optionsCollection, 
-                                                Yarn.OptionChooser optionChooser)
+        public override IEnumerator RunOptions(Yarn.Options optionsCollection, Yarn.OptionChooser optionChooser)
         {
-            // Do a little bit of safety checking
-            if (optionsCollection.options.Count > optionButtons.Count) {
-                Debug.LogWarning("There are more options to present than there are" +
-                                 "buttons to present them in. This will cause problems.");
-            }
-
-            // Display each option in a button, and make it visible
-            int i = 0;
-            foreach (var optionString in optionsCollection.options) {
-                optionButtons [i].gameObject.SetActive (true);
-                optionButtons [i].GetComponentInChildren<Text> ().text = optionString;
-                i++;
-            }
-
-            // Record that we're using it
-            SetSelectedOption = optionChooser;
-
-            // Wait until the chooser has been used and then removed (see SetOption below)
-            while (SetSelectedOption != null) {
-                yield return null;
-            }
-
-            // Hide all the buttons
-            foreach (var button in optionButtons) {
-                button.gameObject.SetActive (false);
-            }
+            yield break;
         }
 
         /// Called by buttons to make a selection.
-        public void SetOption (int selectedOption)
-        {
+        //public void SetOption (int selectedOption)
+        //{
 
-            // Call the delegate to tell the dialogue system that we've
-            // selected an option.
-            SetSelectedOption (selectedOption);
+        //    // Call the delegate to tell the dialogue system that we've
+        //    // selected an option.
+        //    SetSelectedOption (selectedOption);
 
-            // Now remove the delegate so that the loop in RunOptions will exit
-            SetSelectedOption = null; 
-        }
+        //    // Now remove the delegate so that the loop in RunOptions will exit
+        //    SetSelectedOption = null; 
+        //}
 
         /// Run an internal command.
-        public override IEnumerator RunCommand (Yarn.Command command)
+        public override IEnumerator RunCommand(Yarn.Command command)
         {
             // "Perform" the command
-            Debug.Log ("Command: " + command.text);
+            Debug.Log("Command: " + command.text);
 
             yield break;
         }
 
         /// Called when the dialogue system has started running.
-        public override IEnumerator DialogueStarted ()
+        public override IEnumerator DialogueStarted()
         {
-            Debug.Log ("Dialogue starting!");
+            Debug.Log("Dialogue starting!");
 
             // Enable the dialogue controls.
-            if (dialogueContainer != null)
-                dialogueContainer.SetActive(true);
+            ShowCanvas();
 
             // Hide the game controls.
-            if (gameControlsContainer != null) {
+            if (gameControlsContainer != null)
+            {
                 gameControlsContainer.gameObject.SetActive(false);
             }
 
             yield break;
         }
 
-        /// Called when the dialogue system has finished running.
-        public override IEnumerator DialogueComplete ()
+        private void ShowCanvas()
         {
-            Debug.Log ("Complete!");
+            if (dialogueCanvas != null)
+                dialogueCanvas.enabled = true;
+        }
+
+        /// Called when the dialogue system has finished running.
+        public override IEnumerator DialogueComplete()
+        {
+            Debug.Log("Complete!");
 
             // Hide the dialogue interface.
-            if (dialogueContainer != null)
-                dialogueContainer.SetActive(false);
+            HideCanvas();
 
             // Show the game controls.
-            if (gameControlsContainer != null) {
+            if (gameControlsContainer != null)
+            {
                 gameControlsContainer.gameObject.SetActive(true);
             }
 
             yield break;
+        }
+
+        private void HideCanvas()
+        {
+            if (dialogueCanvas != null)
+                dialogueCanvas.enabled = false;
         }
 
     }

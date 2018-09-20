@@ -65,7 +65,7 @@ namespace Yarn.Unity
         public string startNode = Yarn.Dialogue.DEFAULT_START;
 
         /// Whether we should start dialogue when the scene starts
-        public bool startAutomatically = true;
+        public bool startAutomatically = false;
 
         /// Tests to see if the dialogue is running
         public bool isDialogueRunning { get; private set; }
@@ -224,18 +224,20 @@ namespace Yarn.Unity
                     var lineResult = step as Yarn.Dialogue.LineResult;
                     yield return StartCoroutine (this.dialogueUI.RunLine (lineResult.line));
 
-                } else if (step is Yarn.Dialogue.OptionSetResult) {
+                }
+                //else if (step is Yarn.Dialogue.OptionSetResult)
+                //{
+                //    // Wait for user to finish picking an option
+                //    var optionSetResult = step as Yarn.Dialogue.OptionSetResult;
+                //    yield return StartCoroutine (
+                //        this.dialogueUI.RunOptions (
+                //        optionSetResult.options,
+                //        optionSetResult.setSelectedOptionDelegate
+                //    ));
 
-                    // Wait for user to finish picking an option
-                    var optionSetResult = step as Yarn.Dialogue.OptionSetResult;
-                    yield return StartCoroutine (
-                        this.dialogueUI.RunOptions (
-                        optionSetResult.options,
-                        optionSetResult.setSelectedOptionDelegate
-                    ));
-
-                } else if (step is Yarn.Dialogue.CommandResult) {
-
+                //}
+                else if (step is Yarn.Dialogue.CommandResult)
+                {
                     // Wait for command to finish running
 
                     var commandResult = step as Yarn.Dialogue.CommandResult;
