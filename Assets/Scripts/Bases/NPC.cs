@@ -129,7 +129,7 @@ public abstract class NPC : Talkable
             {
                 if (MovingOutsideWalkZone())
                 {
-                    Debug.Log(this.name + " STAHP!");
+                    //Debug.Log(this.name + " STAHP!");
                     StopWalking();
                     resetTimeBetweenMoveCounter();
                 }

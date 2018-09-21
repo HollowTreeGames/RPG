@@ -8,7 +8,11 @@ title: Dank Herb Pick Up
 ---
 Belfry: I could smell this from where I spawned in.
 Belfry: I think that qualifies this as the dankest Mary Jane.
-Belfry (Sad): Hopefully Henry will like it, even though his wife's name is Nora.
+<<if IsInProgress("Henry Dank Herb")>>
+    Belfry (Sad): Hopefully Henry will like it, even though his wife's name is Nora.
+<<elseif IsInProgress("Oakewood Library Book")>>
+    Belfry (Happy): Maybe Oakewood will calm his saggy tits if I give him some of this!
+<<endif>>
 ===
 
 

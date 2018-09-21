@@ -534,6 +534,9 @@ namespace Yarn.Unity
             dialogue.library.RegisterFunction("ClearInventory", 0, delegate (Value[] parameters) {
                 inventoryManager.ClearInventory();
             });
+            dialogue.library.RegisterFunction("DropItem", 0, delegate (Value[] parameters) {
+                inventoryManager.DropItem();
+            });
 
             // Misc
             dialogue.library.RegisterFunction("Random", 2, delegate (Value[] parameters) {

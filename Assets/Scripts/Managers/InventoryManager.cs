@@ -53,15 +53,20 @@ public class InventoryManager : MonoBehaviour
         inventoryRenderer.sprite = null;
     }
 
+    public void DropItem()
+    {
+        if (itemInInventory != null)
+        {
+            itemInInventory.gameObject.SetActive(true);
+            ClearInventory();
+        }
+    }
+
     public void Update()
     {
         if (Input.GetKeyDown("z"))
         {
-            if (itemInInventory != null)
-            {
-                itemInInventory.gameObject.SetActive(true);
-                ClearInventory();
-            }
+            DropItem();
         }
     }
 }

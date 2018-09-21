@@ -33,8 +33,8 @@ Parsley:			Especially not a candle.
 title: Parsley Find CD
 ---
 <<if IsAvailable("Parsley Find CD")>>
-    [[Parsley CD Start]]
-<<elseif IsInProgress("Oakewood Library Book")>>
+    [[Parsley Find CD Start]]
+<<elseif IsInProgress("Parsley Find CD")>>
     <<if GetInventory() == "Herb Book" || GetInventory() == "Library Book">>
         [[Parsley That Is A Book]]
 	<<elseif GetInventory() == "Dank Herb">>
@@ -46,24 +46,24 @@ title: Parsley Find CD
     <<endif>>
 <<endif>>
 ===
-title: Parsley CD Start
+title: Parsley Find CD Start
 ---
 Parsley:			Oh alright, alright!!
 Parsley:			I'll give you a chance to redeem yourself.
 Parsley (Happy):	Find the coolest possible thing you can. If it's cool enough, I will CONSIDER taking you off my shit list.
 Parsley:			Provisionally!!
-<<StartQuest("Parsley CD")>>
+<<StartQuest("Parsley Find CD")>>
 ===
-title: Parsley CD Get
+title: Parsley Find CD Get
 ---
 <<ClearInventory()>>
-Parsley (Happy):	Whoa!!,
+Parsley (Happy):	Whoa!!
 Parsley (Happy):	I've been looking for one of these!
 Parsley (Sad):		Hmm... it's no Nickelback, but I'll take it.
 Parsley (Happy):	Thanks, Bel! You're the best!
-<<FinishQuest("Parsley CD")>>
+<<FinishQuest("Parsley Find CD")>>
 ===
-title: Parsley CD Reminder
+title: Parsley Find CD Reminder
 ---
 Parsley (Happy):	Have you found the COOLEST THING EVER yet?
 Parsley (Happy):	Please be sure it is quantifiably the coolest thing you've ever set paw upon.
@@ -72,6 +72,7 @@ title: Parsley That Is A Book
 ---
 Parsley:			I said bring the COOLEST possible thing.
 Parsley (Sad):		Books are cool, but this one is lame.
+<<DropItem()>>
 ===
 title: Parsley That Is An Herb
 ---
@@ -79,6 +80,7 @@ Parsley:			That is literally marijuana.
 Parsley:			I'm ten.
 Parsley:			You're not supposed to give ten year olds marijuana.
 Parsley:			And anyway, cool kits don't do drugs!!
+<<DropItem()>>
 ===
 title: Parsley Thanks
 ---

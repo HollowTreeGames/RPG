@@ -60,6 +60,7 @@ title: Oakewood Wrong Book Get
 Oakewood:		  I did say this book needs to be suitable for ALL AGES.
 Oakewood:		  We don't want Piper learning to roll a blunt, now do we?
 Oakewood (Sad):	  Don't answer that.
+<<DropItem()>>
 ===
 title: Oakewood Library Book Get
 ---
@@ -77,6 +78,7 @@ Oakewood:		  I believe the strain is called "Alaskan Thunder Fuck."
 Oakewood (Happy): Don't ask me how I know that.
 Oakewood (Sad):	  Either way, it's not a book, you moron.
 Oakewood (Sad):   Try again.
+<<DropItem()>>
 ===
 title: Oakewood That Is A CD
 ---
@@ -85,6 +87,7 @@ Oakewood (Sad):	  I don't even know what this is.
 Oakewood (Happy): Is it a mirror?
 Oakewood (Sad):   Take it back. It angers me.
 Oakewood (Sad):   And it's not a book!!
+<<DropItem()>>
 ===
 title: Oakewood Book Reminder
 ---
