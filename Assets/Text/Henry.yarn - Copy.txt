@@ -1,22 +1,5 @@
 title: Start
 ---
-<<if IsActive("henryGreeting")>>
-    [[Initial]]
-<<endif>>
-
-<<if IsActive("henryDankHerb")>>
-    [[DankHerb]]
-<<endif>>
-
-<<if IsActive("henryDankBook")>>
-    [[DankBook]]
-<<endif>>
-
-[[Thanks]]
-===
-
-title: Initial
----
 Henry:          Hi! My name is Henry! I'm the sheriff!
 Belfry (happy): I know who you are, Henry! We lived in Treehollow together!
 Henry (happy):  Of course!
@@ -25,22 +8,9 @@ Henry:          Allow me to finish my introduction. Ahem.
 Henry (happy):  I like sniffing butts!
 Henry (sad):    Nora likes it when I don't wear pants, but I don't know why!
 Belfry (sad):   ...
-<<FinishQuest("henryGreeting")>>
 ===
 
 
-title: DankHerb
----
-<<if IsAvailable("henryDankHerb")>>
-    [[HerbStart]]
-<<elseif IsInProgress("henryDankHerb")>>
-    <<if GetInventory() == "Dank Herb">>
-        [[HerbGet]]
-    <<else>>
-        [[HerbReminder]]
-    <<endif>>
-<<endif>>
-===
 title: HerbStart
 ---
 Henry (Sad):    Nora has been really stressed by her work lately. You know what she needs?
@@ -49,7 +19,6 @@ Henry:          That's right! A little bit of kibbles and hits!
 Belfry (Sad):   ...
 Henry (Happy):  Would you please find me some nutritious nug to help Nora take the edge off?
 Belfry (Happy): Anything for you guys!
-<<StartQuest("henryDankHerb")>>
 ===
 title: HerbReminder
 ---
@@ -58,24 +27,10 @@ Belfry:         Working on it!
 ===
 title: HerbGet
 ---
-<<ClearInventory()>>
 Henry (Happy):  Wow, thank you! Nora will be so happy to smoke this straight killer kush!
-<<FinishQuest("henryDankHerb")>>
 ===
 
 
-title: DankBook
----
-<<if IsAvailable("henryDankBook")>>
-    [[BookStart]]
-<<elseif IsInProgress("henryDankBook")>>
-    <<if GetInventory() == "Herb Book">>
-        [[BookGet]]
-    <<else>>
-        [[BookReminder]]
-    <<endif>>
-<<endif>>
-===
 title: BookStart
 ---
 Henry (Happy):  So I wanted to get Nora a special book...
@@ -84,7 +39,6 @@ Henry (Sad):    WEED.
 Belfry (Sad):   ...ah.
 Henry:          Can you find one for me? She's hopeless at blazing 420 365 blaze it.
 Belfry (Happy): We can't have that, now can we? I'll look.
-<<StartQuest("henryDankBook")>>
 ===
 title: BookReminder
 ---
@@ -94,9 +48,7 @@ Henry (Sad):    I'm a sheriff, you know.
 ===
 title: BookGet
 ---
-<<ClearInventory()>>
 Henry (Happy):  Thank goodness! I was worried Nora would choke on a blunt without this.
-<<FinishQuest("henryDankBook")>>
 ===
 
 

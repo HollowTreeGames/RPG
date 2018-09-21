@@ -8,7 +8,7 @@ using MyDialogue;
 public class Henry : NPC {
     
     private System.Random random = new System.Random();
-    
+
     private Quest questGreeting;
     private Quest questDankHerb;
     private Quest questDankBook;
@@ -33,7 +33,6 @@ public class Henry : NPC {
             //questGreeting.SetQuestState(QuestState.Done);
             //questDankBook.SetQuestState(QuestState.Available);
             questManager.StartQuest(questGreeting);
-            return;
         }
 
         if (questGreeting.IsInProgress())
@@ -67,54 +66,5 @@ public class Henry : NPC {
     protected override bool IsQuestAvailable()
     {
         return questGreeting.IsInProgress() || questDankHerb.IsAvailable() || questDankBook.IsAvailable();
-    }
-
-    protected override string GetDialogueNode()
-    {
-        if (questGreeting.IsInProgress())
-        {
-            questManager.FinishQuest(questGreeting);
-            return "Start";
-        }
-
-        // Find dat dank herb
-        switch (questDankHerb.GetQuestState())
-        {
-            case QuestState.Available:
-                questManager.StartQuest(questDankHerb);
-                return "HerbStart";
-            case QuestState.InProgress:
-                if (inventoryManager.GetInventory() == "Dank Herb")
-                {
-                    inventoryManager.ClearInventory();
-                    questManager.FinishQuest(questDankHerb);
-                    return "HerbGet";
-                }
-                else
-                    return "HerbReminder";
-            default:
-                break;
-        }
-
-        // Get you some herb book, son
-        switch (questDankBook.GetQuestState())
-        {
-            case QuestState.Available:
-                questManager.StartQuest(questDankBook);
-                return "BookStart";
-            case QuestState.InProgress:
-                if (inventoryManager.GetInventory() == "Herb Book")
-                {
-                    inventoryManager.ClearInventory();
-                    questManager.FinishQuest(questDankBook);
-                    return "BookGet";
-                }
-                else
-                    return "BookReminder";
-            default:
-                break;
-        }
-
-        return "Thanks";
     }
 }

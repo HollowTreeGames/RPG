@@ -94,6 +94,12 @@ namespace Yarn.Unity
             }
         }
 
+        public QuestManager questManager;
+        public GameState gameState;
+        public InventoryManager inventoryManager;
+
+        private System.Random random;
+
         /// Start the dialogue
         void Start ()
         {
@@ -108,6 +114,31 @@ namespace Yarn.Unity
                 Debug.LogError ("Variable storage was not set! Can't run the dialogue!");
                 return;
             }
+
+            // And that we have our other objects
+            if (questManager == null)
+            {
+                Debug.LogError("Quest Manager was not set!");
+                return;
+            }
+            
+            if (gameState == null)
+            {
+                Debug.LogError("Game State was not set!");
+                return;
+            }
+            
+            if (inventoryManager == null)
+            {
+                Debug.LogError("Inventory Manager was not set!");
+                return;
+            }
+
+            // Set additional functions at runtime
+            AddCustomFunctions();
+
+            // Seed RNG
+            random = new System.Random();
 
             // Ensure that the variable storage has the right stuff in it
             variableStorage.ResetToDefaults ();
@@ -146,7 +177,14 @@ namespace Yarn.Unity
 
         /// Add a TextAsset to a script
         public void AddScript(TextAsset asset) {
-            dialogue.LoadString(asset.text);
+            try
+            {
+                dialogue.LoadString(asset.text);
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError(e);
+            }
         }
 
         /// Loads a string table, replacing any existing strings with the same
@@ -405,6 +443,102 @@ namespace Yarn.Unity
             }
 
             return numberOfMethodsFound > 0;
+        }
+
+
+        /// Add additional functions to the Dialogue object, mostly for quest handling
+        private void AddCustomFunctions()
+        {
+            // Check State
+            dialogue.library.RegisterFunction("IsUnavailable", 1, delegate (Value[] parameters) {
+                return questManager.FindQuest(parameters[0].AsString).IsUnavailable();
+            });
+            dialogue.library.RegisterFunction("IsAvailable", 1, delegate (Value[] parameters) {
+                return questManager.FindQuest(parameters[0].AsString).IsAvailable();
+            });
+            dialogue.library.RegisterFunction("IsInProgress", 1, delegate (Value[] parameters) {
+                return questManager.FindQuest(parameters[0].AsString).IsInProgress();
+            });
+            dialogue.library.RegisterFunction("IsDone", 1, delegate (Value[] parameters) {
+                return questManager.FindQuest(parameters[0].AsString).IsDone();
+            });
+            dialogue.library.RegisterFunction("IsDisabled", 1, delegate (Value[] parameters) {
+                return questManager.FindQuest(parameters[0].AsString).IsDisabled();
+            });
+
+            // IsActive / IsInactive
+            dialogue.library.RegisterFunction("IsActive", 1, delegate (Value[] parameters) {
+                return questManager.FindQuest(parameters[0].AsString).IsActive();
+            });
+            dialogue.library.RegisterFunction("IsInactive", 1, delegate (Value[] parameters) {
+                return questManager.FindQuest(parameters[0].AsString).IsInactive();
+            });
+
+            // Set State
+            dialogue.library.RegisterFunction("SetUnavailable", 1, delegate (Value[] parameters) {
+                questManager.FindQuest(parameters[0].AsString).SetUnavailable();
+            });
+            dialogue.library.RegisterFunction("SetAvailable", 1, delegate (Value[] parameters) {
+                questManager.FindQuest(parameters[0].AsString).SetAvailable();
+            });
+            dialogue.library.RegisterFunction("SetInProgress", 1, delegate (Value[] parameters) {
+                questManager.FindQuest(parameters[0].AsString).SetInProgress();
+            });
+            dialogue.library.RegisterFunction("SetDone", 1, delegate (Value[] parameters) {
+                questManager.FindQuest(parameters[0].AsString).SetDone();
+            });
+            dialogue.library.RegisterFunction("SetDisabled", 1, delegate (Value[] parameters) {
+                questManager.FindQuest(parameters[0].AsString).SetDisabled();
+            });
+
+            // Start/Finish Quests
+            dialogue.library.RegisterFunction("StartQuest", 1, delegate (Value[] parameters) {
+                questManager.StartQuest(questManager.FindQuest(parameters[0].AsString));
+            });
+            dialogue.library.RegisterFunction("FinishQuest", 1, delegate (Value[] parameters) {
+                questManager.FinishQuest(questManager.FindQuest(parameters[0].AsString));
+            });
+
+            // Get reps
+            dialogue.library.RegisterFunction("GetReputation", 0, delegate (Value[] parameters) {
+                return gameState.reputation;
+            });
+            dialogue.library.RegisterFunction("GetFriendship", 1, delegate (Value[] parameters) {
+                return gameState.GetFriendship(parameters[0].AsString);
+            });
+
+            // Set reps
+            dialogue.library.RegisterFunction("SetReputation", 1, delegate (Value[] parameters) {
+                gameState.reputation = (int)parameters[0].AsNumber;
+            });
+            dialogue.library.RegisterFunction("AddReputation", 1, delegate (Value[] parameters) {
+                gameState.reputation += (int)parameters[0].AsNumber;
+            });
+            dialogue.library.RegisterFunction("SubtractReputation", 1, delegate (Value[] parameters) {
+                gameState.reputation -= (int)parameters[0].AsNumber;
+            });
+            dialogue.library.RegisterFunction("SetFriendship", 2, delegate (Value[] parameters) {
+                gameState.SetFriendship(parameters[0].AsString, (int)parameters[1].AsNumber);
+            });
+            dialogue.library.RegisterFunction("AddFriendship", 2, delegate (Value[] parameters) {
+                gameState.AddFriendship(parameters[0].AsString, (int)parameters[1].AsNumber);
+            });
+            dialogue.library.RegisterFunction("SubtractFriendship", 2, delegate (Value[] parameters) {
+                gameState.AddFriendship(parameters[0].AsString, -1 * (int)parameters[1].AsNumber);
+            });
+
+            // Inventory
+            dialogue.library.RegisterFunction("GetInventory", 0, delegate (Value[] parameters) {
+                return inventoryManager.GetInventory();
+            });
+            dialogue.library.RegisterFunction("ClearInventory", 0, delegate (Value[] parameters) {
+                inventoryManager.ClearInventory();
+            });
+
+            // Misc
+            dialogue.library.RegisterFunction("Random", 2, delegate (Value[] parameters) {
+                return random.Next(0, 2);
+            });
         }
 
     }

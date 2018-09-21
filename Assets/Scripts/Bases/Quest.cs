@@ -47,7 +47,7 @@ public class Quest
         return this;
     }
 
-    public Quest DoNotCheckPreReqsAutomatically()
+    public Quest DoNotStartAutomatically()
     {
         automaticallySetQuestAvailable = false;
         return this;
@@ -118,6 +118,41 @@ public class Quest
         return questState == QuestState.Disabled;
     }
 
+    public bool IsActive()
+    {
+        return (questState == QuestState.Available) || (questState == QuestState.InProgress);
+    }
+
+    public bool IsInactive()
+    {
+        return !IsActive();
+    }
+
+    public void SetUnavailable()
+    {
+        SetQuestState(QuestState.Unavailable);
+    }
+
+    public void SetAvailable()
+    {
+        SetQuestState(QuestState.Available);
+    }
+
+    public void SetInProgress()
+    {
+        SetQuestState(QuestState.InProgress);
+    }
+
+    public void SetDone()
+    {
+        SetQuestState(QuestState.Done);
+    }
+
+    public void SetDisabled()
+    {
+        SetQuestState(QuestState.Disabled);
+    }
+
     public void SetQuestState(QuestState questState)
     {
         this.questState = questState;
@@ -130,7 +165,7 @@ public class Quest
             return;
         if (questState != QuestState.Unavailable)
             return;
-        if (preReqReputation > gameState.reputation)
+        if (gameState.reputation < preReqReputation)
             return;
         foreach (KeyValuePair<string, int> pair in preReqFriendship)
         {
@@ -143,6 +178,8 @@ public class Quest
 
     public void Finish(GameState gameState)
     {
+        Debug.Log("Finishing quest: " + this.questId);
+        SetDone();
         gameState.reputation += reputationGain;
         foreach (KeyValuePair<string, int> pair in friendshipGains)
         {

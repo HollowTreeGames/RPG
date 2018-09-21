@@ -23,6 +23,11 @@ public class GameState : MonoBehaviour
         return friendshipDict.ContainsKey(friend) ? friendshipDict[friend] : 0;
     }
 
+    public void SetFriendship(string friend, int value)
+    {
+        friendshipDict[friend] = value;
+    }
+
     public void AddFriendship(string friend, int gain)
     {
         if (friendshipDict.ContainsKey(friend))

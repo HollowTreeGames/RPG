@@ -11632,6 +11632,7 @@ MonoBehaviour:
   textSpeed: 0.025
   optionButtons: []
   gameControlsContainer: {fileID: 0}
+  talkButtonPressed: 0
 --- !u!114 &526302863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11652,6 +11653,9 @@ MonoBehaviour:
   startNode: Start
   startAutomatically: 0
   automaticCommands: 1
+  questManager: {fileID: 681534317}
+  gameState: {fileID: 102065168}
+  inventoryManager: {fileID: 1507438713}
 --- !u!4 &526302864
 Transform:
   m_ObjectHideFlags: 0
@@ -14788,6 +14792,7 @@ MonoBehaviour:
   spawnPoints: []
   stickyObject: 0
   respawnAfterPickup: 0
+  scriptToLoad: {fileID: 4900000, guid: 9f0a87f570530214c9f5a26f80ee5f01, type: 3}
 --- !u!61 &1125029687
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15088,6 +15093,7 @@ MonoBehaviour:
   - {x: 1.302, y: 2.507}
   stickyObject: 1
   respawnAfterPickup: 1
+  scriptToLoad: {fileID: 4900000, guid: b330da0fc2ad6b1439879dde0f57d19e, type: 3}
 --- !u!4 &1249401125 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4116208367648876, guid: a0a08a5ca3967944fb8c8f89064ad394,
@@ -15967,6 +15973,7 @@ MonoBehaviour:
   spawnPoints: []
   stickyObject: 0
   respawnAfterPickup: 0
+  scriptToLoad: {fileID: 0}
 --- !u!61 &1478739518
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16043,6 +16050,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4758243835101852, guid: a1da819037771c2408418be594862ce1,
     type: 2}
   m_PrefabInternal: {fileID: 1719714156}
+--- !u!114 &1507438713 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114328769730518048, guid: 968dc01e55c11b24c980394db2fd1aad,
+    type: 2}
+  m_PrefabInternal: {fileID: 645316441}
+  m_Script: {fileID: 11500000, guid: 6356d7db284710643bb934f06cf24f1c, type: 3}
 --- !u!4 &1509720264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4758243835101852, guid: a1da819037771c2408418be594862ce1,
@@ -17227,6 +17240,7 @@ MonoBehaviour:
   spawnPoints: []
   stickyObject: 0
   respawnAfterPickup: 0
+  scriptToLoad: {fileID: 0}
 --- !u!61 &2009607335
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17578,7 +17592,7 @@ MonoBehaviour:
   runSpeed: 240
   interactDistance: 1
   gameState: {fileID: 102065168}
-  dialogueManager: {fileID: 2146486960}
+  dialogueRunner: {fileID: 0}
   walking: 0
   lastX: 0
   lastY: -1

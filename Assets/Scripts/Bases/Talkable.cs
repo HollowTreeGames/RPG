@@ -24,7 +24,7 @@ public class Talkable : Interactable {
 
     public override void Interact()
     {
-        dialogueRunner.StartDialogue(GetDialogueNode());
+        dialogueRunner.StartDialogue();
     }
 
     protected virtual string GetDialogueNode()

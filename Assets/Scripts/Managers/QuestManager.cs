@@ -13,11 +13,11 @@ public class QuestManager : MonoBehaviour
             .AddReputation(0)
             .InitialState(QuestState.Available),
         new Quest("henryDankHerb", "Find the Dank Herb")
-            .DoNotCheckPreReqsAutomatically()
+            .DoNotStartAutomatically()
             .AddReputation(1)
             .AddFriendship("Henry", 1), 
         new Quest("henryDankBook", "Find the Dank Book")
-            .DoNotCheckPreReqsAutomatically()
+            .DoNotStartAutomatically()
             .AddReputation(1)
             .AddFriendship("Henry", 1), 
         new Quest("oakewoodLibraryBook", "Find a Library Book")
@@ -84,7 +84,6 @@ public class QuestManager : MonoBehaviour
     public void FinishQuest(Quest quest)
     {
         quest.Finish(gameState);
-        quest.SetQuestState(QuestState.Done);
         SetQuestText(null);
     }
 
