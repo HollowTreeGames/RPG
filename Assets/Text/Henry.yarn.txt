@@ -1,21 +1,21 @@
-title: Start
+title: Henry Start
 ---
-<<if IsActive("henryGreeting")>>
-    [[Initial]]
+<<if IsActive("Henry Greeting")>>
+    [[Henry Greeting]]
 <<endif>>
 
-<<if IsActive("henryDankHerb")>>
-    [[DankHerb]]
+<<if IsActive("Henry Dank Herb")>>
+    [[Henry Dank Herb]]
 <<endif>>
 
-<<if IsActive("henryDankBook")>>
-    [[DankBook]]
+<<if IsActive("Henry Dank Book")>>
+    [[Henry Dank Book]]
 <<endif>>
 
-[[Thanks]]
+[[Henry Thanks]]
 ===
 
-title: Initial
+title: Henry Greeting
 ---
 Henry:          Hi! My name is Henry! I'm the sheriff!
 Belfry (happy): I know who you are, Henry! We lived in Treehollow together!
@@ -25,23 +25,23 @@ Henry:          Allow me to finish my introduction. Ahem.
 Henry (happy):  I like sniffing butts!
 Henry (sad):    Nora likes it when I don't wear pants, but I don't know why!
 Belfry (sad):   ...
-<<FinishQuest("henryGreeting")>>
+<<FinishQuest("Henry Greeting")>>
 ===
 
 
-title: DankHerb
+title: Henry Dank Herb
 ---
-<<if IsAvailable("henryDankHerb")>>
-    [[HerbStart]]
-<<elseif IsInProgress("henryDankHerb")>>
+<<if IsAvailable("Henry Dank Herb")>>
+    [[Henry Dank Herb Start]]
+<<elseif IsInProgress("Henry Dank Herb")>>
     <<if GetInventory() == "Dank Herb">>
-        [[HerbGet]]
+        [[Henry Dank Herb Get]]
     <<else>>
-        [[HerbReminder]]
+        [[Henry Dank Herb Reminder]]
     <<endif>>
 <<endif>>
 ===
-title: HerbStart
+title: Henry Dank Herb Start
 ---
 Henry (Sad):    Nora has been really stressed by her work lately. You know what she needs?
 Belfry:         A nice back massage?
@@ -49,34 +49,34 @@ Henry:          That's right! A little bit of kibbles and hits!
 Belfry (Sad):   ...
 Henry (Happy):  Would you please find me some nutritious nug to help Nora take the edge off?
 Belfry (Happy): Anything for you guys!
-<<StartQuest("henryDankHerb")>>
+<<StartQuest("Henry Dank Herb")>>
 ===
-title: HerbReminder
+title: Henry Dank Herb Reminder
 ---
 Henry:          Have you found some leafs of the devil's lettuce?
 Belfry:         Working on it!
 ===
-title: HerbGet
+title: Henry Dank Herb Get
 ---
 <<ClearInventory()>>
 Henry (Happy):  Wow, thank you! Nora will be so happy to smoke this straight killer kush!
-<<FinishQuest("henryDankHerb")>>
+<<FinishQuest("Henry Dank Herb")>>
 ===
 
 
-title: DankBook
+title: Henry Dank Book
 ---
-<<if IsAvailable("henryDankBook")>>
-    [[BookStart]]
-<<elseif IsInProgress("henryDankBook")>>
+<<if IsAvailable("Henry Dank Book")>>
+    [[Henry Dank Book Start]]
+<<elseif IsInProgress("Henry Dank Book")>>
     <<if GetInventory() == "Herb Book">>
-        [[BookGet]]
+        [[Henry Dank Book Get]]
     <<else>>
-        [[BookReminder]]
+        [[Henry Dank Book Reminder]]
     <<endif>>
 <<endif>>
 ===
-title: BookStart
+title: Henry Dank Book Start
 ---
 Henry (Happy):  So I wanted to get Nora a special book...
 Henry:          You didn't hear this from me, but it's a book about...
@@ -84,23 +84,23 @@ Henry (Sad):    WEED.
 Belfry (Sad):   ...ah.
 Henry:          Can you find one for me? She's hopeless at blazing 420 365 blaze it.
 Belfry (Happy): We can't have that, now can we? I'll look.
-<<StartQuest("henryDankBook")>>
+<<StartQuest("Henry Dank Book")>>
 ===
-title: BookReminder
+title: Henry Dank Book Reminder
 ---
 Henry:          Have you found that book yet?
 Henry:          Keep it on the down-low.
 Henry (Sad):    I'm a sheriff, you know.
 ===
-title: BookGet
+title: Henry Dank Book Get
 ---
 <<ClearInventory()>>
 Henry (Happy):  Thank goodness! I was worried Nora would choke on a blunt without this.
-<<FinishQuest("henryDankBook")>>
+<<FinishQuest("Henry Dank Book")>>
 ===
 
 
-title: Thanks
+title: Henry Thanks
 ---
 Henry:          Thanks again for the dank dire doobies and this mad awesome book!
 Henry (Sad):    Nora asked me to stop saying dank, but it's too much fun!

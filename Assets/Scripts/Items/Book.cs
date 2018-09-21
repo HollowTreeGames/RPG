@@ -14,8 +14,8 @@ public class Book : Item
         base.Start();
         itemName = "Herb Book";
 
-        questDankBook = questManager.FindQuest("henryDankBook");
-        questLibraryBook = questManager.FindQuest("oakewoodLibraryBook");
+        questDankBook = questManager.FindQuest("Henry Dank Book");
+        questLibraryBook = questManager.FindQuest("Oakewood Library Book");
     }
 
     protected override bool CheckForPickup()

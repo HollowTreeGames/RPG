@@ -131,6 +131,8 @@ namespace Yarn.Unity {
 
             talkButtonPressed = false;
 
+            ShowCanvas();
+
             if (textSpeed > 0.0f)
             {
                 // Display the line one character at a time
@@ -202,7 +204,7 @@ namespace Yarn.Unity {
             Debug.Log("Dialogue starting!");
 
             // Enable the dialogue controls.
-            ShowCanvas();
+            //ShowCanvas();
 
             // Hide the game controls.
             if (gameControlsContainer != null)

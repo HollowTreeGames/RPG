@@ -11825,7 +11825,7 @@ Prefab:
     - target: {fileID: 224164451274943708, guid: 2c895a5ecd6ebeb45ae4fd296959e094,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224489801117306884, guid: 2c895a5ecd6ebeb45ae4fd296959e094,
         type: 2}
@@ -11835,7 +11835,7 @@ Prefab:
     - target: {fileID: 224393975472454478, guid: 2c895a5ecd6ebeb45ae4fd296959e094,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224971892239194254, guid: 2c895a5ecd6ebeb45ae4fd296959e094,
         type: 2}
@@ -11988,78 +11988,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasShadow: 1
-  scriptToLoad: {fileID: 0}
+  scriptToLoad: {fileID: 4900000, guid: b127cab67664f8544b493568792b1fe2, type: 3}
   moveSpeed: 0.5
   timeBetweenMove: 5
   timeToMove: 4
   walkZone: {fileID: 1739976972}
   questLibraryBook:
-    questId: 
-    questName: 
-    questState: 0
-    automaticallySetQuestAvailable: 0
-    preReqReputation: 0
-    preReqFriendship:
-      _Buckets: ffffffffffffffffffffffff
-      _HashCodes: 000000000000000000000000
-      _Next: 000000000000000000000000
-      _Count: 0
-      _Version: 0
-      _FreeList: -1
-      _FreeCount: 0
-      _Keys:
-      - 
-      - 
-      - 
-      _Values: 000000000000000000000000
-    reputationGain: 0
-    friendshipGains:
-      _Buckets: ffffffffffffffffffffffff
-      _HashCodes: 000000000000000000000000
-      _Next: 000000000000000000000000
-      _Count: 0
-      _Version: 0
-      _FreeList: -1
-      _FreeCount: 0
-      _Keys:
-      - 
-      - 
-      - 
-      _Values: 000000000000000000000000
-  questDankHerb:
-    questId: 
-    questName: 
-    questState: 0
-    automaticallySetQuestAvailable: 0
-    preReqReputation: 0
-    preReqFriendship:
-      _Buckets: ffffffffffffffffffffffff
-      _HashCodes: 000000000000000000000000
-      _Next: 000000000000000000000000
-      _Count: 0
-      _Version: 0
-      _FreeList: -1
-      _FreeCount: 0
-      _Keys:
-      - 
-      - 
-      - 
-      _Values: 000000000000000000000000
-    reputationGain: 0
-    friendshipGains:
-      _Buckets: ffffffffffffffffffffffff
-      _HashCodes: 000000000000000000000000
-      _Next: 000000000000000000000000
-      _Count: 0
-      _Version: 0
-      _FreeList: -1
-      _FreeCount: 0
-      _Keys:
-      - 
-      - 
-      - 
-      _Values: 000000000000000000000000
-  questDankBook:
     questId: 
     questName: 
     questState: 0
@@ -15778,7 +15712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasShadow: 1
-  scriptToLoad: {fileID: 0}
+  scriptToLoad: {fileID: 4900000, guid: 3a32e7c29446b684987e9407505cfb46, type: 3}
   moveSpeed: 0.5
   timeBetweenMove: 5
   timeToMove: 4
@@ -15973,7 +15907,7 @@ MonoBehaviour:
   spawnPoints: []
   stickyObject: 0
   respawnAfterPickup: 0
-  scriptToLoad: {fileID: 0}
+  scriptToLoad: {fileID: 4900000, guid: 1f95ce0816e71794aae559a3c39326b2, type: 3}
 --- !u!61 &1478739518
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17240,7 +17174,7 @@ MonoBehaviour:
   spawnPoints: []
   stickyObject: 0
   respawnAfterPickup: 0
-  scriptToLoad: {fileID: 0}
+  scriptToLoad: {fileID: 4900000, guid: d8f80b952141bbc488ac8d5daefebb3b, type: 3}
 --- !u!61 &2009607335
 BoxCollider2D:
   m_ObjectHideFlags: 0

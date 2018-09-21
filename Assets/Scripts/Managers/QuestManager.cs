@@ -9,22 +9,22 @@ public class QuestManager : MonoBehaviour
 {
     private Quest[] questList =
     {
-        new Quest("henryGreeting", "Say Hello to that dog dude over there")
+        new Quest("Henry Greeting", "Say Hello to that dog dude over there")
             .AddReputation(0)
             .InitialState(QuestState.Available),
-        new Quest("henryDankHerb", "Find the Dank Herb")
+        new Quest("Henry Dank Herb", "Find the Dank Herb")
             .DoNotStartAutomatically()
             .AddReputation(1)
             .AddFriendship("Henry", 1), 
-        new Quest("henryDankBook", "Find the Dank Book")
+        new Quest("Henry Dank Book", "Find the Dank Book")
             .DoNotStartAutomatically()
             .AddReputation(1)
             .AddFriendship("Henry", 1), 
-        new Quest("oakewoodLibraryBook", "Find a Library Book")
+        new Quest("Oakewood Library Book", "Find a Library Book")
             .AddPrereqFriendship("Henry", 2)
             .AddReputation(1)
             .AddFriendship("Oakewood", 1), 
-        new Quest("parsleyFindCD", "Find something cool for Parsley")
+        new Quest("Parsley Find CD", "Find something cool for Parsley")
             .AddPrereqReputation(3)
             .AddReputation(1)
             .AddFriendship("Parsley", 1)

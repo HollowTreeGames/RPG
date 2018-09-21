@@ -1,15 +1,15 @@
-title: Oakewood Start
+title: Parsley Start
 ---
 <<if GetReputation() == 0>>
 	[[Parsley Initial]]
 <<endif>>
 
-<<if GetReputation() > 0>>
+<<if IsUnavailable("Parsley Find CD")>>
 	[[Parsley Friendly]]
 <<endif>>
 
-<<if IsActive("parsleyCD")>>
-    [[Parsley CD]]
+<<if IsActive("Parsley Find CD")>>
+    [[Parsley Find CD]]
 <<endif>>
 
 [[Parsley Thanks]]
@@ -30,19 +30,19 @@ Parsley:			Especially not a candle.
 ===
 
 
-title: Parsley CD
+title: Parsley Find CD
 ---
-<<if IsAvailable("parsleyCD")>>
+<<if IsAvailable("Parsley Find CD")>>
     [[Parsley CD Start]]
-<<elseif IsInProgress("oakewoodLibraryBook")>>
-    <<if GetInventory() == "Herb Book" || "Library Book">>
+<<elseif IsInProgress("Oakewood Library Book")>>
+    <<if GetInventory() == "Herb Book" || GetInventory() == "Library Book">>
         [[Parsley That Is A Book]]
 	<<elseif GetInventory() == "Dank Herb">>
 		[[Parsley That Is An Herb]]
 	<<elseif GetInventory() == "CD">>
-		[[Parsley CD Get]]
+		[[Parsley Find CD Get]]
 	<<else>>
-        [[Parsley CD Reminder]]
+        [[Parsley Find CD Reminder]]
     <<endif>>
 <<endif>>
 ===
@@ -52,16 +52,16 @@ Parsley:			Oh alright, alright!!
 Parsley:			I'll give you a chance to redeem yourself.
 Parsley (Happy):	Find the coolest possible thing you can. If it's cool enough, I will CONSIDER taking you off my shit list.
 Parsley:			Provisionally!!
-<<StartQuest("parsleyCD")>>
+<<StartQuest("Parsley CD")>>
 ===
 title: Parsley CD Get
 ---
 <<ClearInventory()>>
-Parsley (Happy):	Whoa!!"),
+Parsley (Happy):	Whoa!!,
 Parsley (Happy):	I've been looking for one of these!
 Parsley (Sad):		Hmm... it's no Nickelback, but I'll take it.
 Parsley (Happy):	Thanks, Bel! You're the best!
-<<FinishQuest("parsleyCD")>>
+<<FinishQuest("Parsley CD")>>
 ===
 title: Parsley CD Reminder
 ---

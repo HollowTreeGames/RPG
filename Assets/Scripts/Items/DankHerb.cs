@@ -13,7 +13,7 @@ public class DankHerb : Item
         base.Start();
         itemName = "Dank Herb";
 
-        questDankHerb = questManager.FindQuest("henryDankHerb");
+        questDankHerb = questManager.FindQuest("Henry Dank Herb");
 }
 
     protected override bool CheckForPickup()
