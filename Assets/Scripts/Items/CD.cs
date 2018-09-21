@@ -7,6 +7,7 @@ using MyDialogue;
 public class CD : Item
 {
     private Quest questFindCd;
+    private Quest questLibraryBook;
 
     protected override void Start()
     {
@@ -14,10 +15,11 @@ public class CD : Item
         itemName = "CD";
 
         questFindCd = questManager.FindQuest("Parsley Find CD");
-}
+        questLibraryBook = questManager.FindQuest("Oakewood Library Book");
+    }
 
     protected override bool CheckForPickup()
     {
-        return questFindCd.IsInProgress();
+        return (questFindCd.IsInProgress() || questLibraryBook.IsInProgress());
     }
 }
