@@ -1,0 +1,22 @@
+title: Dank Herb Default
+---
+Belfry (happy): Mmmmm! That smells like some straight up bodacious bud!
+===
+
+
+title: Dank Herb Pick Up
+---
+Belfry: I could smell this from where I spawned in.
+Belfry: I think that qualifies this as the dankest Mary Jane.
+<<if IsInProgress("Henry Dank Herb")>>
+    Belfry (Sad): Hopefully Henry will like it, even though his wife's name is Nora.
+<<elseif IsInProgress("Oakewood Library Book")>>
+    Belfry (Happy): Maybe Oakewood will calm his saggy tits if I give him some of this!
+<<endif>>
+===
+
+
+title: Dank Herb Hands Full
+---
+Belfry (Sad): That looks sublimely sticky with sweet dew. I don't want to get any of it on the other thing I'm carrying.
+===

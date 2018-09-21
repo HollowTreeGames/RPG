@@ -1,5 +1,8 @@
 ﻿using System.Reflection;
+using System.Text.RegularExpressions;
+using System.Globalization;
 using UnityEngine;
+using System.Text;
 
 namespace MyDialogue
 {
@@ -47,13 +50,16 @@ namespace MyDialogue
     public class DLine
     {
 
-        public string line;
+        public string text;
         public string name;
         public string face;
         public float wait;
         public float speed;
         public float jitter;
         public bool pause;
+
+        private static Regex re = new Regex(@"(.*?)( \((.*?)\))?:\s+(.*)");
+        private static TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
 
         /// <summary>
         /// 
@@ -69,21 +75,33 @@ namespace MyDialogue
         {
             this.name = name;
             this.face = face;
-            this.line = line;
+            this.text = line;
             this.wait = wait;
             this.speed = speed;
             this.jitter = jitter;
             this.pause = pause;
         }
 
-        public Sprite getFace()
+        public Sprite GetFace()
         {
             return Resources.Load<Sprite>("Faces/" + name + face);
         }
 
         public override string ToString()
         {
-            return string.Format("{0}(name={1}, face={2}, line={3})", this.GetType(), name, face.ToString(), line);
+            return string.Format("{0}(name={1}, face={2}, line={3})", this.GetType(), name, face.ToString(), text);
+        }
+
+        public static DLine FromYarnLine(Yarn.Line line)
+        {
+            Match m = re.Match(line.text);
+            string face = m.Groups[3].Value;
+            if (face.Equals(""))
+                face = "Default";
+            // Convert text to title case
+            face = textInfo.ToTitleCase(face.ToLower());
+
+            return new DLine(m.Groups[1].Value, face, m.Groups[4].Value);
         }
     }
 }

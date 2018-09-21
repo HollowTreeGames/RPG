@@ -6,37 +6,22 @@ using MyDialogue;
 
 public class DankHerb : Item
 {
-    DLine[] myPickUp =
-    {
-        new DLine("Belfry", "Default", "I could smell this from where I spawned in."),
-        new DLine("Belfry", "Default", "I think that qualifies this as the dankest Mary Jane."),
-        new DLine("Belfry", "Sad", "Hopefully Henry will like it, even though his wife's name is Nora."),
-    };
-    DLine[] myHandsFull =
-    {
-        new DLine("Belfry", "Sad", "That looks sublimely sticky with sweet dew. I don't want to get any of it on the other thing I'm carrying.")
-    };
-    DLine[] myDefaultDialogue =
-    {
-        new DLine("Belfry", "Happy", "Mmmmm! That smells like some straight up bodacious bud!")
-    };
-
     private Quest questDankHerb;
+    private Quest questLibraryBook;
+    private Quest questFindCd;
 
     protected override void Start()
     {
         base.Start();
         itemName = "Dank Herb";
 
-        this.pickUp = myPickUp;
-        this.handsFull = myHandsFull;
-        this.defaultDialogue = myDefaultDialogue;
-
-        questDankHerb = questManager.FindQuest("henryDankHerb");
-}
+        questDankHerb = questManager.FindQuest("Henry Dank Herb");
+        questLibraryBook = questManager.FindQuest("Oakewood Library Book");
+        questFindCd = questManager.FindQuest("Parsley Find CD");
+    }
 
     protected override bool CheckForPickup()
     {
-        return questDankHerb.IsInProgress();
+        return (questDankHerb.IsInProgress() || questFindCd.IsInProgress() || questLibraryBook.IsInProgress());
     }
 }

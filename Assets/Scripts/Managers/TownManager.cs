@@ -38,11 +38,11 @@ public class TownManager : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		if ((!gameState.pause) && (gameState.reputation >= 4) && (!tentsShown))
-        {
-            ShowTents();
-            dialogueManager.StartDialogue(level1);
-        }
+		//if ((!gameState.pause) && (gameState.reputation >= 4) && (!tentsShown))
+  //      {
+  //          ShowTents();
+  //          dialogueManager.StartDialogue(level1);
+  //      }
 	}
 
     void HideTents()

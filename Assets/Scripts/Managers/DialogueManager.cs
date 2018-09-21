@@ -84,13 +84,13 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeSentence(DLine dLine)
     {
         nameText.text = dLine.name;
-        portraitImage.sprite = dLine.getFace();
+        portraitImage.sprite = dLine.GetFace();
 
         writingSentence = true;
         forceWriteSentence = false;
         dialogueText.text = "";
 
-        foreach (char letter in dLine.line.ToCharArray())
+        foreach (char letter in dLine.text.ToCharArray())
         {
             if (forceWriteSentence)
                 break;
@@ -98,7 +98,7 @@ public class DialogueManager : MonoBehaviour
             yield return null;
         }
 
-        dialogueText.text = dLine.line;
+        dialogueText.text = dLine.text;
         writingSentence = false;
         forceWriteSentence = false;
     }

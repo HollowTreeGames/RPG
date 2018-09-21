@@ -6,38 +6,20 @@ using MyDialogue;
 
 public class LibraryBook : Item
 {
-    DLine[] myPickUp =
-    {
-        new DLine("Belfry", "Sad", "What a respectable, hefty tome!"),
-        new DLine("Belfry", "Default", "Let's see..."),
-        new DLine("Belfry", "Sad", "'Fur-Couture: How to Knit With Your Own Sheddings.'"),
-        new DLine("Belfry", "Sad", "...maybe Oakewood won't look too closely at the title.")
-    };
-    DLine[] myHandsFull =
-    {
-        new DLine("Belfry", "Sad", "After what happened to my last library book, I should probably wait until I can carry this with two paws.")
-    };
-    DLine[] myDefaultDialogue =
-    {
-        new DLine("Belfry", "Happy", "It's an old book! What's it doing under a tree in the middle of a forest?")
-    };
-
     private Quest questLibraryBook;
+    private Quest questFindCd;
 
     protected override void Start()
     {
         base.Start();
         itemName = "Library Book";
 
-        this.pickUp = myPickUp;
-        this.handsFull = myHandsFull;
-        this.defaultDialogue = myDefaultDialogue;
-
-        questLibraryBook = questManager.FindQuest("oakewoodLibraryBook");
+        questLibraryBook = questManager.FindQuest("Oakewood Library Book");
+        questFindCd = questManager.FindQuest("Parsley Find CD");
 }
 
     protected override bool CheckForPickup()
     {
-        return questLibraryBook.IsInProgress();
+        return (questLibraryBook.IsInProgress() || questFindCd.IsInProgress());
     }
 }

@@ -1,0 +1,19 @@
+title: Herb Book Default
+---
+Belfry (Sad): This is one of those ... illicit books. ABOUT DRUGS!
+===
+
+
+title: Herb Book Pick Up
+---
+Belfry: What's this?
+Belfry (Sad): Hashish and You: An Illustrated Guide to the Mile High Club
+Belfry (Sad): ...
+Belfry (Happy): Sounds right to me!
+===
+
+
+title: Herb Book Hands Full
+---
+Belfry (Sad): A book this heavy with knowledge needs two hands to carry.
+===

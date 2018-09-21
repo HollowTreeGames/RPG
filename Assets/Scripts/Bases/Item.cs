@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MyDialogue;
 using System;
+using Yarn.Unity;
 
 public class Item : Interactable {
 
@@ -12,13 +13,12 @@ public class Item : Interactable {
     public bool stickyObject;
     public bool respawnAfterPickup;
 
-    protected InventoryManager inventoryManager;
-    protected DialogueManager dialogueManager;
-    protected GameState gameState;
+    [Header("Optional")]
+    public TextAsset scriptToLoad;
 
-    protected DLine[] pickUp = { new DLine("Belfry", "Sad", "OOPSIE WHOOPSIE WE MADE A FUCKY WUCKY") };
-    protected DLine[] handsFull = { new DLine("Belfry", "Sad", "OOPSIE WHOOPSIE WE MADE A FUCKY WUCKY") };
-    protected DLine[] defaultDialogue = { new DLine("Belfry", "Sad", "OOPSIE WHOOPSIE WE MADE A FUCKY WUCKY") };
+    protected InventoryManager inventoryManager;
+    protected DialogueRunner dialogueRunner;
+    protected GameState gameState;
 
     private System.Random random;
 
@@ -28,12 +28,17 @@ public class Item : Interactable {
         base.Start();
         sprite = GetComponent<SpriteRenderer>().sprite;
         inventoryManager = FindObjectOfType<InventoryManager>();
-        dialogueManager = FindObjectOfType<DialogueManager>();
+        dialogueRunner = FindObjectOfType<DialogueRunner>();
         gameState = FindObjectOfType<GameState>();
 
         random = new System.Random(this.GetHashCode() * (DateTime.Now.Millisecond + 1));
 
         RandomSpawn();
+
+        if (scriptToLoad != null)
+        {
+            dialogueRunner.AddScript(scriptToLoad);
+        }
     }
 
     private void RandomSpawn()
@@ -56,18 +61,18 @@ public class Item : Interactable {
         {
             if (inventoryManager.GetInventory() == "")
             {
-                dialogueManager.StartDialogue(pickUp);
+                dialogueRunner.StartDialogue(itemName + " Pick Up");
                 inventoryManager.SetInventory(this);
                 Respawn();
             }
             else
             {
-                dialogueManager.StartDialogue(handsFull);
+                dialogueRunner.StartDialogue(itemName + " Hands Full");
             }
         }
         else
         {
-            dialogueManager.StartDialogue(defaultDialogue);
+            dialogueRunner.StartDialogue(itemName + " Default");
         }
     }
 
