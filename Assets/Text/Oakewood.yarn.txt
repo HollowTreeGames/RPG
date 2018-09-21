@@ -1,0 +1,104 @@
+title: Oakewood Start
+---
+<<if IsActive("henryDankHerb")>>
+    [[Oakewood Dank Herb]]
+<<endif>>
+
+<<if IsActive("oakewoodLibraryBook")>>
+    [[Oakewood Library Book]]
+<<endif>>
+
+[[Oakewood Thanks]]
+===
+
+
+title: Oakewood Dank Herb
+---
+<<if IsInProgress("henryDankHerb")>>
+	[[Oakewood Herb]]
+<<endif>>
+===
+title: Oakewood Herb
+---
+Oakewood (Sad): This is extremely unnecessary.
+Oakewood:	    You know that poor fox has a marijuana addiction.
+===
+
+
+title: Oakewood Library Book
+---
+<<if IsAvailable("oakewoodLibraryBook")>>
+    [[Oakewood Library Book Start]]
+<<elseif IsInProgress("oakewoodLibraryBook")>>
+    <<if GetInventory() == "Herb Book">>
+        [[Oakewood Wrong Book Get]]
+	<<elseif GetInventory() == "Dank Herb">>
+		[[Oakewood That Is An Herb]]
+	<<elseif GetInventory() == "CD">>
+		[[Oakewood That Is A CD]]
+	<<elseif GetInventory() == "Library Book">>
+		[[Oakewood Library Book Get]]
+	<<else>>
+        [[Oakewood Book Reminder]]
+    <<endif>>
+<<endif>>
+===
+title: Oakewood Library Book Start
+---
+
+Oakewood:		  As long as you're doing these ridiculous fetch quests, you might as well help me out.
+Oakewood:	 	  As you well know, your last library book is overdue.
+Oakewood (Happy): How long has it been?
+Oakewood:		  Oh, right.
+Oakewood (Sad):	  FIVE YEARS.
+Oakewood:		  It's probably a pile of ashes after your last little stunt, so I'll tell you what.
+Oakewood:		  Find me a new book, suitable for all ages, to start the new library.
+Oakewood:		  Then I'll consider you off the hook.
+Oakewood (Sad):	  For now.
+<<StartQuest("oakewoodLibraryBook")>>
+===
+title: Oakewood Wrong Book Get
+---
+Oakewood:		  I did say this book needs to be suitable for ALL AGES.
+Oakewood:		  We don't want Piper learning to roll a blunt, now do we?
+Oakewood (Sad):	  Don't answer that.
+===
+title: Oakewood Library Book Get
+---
+<<ClearInventory()>>
+Oakewood:		  Fur... what now?
+Oakewood (Sad):	  ...
+Oakewood (Happy): It'll do, I suppose.
+Oakewood (Sad):	  <sigh>
+<<FinishQuest("oakewoodLibraryBook")>>
+===
+title: Oakewood That Is An Herb
+---
+Oakewood:		  Belfry, that is a bud of marijuana.
+Oakewood:		  I believe the strain is called "Alaskan Thunder Fuck."
+Oakewood (Happy): Don't ask me how I know that.
+Oakewood (Sad):	  Either way, it's not a book, you moron.
+Oakewood (Sad):   Try again.
+===
+title: Oakewood That Is A CD
+---
+Oakewood:		  What...
+Oakewood (Sad):	  I don't even know what this is.
+Oakewood (Happy): Is it a mirror?
+Oakewood (Sad):   Take it back. It angers me.
+Oakewood (Sad):   And it's not a book!!
+===
+title: Oakewood Book Reminder
+---
+Oakewood:		  Have you found my new book yet?
+Oakewood:		  Make sure it doesn't take you five years this time.
+
+
+title: Oakewood Thanks
+---
+Oakewood (Sad):	  You have strange tastes in books.
+Oakewood (Happy): But...
+Oakewood:		  I appreciate the effort you put in.
+Oakewood:		  One day the creatures of the former town of Treehollow might forgive you.
+Oakewood (Sad):	  Just don't burn this new place down too.
+===
