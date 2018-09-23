@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1481454473159112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6006284, y: 0.38791168, z: 0}
+  m_LocalPosition: {x: -7.4360933, y: -5.1296735, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,8 +57,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 2, y: 2}
+    pivot: {x: 0.5466086, y: 0.21027082}
+    oldSize: {x: 5.06, y: 7.4}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7239fe5bfe84f1f4a86ef949985ce319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasShadow: 0
+  hasShadow: 1
 --- !u!212 &212385031994298346
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -94,7 +94,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ebaac4200e8749f44b187990041130a6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,7 +114,7 @@ SpriteRenderer:
   m_SortingLayerID: 1315343397
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8efee17980a52a1419d0b9caa57833ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 77825e22481fb8a4aa6f9cf7433edbf9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

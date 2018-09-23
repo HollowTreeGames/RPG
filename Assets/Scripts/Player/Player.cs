@@ -19,6 +19,10 @@ public class Player : SpriteParent
     private Rigidbody2D rb2d;
     private BoxCollider2D boxCollider2D;
     public bool walking = false;
+    public bool hasItem;
+
+    private float walkPitch;
+    private float runPitch;
 
     public float lastX = 0, lastY = -1;
 
@@ -40,6 +44,11 @@ public class Player : SpriteParent
         boxCollider2D = GetComponent<BoxCollider2D>();
         gameState = FindObjectOfType<GameState>();
         dialogueRunner = FindObjectOfType<DialogueRunner>();
+
+        walkPitch = 1.2f;
+        runPitch = 1.7f;
+
+        animator.SetBool("hasItem", false);
     }
     
     // Update is called once per frame
@@ -57,6 +66,19 @@ public class Player : SpriteParent
             { 
                 Interact();
             }
+        }
+
+        if (walking)
+        {
+            GetComponent<AudioSource>().UnPause();
+            if (Input.GetButton("Fire1"))
+            {
+                GetComponent<AudioSource>().pitch = runPitch;
+            }
+        } else
+        {
+            GetComponent<AudioSource>().Pause();
+            GetComponent<AudioSource>().pitch = walkPitch;
         }
     }
 
@@ -95,9 +117,18 @@ public class Player : SpriteParent
         animator.SetFloat("lastMoveX", lastX);
         animator.SetFloat("lastMoveY", lastY);
 
+        if (hasItem)
+        {
+            animator.SetBool("hasItem", hasItem);
+        } else
+        {
+            animator.SetBool("hasItem", false);
+        }
+
         float moveSpeed = Input.GetButton("Fire1") ? runSpeed : walkSpeed;
 
         rb2d.velocity = new Vector2(moveSpeed * x * Time.deltaTime, moveSpeed * y * Time.deltaTime);
+
     }
 
     void Interact()
