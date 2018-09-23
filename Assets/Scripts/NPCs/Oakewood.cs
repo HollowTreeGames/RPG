@@ -8,7 +8,11 @@ using MyDialogue;
 
 public class Oakewood : NPC {
 
-    public Quest questLibraryBook;
+    public Quest questOakewoodGreeting;
+    public Quest questOakewoodStretchLegs;
+    public Quest questOakewoodRun;
+    public Quest questOakewoodPickUpRock;
+    public Quest questOakewoodDropRock;
 
     protected override void Start()
     {
@@ -18,11 +22,22 @@ public class Oakewood : NPC {
 
     public override void LoadQuests()
     {
-        questLibraryBook = questManager.FindQuest("Oakewood Library Book");
+        questOakewoodGreeting = questManager.FindQuest("Oakewood Greeting");
+        questOakewoodStretchLegs = questManager.FindQuest("Oakewood Stretch Legs");
+        questOakewoodRun = questManager.FindQuest("Oakewood Run");
+        questOakewoodPickUpRock = questManager.FindQuest("Oakewood Pick Up Rock");
+        questOakewoodDropRock = questManager.FindQuest("Oakewood Drop Rock");
     }
 
     protected override bool IsQuestAvailable()
     {
-        return questLibraryBook.IsAvailable();
+        return questOakewoodGreeting.IsAvailable();
+    }
+
+    protected override void UpdateQuests()
+    {
+        if (questOakewoodStretchLegs.IsInProgress()){
+
+        }
     }
 }

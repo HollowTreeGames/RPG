@@ -9,25 +9,20 @@ public class QuestManager : MonoBehaviour
 {
     private Quest[] questList =
     {
-        new Quest("Henry Greeting", "Say Hello to that dog dude over there")
+        new Quest("Oakewood Greeting", "Use space to talk to that Old Coyote")
             .AddReputation(0)
             .InitialState(QuestState.Available),
-        new Quest("Henry Dank Herb", "Find the Dank Herb")
+        new Quest("Oakewood Stretch Legs", "Use the arrow keys to stretch Your legs")
             .DoNotStartAutomatically()
-            .AddReputation(1)
-            .AddFriendship("Henry", 1), 
-        new Quest("Henry Dank Book", "Find the Dank Book")
+            .AddFriendship("Oakewood", 1),
+        new Quest("Oakewood Run", "Hold down the shift key to REALLY Stretch Your Legs")
             .DoNotStartAutomatically()
-            .AddReputation(1)
-            .AddFriendship("Henry", 1), 
-        new Quest("Oakewood Library Book", "Find a Library Book")
-            .AddPrereqFriendship("Henry", 2)
-            .AddReputation(1)
-            .AddFriendship("Oakewood", 1), 
-        new Quest("Parsley Find CD", "Find something cool for Parsley")
-            .AddPrereqReputation(3)
-            .AddReputation(1)
-            .AddFriendship("Parsley", 1)
+            .AddFriendship("Oakewood", 1),
+        new Quest("Oakewood Pick Up Rock", "Bring Oakewood a Rock")
+            .DoNotStartAutomatically()
+            .AddFriendship("Oakewood", 1),
+        new Quest("Oakewood Drop Rock", "Use z to drop the Rock")
+            .DoNotStartAutomatically()
     };
 
     #region Boring Code Stuff
