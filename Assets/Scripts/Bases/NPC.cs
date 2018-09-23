@@ -125,14 +125,11 @@ public abstract class NPC : Talkable
 
         if (walking)
         {
-            if (walkZone != null)
+            if (MovingOutsideWalkZone())
             {
-                if (MovingOutsideWalkZone())
-                {
-                    //Debug.Log(this.name + " STAHP!");
-                    StopWalking();
-                    resetTimeBetweenMoveCounter();
-                }
+                //Debug.Log(this.name + " STAHP!");
+                StopWalking();
+                resetTimeBetweenMoveCounter();
             }
 
             timeToMoveCounter -= Time.deltaTime * 1000;
@@ -167,6 +164,10 @@ public abstract class NPC : Talkable
 
     private bool MovingOutsideWalkZone()
     {
+        if (walkZone == null)
+        {
+            return false;
+        }
         return (
             (transform.position.x <= minWalkPoint.x && lastMoveDirection.x < 0) ||
             (transform.position.x >= maxWalkPoint.x && lastMoveDirection.x > 0) ||
@@ -177,6 +178,10 @@ public abstract class NPC : Talkable
 
     private void PushBackIntoWalkZone()
     {
+        if (walkZone == null)
+        {
+            return;
+        }
         if (transform.position.x <= minWalkPoint.x)
         {
             transform.position = new Vector2(minWalkPoint.x + 0.1f, transform.position.y);
@@ -199,17 +204,17 @@ public abstract class NPC : Talkable
     {
         if (random.Next(2) == 0)
         {
-            if (transform.position.x <= minWalkPoint.x)
+            if (walkZone != null && transform.position.x <= minWalkPoint.x)
                 return new Vector2(1, 0);
-            if (transform.position.x >= maxWalkPoint.x)
+            if (walkZone != null && transform.position.x >= maxWalkPoint.x)
                 return new Vector2(-1, 0);
             return new Vector2(random.Next(2) == 0 ? 1 : -1, 0);
         }
         else
         {
-            if (transform.position.y <= minWalkPoint.y)
+            if (walkZone != null && transform.position.y <= minWalkPoint.y)
                 return new Vector2(0, 1);
-            if (transform.position.y >= maxWalkPoint.y)
+            if (walkZone != null && transform.position.y >= maxWalkPoint.y)
                 return new Vector2(0, -1);
             return new Vector2(0, random.Next(2) == 0 ? 1 : -1);
         }
