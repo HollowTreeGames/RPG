@@ -18,6 +18,8 @@ public class Player : SpriteParent
     private Animator animator;
     private Rigidbody2D rb2d;
     private BoxCollider2D boxCollider2D;
+    private AudioSource audioSource;
+
     public bool walking = false;
     public bool hasItem;
 
@@ -44,6 +46,14 @@ public class Player : SpriteParent
         boxCollider2D = GetComponent<BoxCollider2D>();
         gameState = FindObjectOfType<GameState>();
         dialogueRunner = FindObjectOfType<DialogueRunner>();
+        try
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+        catch
+        {
+            Debug.LogWarning("Not AudioSource attached to Player");
+        }
 
         walkPitch = 1.2f;
         runPitch = 1.7f;
@@ -68,17 +78,21 @@ public class Player : SpriteParent
             }
         }
 
-        if (walking)
+        if (audioSource != null)
         {
-            GetComponent<AudioSource>().UnPause();
-            if (Input.GetButton("Fire1"))
+            if (walking)
             {
-                GetComponent<AudioSource>().pitch = runPitch;
+                audioSource.UnPause();
+                if (Input.GetButton("Fire1"))
+                {
+                    audioSource.pitch = runPitch;
+                }
             }
-        } else
-        {
-            GetComponent<AudioSource>().Pause();
-            GetComponent<AudioSource>().pitch = walkPitch;
+            else
+            {
+                audioSource.Pause();
+                audioSource.pitch = walkPitch;
+            }
         }
     }
 
