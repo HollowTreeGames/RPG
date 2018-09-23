@@ -12,9 +12,9 @@ public class Player : SpriteParent
     public float walkSpeed;
     public float runSpeed;
     public float interactDistance = 1;
-    public GameState gameState;
-    public DialogueRunner dialogueRunner;
 
+    private GameState gameState;
+    private DialogueRunner dialogueRunner;
     private Animator animator;
     private Rigidbody2D rb2d;
     private BoxCollider2D boxCollider2D;

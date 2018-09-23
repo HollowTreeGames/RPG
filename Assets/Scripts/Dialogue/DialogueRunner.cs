@@ -94,9 +94,9 @@ namespace Yarn.Unity
             }
         }
 
-        public QuestManager questManager;
-        public GameState gameState;
-        public InventoryManager inventoryManager;
+        private QuestManager questManager;
+        private GameState gameState;
+        private InventoryManager inventoryManager;
 
         private System.Random random;
 
@@ -116,23 +116,9 @@ namespace Yarn.Unity
             }
 
             // And that we have our other objects
-            if (questManager == null)
-            {
-                Debug.LogError("Quest Manager was not set!");
-                return;
-            }
-            
-            if (gameState == null)
-            {
-                Debug.LogError("Game State was not set!");
-                return;
-            }
-            
-            if (inventoryManager == null)
-            {
-                Debug.LogError("Inventory Manager was not set!");
-                return;
-            }
+            gameState = FindObjectOfType<GameState>();
+            questManager = FindObjectOfType<QuestManager>();
+            inventoryManager = FindObjectOfType<InventoryManager>();
 
             // Set additional functions at runtime
             AddCustomFunctions();
