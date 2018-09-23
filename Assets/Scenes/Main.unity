@@ -234,12 +234,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &102065168 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114966960620502506, guid: e6b4e8cbcd31117449d817f1c9c33756,
-    type: 2}
-  m_PrefabInternal: {fileID: 1350543240}
-  m_Script: {fileID: 11500000, guid: df657402c213986449bd98dbb252d69c, type: 3}
 --- !u!1 &159307865
 GameObject:
   m_ObjectHideFlags: 0
@@ -11784,9 +11778,6 @@ MonoBehaviour:
   startNode: Start
   startAutomatically: 0
   automaticCommands: 1
-  questManager: {fileID: 681534317}
-  gameState: {fileID: 102065168}
-  inventoryManager: {fileID: 1507438713}
 --- !u!4 &526302864
 Transform:
   m_ObjectHideFlags: 0
@@ -15104,12 +15095,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4758243835101852, guid: a1da819037771c2408418be594862ce1,
     type: 2}
   m_PrefabInternal: {fileID: 1719714156}
---- !u!114 &1507438713 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114328769730518048, guid: 968dc01e55c11b24c980394db2fd1aad,
-    type: 2}
-  m_PrefabInternal: {fileID: 645316441}
-  m_Script: {fileID: 11500000, guid: 6356d7db284710643bb934f06cf24f1c, type: 3}
 --- !u!4 &1509720264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4758243835101852, guid: a1da819037771c2408418be594862ce1,
@@ -16248,8 +16233,6 @@ MonoBehaviour:
   walkSpeed: 80
   runSpeed: 240
   interactDistance: 1
-  gameState: {fileID: 102065168}
-  dialogueRunner: {fileID: 0}
   walking: 0
   hasItem: 0
   lastX: 0
