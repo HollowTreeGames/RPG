@@ -2,35 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Enums;
 
 [System.Serializable]
 public class QuestManager : MonoBehaviour
 {
-    private Quest[] questList =
-    {
-        new Quest("Henry Greeting", "Say Hello to that dog dude over there")
-            .AddReputation(0)
-            .InitialState(QuestState.Available),
-        new Quest("Henry Dank Herb", "Find the Dank Herb")
-            .DoNotStartAutomatically()
-            .AddReputation(1)
-            .AddFriendship("Henry", 1), 
-        new Quest("Henry Dank Book", "Find the Dank Book")
-            .DoNotStartAutomatically()
-            .AddReputation(1)
-            .AddFriendship("Henry", 1), 
-        new Quest("Oakewood Library Book", "Find a Library Book")
-            .AddPrereqFriendship("Henry", 2)
-            .AddReputation(1)
-            .AddFriendship("Oakewood", 1), 
-        new Quest("Parsley Find CD", "Find something cool for Parsley")
-            .AddPrereqReputation(3)
-            .AddReputation(1)
-            .AddFriendship("Parsley", 1)
-    };
-
-    #region Boring Code Stuff
+    private Quest[] questList = {};
+    
     private static bool instanceExists = false;
 
     private QuestCanvas questCanvas;
@@ -63,6 +42,27 @@ public class QuestManager : MonoBehaviour
     public void SetQuestList(Quest[] questList)
     {
         this.questList = questList;
+    }
+
+    public void LoadQuestsByScene()
+    {
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "Tutorial":
+                CopyQuestList(QuestLoader.tutorialQuestList);
+                break;
+            default:
+                Debug.LogError(Utils.Join("Active scene not found in quest list: ", 
+                    SceneManager.GetActiveScene().name));
+                break;
+        }
+
+    }
+
+    public void CopyQuestList(Quest[] newQuestList)
+    {
+        questList = new Quest[newQuestList.Length];
+        newQuestList.CopyTo(questList, 0);
     }
 
     public Quest FindQuest(string id)
@@ -107,5 +107,4 @@ public class QuestManager : MonoBehaviour
             quest.CheckPreReqs(gameState);
         }
     }
-    #endregion
 }
