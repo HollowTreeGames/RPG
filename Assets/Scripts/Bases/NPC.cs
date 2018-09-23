@@ -63,7 +63,7 @@ public abstract class NPC : Talkable
         questMarker = new GameObject();
         questMarker.name = "Quest Marker";
         questMarker.transform.parent = transform;
-        questMarker.transform.position = transform.position - new Vector3(0, -1.1f, 0);
+        questMarker.transform.position = transform.position - new Vector3(0, -1.6f, 0);
         questMarker.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
 
         questMarker.SetActive(false);
