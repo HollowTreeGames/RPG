@@ -55,15 +55,14 @@ public class Utils
         return string.Join(" ", s.ToArray());
     }
 
-    public static void ParseFacing(Direction direction, out float x, out float y)
+    public static Vector2 ParseFacing(Direction direction)
     {
-        ParseFacing(direction.ToString(), out x, out y);
+        return ParseFacing(direction.ToString());
     }
 
-    public static void ParseFacing(string direction, out float x, out float y)
+    public static Vector2 ParseFacing(string direction)
     {
-        x = 0;
-        y = 0;
+        float x = 0, y = 0;
         switch (direction.ToLower())
         {
             case "up":
@@ -80,8 +79,8 @@ public class Utils
                 break;
             default:
                 Debug.LogErrorFormat("Invalid facing direction: {0}", direction);
-                return;
+                return Vector2.zero;
         }
-        return;
+        return new Vector2(x, y);
     }
 }

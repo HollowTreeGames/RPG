@@ -217,7 +217,7 @@ public abstract class NPC : Talkable
                 return new Vector2(0, -1);
             return new Vector2(0, random.Next(2) == 0 ? 1 : -1);
         }
-        
+
         //switch (rand)
         //{
         //    case 1:
@@ -247,13 +247,21 @@ public abstract class NPC : Talkable
     private void StartWalking(Vector2 direction)
     {
 
-        walking = true;
-        animator.SetBool("walking", true);
-        myRigidbody.velocity = direction * moveSpeed;
-        lastMoveDirection = direction;
+        StartWalking(direction, this.moveSpeed);
+    }
 
-        animator.SetFloat("moveX", direction.x);
-        animator.SetFloat("moveY", direction.y);
+    private void StartWalking(Vector2 direction, float moveSpeed)
+    {
+        if (moveSpeed > 0)
+        {
+            walking = true;
+            animator.SetBool("walking", true);
+            myRigidbody.velocity = direction * moveSpeed;
+            lastMoveDirection = direction;
+
+            animator.SetFloat("moveX", direction.x);
+            animator.SetFloat("moveY", direction.y);
+        }
         animator.SetFloat("lastMoveX", direction.x);
         animator.SetFloat("lastMoveY", direction.y);
     }
@@ -283,10 +291,50 @@ public abstract class NPC : Talkable
     [Yarn.Unity.YarnCommand("face")]
     public void Face(string direction)
     {
-        float x, y;
-        Utils.ParseFacing(direction, out x, out y);
-        animator.SetFloat("lastMoveX", x);
-        animator.SetFloat("lastMoveY", y);
+        if (direction.ToLower() == "player")
+        {
+            TurnToPlayer(FindObjectOfType<Player>().transform.position);
+            return;
+        }
+
+        StartWalking(Utils.ParseFacing(direction), 0);
+    }
+
+    /// <summary>
+    /// Moves the NPC in a given direction, at a given speed, for a given number of seconds, then stops them.
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <param name="speed"></param>
+    /// <param name="wait"></param>
+    [Yarn.Unity.YarnCommand("move")]
+    public IEnumerator Move(string direction, string speed, string wait)
+    {
+        float fSpeed, fWait;
+        try
+        {
+            fSpeed = float.Parse(speed);
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError(e);
+            Debug.LogErrorFormat("Invalid move speed: {0}", speed);
+            yield break;
+        }
+
+        try
+        {
+            fWait = float.Parse(wait);
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError(e);
+            Debug.LogErrorFormat("Invalid wait time: {0}", speed);
+            yield break;
+        }
+
+        StartWalking(Utils.ParseFacing(direction), fSpeed);
+        yield return new WaitForSeconds(fWait);
+        StopWalking();
     }
 
     public virtual void LoadQuests()
