@@ -32,4 +32,9 @@ public class FriendRock : Item
             dialogueRunner.StartDialogue("Henry Drop Rock Complete");
         }
     }
+    
+    public override void Interact()
+    {
+        dialogueRunner.StartDialogue("Henry Talk to Rock Complete");
+    }
 }

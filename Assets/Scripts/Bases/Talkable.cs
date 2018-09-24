@@ -22,7 +22,7 @@ public class Talkable : Interactable {
         }
         else
         {
-            Debug.LogWarning(Utils.Join(name, "has no Yarn script loaded!"));
+            //Debug.LogWarning(Utils.Join(name, "has no Yarn script loaded!"));
         }
     }
 
