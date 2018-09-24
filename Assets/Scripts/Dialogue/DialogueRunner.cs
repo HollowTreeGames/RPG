@@ -153,24 +153,25 @@ namespace Yarn.Unity
                     }
                 }
             }
-
         }
 
         /// Add a string of text to a script
-        public void AddScript(string text) {
-            dialogue.LoadString(text);
-        }
-
-        /// Add a TextAsset to a script
-        public void AddScript(TextAsset asset) {
+        public void AddScript(string text)
+        {
             try
             {
-                dialogue.LoadString(asset.text);
+                dialogue.LoadString(text);
             }
             catch (System.Exception e)
             {
                 Debug.LogError(e);
             }
+        }
+
+        /// Add a TextAsset to a script
+        public void AddScript(TextAsset asset)
+        {
+            AddScript(asset.text);
         }
 
         /// Loads a string table, replacing any existing strings with the same
