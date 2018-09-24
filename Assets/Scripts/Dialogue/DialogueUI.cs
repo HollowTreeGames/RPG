@@ -192,8 +192,22 @@ namespace Yarn.Unity {
         /// Run an internal command.
         public override IEnumerator RunCommand(Yarn.Command command)
         {
-            // "Perform" the command
             Debug.Log("Command: " + command.text);
+            // "Perform" the command
+            var words = command.text.Split(' ');
+            var commandText = words[0].ToLower();
+            if (commandText == "wait")
+            {
+                int i = -1;
+                int.TryParse(words[1], out i);
+                if (i == -1)
+                    Debug.LogErrorFormat("wait <num> must contain an integer ({0})", command.text);
+                yield return new WaitForSeconds(i);
+            }
+            else
+            {
+                Debug.LogError(Utils.Join("Unrecognized command:", words[0]));
+            }
 
             yield break;
         }
