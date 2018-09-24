@@ -20,6 +20,7 @@ public class FadeCameraAndLoad : MonoBehaviour
 
     private float panSpeed = 0;
     private Vector2 panDirection = Vector2.zero;
+    private Vector3 defaultPosition;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class FadeCameraAndLoad : MonoBehaviour
         black = new Texture2D(1, 1);
         black.SetPixel(0, 0, new Color(0, 0, 0, alpha));
         black.Apply();
+        defaultPosition = transform.localPosition;
     }
 
     void OnGUI()
@@ -123,7 +125,7 @@ public class FadeCameraAndLoad : MonoBehaviour
     [Yarn.Unity.YarnCommand("reset")]
     public void ResetCameraPosition()
     {
-        transform.localPosition = new Vector3(0, 0, -10);
+        transform.localPosition = defaultPosition;
     }
 
     private void PanCamera()

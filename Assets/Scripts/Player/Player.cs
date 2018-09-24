@@ -60,7 +60,7 @@ public class Player : SpriteParent
 
         animator.SetBool("hasItem", false);
     }
-    
+
     // Update is called once per frame
     void Update()
     {
