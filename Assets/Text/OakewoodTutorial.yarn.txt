@@ -1,0 +1,98 @@
+title: Oakewood Start
+---
+<<if IsActive("Oakewood Greeting")>>
+    [[Oakewood Greeting]]
+<<endif>>
+
+<<if IsDone("Oakewood Greeting")>>
+    [[Oakewood Stretch Legs]]
+<<endif>>
+
+<<if IsDone("Oakewood Stretch Legs")>>
+    [[Oakewood Run]]
+<<endif>>
+
+<<if IsDone("Oakewood Run")>>
+	[[Oakewood Pick Up Rock]]
+<<endif>>
+
+<<if IsDone("Oakewood Pick Up Rock")>>
+	[[Oakewood Drop Rock]]
+<<endif>>
+===
+
+
+title: Oakewood Greeting
+---
+Oakewood (Sad): It's about time you woke up.
+Belfry:			Can I help with anything?
+Oakewood (Sad): Absolutely not. I don't want another forest destroyed.
+Belfry (Sad):   But I promise I'll be careful!
+Belfry (Sad):   Pleeease? I want to be better!
+Oakewood:       ...
+Oakewood:       Fine.
+===
+
+
+title: Oakewood Stretch Legs
+---
+<<if IsAvailable("Oakewood Stretch Legs")>>
+    [[Oakewood Stretch Legs Start]]
+<<elseif IsInProgress("Oakewood Stretch Legs")>>
+    [[Oakewood Stretch Legs Reminder]]
+<<elseif GetFriendship() == 1>>
+	[[Oakewood Stretch Legs Complete]]
+<<endif>>
+===
+title: Oakewood Stretch Legs Start
+---
+
+Belfry:			  	Okay! Tell me what to do!
+Oakewood:		  	Erm.
+Oakewood (Happy): 	It's been a long journey, so...
+Oakewood:		  	Move around a bit. Shake out your body.
+<<StartQuest("Oakewood Stretch Legs")>>
+===
+title: Oakewood Stretch Legs Reminder
+---
+Oakewood:		  	Walk around! Get the blood pumping!
+===
+title: Oakewood Stretch Legs Complete
+---
+<<FinishQuest("Oakewood Stretch Legs")>>
+Belfry (Happy):		How'd I do?
+Oakewood:			Yes, that was...
+Oakewood (Happy):	Good. Very good.
+Oakewood:			You've helped very much.
+Oakewood (Sad): 	Now leave me alone.
+===
+
+title: Oakewood Thanks
+---
+Oakewood (Sad):	  You have strange tastes in books.
+Oakewood (Happy): But...
+Oakewood:		  I appreciate the effort you put in.
+Oakewood:		  One day the creatures of the former town of Treehollow might forgive you.
+Oakewood (Sad):	  Just don't burn this new place down too.
+===
+
+
+title: Oakewood Cycle
+---
+<<if $oakewood_cycle is 0>>
+    Oakewood: Everyone's still mad at you, you know.
+<<elseif $oakewood_cycle is 1>>
+    Oakewood: You've been known to screw things up in the past, Belfry, but this time just takes the cake.
+<<elseif $oakewood_cycle is 2>>
+    Oakewood (Happy): *sigh*
+<<elseif $oakewood_cycle is 3>>
+    Oakewood: Why are you still talking to me?
+<<elseif $oakewood_cycle is 4>>
+    Oakewood (Happy): I'm sure that big brute of a sheriff has something to say to you.
+<<endif>>
+
+<<set $oakewood_cycle to $oakewood_cycle + 1>>
+<<if $oakewood_cycle > 4>>
+    <<set $oakewood_cycle to 0>>
+<<endif>>
+===

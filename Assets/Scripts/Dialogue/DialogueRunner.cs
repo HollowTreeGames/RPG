@@ -436,6 +436,7 @@ namespace Yarn.Unity
         /// Add additional functions to the Dialogue object, mostly for quest handling
         private void AddCustomFunctions()
         {
+            Debug.Log("I am running custom functions");
             // Check State
             dialogue.library.RegisterFunction("IsUnavailable", 1, delegate (Value[] parameters) {
                 return questManager.FindQuest(parameters[0].AsString).IsUnavailable();

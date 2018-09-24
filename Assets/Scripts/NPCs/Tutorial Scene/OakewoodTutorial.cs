@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using Enums;
 using MyDialogue;
 
-public class Oakewood : NPC {
+public class OakewoodTutorial : NPC {
 
     public Quest questOakewoodGreeting;
     public Quest questOakewoodStretchLegs;
