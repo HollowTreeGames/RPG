@@ -5,7 +5,7 @@ using MyDialogue;
 using Yarn.Unity;
 
 public class Talkable : Interactable {
-
+    
     protected DialogueRunner dialogueRunner;
 
     [Header("Optional")]

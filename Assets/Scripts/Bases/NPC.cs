@@ -11,6 +11,8 @@ public abstract class NPC : Talkable
     private BoxCollider2D boxCollider2D;
     private Rigidbody2D myRigidbody;
     private System.Random random;
+
+    protected QuestManager questManager;
     protected GameState gameState;
     protected InventoryManager inventoryManager;
 
@@ -41,7 +43,6 @@ public abstract class NPC : Talkable
         random = new System.Random(seed);
         timeBetweenMoveCounter = random.Next(1, Math.Max(timeBetweenMove, 1));
         myRigidbody = GetComponent<Rigidbody2D>();
-        gameState = FindObjectOfType<GameState>();
 
         if (walkZone != null)
         {
@@ -51,6 +52,9 @@ public abstract class NPC : Talkable
         
         animator = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
+
+        questManager = FindObjectOfType<QuestManager>();
+        gameState = FindObjectOfType<GameState>();
         inventoryManager = FindObjectOfType<InventoryManager>();
 
         MakeQuestMarker();

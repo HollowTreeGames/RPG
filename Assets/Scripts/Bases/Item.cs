@@ -16,6 +16,7 @@ public class Item : Interactable {
     [Header("Optional")]
     public TextAsset scriptToLoad;
 
+    protected QuestManager questManager;
     protected InventoryManager inventoryManager;
     protected DialogueRunner dialogueRunner;
     protected GameState gameState;
@@ -28,6 +29,7 @@ public class Item : Interactable {
     {
         base.Start();
         sprite = GetComponent<SpriteRenderer>().sprite;
+        questManager = FindObjectOfType<QuestManager>();
         inventoryManager = FindObjectOfType<InventoryManager>();
         dialogueRunner = FindObjectOfType<DialogueRunner>();
         gameState = FindObjectOfType<GameState>();
