@@ -527,7 +527,7 @@ namespace Yarn.Unity
 
             // Misc
             dialogue.library.RegisterFunction("Random", 2, delegate (Value[] parameters) {
-                return random.Next(0, 2);
+                return random.Next((int)parameters[0].AsNumber, (int)parameters[1].AsNumber);
             });
         }
 
