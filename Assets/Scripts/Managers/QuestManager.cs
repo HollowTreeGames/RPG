@@ -13,12 +13,9 @@ public class QuestManager : MonoBehaviour
         new Quest("Oakewood Greeting", "Use SPACE to talk to That Old Coyote")
             .StartAutomatically()
             .InitialState(QuestState.Available),
-        new Quest("Oakewood Stretch Legs", "Use the arrow keys to stretch your legs")
-            .AddFriendship("Oakewood", 1),
-        new Quest("Oakewood Run", "Hold down the shift key to REALLY Stretch your Legs")
-            .AddFriendship("Oakewood", 1),
-        new Quest("Henry Pick Up Rock", "Bring Henry that rock")
-            .AddFriendship("Henry", 1),
+        new Quest("Oakewood Stretch Legs", "Use the arrow keys to stretch your legs"),
+        new Quest("Oakewood Run", "Hold down the SHIFT key to REALLY stretch your legs"),
+        new Quest("Henry Pick Up Rock", "Bring Henry that rock"),
         new Quest("Henry Drop Rock", "Use Z to drop your rock"),
         new Quest("Henry Talk to Rock", "Go...talk to... the rock??")
     };
