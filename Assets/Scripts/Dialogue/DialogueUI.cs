@@ -199,11 +199,17 @@ namespace Yarn.Unity {
             switch (commandText)
             {
                 case "wait":
-                    int i = -1;
-                    int.TryParse(words[1], out i);
-                    if (i == -1)
+                    float fWait;
+                    try
+                    {
+                        fWait = float.Parse(words[1]);
+                    }
+                    catch (System.FormatException)
+                    {
                         Debug.LogErrorFormat("wait <num> must contain an integer ({0})", command.text);
-                    yield return new WaitForSeconds(i);
+                        break;
+                    }
+                    yield return new WaitForSeconds(fWait);
                     break;
                 case "show":
                     ShowCanvas();

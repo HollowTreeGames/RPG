@@ -9,4 +9,10 @@ Oakewood: Don't talk to me.
 <<face Oakewood up>>
 <<wait 1>>
 Oakewood: ... well?
+<<move Player down 1>>
+<<wait 1.5>>
+<<stop Player>>
+<<face Player left>>
+<<face Oakewood right>>
+Belfry (happy): HI!
 ===

@@ -308,14 +308,13 @@ public abstract class NPC : Talkable
     [Yarn.Unity.YarnCommand("move")]
     public void Move(string direction, string speed)
     {
-        float fSpeed, fWait;
+        float fSpeed;
         try
         {
             fSpeed = float.Parse(speed);
         }
-        catch (System.Exception e)
+        catch (System.FormatException)
         {
-            Debug.LogError(e);
             Debug.LogErrorFormat("Invalid move speed: {0}", speed);
             return;
         }
