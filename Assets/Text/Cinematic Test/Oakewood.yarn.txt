@@ -2,17 +2,14 @@ title: Oakewood Start
 ---
 Oakewood: Don't talk to me.
 <<hide>>
-<<move Oakewood down 0.5>>
-<<wait 3>>
-<<stop Oakewood>>
+<<move Camera down 1>>
+<<wait 2>>
+<<stop Camera>>
 <<wait 1>>
-<<face Oakewood up>>
+<<move Camera right 1>>
+<<wait 2>>
+<<stop Camera>>
 <<wait 1>>
-Oakewood: ... well?
-<<move Player down 1>>
-<<wait 1.5>>
-<<stop Player>>
-<<face Player left>>
-<<face Oakewood right>>
-Belfry (happy): HI!
+<<reset Camera>>
+Belfry (sad): ... that was weird.
 ===
