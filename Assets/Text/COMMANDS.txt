@@ -27,4 +27,5 @@ reset -- Resets the camera to being centered on the Player.
 
 
 Notes:
-Player must be named "Player" and camera must be named "Camera". NPCs are called by their own name.
+* Player must be named "Player" and camera must be named "Camera". NPCs are called by their own name.
+* These are cinematic-only commands. Many other commands exist for Yarn to interface with the rest of the system, like Quests and Inventory. See DialogueRunner.AddCustomFunctions for a full list.
