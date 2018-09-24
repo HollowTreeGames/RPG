@@ -29,7 +29,9 @@ public class OakewoodTutorial : NPC {
 
     protected override bool IsQuestAvailable()
     {
-        return questOakewoodGreeting.IsAvailable() || questOakewoodStretchLegs.IsAvailable() ||
+        return 
+            questOakewoodGreeting.IsAvailable() || 
+            questOakewoodStretchLegs.IsAvailable() ||
             questOakewoodRun.IsAvailable();
     }
 
