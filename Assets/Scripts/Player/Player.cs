@@ -21,7 +21,6 @@ public class Player : SpriteParent
     private AudioSource audioSource;
 
     public bool walking = false;
-    public bool hasItem;
 
     private float walkPitch;
     private float runPitch;
@@ -128,14 +127,6 @@ public class Player : SpriteParent
         animator.SetFloat("lastMoveX", lastX);
         animator.SetFloat("lastMoveY", lastY);
 
-        if (hasItem)
-        {
-            animator.SetBool("hasItem", hasItem);
-        } else
-        {
-            animator.SetBool("hasItem", false);
-        }
-
         float moveSpeed = Input.GetButton("Fire1") ? runSpeed : walkSpeed;
 
         rb2d.velocity = new Vector2(moveSpeed * x * Time.deltaTime, moveSpeed * y * Time.deltaTime);
@@ -228,5 +219,15 @@ public class Player : SpriteParent
 				interactable.Interact();
             }
         }
+    }
+
+    public void PickupItem()
+    {
+        animator.SetBool("hasItem", true);
+    }
+
+    public void DropItem()
+    {
+        animator.SetBool("hasItem", false);
     }
 }

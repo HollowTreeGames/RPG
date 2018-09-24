@@ -22,7 +22,6 @@ public class Item : Interactable {
     protected GameState gameState;
 
     private System.Random random;
-    private Player player;
 
     // Use this for initialization
     protected override void Start()
@@ -33,9 +32,6 @@ public class Item : Interactable {
         inventoryManager = FindObjectOfType<InventoryManager>();
         dialogueRunner = FindObjectOfType<DialogueRunner>();
         gameState = FindObjectOfType<GameState>();
-        player = FindObjectOfType<Player>();
-
-        player.hasItem = false;
 
         random = new System.Random(this.GetHashCode() * (DateTime.Now.Millisecond + 1));
 
@@ -69,7 +65,6 @@ public class Item : Interactable {
             {
                 dialogueRunner.StartDialogue(itemName + " Pick Up");
                 inventoryManager.SetInventory(this);
-                player.hasItem = true;
                 Respawn();
             }
             else
