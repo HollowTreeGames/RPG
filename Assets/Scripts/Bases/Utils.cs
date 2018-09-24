@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Enums;
 
 public class Utils
 {
@@ -52,5 +53,34 @@ public class Utils
             s.Add(arg.ToString());
         }
         return string.Join(" ", s.ToArray());
+    }
+
+    public static Vector2 ParseFacing(Direction direction)
+    {
+        return ParseFacing(direction.ToString());
+    }
+
+    public static Vector2 ParseFacing(string direction)
+    {
+        float x = 0, y = 0;
+        switch (direction.ToLower())
+        {
+            case "up":
+                y = 1;
+                break;
+            case "down":
+                y = -1;
+                break;
+            case "left":
+                x = -1;
+                break;
+            case "right":
+                x = 1;
+                break;
+            default:
+                Debug.LogErrorFormat("Invalid facing direction: {0}", direction);
+                return Vector2.zero;
+        }
+        return new Vector2(x, y);
     }
 }

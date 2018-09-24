@@ -192,8 +192,35 @@ namespace Yarn.Unity {
         /// Run an internal command.
         public override IEnumerator RunCommand(Yarn.Command command)
         {
-            // "Perform" the command
             Debug.Log("Command: " + command.text);
+            // "Perform" the command
+            var words = command.text.Split(' ');
+            var commandText = words[0].ToLower();
+            switch (commandText)
+            {
+                case "wait":
+                    float fWait;
+                    try
+                    {
+                        fWait = float.Parse(words[1]);
+                    }
+                    catch (System.FormatException)
+                    {
+                        Debug.LogErrorFormat("wait <num> must contain an integer ({0})", command.text);
+                        break;
+                    }
+                    yield return new WaitForSeconds(fWait);
+                    break;
+                case "show":
+                    ShowCanvas();
+                    break;
+                case "hide":
+                    HideCanvas();
+                    break;
+                default:
+                    Debug.LogError(Utils.Join("Unrecognized command:", commandText));
+                    break;
+            }
 
             yield break;
         }

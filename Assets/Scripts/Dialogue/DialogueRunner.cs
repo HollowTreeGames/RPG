@@ -263,7 +263,6 @@ namespace Yarn.Unity
                 else if (step is Yarn.Dialogue.CommandResult)
                 {
                     // Wait for command to finish running
-
                     var commandResult = step as Yarn.Dialogue.CommandResult;
 
                     if (DispatchCommand(commandResult.command.text) == true) {
@@ -344,6 +343,8 @@ namespace Yarn.Unity
             // If we can't find an object, we can't dispatch a command
             if (sceneObject == null)
                 return false;
+
+            Debug.Log("Dispatch command: " + command);
 
             int numberOfMethodsFound = 0;
             List<string[]> errorValues = new List<string[]>();
@@ -526,7 +527,7 @@ namespace Yarn.Unity
 
             // Misc
             dialogue.library.RegisterFunction("Random", 2, delegate (Value[] parameters) {
-                return random.Next(0, 2);
+                return random.Next((int)parameters[0].AsNumber, (int)parameters[1].AsNumber);
             });
         }
 

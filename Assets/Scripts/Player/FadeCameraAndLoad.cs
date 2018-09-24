@@ -18,6 +18,9 @@ public class FadeCameraAndLoad : MonoBehaviour
     private bool fade = false;
     private float alpha = 0;
 
+    private float panSpeed = 0;
+    private Vector2 panDirection = Vector2.zero;
+
     private void Start()
     {
         gameState = FindObjectOfType<GameState>();
@@ -32,6 +35,12 @@ public class FadeCameraAndLoad : MonoBehaviour
     }
 
     private void Update()
+    {
+        Fade();
+        PanCamera();
+    }
+
+    private void Fade()
     {
         if (fade)
         {
@@ -85,4 +94,46 @@ public class FadeCameraAndLoad : MonoBehaviour
         gameState.pause = true;
         fade = true;
 	}
+
+    [Yarn.Unity.YarnCommand("move")]
+    public void MoveCamera(string direction, string speed)
+    {
+        float fSpeed;
+        try
+        {
+            fSpeed = float.Parse(speed);
+        }
+        catch (System.FormatException)
+        {
+            Debug.LogErrorFormat("Invalid move speed: {0}", speed);
+            return;
+        }
+
+        panDirection = Utils.ParseFacing(direction);
+        panSpeed = fSpeed;
+    }
+
+    [Yarn.Unity.YarnCommand("stop")]
+    public void StopCamera()
+    {
+        panSpeed = 0;
+        panDirection = Vector2.zero;
+    }
+
+    [Yarn.Unity.YarnCommand("reset")]
+    public void ResetCameraPosition()
+    {
+        transform.localPosition = new Vector3(0, 0, -10);
+    }
+
+    private void PanCamera()
+    {
+        if (panSpeed > 0)
+        {
+            float panDeltaX = transform.position.x + (panDirection.x * panSpeed * Time.deltaTime);
+            float panDeltaY = transform.position.y + (panDirection.y * panSpeed * Time.deltaTime);
+            transform.position = new Vector3(panDeltaX, panDeltaY, transform.position.z);
+            Debug.LogFormat("Camera position: {0}", transform.position);
+        }
+    }
 }

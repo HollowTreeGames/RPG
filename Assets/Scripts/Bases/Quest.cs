@@ -12,7 +12,7 @@ public class Quest
     [SerializeField]
     private QuestState questState = QuestState.Unavailable;
     [SerializeField]
-    private bool automaticallySetQuestAvailable = true;
+    private bool automaticallySetQuestAvailable = false;
     [SerializeField]
     private int preReqReputation = 0;
     [SerializeField]
@@ -47,9 +47,9 @@ public class Quest
         return this;
     }
 
-    public Quest DoNotStartAutomatically()
+    public Quest StartAutomatically()
     {
-        automaticallySetQuestAvailable = false;
+        automaticallySetQuestAvailable = true;
         return this;
     }
 
