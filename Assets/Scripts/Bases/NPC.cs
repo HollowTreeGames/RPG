@@ -1,13 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Enums;
-using System;
 
 public abstract class NPC : Talkable
 {
-    
     protected Animator animator;
     private BoxCollider2D boxCollider2D;
     private Rigidbody2D myRigidbody;
@@ -40,7 +39,7 @@ public abstract class NPC : Talkable
         
         int seed = this.GetHashCode() * (DateTime.Now.Millisecond + 1);
         random = new System.Random(seed);
-        timeBetweenMoveCounter = random.Next(1, timeBetweenMove);
+        timeBetweenMoveCounter = random.Next(1, Math.Max(timeBetweenMove, 1));
         myRigidbody = GetComponent<Rigidbody2D>();
         gameState = FindObjectOfType<GameState>();
 
@@ -218,7 +217,7 @@ public abstract class NPC : Talkable
                 return new Vector2(0, -1);
             return new Vector2(0, random.Next(2) == 0 ? 1 : -1);
         }
-        
+
         //switch (rand)
         //{
         //    case 1:
@@ -248,13 +247,21 @@ public abstract class NPC : Talkable
     private void StartWalking(Vector2 direction)
     {
 
-        walking = true;
-        animator.SetBool("walking", true);
-        myRigidbody.velocity = direction * moveSpeed;
-        lastMoveDirection = direction;
+        StartWalking(direction, this.moveSpeed);
+    }
 
-        animator.SetFloat("moveX", direction.x);
-        animator.SetFloat("moveY", direction.y);
+    private void StartWalking(Vector2 direction, float moveSpeed)
+    {
+        if (moveSpeed > 0)
+        {
+            walking = true;
+            animator.SetBool("walking", true);
+            myRigidbody.velocity = direction * moveSpeed;
+            lastMoveDirection = direction;
+
+            animator.SetFloat("moveX", direction.x);
+            animator.SetFloat("moveY", direction.y);
+        }
         animator.SetFloat("lastMoveX", direction.x);
         animator.SetFloat("lastMoveY", direction.y);
     }
@@ -280,6 +287,48 @@ public abstract class NPC : Talkable
         StopWalking();
     }
     #endregion
+
+    [Yarn.Unity.YarnCommand("face")]
+    public void Face(string direction)
+    {
+        if (direction.ToLower() == "player")
+        {
+            TurnToPlayer(FindObjectOfType<Player>().transform.position);
+            return;
+        }
+
+        StartWalking(Utils.ParseFacing(direction), 0);
+    }
+
+    /// <summary>
+    /// Moves the NPC in a given direction, at a given speed.
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <param name="speed"></param>
+    [Yarn.Unity.YarnCommand("move")]
+    public void Move(string direction, string speed)
+    {
+        float fSpeed;
+        try
+        {
+            fSpeed = float.Parse(speed);
+        }
+        catch (System.FormatException)
+        {
+            Debug.LogErrorFormat("Invalid move speed: {0}", speed);
+            return;
+        }
+
+        Debug.Log("Starting");
+        StartWalking(Utils.ParseFacing(direction), fSpeed);
+    }
+
+    [Yarn.Unity.YarnCommand("stop")]
+    public void Stop()
+    {
+        Debug.Log("Stopping");
+        StopWalking();
+    }
 
     public virtual void LoadQuests()
     {

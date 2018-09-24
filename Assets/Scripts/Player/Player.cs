@@ -64,8 +64,7 @@ public class Player : SpriteParent
     // Update is called once per frame
     void Update()
     {
-
-        Move();
+        PlayerMove();
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -96,35 +95,33 @@ public class Player : SpriteParent
         }
     }
 
-    void Move()
+    void PlayerMove()
     {
-        float x, y;
-        walking = false;
-
         if (dialogueRunner.isDialogueRunning)
         {
-            x = 0;
-            y = 0;
+            return;
         }
-        else
+
+        float x = 0, y = 0;
+        walking = false;
+
+        x = Input.GetAxisRaw("Horizontal");
+        y = Input.GetAxisRaw("Vertical");
+
+        if ((x > 0.5f) || (x < -0.5f))
         {
-            x = Input.GetAxisRaw("Horizontal");
-            y = Input.GetAxisRaw("Vertical");
-
-            if ((x > 0.5f) || (x < -0.5f))
-            {
-                lastX = Mathf.Round(x);
-                lastY = 0;
-                walking = true;
-            }
-
-            if ((y > 0.5f) || (y < -0.5f))
-            {
-                lastX = 0;
-                lastY = Mathf.Round(y);
-                walking = true;
-            }
+            lastX = Mathf.Round(x);
+            lastY = 0;
+            walking = true;
         }
+
+        if ((y > 0.5f) || (y < -0.5f))
+        {
+            lastX = 0;
+            lastY = Mathf.Round(y);
+            walking = true;
+        }
+
         animator.SetBool("walking", walking);
         animator.SetFloat("moveX", x);
         animator.SetFloat("moveY", y);
@@ -142,7 +139,72 @@ public class Player : SpriteParent
         float moveSpeed = Input.GetButton("Fire1") ? runSpeed : walkSpeed;
 
         rb2d.velocity = new Vector2(moveSpeed * x * Time.deltaTime, moveSpeed * y * Time.deltaTime);
+    }
 
+    private void StartWalking(Vector2 direction)
+    {
+        StartWalking(direction, walkSpeed);
+    }
+
+    private void StartWalking(Vector2 direction, float moveSpeed)
+    {
+        if (moveSpeed > 0)
+        {
+            walking = true;
+            animator.SetBool("walking", true);
+            rb2d.velocity = direction * moveSpeed;
+
+            animator.SetFloat("moveX", direction.x);
+            animator.SetFloat("moveY", direction.y);
+        }
+        animator.SetFloat("lastMoveX", direction.x);
+        animator.SetFloat("lastMoveY", direction.y);
+    }
+
+    private void StopWalking()
+    {
+        walking = false;
+        animator.SetBool("walking", false);
+        rb2d.velocity = Vector2.zero;
+
+        animator.SetFloat("moveX", 0);
+        animator.SetFloat("moveY", 0);
+    }
+
+    [Yarn.Unity.YarnCommand("face")]
+    public void Face(string direction)
+    {
+        StartWalking(Utils.ParseFacing(direction), 0);
+    }
+
+    /// <summary>
+    /// Moves the Player in a given direction, at a given speed.
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <param name="speed"></param>
+    [Yarn.Unity.YarnCommand("move")]
+    public void Move(string direction, string speed)
+    {
+        float fSpeed;
+        try
+        {
+            fSpeed = float.Parse(speed);
+        }
+        catch (System.FormatException)
+        {
+            Debug.LogErrorFormat("Invalid move speed: {0}", speed);
+            return;
+        }
+
+        Debug.Log("Starting");
+        StartWalking(Utils.ParseFacing(direction), fSpeed);
+    }
+
+    [Yarn.Unity.YarnCommand("stop")]
+    public void Stop()
+    {
+        Debug.Log("Stopping");
+        StopWalking();
     }
 
     void Interact()
@@ -162,6 +224,7 @@ public class Player : SpriteParent
         {
             Interactable interactable = hit.collider.GetComponent<Interactable>();
             if (interactable != null) {
+                rb2d.velocity = Vector2.zero;
 				interactable.Interact();
             }
         }

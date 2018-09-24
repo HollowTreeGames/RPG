@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Enums;
 
 [System.Serializable]
@@ -10,22 +11,18 @@ public class QuestManager : MonoBehaviour
     private Quest[] questList =
     {
         new Quest("Oakewood Greeting", "Use space to talk to that Old Coyote")
+            .StartAutomatically()
             .AddReputation(0)
             .InitialState(QuestState.Available),
         new Quest("Oakewood Stretch Legs", "Use the arrow keys to stretch Your legs")
-            .DoNotStartAutomatically()
             .AddFriendship("Oakewood", 1),
         new Quest("Oakewood Run", "Hold down the shift key to REALLY Stretch Your Legs")
-            .DoNotStartAutomatically()
             .AddFriendship("Oakewood", 1),
         new Quest("Oakewood Pick Up Rock", "Bring Oakewood a Rock")
-            .DoNotStartAutomatically()
             .AddFriendship("Oakewood", 1),
         new Quest("Oakewood Drop Rock", "Use z to drop the Rock")
-            .DoNotStartAutomatically()
     };
 
-    #region Boring Code Stuff
     private static bool instanceExists = false;
 
     private QuestCanvas questCanvas;
@@ -58,6 +55,27 @@ public class QuestManager : MonoBehaviour
     public void SetQuestList(Quest[] questList)
     {
         this.questList = questList;
+    }
+
+    public void LoadQuestsByScene()
+    {
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "Tutorial":
+                CopyQuestList(QuestLoader.tutorialQuestList);
+                break;
+            default:
+                Debug.LogError(Utils.Join("Active scene not found in quest list: ", 
+                    SceneManager.GetActiveScene().name));
+                break;
+        }
+
+    }
+
+    public void CopyQuestList(Quest[] newQuestList)
+    {
+        questList = new Quest[newQuestList.Length];
+        newQuestList.CopyTo(questList, 0);
     }
 
     public Quest FindQuest(string id)
@@ -102,5 +120,4 @@ public class QuestManager : MonoBehaviour
             quest.CheckPreReqs(gameState);
         }
     }
-    #endregion
 }

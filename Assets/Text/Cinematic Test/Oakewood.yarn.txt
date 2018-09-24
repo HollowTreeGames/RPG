@@ -1,0 +1,15 @@
+title: Oakewood Start
+---
+Oakewood: Don't talk to me.
+<<hide>>
+<<move Camera down 1>>
+<<wait 2>>
+<<stop Camera>>
+<<wait 1>>
+<<move Camera right 1>>
+<<wait 2>>
+<<stop Camera>>
+<<wait 1>>
+<<reset Camera>>
+Belfry (sad): ... that was weird.
+===
