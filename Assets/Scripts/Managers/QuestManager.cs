@@ -12,15 +12,15 @@ public class QuestManager : MonoBehaviour
     {
         new Quest("Oakewood Greeting", "Use SPACE to talk to That Old Coyote")
             .StartAutomatically()
-            .AddReputation(0)
             .InitialState(QuestState.Available),
         new Quest("Oakewood Stretch Legs", "Use the arrow keys to stretch your legs")
             .AddFriendship("Oakewood", 1),
         new Quest("Oakewood Run", "Hold down the shift key to REALLY Stretch your Legs")
             .AddFriendship("Oakewood", 1),
-        new Quest("Oakewood Pick Up Rock", "Bring Oakewood a Rock")
-            .AddFriendship("Oakewood", 1),
-        new Quest("Oakewood Drop Rock", "Use Z to drop the Rock")
+        new Quest("Henry Pick Up Rock", "Bring Henry that rock")
+            .AddFriendship("Henry", 1),
+        new Quest("Henry Drop Rock", "Use Z to drop your rock"),
+        new Quest("Henry Talk to Rock", "Go...talk to... the rock??")
     };
 
     private static bool instanceExists = false;

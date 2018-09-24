@@ -1,8 +1,5 @@
 title: Oakewood Start
 ---
-<<FinishQuest("Oakewood Greeting")>>
-<<SetAvailable("Oakewood Run")>>
-
 <<if IsActive("Oakewood Greeting")>>
     [[Oakewood Greeting]]
 <<endif>>
@@ -15,13 +12,6 @@ title: Oakewood Start
     [[Oakewood Run]]
 <<endif>>
 
-<<if IsActive("Oakewood Pick Up Rock")>>
-	[[Oakewood Pick Up Rock]]
-<<endif>>
-
-<<if IsActive("Oakewood Drop Rock")>>
-	[[Oakewood Drop Rock]]
-<<endif>>
 ===
 
 
@@ -100,8 +90,10 @@ title: Oakewood Run Complete
 ---
 <<FinishQuest("Oakewood Run")>>
 Oakewood:			Well done. I had peace and quiet for a whole three seconds. I'm proud of you.
+Belfry (Happy):		Now what??
+Oakewood:			Go talk to Henry. I'm sure he has some other asinine task for you to do.
+<<SetAvailable("Henry Pick Up Rock")>>
 ===
-
 
 title: Oakewood Cycle
 ---

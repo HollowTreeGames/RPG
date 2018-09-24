@@ -69,7 +69,7 @@ public class Item : Interactable {
             {
                 dialogueRunner.StartDialogue(itemName + " Pick Up");
                 inventoryManager.SetInventory(this);
-                GetComponent<Player>().hasItem = true;
+                player.hasItem = true;
                 Respawn();
             }
             else
