@@ -531,6 +531,9 @@ namespace Yarn.Unity
             dialogue.library.RegisterFunction("Random", 2, delegate (Value[] parameters) {
                 return random.Next((int)parameters[0].AsNumber, (int)parameters[1].AsNumber);
             });
+            dialogue.library.RegisterFunction("Log", 1, delegate (Value[] parameters) {
+                Debug.Log(parameters[0].AsString);
+            });
         }
 
     }
