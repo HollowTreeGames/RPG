@@ -224,7 +224,7 @@ public class Player : SpriteParent
         {
             Interactable interactable = hit.collider.GetComponent<Interactable>();
             if (interactable != null) {
-                rb2d.velocity = Vector2.zero;
+                StopWalking();
 				interactable.Interact();
             }
         }

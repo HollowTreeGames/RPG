@@ -15,7 +15,7 @@ public class WalkingTriggers : SpriteParent {
         questManager = FindObjectOfType<QuestManager>();
         dialogueVariableStorage = FindObjectOfType<DialogueVariableStorage>();
         quest = questManager.FindQuest("Oakewood Stretch Legs");
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -28,8 +28,8 @@ public class WalkingTriggers : SpriteParent {
     {
         if (!quest.IsInProgress() || steppedOn)
             return;
-        steppedOn = true;
-        dialogueVariableStorage.Increment("$oakewood_walking_count");
-        gameObject.SetActive(false);
+            steppedOn = true;
+            dialogueVariableStorage.Increment("$oakewood_walking_count");
+            gameObject.SetActive(false);
     }
 }

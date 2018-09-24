@@ -1,5 +1,7 @@
 title: Oakewood Start
 ---
+<<FinishQuest("Oakewood Greeting")>>
+<<SetAvailable("Oakewood Run")>>
 
 <<if IsActive("Oakewood Greeting")>>
     [[Oakewood Greeting]]
@@ -9,15 +11,15 @@ title: Oakewood Start
     [[Oakewood Stretch Legs]]
 <<endif>>
 
-<<if IsDone("Oakewood Stretch Legs")>>
+<<if IsActive("Oakewood Run")>>
     [[Oakewood Run]]
 <<endif>>
 
-<<if IsDone("Oakewood Run")>>
+<<if IsActive("Oakewood Pick Up Rock")>>
 	[[Oakewood Pick Up Rock]]
 <<endif>>
 
-<<if IsDone("Oakewood Pick Up Rock")>>
+<<if IsActive("Oakewood Drop Rock")>>
 	[[Oakewood Drop Rock]]
 <<endif>>
 ===
@@ -39,7 +41,6 @@ Oakewood:       Fine.
 
 title: Oakewood Stretch Legs
 ---
-<<Log($oakewood_walking_count)>>
 <<if IsAvailable("Oakewood Stretch Legs")>>
     [[Oakewood Stretch Legs Start]]
 <<elseif $oakewood_walking_count < 4>>
@@ -70,15 +71,35 @@ Oakewood:			Yes, that was...
 Oakewood (Happy):	Good. Very good.
 Oakewood:			You've helped very much.
 Oakewood (Sad): 	Now leave me alone.
+<<SetAvailable("Oakewood Run")>>
 ===
 
-title: Oakewood Thanks
+title: Oakewood Run
 ---
-Oakewood (Sad):	  You have strange tastes in books.
-Oakewood (Happy): But...
-Oakewood:		  I appreciate the effort you put in.
-Oakewood:		  One day the creatures of the former town of Treehollow might forgive you.
-Oakewood (Sad):	  Just don't burn this new place down too.
+<<if IsAvailable("Oakewood Run")>>
+    [[Oakewood Run Start]]
+<<elseif $oakewood_running_count < 4>>
+    [[Oakewood Run Reminder]]
+<<else>>
+	[[Oakewood Run Complete]]
+<<endif>>
+===
+title: Oakewood Run Start
+---
+Belfry:				I know you said leave you alone, but something about you makes me want to talk to you again.
+Belfry:				Can I do something else to help?
+Oakewood:			Urgh!
+Oakewood:			Just... do the same thing again, but faster.
+<<StartQuest("Oakewood Run")>>
+===
+title: Oakewood Run Reminder
+---
+Oakewood:			Pick up the pace!! Make sure you run far away from me!
+===
+title: Oakewood Run Complete
+---
+<<FinishQuest("Oakewood Run")>>
+Oakewood:			Well done. I had peace and quiet for a whole three seconds. I'm proud of you.
 ===
 
 
