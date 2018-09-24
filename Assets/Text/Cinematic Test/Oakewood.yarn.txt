@@ -2,13 +2,11 @@ title: Oakewood Start
 ---
 Oakewood: Don't talk to me.
 <<hide>>
-<<face Oakewood left>>
-<<wait 1>>
-<<face Oakewood down>>
+<<move Oakewood down 0.5>>
+<<wait 3>>
+<<stop Oakewood>>
 <<wait 1>>
 <<face Oakewood up>>
-<<wait 1>>
-<<face Oakewood right>>
 <<wait 1>>
 Oakewood: ... well?
 ===

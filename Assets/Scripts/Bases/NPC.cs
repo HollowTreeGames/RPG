@@ -301,13 +301,12 @@ public abstract class NPC : Talkable
     }
 
     /// <summary>
-    /// Moves the NPC in a given direction, at a given speed, for a given number of seconds, then stops them.
+    /// Moves the NPC in a given direction, at a given speed.
     /// </summary>
     /// <param name="direction"></param>
     /// <param name="speed"></param>
-    /// <param name="wait"></param>
     [Yarn.Unity.YarnCommand("move")]
-    public IEnumerator Move(string direction, string speed, string wait)
+    public void Move(string direction, string speed)
     {
         float fSpeed, fWait;
         try
@@ -318,22 +317,17 @@ public abstract class NPC : Talkable
         {
             Debug.LogError(e);
             Debug.LogErrorFormat("Invalid move speed: {0}", speed);
-            yield break;
+            return;
         }
 
-        try
-        {
-            fWait = float.Parse(wait);
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogError(e);
-            Debug.LogErrorFormat("Invalid wait time: {0}", speed);
-            yield break;
-        }
-
+        Debug.Log("Starting");
         StartWalking(Utils.ParseFacing(direction), fSpeed);
-        yield return new WaitForSeconds(fWait);
+    }
+
+    [Yarn.Unity.YarnCommand("stop")]
+    public void Stop()
+    {
+        Debug.Log("Stopping");
         StopWalking();
     }
 
