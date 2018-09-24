@@ -1,9 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Enums;
-using System;
 
 public abstract class NPC : Talkable
 {
@@ -279,6 +279,15 @@ public abstract class NPC : Talkable
         StopWalking();
     }
     #endregion
+
+    [Yarn.Unity.YarnCommand("face")]
+    public void Face(string direction)
+    {
+        float x, y;
+        Utils.ParseFacing(direction, out x, out y);
+        animator.SetFloat("lastMoveX", x);
+        animator.SetFloat("lastMoveY", y);
+    }
 
     public virtual void LoadQuests()
     {

@@ -344,6 +344,8 @@ namespace Yarn.Unity
             if (sceneObject == null)
                 return false;
 
+            Debug.Log("Dispatch command: " + command);
+
             int numberOfMethodsFound = 0;
             List<string[]> errorValues = new List<string[]>();
 

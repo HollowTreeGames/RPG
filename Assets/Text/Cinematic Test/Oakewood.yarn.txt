@@ -3,5 +3,7 @@ title: Oakewood Start
 Oakewood: Don't talk to me.
 <<hide>>
 <<wait 3>>
+<<face Oakewood left>>
+<<wait 1>>
 Oakewood: ... well?
 ===
