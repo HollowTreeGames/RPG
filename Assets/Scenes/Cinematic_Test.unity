@@ -789,8 +789,8 @@ GameObject:
   - component: {fileID: 1150746551}
   - component: {fileID: 1150746550}
   - component: {fileID: 1150746549}
-  - component: {fileID: 1150746548}
   - component: {fileID: 1150746547}
+  - component: {fileID: 1150746548}
   m_Layer: 9
   m_Name: Oakewood
   m_TagString: NPC
@@ -839,48 +839,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1150746545}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32b0d7732265cb44aaa88884f2580b0e, type: 3}
+  m_Script: {fileID: 11500000, guid: c2ae9f0dcbd0a78449f365a4c31f85ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hasShadow: 1
-  scriptToLoad: {fileID: 0}
-  moveSpeed: 0.5
-  timeBetweenMove: 5
-  timeToMove: 4
+  scriptToLoad: {fileID: 4900000, guid: 0b236210fbdf4a9498c112f07d2fec44, type: 3}
+  moveSpeed: 0
+  timeBetweenMove: 0
+  timeToMove: 0
   walkZone: {fileID: 0}
-  questLibraryBook:
-    questId: 
-    questName: 
-    questState: 0
-    automaticallySetQuestAvailable: 0
-    preReqReputation: 0
-    preReqFriendship:
-      _Buckets: ffffffffffffffffffffffff
-      _HashCodes: 000000000000000000000000
-      _Next: 000000000000000000000000
-      _Count: 0
-      _Version: 0
-      _FreeList: -1
-      _FreeCount: 0
-      _Keys:
-      - 
-      - 
-      - 
-      _Values: 000000000000000000000000
-    reputationGain: 0
-    friendshipGains:
-      _Buckets: ffffffffffffffffffffffff
-      _HashCodes: 000000000000000000000000
-      _Next: 000000000000000000000000
-      _Count: 0
-      _Version: 0
-      _FreeList: -1
-      _FreeCount: 0
-      _Keys:
-      - 
-      - 
-      - 
-      _Values: 000000000000000000000000
 --- !u!95 &1150746549
 Animator:
   serializedVersion: 3
@@ -7792,8 +7759,8 @@ GameObject:
   - component: {fileID: 1470362712}
   - component: {fileID: 1470362711}
   - component: {fileID: 1470362710}
-  - component: {fileID: 1470362709}
   - component: {fileID: 1470362708}
+  - component: {fileID: 1470362709}
   m_Layer: 9
   m_Name: Henry
   m_TagString: NPC
@@ -7839,20 +7806,19 @@ Rigidbody2D:
 --- !u!114 &1470362709
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114142525367620828, guid: b6fb8c236d6f01f46900e5275482a08f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1628224540}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1470362706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32913fd69fe8b9c4ca671dbe349c5684, type: 3}
+  m_Script: {fileID: 11500000, guid: c6060bdc216ff934a8888e80b900d00b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hasShadow: 1
   scriptToLoad: {fileID: 0}
   moveSpeed: 0
-  timeBetweenMove: 10
-  timeToMove: 2
+  timeBetweenMove: 0
+  timeToMove: 0
   walkZone: {fileID: 0}
 --- !u!95 &1470362710
 Animator:
@@ -8056,7 +8022,8 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b8f3f77a5c31b3f41bc2fde6336fcc0f, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: b6fb8c236d6f01f46900e5275482a08f, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1652968441

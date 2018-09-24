@@ -263,7 +263,6 @@ namespace Yarn.Unity
                 else if (step is Yarn.Dialogue.CommandResult)
                 {
                     // Wait for command to finish running
-
                     var commandResult = step as Yarn.Dialogue.CommandResult;
 
                     if (DispatchCommand(commandResult.command.text) == true) {

@@ -1,0 +1,6 @@
+title: Oakewood Start
+---
+Oakewood: Don't talk to me.
+<<wait 3>>
+Oakewood: ... well?
+===

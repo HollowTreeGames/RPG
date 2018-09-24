@@ -20,6 +20,10 @@ public class Talkable : Interactable {
         {
             dialogueRunner.AddScript(scriptToLoad);
         }
+        else
+        {
+            Debug.LogWarning(Utils.Join(name, "has no Yarn script loaded!"));
+        }
     }
 
     public override void Interact()

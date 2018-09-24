@@ -7,7 +7,6 @@ using System;
 
 public abstract class NPC : Talkable
 {
-    
     protected Animator animator;
     private BoxCollider2D boxCollider2D;
     private Rigidbody2D myRigidbody;
@@ -40,7 +39,7 @@ public abstract class NPC : Talkable
         
         int seed = this.GetHashCode() * (DateTime.Now.Millisecond + 1);
         random = new System.Random(seed);
-        timeBetweenMoveCounter = random.Next(1, timeBetweenMove);
+        timeBetweenMoveCounter = random.Next(1, Math.Max(timeBetweenMove, 1));
         myRigidbody = GetComponent<Rigidbody2D>();
         gameState = FindObjectOfType<GameState>();
 
