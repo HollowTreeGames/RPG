@@ -65,10 +65,6 @@ namespace Yarn.Unity {
         /// the user selected
         private Yarn.OptionChooser SetSelectedOption;
 
-        /// How quickly to show the text, in seconds per character
-        [Tooltip("How quickly to show the text, in seconds per character")]
-        public float textSpeed = 0.025f;
-
         /// The buttons that let the user choose an option
         public List<Button> optionButtons;
 
@@ -133,7 +129,7 @@ namespace Yarn.Unity {
 
             ShowCanvas();
 
-            if (textSpeed > 0.0f)
+            if (dLine.speed > 0.0f)
             {
                 // Display the line one character at a time
                 var stringBuilder = new StringBuilder();
@@ -148,27 +144,30 @@ namespace Yarn.Unity {
                     }
                     stringBuilder.Append(c);
                     lineText.text = stringBuilder.ToString();
-                    yield return new WaitForSeconds(textSpeed);
+                    yield return new WaitForSeconds(dLine.speed);
                 }
             }
             // Display the line immediately if textSpeed == 0
             lineText.text = dLine.text;
 
-            // Show the 'press any key' prompt when done, if we have one
-            if (continuePrompt != null)
-                continuePrompt.SetActive (true);
+            if (dLine.pause)
+            {
+                // Show the 'press any key' prompt when done, if we have one
+                if (continuePrompt != null)
+                    continuePrompt.SetActive(true);
 
-            // Wait for any user input
-            while (!talkButtonPressed) {
-                yield return null;
+                // Wait for any user input
+                while (!talkButtonPressed)
+                {
+                    yield return null;
+                }
+
+                if (continuePrompt != null)
+                    continuePrompt.SetActive(false);
             }
 
             // Hide the text and prompt
-            lineText.gameObject.SetActive (false);
-
-            if (continuePrompt != null)
-                continuePrompt.SetActive (false);
-
+            lineText.gameObject.SetActive(false);
         }
 
         /// Show a list of options, and wait for the player to make a selection.

@@ -71,7 +71,7 @@ namespace MyDialogue
         /// <param name="speed">Speed to display the text at.</param>
         /// <param name="jitter">Makes the letters jitter, if the character needs to be frightened.</param>
         /// <param name="pause">Whether to pause at the end of a line and wait for user input.</param>
-        public DLine(string name, string face, string line, float wait=0, float speed=1, float jitter=0, bool pause=true)
+        public DLine(string name, string face, string line, float wait=0, float speed=0.025f, float jitter=0, bool pause=true)
         {
             this.name = name;
             this.face = face;
