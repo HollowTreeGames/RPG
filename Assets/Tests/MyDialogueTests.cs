@@ -67,4 +67,77 @@ public class MyDialogueTests {
         Assert.AreEqual("Happy", dLine.face);
         Assert.AreEqual("Test.", dLine.text);
     }
+
+    [Test]
+    public void DLine_FromYarnLine_Wait()
+    {
+        line.text = "Nora (Happy) <wait=1.5>: Test.";
+        DLine dLine = DLine.FromYarnLine(line);
+
+        Assert.AreEqual("Nora", dLine.name);
+        Assert.AreEqual("Happy", dLine.face);
+        Assert.AreEqual("Test.", dLine.text);
+        Assert.AreEqual(1.5f, dLine.wait);
+    }
+
+    [Test]
+    public void DLine_FromYarnLine_Speed()
+    {
+        line.text = "Nora (Happy) <speed=1.5>: Test.";
+        DLine dLine = DLine.FromYarnLine(line);
+
+        Assert.AreEqual("Nora", dLine.name);
+        Assert.AreEqual("Happy", dLine.face);
+        Assert.AreEqual("Test.", dLine.text);
+        Assert.AreEqual(1.5f, dLine.speed);
+    }
+
+    [Test]
+    public void DLine_FromYarnLine_Jitter()
+    {
+        line.text = "Nora (Happy) <jitter=1.5>: Test.";
+        DLine dLine = DLine.FromYarnLine(line);
+
+        Assert.AreEqual("Nora", dLine.name);
+        Assert.AreEqual("Happy", dLine.face);
+        Assert.AreEqual("Test.", dLine.text);
+        Assert.AreEqual(1.5f, dLine.jitter);
+    }
+
+    [Test]
+    public void DLine_FromYarnLine_Pause()
+    {
+        line.text = "Nora (Happy) <pause=false>: Test.";
+        DLine dLine = DLine.FromYarnLine(line);
+
+        Assert.AreEqual("Nora", dLine.name);
+        Assert.AreEqual("Happy", dLine.face);
+        Assert.AreEqual("Test.", dLine.text);
+        Assert.AreEqual(false, dLine.pause);
+    }
+
+    [Test]
+    public void DLine_FromYarnLine_ClearText()
+    {
+        line.text = "Nora (Happy) <clear_text=false>: Test.";
+        DLine dLine = DLine.FromYarnLine(line);
+
+        Assert.AreEqual("Nora", dLine.name);
+        Assert.AreEqual("Happy", dLine.face);
+        Assert.AreEqual("Test.", dLine.text);
+        Assert.AreEqual(false, dLine.clear_text);
+    }
+
+    [Test]
+    public void DLine_FromYarnLine_WaitAndClear()
+    {
+        line.text = "Nora (Happy) <wait=1.5; clear_text=false>: Test.";
+        DLine dLine = DLine.FromYarnLine(line);
+
+        Assert.AreEqual("Nora", dLine.name);
+        Assert.AreEqual("Happy", dLine.face);
+        Assert.AreEqual("Test.", dLine.text);
+        Assert.AreEqual(1.5f, dLine.wait);
+        Assert.AreEqual(false, dLine.clear_text);
+    }
 }
