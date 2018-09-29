@@ -31,4 +31,13 @@ public class HenryTutorial : NPC
             questHenryDropRock.IsAvailable() ||
             questHenryTalkToRock.IsAvailable();
     }
+
+    public new void Update()
+    {
+        base.Update();
+        if (questHenryDropRock.IsInProgress() && Input.GetKeyDown("z"))
+        {
+            dialogueRunner.StartDialogue("Henry Drop Rock Complete");
+        }
+    }
 }

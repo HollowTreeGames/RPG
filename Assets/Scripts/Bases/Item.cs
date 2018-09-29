@@ -63,18 +63,21 @@ public class Item : Interactable {
         {
             if (inventoryManager.GetInventory() == "")
             {
-                dialogueRunner.StartDialogue(itemName + " Pick Up");
+                if (scriptToLoad != null)
+                    dialogueRunner.StartDialogue(itemName + " Pick Up");
                 inventoryManager.SetInventory(this);
                 Respawn();
             }
             else
             {
-                dialogueRunner.StartDialogue(itemName + " Hands Full");
+                if (scriptToLoad != null)
+                    dialogueRunner.StartDialogue(itemName + " Hands Full");
             }
         }
         else
         {
-            dialogueRunner.StartDialogue(itemName + " Default");
+            if (scriptToLoad != null)
+                dialogueRunner.StartDialogue(itemName + " Default");
         }
     }
 

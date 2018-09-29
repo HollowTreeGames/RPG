@@ -1,5 +1,8 @@
 title: Oakewood Start
 ---
+<<SetAvailable("Henry Pick Up Rock")>>
+<<FinishQuest("Oakewood Greeting")>>
+
 <<if IsActive("Oakewood Greeting")>>
     [[Oakewood Greeting]]
 <<endif>>

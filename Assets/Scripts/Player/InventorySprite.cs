@@ -12,7 +12,7 @@ public class InventorySprite : MonoBehaviour {
     }
 	
 	void OnGUI () {
-        int x = (int)(player.transform.position.y * -1000);
+        int x = (int)(player.transform.position.y * -1000 + 1);
         spriteRenderer.sortingOrder = x;
     }
 }

@@ -12,8 +12,7 @@ public class Player : SpriteParent
     public float walkSpeed;
     public float runSpeed;
     public float interactDistance = 1;
-
-    private GameState gameState;
+    
     private DialogueRunner dialogueRunner;
     private Animator animator;
     private Rigidbody2D rb2d;
@@ -43,7 +42,6 @@ public class Player : SpriteParent
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
-        gameState = FindObjectOfType<GameState>();
         dialogueRunner = FindObjectOfType<DialogueRunner>();
         try
         {

@@ -24,17 +24,16 @@ public class FriendRock : Item
     {
         return questPickUpRock.IsInProgress();
     }
-
-    private void Update()
-    {
-        if (questDropRock.IsInProgress() && Input.GetKeyDown("z"))
-        {
-            dialogueRunner.StartDialogue("Henry Drop Rock Complete");
-        }
-    }
     
     public override void Interact()
     {
-        dialogueRunner.StartDialogue("Henry Talk to Rock Complete");
+        if (questTalkToRock.IsInProgress())
+        {
+            dialogueRunner.StartDialogue("Henry Talk to Rock Complete");
+        }
+        else
+        {
+            base.Interact();
+        }
     }
 }

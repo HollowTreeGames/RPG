@@ -17060,7 +17060,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 494039131}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.013999999, y: 0.90700006, z: 0}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 2073568483}
@@ -27500,7 +27500,7 @@ Transform:
   m_GameObject: {fileID: 1109464601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.41, y: -1.84, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 280457491}
   m_RootOrder: 0
@@ -27579,7 +27579,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.25, y: 0.25}
     newSize: {x: 5, y: 5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -29280,6 +29280,105 @@ MonoBehaviour:
   timeBetweenMove: 0
   timeToMove: 0
   walkZone: {fileID: 0}
+  questHenryPickUpRock:
+    questId: 
+    questName: 
+    questState: 0
+    automaticallySetQuestAvailable: 0
+    preReqReputation: 0
+    preReqFriendship:
+      _Buckets: ffffffffffffffffffffffff
+      _HashCodes: 000000000000000000000000
+      _Next: 000000000000000000000000
+      _Count: 0
+      _Version: 0
+      _FreeList: -1
+      _FreeCount: 0
+      _Keys:
+      - 
+      - 
+      - 
+      _Values: 000000000000000000000000
+    reputationGain: 0
+    friendshipGains:
+      _Buckets: ffffffffffffffffffffffff
+      _HashCodes: 000000000000000000000000
+      _Next: 000000000000000000000000
+      _Count: 0
+      _Version: 0
+      _FreeList: -1
+      _FreeCount: 0
+      _Keys:
+      - 
+      - 
+      - 
+      _Values: 000000000000000000000000
+  questHenryDropRock:
+    questId: 
+    questName: 
+    questState: 0
+    automaticallySetQuestAvailable: 0
+    preReqReputation: 0
+    preReqFriendship:
+      _Buckets: ffffffffffffffffffffffff
+      _HashCodes: 000000000000000000000000
+      _Next: 000000000000000000000000
+      _Count: 0
+      _Version: 0
+      _FreeList: -1
+      _FreeCount: 0
+      _Keys:
+      - 
+      - 
+      - 
+      _Values: 000000000000000000000000
+    reputationGain: 0
+    friendshipGains:
+      _Buckets: ffffffffffffffffffffffff
+      _HashCodes: 000000000000000000000000
+      _Next: 000000000000000000000000
+      _Count: 0
+      _Version: 0
+      _FreeList: -1
+      _FreeCount: 0
+      _Keys:
+      - 
+      - 
+      - 
+      _Values: 000000000000000000000000
+  questHenryTalkToRock:
+    questId: 
+    questName: 
+    questState: 0
+    automaticallySetQuestAvailable: 0
+    preReqReputation: 0
+    preReqFriendship:
+      _Buckets: ffffffffffffffffffffffff
+      _HashCodes: 000000000000000000000000
+      _Next: 000000000000000000000000
+      _Count: 0
+      _Version: 0
+      _FreeList: -1
+      _FreeCount: 0
+      _Keys:
+      - 
+      - 
+      - 
+      _Values: 000000000000000000000000
+    reputationGain: 0
+    friendshipGains:
+      _Buckets: ffffffffffffffffffffffff
+      _HashCodes: 000000000000000000000000
+      _Next: 000000000000000000000000
+      _Count: 0
+      _Version: 0
+      _FreeList: -1
+      _FreeCount: 0
+      _Keys:
+      - 
+      - 
+      - 
+      _Values: 000000000000000000000000
 --- !u!50 &1562472716
 Rigidbody2D:
   serializedVersion: 4
@@ -31193,7 +31292,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2070576794}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2073568483}
@@ -31449,7 +31548,6 @@ MonoBehaviour:
   runSpeed: 240
   interactDistance: 1
   walking: 0
-  hasItem: 0
   lastX: 0
   lastY: -1
 --- !u!95 &2073568481
