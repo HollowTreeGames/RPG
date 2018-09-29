@@ -57,6 +57,7 @@ namespace MyDialogue
         public float speed;
         public float jitter;
         public bool pause;
+        public bool clear_text;
 
         private static Regex re = new Regex(@"(.*?)( \((.*?)\))?:\s+(.*)");
         private static TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
@@ -71,7 +72,8 @@ namespace MyDialogue
         /// <param name="speed">Speed to display the text at.</param>
         /// <param name="jitter">Makes the letters jitter, if the character needs to be frightened.</param>
         /// <param name="pause">Whether to pause at the end of a line and wait for user input.</param>
-        public DLine(string name, string face, string line, float wait=0, float speed=0.025f, float jitter=0, bool pause=true)
+        /// <param name="clear_text">Whether the previous text is cleared when the next line is played.</param>
+        public DLine(string name, string face, string line, float wait=0, float speed=0.025f, float jitter=0, bool pause=true, bool clear_text=true)
         {
             this.name = name;
             this.face = face;
@@ -80,6 +82,7 @@ namespace MyDialogue
             this.speed = speed;
             this.jitter = jitter;
             this.pause = pause;
+            this.clear_text = clear_text;
         }
 
         public Sprite GetFace()

@@ -76,6 +76,8 @@ namespace Yarn.Unity {
 
         private static bool instanceExists = false;
 
+        private string last_text;
+
         private void Start()
         {
             if (instanceExists)
@@ -113,7 +115,7 @@ namespace Yarn.Unity {
         }
 
         /// Show a line of dialogue, gradually
-        public override IEnumerator RunLine (Yarn.Line line)
+        public override IEnumerator RunLine(Yarn.Line line)
         {
             // Convert line text to DLine
             DLine dLine = DLine.FromYarnLine(line);
@@ -122,8 +124,16 @@ namespace Yarn.Unity {
             portraitImage.sprite = dLine.GetFace();
 
             // Show the text
-            lineText.text = "";
-            lineText.gameObject.SetActive (true);
+            if (dLine.clear_text)
+            {
+                lineText.text = "";
+            }
+            else
+            {
+                last_text = lineText.text;
+            }
+
+            lineText.gameObject.SetActive(true);
 
             if (dLine.wait > 0)
             {
@@ -153,7 +163,14 @@ namespace Yarn.Unity {
                 }
             }
             // Display the line immediately if textSpeed == 0
-            lineText.text = dLine.text;
+            if (dLine.clear_text)
+            {
+                lineText.text = dLine.text;
+            }
+            else
+            {
+                lineText.text = last_text + dLine.text;
+            }
 
             if (dLine.pause)
             {
