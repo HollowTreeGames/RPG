@@ -1,0 +1,8 @@
+title: Cinematic Start
+---
+<<place Camera 2 0.5>>
+<<move Henry right 1>>
+<<move Oakewood right 1>>
+<<move Player right 1>>
+<<wait 10>>
+===

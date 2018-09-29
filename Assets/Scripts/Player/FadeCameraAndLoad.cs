@@ -95,7 +95,35 @@ public class FadeCameraAndLoad : MonoBehaviour
         this.startY = startY;
         gameState.pause = true;
         fade = true;
-	}
+    }
+
+    [Yarn.Unity.YarnCommand("place")]
+    public void PlaceCamera(string x, string y)
+    {
+        float fX;
+        try
+        {
+            fX = float.Parse(x);
+        }
+        catch (System.FormatException)
+        {
+            Debug.LogErrorFormat("Invalid x: {0}", x);
+            return;
+        }
+
+        float fY;
+        try
+        {
+            fY = float.Parse(y);
+        }
+        catch (System.FormatException)
+        {
+            Debug.LogErrorFormat("Invalid y: {0}", y);
+            return;
+        }
+
+        transform.localPosition = new Vector3(fX, fY, defaultPosition.z);
+    }
 
     [Yarn.Unity.YarnCommand("move")]
     public void MoveCamera(string direction, string speed)

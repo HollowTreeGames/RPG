@@ -1,15 +1,6 @@
-title: Oakewood Start
+title: Cinematic Start
 ---
-Oakewood: Don't talk to me.
-<<hide>>
-<<move Camera down 1>>
-<<wait 2>>
-<<stop Camera>>
-<<wait 1>>
-<<move Camera right 1>>
-<<wait 2>>
-<<stop Camera>>
-<<wait 1>>
-<<reset Camera>>
-Belfry (sad): ... that was weird.
+<move Henry right 1>
+<move Oakewood right 1>
+<move Belfry right 1>
 ===
