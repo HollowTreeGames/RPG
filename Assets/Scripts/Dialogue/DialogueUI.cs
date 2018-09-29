@@ -125,6 +125,11 @@ namespace Yarn.Unity {
             lineText.text = "";
             lineText.gameObject.SetActive (true);
 
+            if (dLine.wait > 0)
+            {
+                yield return new WaitForSeconds(dLine.wait);
+            }
+
             talkButtonPressed = false;
 
             ShowCanvas();
