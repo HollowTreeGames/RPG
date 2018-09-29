@@ -58,7 +58,7 @@ namespace MyDialogue
         public bool pause;
         public bool clear_text;
 
-        private static Regex re = new Regex(@"(.*?)( \((.*?)\))?( \<(.*?)\>)?:\s+(.*)");
+        private static Regex re = new Regex(@"(.*?)\s*(\((.*?)\))?\s*(\<(.*?)\>)?\s*:(.*)");
         private static TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace MyDialogue
             if (face.Equals(""))
                 face = "Default";
             // Convert text to title case
-            face = textInfo.ToTitleCase(face.ToLower());
+            face = textInfo.ToTitleCase(face.Trim().ToLower());
 
             // Convert flags section to dictionary
             string flags_string = m.Groups[5].Value;
@@ -136,7 +136,7 @@ namespace MyDialogue
                     clear_text = bool.Parse(flags_match.Groups[1].Value);
             }
 
-            return new DLine(m.Groups[1].Value, face, m.Groups[6].Value, 
+            return new DLine(m.Groups[1].Value.Trim(), face, m.Groups[6].Value.Trim(), 
                 wait: wait, speed: speed, jitter: jitter, pause: pause, clear_text: clear_text);
         }
     }
