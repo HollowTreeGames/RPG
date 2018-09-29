@@ -118,7 +118,7 @@ public class Player : SpriteParent
             lastY = Mathf.Round(y);
             walking = true;
         }
-
+        
         animator.SetBool("walking", walking);
         animator.SetFloat("moveX", x);
         animator.SetFloat("moveY", y);
@@ -126,7 +126,7 @@ public class Player : SpriteParent
         animator.SetFloat("lastMoveY", lastY);
 
         float moveSpeed = Input.GetButton("Fire1") ? runSpeed : walkSpeed;
-
+        
         rb2d.velocity = new Vector2(moveSpeed * x * Time.deltaTime, moveSpeed * y * Time.deltaTime);
     }
 
@@ -159,7 +159,7 @@ public class Player : SpriteParent
         animator.SetFloat("moveX", 0);
         animator.SetFloat("moveY", 0);
     }
-
+    
     [Yarn.Unity.YarnCommand("face")]
     public void Face(string direction)
     {

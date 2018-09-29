@@ -250,7 +250,6 @@ public abstract class NPC : Talkable
 
     private void StartWalking(Vector2 direction)
     {
-
         StartWalking(direction, this.moveSpeed);
     }
 

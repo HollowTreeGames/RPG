@@ -8,18 +8,8 @@ using Enums;
 [System.Serializable]
 public class QuestManager : MonoBehaviour
 {
-    private Quest[] questList =
-    {
-        new Quest("Oakewood Greeting", "Use SPACE to talk to That Old Coyote")
-            .StartAutomatically()
-            .InitialState(QuestState.Available),
-        new Quest("Oakewood Stretch Legs", "Use the arrow keys to stretch your legs"),
-        new Quest("Oakewood Run", "Hold down the SHIFT key to REALLY stretch your legs"),
-        new Quest("Henry Pick Up Rock", "Bring Henry that rock"),
-        new Quest("Henry Drop Rock", "Use Z to drop your rock"),
-        new Quest("Henry Talk to Rock", "Go...talk to... the rock??")
-    };
-
+    private Quest[] questList = {};
+    
     private static bool instanceExists = false;
 
     private QuestCanvas questCanvas;
@@ -118,3 +108,4 @@ public class QuestManager : MonoBehaviour
         }
     }
 }
+
