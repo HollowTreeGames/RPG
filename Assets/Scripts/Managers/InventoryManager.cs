@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour
     private Item itemInInventory;
     public GameObject inventory;
     private SpriteRenderer inventoryRenderer;
+    private Player player;
 
     // Use this for initialization
     protected void Start()
@@ -25,6 +26,8 @@ public class InventoryManager : MonoBehaviour
 
         inventoryRenderer = inventory.GetComponent<SpriteRenderer>();
         inventory.SetActive(false);
+
+        player = FindObjectOfType<Player>();
     }
 
     public string GetInventory()
@@ -43,6 +46,7 @@ public class InventoryManager : MonoBehaviour
         itemInInventory = item;
         inventoryRenderer.sprite = item.sprite;
         inventory.SetActive(true);
+        player.PickupItem();
         return true;
     }
 
@@ -51,6 +55,7 @@ public class InventoryManager : MonoBehaviour
         inventory.SetActive(false);
         itemInInventory = null;
         inventoryRenderer.sprite = null;
+        player.DropItem();
     }
 
     public void DropItem()

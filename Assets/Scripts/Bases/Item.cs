@@ -16,24 +16,22 @@ public class Item : Interactable {
     [Header("Optional")]
     public TextAsset scriptToLoad;
 
+    protected QuestManager questManager;
     protected InventoryManager inventoryManager;
     protected DialogueRunner dialogueRunner;
     protected GameState gameState;
 
     private System.Random random;
-    private Player player;
 
     // Use this for initialization
     protected override void Start()
     {
         base.Start();
         sprite = GetComponent<SpriteRenderer>().sprite;
+        questManager = FindObjectOfType<QuestManager>();
         inventoryManager = FindObjectOfType<InventoryManager>();
         dialogueRunner = FindObjectOfType<DialogueRunner>();
         gameState = FindObjectOfType<GameState>();
-        player = FindObjectOfType<Player>();
-
-        player.hasItem = false;
 
         random = new System.Random(this.GetHashCode() * (DateTime.Now.Millisecond + 1));
 
@@ -65,19 +63,21 @@ public class Item : Interactable {
         {
             if (inventoryManager.GetInventory() == "")
             {
-                dialogueRunner.StartDialogue(itemName + " Pick Up");
+                if (scriptToLoad != null)
+                    dialogueRunner.StartDialogue(itemName + " Pick Up");
                 inventoryManager.SetInventory(this);
-                GetComponent<Player>().hasItem = true;
                 Respawn();
             }
             else
             {
-                dialogueRunner.StartDialogue(itemName + " Hands Full");
+                if (scriptToLoad != null)
+                    dialogueRunner.StartDialogue(itemName + " Hands Full");
             }
         }
         else
         {
-            dialogueRunner.StartDialogue(itemName + " Default");
+            if (scriptToLoad != null)
+                dialogueRunner.StartDialogue(itemName + " Default");
         }
     }
 

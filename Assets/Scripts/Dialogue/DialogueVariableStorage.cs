@@ -121,6 +121,38 @@ public class DialogueVariableStorage : VariableStorageBehaviour
         variables[variableName] = new Yarn.Value(value);
     }
 
+    public void Increment(string variableName)
+    {
+        Increment(variableName, 1);
+    }
+
+    public void Increment(string variableName, float inc)
+    {
+        Yarn.Value yarnValue = GetValue(variableName);
+        if (yarnValue.type != Yarn.Value.Type.Null && yarnValue.type != Yarn.Value.Type.Number)
+        {
+            Debug.LogErrorFormat("Variable '{0}' is not of type Number. Can't increment.", variableName);
+            return;
+        }
+        SetValue(variableName, new Yarn.Value(yarnValue.AsNumber + inc));
+    }
+
+    public void Decrement(string variableName)
+    {
+        Decrement(variableName, 1);
+    }
+
+    public void Decrement(string variableName, float dec)
+    {
+        Yarn.Value yarnValue = GetValue(variableName);
+        if (yarnValue.type != Yarn.Value.Type.Null && yarnValue.type != Yarn.Value.Type.Number)
+        {
+            Debug.LogErrorFormat("Variable '{0}' is not of type Number. Can't decrement.", variableName);
+            return;
+        }
+        SetValue(variableName, new Yarn.Value(yarnValue.AsNumber - dec));
+    }
+
     /// Get a variable's value
     public override Yarn.Value GetValue (string variableName)
     {

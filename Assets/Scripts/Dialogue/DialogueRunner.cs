@@ -153,24 +153,25 @@ namespace Yarn.Unity
                     }
                 }
             }
-
         }
 
         /// Add a string of text to a script
-        public void AddScript(string text) {
-            dialogue.LoadString(text);
-        }
-
-        /// Add a TextAsset to a script
-        public void AddScript(TextAsset asset) {
+        public void AddScript(string text)
+        {
             try
             {
-                dialogue.LoadString(asset.text);
+                dialogue.LoadString(text);
             }
             catch (System.Exception e)
             {
                 Debug.LogError(e);
             }
+        }
+
+        /// Add a TextAsset to a script
+        public void AddScript(TextAsset asset)
+        {
+            AddScript(asset.text);
         }
 
         /// Loads a string table, replacing any existing strings with the same
@@ -436,6 +437,7 @@ namespace Yarn.Unity
         /// Add additional functions to the Dialogue object, mostly for quest handling
         private void AddCustomFunctions()
         {
+            Debug.Log("I am running custom functions");
             // Check State
             dialogue.library.RegisterFunction("IsUnavailable", 1, delegate (Value[] parameters) {
                 return questManager.FindQuest(parameters[0].AsString).IsUnavailable();
@@ -528,6 +530,9 @@ namespace Yarn.Unity
             // Misc
             dialogue.library.RegisterFunction("Random", 2, delegate (Value[] parameters) {
                 return random.Next((int)parameters[0].AsNumber, (int)parameters[1].AsNumber);
+            });
+            dialogue.library.RegisterFunction("Log", 1, delegate (Value[] parameters) {
+                Debug.Log(parameters[0].AsString);
             });
         }
 

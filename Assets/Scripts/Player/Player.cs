@@ -12,8 +12,7 @@ public class Player : SpriteParent
     public float walkSpeed;
     public float runSpeed;
     public float interactDistance = 1;
-
-    private GameState gameState;
+    
     private DialogueRunner dialogueRunner;
     private Animator animator;
     private Rigidbody2D rb2d;
@@ -21,7 +20,6 @@ public class Player : SpriteParent
     private AudioSource audioSource;
 
     public bool walking = false;
-    public bool hasItem;
 
     private float walkPitch;
     private float runPitch;
@@ -44,7 +42,6 @@ public class Player : SpriteParent
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
-        gameState = FindObjectOfType<GameState>();
         dialogueRunner = FindObjectOfType<DialogueRunner>();
         try
         {
@@ -127,14 +124,6 @@ public class Player : SpriteParent
         animator.SetFloat("moveY", y);
         animator.SetFloat("lastMoveX", lastX);
         animator.SetFloat("lastMoveY", lastY);
-
-        if (hasItem)
-        {
-            animator.SetBool("hasItem", hasItem);
-        } else
-        {
-            animator.SetBool("hasItem", false);
-        }
 
         float moveSpeed = Input.GetButton("Fire1") ? runSpeed : walkSpeed;
 
@@ -224,9 +213,19 @@ public class Player : SpriteParent
         {
             Interactable interactable = hit.collider.GetComponent<Interactable>();
             if (interactable != null) {
-                rb2d.velocity = Vector2.zero;
+                StopWalking();
 				interactable.Interact();
             }
         }
+    }
+
+    public void PickupItem()
+    {
+        animator.SetBool("hasItem", true);
+    }
+
+    public void DropItem()
+    {
+        animator.SetBool("hasItem", false);
     }
 }

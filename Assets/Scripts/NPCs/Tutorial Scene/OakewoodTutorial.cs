@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using Enums;
 using MyDialogue;
 
-public class Oakewood : NPC {
+public class OakewoodTutorial : NPC {
 
     public Quest questOakewoodGreeting;
     public Quest questOakewoodStretchLegs;
@@ -25,14 +25,14 @@ public class Oakewood : NPC {
         questOakewoodGreeting = questManager.FindQuest("Oakewood Greeting");
         questOakewoodStretchLegs = questManager.FindQuest("Oakewood Stretch Legs");
         questOakewoodRun = questManager.FindQuest("Oakewood Run");
-        questOakewoodPickUpRock = questManager.FindQuest("Oakewood Pick Up Rock");
-        questOakewoodDropRock = questManager.FindQuest("Oakewood Drop Rock");
     }
 
     protected override bool IsQuestAvailable()
     {
-        return questOakewoodGreeting.IsAvailable() || questOakewoodStretchLegs.IsAvailable() ||
-            questOakewoodRun.IsAvailable() || questOakewoodPickUpRock.IsAvailable() || questOakewoodDropRock.IsAvailable();
+        return 
+            questOakewoodGreeting.IsAvailable() || 
+            questOakewoodStretchLegs.IsAvailable() ||
+            questOakewoodRun.IsAvailable();
     }
 
 }
