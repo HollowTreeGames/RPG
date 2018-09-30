@@ -99,7 +99,7 @@ public class Player : SpriteParent
             return;
         }
 
-        float x = 0, y = 0;
+        float x, y;
         walking = false;
 
         x = Input.GetAxisRaw("Horizontal");
@@ -111,23 +111,19 @@ public class Player : SpriteParent
             lastY = 0;
             walking = true;
         }
-
-        if ((y > 0.5f) || (y < -0.5f))
+        else if ((y > 0.5f) || (y < -0.5f))
         {
             lastX = 0;
             lastY = Mathf.Round(y);
             walking = true;
         }
-        
-        animator.SetBool("walking", walking);
-        animator.SetFloat("moveX", x);
-        animator.SetFloat("moveY", y);
-        animator.SetFloat("lastMoveX", lastX);
-        animator.SetFloat("lastMoveY", lastY);
+        else
+        {
+            StopWalking();
+            return;
+        }
 
-        float moveSpeed = Input.GetButton("Fire1") ? runSpeed : walkSpeed;
-        
-        rb2d.velocity = new Vector2(moveSpeed * x * Time.deltaTime, moveSpeed * y * Time.deltaTime);
+        StartWalking(new Vector2(x, y), (Input.GetButton("Fire1") ? runSpeed : walkSpeed) * Time.deltaTime);
     }
 
     private void StartWalking(Vector2 direction)
@@ -141,6 +137,7 @@ public class Player : SpriteParent
         {
             walking = true;
             animator.SetBool("walking", true);
+            animator.speed = moveSpeed;
             rb2d.velocity = direction * moveSpeed;
 
             animator.SetFloat("moveX", direction.x);
@@ -154,6 +151,7 @@ public class Player : SpriteParent
     {
         walking = false;
         animator.SetBool("walking", false);
+        animator.speed = 1;
         rb2d.velocity = Vector2.zero;
 
         animator.SetFloat("moveX", 0);

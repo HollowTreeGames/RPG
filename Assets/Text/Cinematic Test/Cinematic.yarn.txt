@@ -5,4 +5,13 @@ title: Cinematic Start
 <<move Oakewood right 1>>
 <<move Player right 1>>
 <<wait 10>>
+<<move Player right 0.4>>
+<<wait 1>>
+<<stop Player>>
+<<wait 0.5>>
+<<stop Oakewood>>
+<<wait 0.2>>
+<<face Oakewood left>>
+<<stop Henry>>
+Belfry: 
 ===
