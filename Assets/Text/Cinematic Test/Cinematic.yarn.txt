@@ -1,17 +1,35 @@
 title: Cinematic Start
 ---
+[[IgnoreSkips()]]
 <<place Camera 2 0.5>>
-<<move Henry right 1>>
-<<move Oakewood right 1>>
-<<move Player right 1>>
-<<wait 10>>
+<<move Henry right 0.5>>
+<<move Oakewood right 0.5>>
+<<move Player right 0.5>>
+<<wait 5>>
 <<move Player right 0.4>>
-<<wait 1>>
+<<wait 2>>
+<<move Player right 0.3>>
+<<wait 2>>
 <<stop Player>>
-<<wait 0.5>>
+<<wait 1.5>>
 <<stop Oakewood>>
-<<wait 0.2>>
+<<wait 0.5>>
 <<face Oakewood left>>
+<<wait 1>>
+<<face Oakewood right>>
+<<wait 0.5>>
 <<stop Henry>>
-Belfry: 
+<<wait 0.5>>
+<<face Oakewood left>>
+<<wait 0.5>>
+<<face Henry left>>
+[[Belfry Complains]]
 ===
+
+
+
+
+title: Belfry Complains
+---
+Oakewood (sad) <pause=false; wait=2>: *sigh*
+Oakewood: Henry, stop for a moment.

@@ -135,11 +135,6 @@ namespace Yarn.Unity {
 
             lineText.gameObject.SetActive(true);
 
-            if (dLine.wait > 0)
-            {
-                yield return new WaitForSeconds(dLine.wait);
-            }
-
             talkButtonPressed = false;
 
             ShowCanvas();
@@ -186,6 +181,13 @@ namespace Yarn.Unity {
 
                 if (continuePrompt != null)
                     continuePrompt.SetActive(false);
+            }
+            else
+            {
+                if (dLine.wait > 0)
+                {
+                    yield return new WaitForSeconds(dLine.wait);
+                }
             }
 
             // Hide the text and prompt

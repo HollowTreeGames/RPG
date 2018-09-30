@@ -52,11 +52,11 @@ namespace MyDialogue
         public string text;
         public string name;
         public string face;
-        public float wait;
         public float speed;
         public float jitter;
         public bool pause;
         public bool clear_text;
+        public float wait;
 
         private static Regex re = new Regex(@"(.*?)\s*(\((.*?)\))?\s*(\<(.*?)\>)?\s*:(.*)");
         private static TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
@@ -67,21 +67,21 @@ namespace MyDialogue
         /// <param name="name">Name of the NPC to go in the name plate, and which portrait to load. If null, Dialogue manager will use the last name provided.</param>
         /// <param name="face">Emotion to show a portrait for, e.g. Happy, Sad. If null, will use Default portrait.</param>
         /// <param name="line">The dialogue string to show up on the screen.</param>
-        /// <param name="wait">Number of seconds to wait until playing the text.</param>
         /// <param name="speed">Speed to display the text at.</param>
         /// <param name="jitter">Makes the letters jitter, if the character needs to be frightened.</param>
         /// <param name="pause">Whether to pause at the end of a line and wait for user input.</param>
         /// <param name="clear_text">Whether the previous text is cleared when the next line is played.</param>
-        public DLine(string name, string face, string line, float wait=0, float speed=0.025f, float jitter=0, bool pause=true, bool clear_text=true)
+        /// <param name="wait">Number of seconds to wait after playing the text before continuing. Only valid when pause=false.</param>
+        public DLine(string name, string face, string line, float speed=0.025f, float jitter=0, bool pause=true, bool clear_text=true, float wait=0)
         {
             this.name = name;
             this.face = face;
             this.text = line;
-            this.wait = wait;
             this.speed = speed;
             this.jitter = jitter;
             this.pause = pause;
             this.clear_text = clear_text;
+            this.wait = wait;
         }
 
         public Sprite GetFace()
@@ -96,11 +96,11 @@ namespace MyDialogue
 
         public static DLine FromYarnLine(Yarn.Line line)
         {
-            float wait = 0;
             float speed = 0.025f;
             float jitter = 0;
             bool pause = true;
             bool clear_text = true;
+            float wait = 0;
 
             Match m = re.Match(line.text);
             string face = m.Groups[3].Value;
@@ -114,10 +114,6 @@ namespace MyDialogue
             if (!flags_string.Equals(""))
             {
                 Match flags_match;
-                // wait
-                flags_match = new Regex(@"wait\s*=\s*([\d\.]+)", RegexOptions.IgnoreCase).Match(flags_string);
-                if (flags_match.Success)
-                    wait = float.Parse(flags_match.Groups[1].Value);
                 // speed
                 flags_match = new Regex(@"speed\s*=\s*([\d\.]+)", RegexOptions.IgnoreCase).Match(flags_string);
                 if (flags_match.Success)
@@ -134,6 +130,10 @@ namespace MyDialogue
                 flags_match = new Regex(@"clear_text\s*=\s*(true|false)", RegexOptions.IgnoreCase).Match(flags_string);
                 if (flags_match.Success)
                     clear_text = bool.Parse(flags_match.Groups[1].Value);
+                // wait
+                flags_match = new Regex(@"wait\s*=\s*([\d\.]+)", RegexOptions.IgnoreCase).Match(flags_string);
+                if (flags_match.Success)
+                    wait = float.Parse(flags_match.Groups[1].Value);
             }
 
             return new DLine(m.Groups[1].Value.Trim(), face, m.Groups[6].Value.Trim(), 
