@@ -110,7 +110,7 @@ namespace Yarn.Unity {
 
         public void Update()
         {
-            if (Input.GetButtonDown("Jump"))
+            if (!cinematic_mode && Input.GetButtonDown("Jump"))
                 talkButtonPressed = true;
         }
 
@@ -119,6 +119,9 @@ namespace Yarn.Unity {
         {
             // Convert line text to DLine
             DLine dLine = DLine.FromYarnLine(line);
+
+            if (cinematic_mode)
+                dLine.pause = false;
 
             nameText.text = dLine.name;
             portraitImage.sprite = dLine.GetFace();
@@ -149,7 +152,6 @@ namespace Yarn.Unity {
                     // Detect keypress to skip text animation
                     if (talkButtonPressed)
                     {
-                        talkButtonPressed = false;
                         break;
                     }
                     stringBuilder.Append(c);
@@ -169,8 +171,18 @@ namespace Yarn.Unity {
 
             if (dLine.pause)
             {
+                talkButtonPressed = false;
+
+                // Delay before showing continue prompt
+                for (int i=0; i < 10; i++)
+                {
+                    if (talkButtonPressed == true)
+                        break;
+                    yield return new WaitForSeconds(0.1f);
+                }
+
                 // Show the 'press any key' prompt when done, if we have one
-                if (continuePrompt != null)
+                if (!talkButtonPressed && continuePrompt != null)
                     continuePrompt.SetActive(true);
 
                 // Wait for any user input
@@ -252,6 +264,9 @@ namespace Yarn.Unity {
         public override IEnumerator DialogueStarted()
         {
             Debug.Log("Dialogue starting!");
+
+            // Disable cinematic mode by default
+            cinematic_mode = false;
 
             // Enable the dialogue controls.
             //ShowCanvas();

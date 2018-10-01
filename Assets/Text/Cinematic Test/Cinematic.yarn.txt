@@ -1,7 +1,7 @@
 title: Cinematic Start
 ---
-[[IgnoreSkips()]]
-<<place Camera 2 0.5>>
+<<CinematicMode()>>
+<<place Camera 4 0.5>>
 <<move Henry right 0.5>>
 <<move Oakewood right 0.5>>
 <<move Player right 0.5>>

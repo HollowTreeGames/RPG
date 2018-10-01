@@ -533,6 +533,9 @@ namespace Yarn.Unity
             dialogue.library.RegisterFunction("Log", 1, delegate (Value[] parameters) {
                 Debug.Log(parameters[0].AsString);
             });
+            dialogue.library.RegisterFunction("CinematicMode", 0, delegate (Value[] parameters) {
+                dialogueUI.cinematic_mode = true;
+            });
         }
 
     }
@@ -558,6 +561,11 @@ namespace Yarn.Unity
     /// Scripts that can act as the UI for the conversation should subclass this
     public abstract class DialogueUIBehaviour : MonoBehaviour
     {
+        /// When true, ignores dialogue skips from user and doesn't pause 
+        /// at the end of lines.
+        /// Also sets skip to allow skipping whole cinematics (TBC)
+        public bool cinematic_mode;
+
         /// A conversation has started.
         public virtual IEnumerator DialogueStarted() {
             // Default implementation does nothing.
