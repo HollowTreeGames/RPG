@@ -122,18 +122,19 @@ namespace MyDialogue
                 flags_match = new Regex(@"jitter\s*=\s*([\d\.]+)", RegexOptions.IgnoreCase).Match(flags_string);
                 if (flags_match.Success)
                     jitter = float.Parse(flags_match.Groups[1].Value);
-                // pause
-                flags_match = new Regex(@"pause\s*=\s*(true|false)", RegexOptions.IgnoreCase).Match(flags_string);
-                if (flags_match.Success)
-                    pause = bool.Parse(flags_match.Groups[1].Value);
-                // clear_text
-                flags_match = new Regex(@"clear_text\s*=\s*(true|false)", RegexOptions.IgnoreCase).Match(flags_string);
-                if (flags_match.Success)
-                    clear_text = bool.Parse(flags_match.Groups[1].Value);
                 // wait
                 flags_match = new Regex(@"wait\s*=\s*([\d\.]+)", RegexOptions.IgnoreCase).Match(flags_string);
                 if (flags_match.Success)
                     wait = float.Parse(flags_match.Groups[1].Value);
+
+                // pause
+                flags_match = new Regex(@"nopause", RegexOptions.IgnoreCase).Match(flags_string);
+                if (flags_match.Success)
+                    pause = false;
+                // clear_text
+                flags_match = new Regex(@"nocleartext", RegexOptions.IgnoreCase).Match(flags_string);
+                if (flags_match.Success)
+                    clear_text = false;
             }
 
             return new DLine(m.Groups[1].Value.Trim(), face, m.Groups[6].Value.Trim(), 

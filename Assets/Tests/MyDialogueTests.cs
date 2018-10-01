@@ -69,18 +69,6 @@ public class MyDialogueTests {
     }
 
     [Test]
-    public void DLine_FromYarnLine_Wait()
-    {
-        line.text = "Nora (Happy) <wait=1.5>: Test.";
-        DLine dLine = DLine.FromYarnLine(line);
-
-        Assert.AreEqual("Nora", dLine.name);
-        Assert.AreEqual("Happy", dLine.face);
-        Assert.AreEqual("Test.", dLine.text);
-        Assert.AreEqual(1.5f, dLine.wait);
-    }
-
-    [Test]
     public void DLine_FromYarnLine_Speed()
     {
         line.text = "Nora (Happy) <speed=1.5>: Test.";
@@ -107,7 +95,7 @@ public class MyDialogueTests {
     [Test]
     public void DLine_FromYarnLine_Pause()
     {
-        line.text = "Nora (Happy) <pause=false>: Test.";
+        line.text = "Nora (Happy) <nopause>: Test.";
         DLine dLine = DLine.FromYarnLine(line);
 
         Assert.AreEqual("Nora", dLine.name);
@@ -119,7 +107,7 @@ public class MyDialogueTests {
     [Test]
     public void DLine_FromYarnLine_ClearText()
     {
-        line.text = "Nora (Happy) <clear_text=false>: Test.";
+        line.text = "Nora (Happy) <nocleartext>: Test.";
         DLine dLine = DLine.FromYarnLine(line);
 
         Assert.AreEqual("Nora", dLine.name);
@@ -131,13 +119,25 @@ public class MyDialogueTests {
     [Test]
     public void DLine_FromYarnLine_WaitAndClear()
     {
-        line.text = "Nora (Happy) <wait=1.5; clear_text=false>: Test.";
+        line.text = "Nora (Happy) <nocleartext; wait=1.5>: Test.";
+        DLine dLine = DLine.FromYarnLine(line);
+
+        Assert.AreEqual("Nora", dLine.name);
+        Assert.AreEqual("Happy", dLine.face);
+        Assert.AreEqual("Test.", dLine.text);
+        Assert.AreEqual(false, dLine.clear_text);
+        Assert.AreEqual(1.5f, dLine.wait);
+    }
+
+    [Test]
+    public void DLine_FromYarnLine_Wait()
+    {
+        line.text = "Nora (Happy) <wait=1.5>: Test.";
         DLine dLine = DLine.FromYarnLine(line);
 
         Assert.AreEqual("Nora", dLine.name);
         Assert.AreEqual("Happy", dLine.face);
         Assert.AreEqual("Test.", dLine.text);
         Assert.AreEqual(1.5f, dLine.wait);
-        Assert.AreEqual(false, dLine.clear_text);
     }
 }

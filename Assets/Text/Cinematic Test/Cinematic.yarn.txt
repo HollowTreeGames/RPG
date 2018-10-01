@@ -9,17 +9,18 @@ title: Cinematic Start
 <<move Player right 0.4>>
 <<wait 2>>
 <<move Player right 0.3>>
-<<wait 2>>
+<<wait 1>>
 <<stop Player>>
-<<wait 1.5>>
+<<wait 1>>
 <<stop Oakewood>>
-<<wait 0.5>>
+<<wait 1>>
 <<face Oakewood left>>
 <<wait 1>>
+Oakewood (sad) <nopause; wait=1>: *sigh*
 <<face Oakewood right>>
 <<wait 0.5>>
 <<stop Henry>>
-<<wait 0.5>>
+Oakewood: Henry, stop for a moment.
 <<face Oakewood left>>
 <<wait 0.5>>
 <<face Henry left>>
@@ -31,5 +32,3 @@ title: Cinematic Start
 
 title: Belfry Complains
 ---
-Oakewood (sad) <pause=false; wait=2>: *sigh*
-Oakewood: Henry, stop for a moment.
