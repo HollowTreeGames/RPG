@@ -121,7 +121,12 @@ namespace Yarn.Unity {
             DLine dLine = DLine.FromYarnLine(line);
 
             if (cinematic_mode)
+            {
                 dLine.pause = false;
+                // Set default wait time if not defined
+                if (dLine.wait <= 0)
+                    dLine.wait = 1;
+            }
 
             nameText.text = dLine.name;
             portraitImage.sprite = dLine.GetFace();
