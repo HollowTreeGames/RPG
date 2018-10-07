@@ -4,19 +4,19 @@ title: Cinematic Start
 <<place Camera 4 0.5>>
 <<move Henry right 0.5>>
 <<move Oakewood right 0.5>>
-<<move Player right 0.5>>
+<<move Belfry right 0.5>>
 <<wait 5>>
-<<move Player right 0.4>>
+<<move Belfry right 0.4>>
 <<wait 2>>
-<<move Player right 0.3>>
+<<move Belfry right 0.3>>
 <<wait 1>>
-<<stop Player>>
+<<stop Belfry>>
 <<wait 1>>
 <<stop Oakewood>>
 <<wait 1>>
 <<face Oakewood left>>
 <<wait 1>>
-Oakewood (sad) <nopause; wait=1>: *sigh*
+Oakewood (angry): *sigh*
 <<face Oakewood right>>
 <<wait 0.5>>
 <<stop Henry>>
@@ -32,3 +32,48 @@ Oakewood: Henry, stop for a moment.
 
 title: Belfry Complains
 ---
+Oakewood: Belfry, we need to pick up the pace if we want to find a good campsite before nightfall.
+Belfry (tired): But we've been walking for daaaays! I'm soooo knackered...
+Oakewood: We're all knackered, Belfry.
+Henry (happy): I'm actually feeling alright!
+<<face Oakewood right>>
+Oakewood (angry): ...
+<<face Oakewood left>>
+Oakewood: Most of us are knackered, Belfry.
+<<face Henry right>>
+Oakewood: But even an old coyote like me can keep going when he needs to.
+<<moveFor Henry right 0.5 5>>
+Oakewood: A wee bat like you should be able to outpace me ten to one.
+Belfry (mad): I'm not THAT wee, Oakewood!
+Belfry (mad): I'm an adult, just like you and Henry!
+Oakewood: Definitely not just like me.
+<<Hide()>>
+<<move Oakewood right 0.5>>
+<<wait 0.5>>
+<<move Belfry right 0.5>>
+<<wait 2>>
+<<stop Belfry>>
+<<wait 1>>
+<<stop Oakewood>>
+<<wait 1>>
+<<face Oakewood left>>
+Belfry (sad): I wish we could just go home.
+Oakewood: We don't have a home to go back to. So we just need to keep looking.
+Belfry (happy): Maybe one of the other groups have found a good spot already! We could go back and wait for them!
+Oakewood: No. Everyone must work their hardest to find us all a new place to live. 
+Oakewood: What if everyone went back and waited for someone else to do the hard work? We'd all be out in the cold, just waiting.
+Belfry: Oh. That makes sense!
+Oakewood: So can you walk for a few more hours?
+Belfry (determined): Yeah! We don't want to leave everyone else in the cold, just waiting!
+<<moveFor Henry left 0.5 5>>
+Oakewood: Good girl. Now let's catch up with Henry. You can rest later.
+<<face Oakewood right>>
+Henry: Hey, I found a good spot to camp!
+Oakewood (angry): ...
+Oakewood: ... *sigh*
+Oakewood: Fine. Let's set up camp.
+Belfry (happy): Hooray! We did it!
+<<move Belfry right 0.5>>
+<<move Oakewood right 0.5>>
+<<move Henry right 0.5>>
+<<wait 10>>
