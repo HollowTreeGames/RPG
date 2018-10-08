@@ -294,7 +294,7 @@ public abstract class NPC : Talkable
     [Yarn.Unity.YarnCommand("face")]
     public void Face(string direction)
     {
-        if (direction.ToLower() == "player")
+        if (direction.ToLower() == "belfry")
         {
             TurnToPlayer(FindObjectOfType<Player>().transform.position);
             return;
