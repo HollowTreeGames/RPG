@@ -5,11 +5,27 @@ title: Cinematic Start
 <<move Henry right 0.5>>
 <<move Oakewood right 0.5>>
 <<move Belfry right 0.5>>
-<<wait 2>>
-<<fadeOut Camera 0.5>>
+<<wait 1>>
+<<fadeIn Camera 0.1>>
+<<wait 10>>
+<<fadeIn Title 0.5>>
 <<wait 5>>
-<<fadeIn Camera 0.5>>
+<<fadeIn CreatedBy 0.5>>
 <<wait 5>>
+<<fadeIn Name1 0.5>>
+<<wait 5>>
+<<fadeIn Name2 0.5>>
+<<wait 5>>
+<<fadeOut Title 0.5>>
+<<fadeOut CreatedBy 0.5>>
+<<fadeOut Name1 0.5>>
+<<fadeOut Name2 0.5>>
+<<wait 5>>
+[[Belfry Falls Behind]]
+===
+
+title: Belfry Falls Behind
+---
 <<move Belfry right 0.4>>
 <<wait 2>>
 <<move Belfry right 0.3>>

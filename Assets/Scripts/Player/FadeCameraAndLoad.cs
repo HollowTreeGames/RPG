@@ -8,6 +8,7 @@ public class FadeCameraAndLoad : MonoBehaviour
 {
     public float defaultFadeRate = 3f;
     private float fadeRate;
+    public bool startBlack;
 
     private bool loadScene;
     private string levelToLoad;
@@ -17,7 +18,7 @@ public class FadeCameraAndLoad : MonoBehaviour
     private GameState gameState;
     private GameObject player;
     private Texture2D black;
-    private bool fade = false;
+    private bool fadeOut = false;
     private float alpha = 0;
 
     private float panSpeed = 0;
@@ -26,6 +27,8 @@ public class FadeCameraAndLoad : MonoBehaviour
 
     private void Start()
     {
+        if (startBlack)
+            alpha = 1;
         gameState = FindObjectOfType<GameState>();
         black = new Texture2D(1, 1);
         black.SetPixel(0, 0, new Color(0, 0, 0, alpha));
@@ -46,7 +49,7 @@ public class FadeCameraAndLoad : MonoBehaviour
         {
             LoadScene();
             loadScene = false;
-            fade = false;
+            fadeOut = false;
         }
 
         PanCamera();
@@ -54,7 +57,7 @@ public class FadeCameraAndLoad : MonoBehaviour
 
     private void Fade()
     {
-        if (fade)
+        if (fadeOut)
         {
             if (alpha < 1)
             {
@@ -86,7 +89,7 @@ public class FadeCameraAndLoad : MonoBehaviour
         this.fadeRate = (fadeRate > 0) ? fadeRate : defaultFadeRate;
         gameState.pause = true;
         loadScene = true;
-        fade = true;
+        fadeOut = true;
     }
 
     private void LoadScene()
@@ -107,13 +110,13 @@ public class FadeCameraAndLoad : MonoBehaviour
     public void FadeOut(float fadeRate = 0)
     {
         this.fadeRate = (fadeRate > 0) ? fadeRate : defaultFadeRate;
-        fade = true;
+        fadeOut = true;
     }
 
     public void FadeIn(float fadeRate = 0)
     {
         this.fadeRate = (fadeRate > 0) ? fadeRate : defaultFadeRate;
-        fade = false;
+        fadeOut = false;
     }
 
     [Yarn.Unity.YarnCommand("fadeOut")]
