@@ -17507,12 +17507,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04317fce65da54f4997a5c4465b4e93c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cinematic_mode: 0
   dialogueCanvas: {fileID: 3665699}
   lineText: {fileID: 1321954623}
   nameText: {fileID: 952135130}
   portraitPanel: {fileID: 316201531}
   continuePrompt: {fileID: 0}
-  textSpeed: 0.025
   optionButtons: []
   gameControlsContainer: {fileID: 0}
   talkButtonPressed: 0
@@ -18956,7 +18956,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -3.8000488, y: -3.2999878}
-  m_SizeDelta: {x: 50, y: 58}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &872754823
 MonoBehaviour:
@@ -30905,10 +30905,10 @@ RectTransform:
   m_Father: {fileID: 872754822}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 25, y: -10}
-  m_SizeDelta: {x: 0, y: 38}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1962176497
 MonoBehaviour:
@@ -31366,7 +31366,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80847c8544ea26e47831a3f4f6a7ad65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeRate: 3
+  defaultFadeRate: 3
+  startBlack: 0
 --- !u!82 &2070576800
 AudioSource:
   m_ObjectHideFlags: 0
@@ -31478,7 +31479,7 @@ GameObject:
   - component: {fileID: 2073568478}
   - component: {fileID: 2073568484}
   m_Layer: 8
-  m_Name: Player
+  m_Name: Belfry
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

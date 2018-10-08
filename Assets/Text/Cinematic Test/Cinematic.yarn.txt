@@ -81,7 +81,7 @@ title: Belfry Contemplates
 <<face Oakewood left>>
 Belfry (sad): I wish we could just go home.
 Oakewood: We don't have a home to go back to. So we just need to keep looking.
-Belfry (happy): Maybe one of the other groups have found a good spot already! We could go back and wait for them!
+Belfry (happy): Maybe one of the other groups has found a good spot already! We could go back and wait for them!
 Oakewood: No. Everyone must work their hardest to find us all a new place to live. 
 Oakewood: What if everyone went back and waited for someone else to do the hard work?
 Oakewood: We'd all be out in the cold, just waiting.
@@ -106,4 +106,5 @@ Belfry (happy): Hooray! We did it!
 <<move Henry right 0.5>>
 <<fadeOut Camera 0.2>>
 <<wait 5>>
+<<LoadScene("Anustart", "-1.67", "-0.52")>>
 ===

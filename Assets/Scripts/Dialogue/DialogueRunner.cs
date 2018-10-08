@@ -97,6 +97,7 @@ namespace Yarn.Unity
         private QuestManager questManager;
         private GameState gameState;
         private InventoryManager inventoryManager;
+        private FadeCameraAndLoad playerCamera;
 
         private System.Random random;
 
@@ -119,6 +120,7 @@ namespace Yarn.Unity
             gameState = FindObjectOfType<GameState>();
             questManager = FindObjectOfType<QuestManager>();
             inventoryManager = FindObjectOfType<InventoryManager>();
+            playerCamera = FindObjectOfType<FadeCameraAndLoad>();
 
             // Set additional functions at runtime
             AddCustomFunctions();
@@ -535,6 +537,11 @@ namespace Yarn.Unity
             });
             dialogue.library.RegisterFunction("CinematicMode", 0, delegate (Value[] parameters) {
                 dialogueUI.cinematic_mode = true;
+            });
+            dialogue.library.RegisterFunction("LoadScene", 3, delegate (Value[] parameters)
+            {
+                playerCamera.StartLoad(parameters[0].AsString, (float)parameters[1].AsNumber,
+                    (float)parameters[2].AsNumber);
             });
         }
 
