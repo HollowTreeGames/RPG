@@ -26,6 +26,6 @@ public class ButtonManager : MonoBehaviour
 
     private void LoadScene()
     {
-        fadeCamera.StartLoad(null, gameState.currentScene, gameState.startPosition.x, gameState.startPosition.y);
+        fadeCamera.StartLoad(gameState.currentScene, gameState.startPosition.x, gameState.startPosition.y);
     }
 }

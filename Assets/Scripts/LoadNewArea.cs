@@ -19,7 +19,7 @@ public class LoadNewArea : MonoBehaviour {
     {
         GameObject otherObject = other.gameObject;
         if (otherObject.name == "Player") {
-            fadeCamera.StartLoad(otherObject, levelToLoad, startX, startY);
+            fadeCamera.StartLoad(levelToLoad, startX, startY);
         }
     }
 

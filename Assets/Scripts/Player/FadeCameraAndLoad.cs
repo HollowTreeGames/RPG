@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class FadeCameraAndLoad : MonoBehaviour
 {
     public float defaultFadeRate = 3f;
-    private float fadeRate;
     public bool startBlack;
 
     private bool loadScene;
@@ -16,8 +15,10 @@ public class FadeCameraAndLoad : MonoBehaviour
     private float startY;
 
     private GameState gameState;
-    private GameObject player;
+    private Player player;
     private Texture2D black;
+
+    private float fadeRate;
     private bool fadeOut = false;
     private float alpha = 0;
 
@@ -27,13 +28,17 @@ public class FadeCameraAndLoad : MonoBehaviour
 
     private void Start()
     {
+        player = FindObjectOfType<Player>();
+        gameState = FindObjectOfType<GameState>();
+
+        transform.parent = player.transform;
+        defaultPosition = transform.localPosition;
+
         if (startBlack)
             alpha = 1;
-        gameState = FindObjectOfType<GameState>();
         black = new Texture2D(1, 1);
         black.SetPixel(0, 0, new Color(0, 0, 0, alpha));
         black.Apply();
-        defaultPosition = transform.localPosition;
     }
 
     void OnGUI()
@@ -81,8 +86,7 @@ public class FadeCameraAndLoad : MonoBehaviour
         }
     }
 
-    public void StartLoad(GameObject player, string levelToLoad, float startX, float startY, float fadeRate = 0) {
-        this.player = player;
+    public void StartLoad(string levelToLoad, float startX, float startY, float fadeRate = 0) {
         this.levelToLoad = levelToLoad;
         this.startX = startX;
         this.startY = startY;
@@ -96,13 +100,13 @@ public class FadeCameraAndLoad : MonoBehaviour
     {
         if (player != null)
         {
-            player.SetActive(false);
+            player.enabled = false;
             player.transform.position = new Vector2(startX, startY);
         }
         SceneManager.LoadScene(levelToLoad);
         if (player != null)
         {
-            player.SetActive(true);
+            player.enabled = true;
         }
         gameState.pause = false;
     }
@@ -222,6 +226,18 @@ public class FadeCameraAndLoad : MonoBehaviour
     public void ResetCameraPosition()
     {
         transform.localPosition = defaultPosition;
+    }
+
+    [Yarn.Unity.YarnCommand("free")]
+    public void FreeCameraFromPlayer()
+    {
+        transform.parent = null;
+    }
+
+    [Yarn.Unity.YarnCommand("lock")]
+    public void LockCameraToPlayer()
+    {
+        transform.parent = player.transform;
     }
 
     private void PanCamera()

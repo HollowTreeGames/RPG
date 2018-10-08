@@ -1,6 +1,21 @@
 title: Cinematic Start
 ---
 <<CinematicMode()>>
+<<fadeIn Camera 100>>
+<<free Camera>>
+<<move Henry right 0.5>>
+<<move Oakewood right 0.5>>
+<<move Belfry right 0.5>>
+<<wait 3>>
+<<lock Camera>>
+<<wait 3>>
+<<reset Camera>>
+<<wait 60>>
+===
+
+
+title: Bogus
+---
 <<place Camera 3 0.5>>
 <<move Henry right 0.5>>
 <<move Oakewood right 0.5>>
