@@ -1,10 +1,14 @@
 title: Cinematic Start
 ---
 <<CinematicMode()>>
-<<place Camera 4 0.5>>
+<<place Camera 3 0.5>>
 <<move Henry right 0.5>>
 <<move Oakewood right 0.5>>
 <<move Belfry right 0.5>>
+<<wait 2>>
+<<fadeOut Camera 0.5>>
+<<wait 5>>
+<<fadeIn Camera 0.5>>
 <<wait 5>>
 <<move Belfry right 0.4>>
 <<wait 2>>
@@ -47,6 +51,10 @@ Oakewood: A wee bat like you should be able to outpace me ten to one.
 Belfry (mad): I'm not THAT wee, Oakewood!
 Belfry (mad): I'm an adult, just like you and Henry!
 Oakewood: Definitely not just like me.
+[[Belfry Contemplates]]
+
+title: Belfry Contemplates
+---
 <<hide>>
 <<move Oakewood right 0.5>>
 <<wait 0.5>>
@@ -65,6 +73,10 @@ Oakewood: What if everyone went back and waited for someone else to do the hard 
 Oakewood: We'd all be out in the cold, just waiting.
 Belfry: Oh. That makes sense!
 Oakewood: So can you walk for a few more hours?
+[[Henry Finds A Campsite]]
+
+title: Henry Finds A Campsite
+---
 <<moveFor Henry left 0.5 5>>
 Belfry (determined): Yeah! We don't want to leave everyone else in the cold, just waiting!
 Oakewood: Good girl. Now let's catch up with Henry. You can rest later.

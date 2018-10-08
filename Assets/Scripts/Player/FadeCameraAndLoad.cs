@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class FadeCameraAndLoad : MonoBehaviour
 {
-    public float fadeRate = 3f;
+    public float defaultFadeRate = 3f;
+    private float fadeRate;
 
+    private bool loadScene;
     private string levelToLoad;
     private float startX;
     private float startY;
@@ -39,6 +41,14 @@ public class FadeCameraAndLoad : MonoBehaviour
     private void Update()
     {
         Fade();
+        
+        if (alpha < 1 && loadScene)
+        {
+            LoadScene();
+            loadScene = false;
+            fade = false;
+        }
+
         PanCamera();
     }
 
@@ -54,11 +64,6 @@ public class FadeCameraAndLoad : MonoBehaviour
                 black.SetPixel(0, 0, new Color(0, 0, 0, alpha));
                 black.Apply();
             }
-            else
-            {
-                LoadScene();
-                fade = false;
-            }
         }
         else
         {
@@ -71,6 +76,17 @@ public class FadeCameraAndLoad : MonoBehaviour
                 black.Apply();
             }
         }
+    }
+
+    public void StartLoad(GameObject player, string levelToLoad, float startX, float startY, float fadeRate = 0) {
+        this.player = player;
+        this.levelToLoad = levelToLoad;
+        this.startX = startX;
+        this.startY = startY;
+        this.fadeRate = (fadeRate > 0) ? fadeRate : defaultFadeRate;
+        gameState.pause = true;
+        loadScene = true;
+        fade = true;
     }
 
     private void LoadScene()
@@ -88,13 +104,62 @@ public class FadeCameraAndLoad : MonoBehaviour
         gameState.pause = false;
     }
 
-    public void StartLoad(GameObject player, string levelToLoad, float startX, float startY) {
-        this.player = player;
-        this.levelToLoad = levelToLoad;
-        this.startX = startX;
-        this.startY = startY;
-        gameState.pause = true;
+    public void FadeOut(float fadeRate = 0)
+    {
+        this.fadeRate = (fadeRate > 0) ? fadeRate : defaultFadeRate;
         fade = true;
+    }
+
+    public void FadeIn(float fadeRate = 0)
+    {
+        this.fadeRate = (fadeRate > 0) ? fadeRate : defaultFadeRate;
+        fade = false;
+    }
+
+    [Yarn.Unity.YarnCommand("fadeOut")]
+    public void YarnFadeOut()
+    {
+        FadeOut();
+    }
+
+    [Yarn.Unity.YarnCommand("fadeOut")]
+    public void YarnFadeOut(string fadeRate)
+    {
+        float fFadeRate;
+        try
+        {
+            fFadeRate = float.Parse(fadeRate);
+        }
+        catch (System.FormatException)
+        {
+            Debug.LogErrorFormat("Invalid fade rate: {0}", fadeRate);
+            return;
+        }
+
+        FadeOut(fFadeRate);
+    }
+
+    [Yarn.Unity.YarnCommand("fadeIn")]
+    public void YarnFadeIn()
+    {
+        FadeIn();
+    }
+
+    [Yarn.Unity.YarnCommand("fadeIn")]
+    public void YarnFadeIn(string fadeRate)
+    {
+        float fFadeRate;
+        try
+        {
+            fFadeRate = float.Parse(fadeRate);
+        }
+        catch (System.FormatException)
+        {
+            Debug.LogErrorFormat("Invalid fade rate: {0}", fadeRate);
+            return;
+        }
+
+        FadeIn(fFadeRate);
     }
 
     [Yarn.Unity.YarnCommand("place")]
