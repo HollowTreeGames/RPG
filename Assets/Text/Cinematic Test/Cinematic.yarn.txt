@@ -1,21 +1,6 @@
 title: Cinematic Start
 ---
 <<CinematicMode()>>
-<<fadeIn Camera 100>>
-<<free Camera>>
-<<move Henry right 0.5>>
-<<move Oakewood right 0.5>>
-<<move Belfry right 0.5>>
-<<wait 3>>
-<<lock Camera>>
-<<wait 3>>
-<<reset Camera>>
-<<wait 60>>
-===
-
-
-title: Bogus
----
 <<place Camera 3 0.5>>
 <<move Henry right 0.5>>
 <<move Oakewood right 0.5>>
@@ -62,9 +47,6 @@ Oakewood: Henry, stop for a moment.
 [[Belfry Complains]]
 ===
 
-
-
-
 title: Belfry Complains
 ---
 Oakewood: Belfry, we need to pick up the pace if we want to find a good campsite before nightfall.
@@ -83,6 +65,7 @@ Belfry (mad): I'm not THAT wee, Oakewood!
 Belfry (mad): I'm an adult, just like you and Henry!
 Oakewood: Definitely not just like me.
 [[Belfry Contemplates]]
+===
 
 title: Belfry Contemplates
 ---
@@ -105,6 +88,7 @@ Oakewood: We'd all be out in the cold, just waiting.
 Belfry: Oh. That makes sense!
 Oakewood: So can you walk for a few more hours?
 [[Henry Finds A Campsite]]
+===
 
 title: Henry Finds A Campsite
 ---
@@ -120,4 +104,6 @@ Belfry (happy): Hooray! We did it!
 <<move Belfry right 0.5>>
 <<move Oakewood right 0.5>>
 <<move Henry right 0.5>>
-<<wait 10>>
+<<fadeOut Camera 0.2>>
+<<wait 5>>
+===

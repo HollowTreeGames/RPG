@@ -225,6 +225,7 @@ public class FadeCameraAndLoad : MonoBehaviour
     [Yarn.Unity.YarnCommand("reset")]
     public void ResetCameraPosition()
     {
+        LockCameraToPlayer();
         transform.localPosition = defaultPosition;
     }
 
