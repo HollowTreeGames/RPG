@@ -1318,7 +1318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultFadeRate: 3
-  startBlack: 0
+  startBlack: 1
 --- !u!81 &1227824382
 AudioListener:
   m_ObjectHideFlags: 0
