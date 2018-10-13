@@ -8,18 +8,18 @@ public class LoadNewArea : MonoBehaviour {
     public float startX;
     public float startY;
 
-    private FadeCameraAndLoad fadeCamera;
+    private SceneLoader sceneLoader;
 
     private void Start()
     {
-        fadeCamera = FindObjectOfType<FadeCameraAndLoad>();
+        sceneLoader = FindObjectOfType<SceneLoader>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         GameObject otherObject = other.gameObject;
         if (otherObject.name == "Player") {
-            fadeCamera.StartLoad(otherObject, levelToLoad, startX, startY);
+            sceneLoader.StartLoad(levelToLoad, startX, startY);
         }
     }
 

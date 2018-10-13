@@ -65,10 +65,6 @@ namespace Yarn.Unity {
         /// the user selected
         private Yarn.OptionChooser SetSelectedOption;
 
-        /// How quickly to show the text, in seconds per character
-        [Tooltip("How quickly to show the text, in seconds per character")]
-        public float textSpeed = 0.025f;
-
         /// The buttons that let the user choose an option
         public List<Button> optionButtons;
 
@@ -79,6 +75,10 @@ namespace Yarn.Unity {
         public bool talkButtonPressed = false;
 
         private static bool instanceExists = false;
+
+        private string last_text;
+
+        private SceneLoader sceneLoader;
 
         private void Start()
         {
@@ -92,6 +92,8 @@ namespace Yarn.Unity {
             DontDestroyOnLoad(transform.gameObject);
 
             portraitImage = portraitPanel.GetComponent<Image>();
+
+            sceneLoader = FindObjectOfType<SceneLoader>();
         }
 
         void Awake ()
@@ -112,28 +114,44 @@ namespace Yarn.Unity {
 
         public void Update()
         {
-            if (Input.GetButtonDown("Jump"))
+            if (!cinematic_mode && Input.GetButtonDown("Jump"))
                 talkButtonPressed = true;
         }
 
         /// Show a line of dialogue, gradually
-        public override IEnumerator RunLine (Yarn.Line line)
+        public override IEnumerator RunLine(Yarn.Line line)
         {
             // Convert line text to DLine
             DLine dLine = DLine.FromYarnLine(line);
+
+            if (cinematic_mode)
+            {
+                dLine.pause = false;
+                // Set default wait time if not defined
+                if (dLine.wait <= 0)
+                    dLine.wait = 1;
+            }
 
             nameText.text = dLine.name;
             portraitImage.sprite = dLine.GetFace();
 
             // Show the text
-            lineText.text = "";
-            lineText.gameObject.SetActive (true);
+            if (dLine.clear_text)
+            {
+                lineText.text = "";
+            }
+            else
+            {
+                last_text = lineText.text;
+            }
+
+            lineText.gameObject.SetActive(true);
 
             talkButtonPressed = false;
 
             ShowCanvas();
 
-            if (textSpeed > 0.0f)
+            if (dLine.speed > 0.0f)
             {
                 // Display the line one character at a time
                 var stringBuilder = new StringBuilder();
@@ -143,32 +161,58 @@ namespace Yarn.Unity {
                     // Detect keypress to skip text animation
                     if (talkButtonPressed)
                     {
-                        talkButtonPressed = false;
                         break;
                     }
                     stringBuilder.Append(c);
                     lineText.text = stringBuilder.ToString();
-                    yield return new WaitForSeconds(textSpeed);
+                    yield return new WaitForSeconds(dLine.speed);
                 }
             }
             // Display the line immediately if textSpeed == 0
-            lineText.text = dLine.text;
+            if (dLine.clear_text)
+            {
+                lineText.text = dLine.text;
+            }
+            else
+            {
+                lineText.text = last_text + dLine.text;
+            }
 
-            // Show the 'press any key' prompt when done, if we have one
-            if (continuePrompt != null)
-                continuePrompt.SetActive (true);
+            if (dLine.pause)
+            {
+                talkButtonPressed = false;
 
-            // Wait for any user input
-            while (!talkButtonPressed) {
-                yield return null;
+                // Delay before showing continue prompt
+                for (int i=0; i < 10; i++)
+                {
+                    if (talkButtonPressed == true)
+                        break;
+                    yield return new WaitForSeconds(0.1f);
+                }
+
+                // Show the 'press any key' prompt when done, if we have one
+                if (!talkButtonPressed && continuePrompt != null)
+                    continuePrompt.SetActive(true);
+
+                // Wait for any user input
+                while (!talkButtonPressed)
+                {
+                    yield return null;
+                }
+
+                if (continuePrompt != null)
+                    continuePrompt.SetActive(false);
+            }
+            else
+            {
+                if (dLine.wait > 0)
+                {
+                    yield return new WaitForSeconds(dLine.wait);
+                }
             }
 
             // Hide the text and prompt
-            lineText.gameObject.SetActive (false);
-
-            if (continuePrompt != null)
-                continuePrompt.SetActive (false);
-
+            lineText.gameObject.SetActive(false);
         }
 
         /// Show a list of options, and wait for the player to make a selection.
@@ -193,7 +237,18 @@ namespace Yarn.Unity {
         public override IEnumerator RunCommand(Yarn.Command command)
         {
             Debug.Log("Command: " + command.text);
-            // "Perform" the command
+            // Check for non-parameterized command strings
+            switch (command.text.ToLower())
+            {
+                case "wait scene":
+                    while (!sceneLoader.IsSceneUnloaded())
+                    {
+                        yield return new WaitForSeconds(0.1f);
+                    }
+                    yield break;
+            }
+
+            // Check for parameterized command strings
             var words = command.text.Split(' ');
             var commandText = words[0].ToLower();
             switch (commandText)
@@ -210,16 +265,16 @@ namespace Yarn.Unity {
                         break;
                     }
                     yield return new WaitForSeconds(fWait);
-                    break;
+                    yield break;
                 case "show":
                     ShowCanvas();
-                    break;
+                    yield break;
                 case "hide":
                     HideCanvas();
-                    break;
+                    yield break;
                 default:
                     Debug.LogError(Utils.Join("Unrecognized command:", commandText));
-                    break;
+                    yield break;
             }
 
             yield break;
@@ -229,6 +284,9 @@ namespace Yarn.Unity {
         public override IEnumerator DialogueStarted()
         {
             Debug.Log("Dialogue starting!");
+
+            // Disable cinematic mode by default
+            cinematic_mode = false;
 
             // Enable the dialogue controls.
             //ShowCanvas();

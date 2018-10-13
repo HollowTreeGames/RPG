@@ -1,0 +1,126 @@
+title: Cinematic Start
+---
+<<CinematicMode()>>
+<<place Camera 3 0.5>>
+<<move Henry right 0.5>>
+<<move Oakewood right 0.5>>
+<<move Belfry right 0.5>>
+<<fadeIn Camera 10>>
+[[Scene Fade]]
+===
+
+title: Original Cinematic Start
+---
+<<CinematicMode()>>
+<<place Camera 3 0.5>>
+<<move Henry right 0.5>>
+<<move Oakewood right 0.5>>
+<<move Belfry right 0.5>>
+<<wait 1>>
+<<fadeIn Camera 0.1>>
+<<wait 10>>
+<<fadeIn Title 0.5>>
+<<wait 5>>
+<<fadeIn CreatedBy 0.5>>
+<<wait 5>>
+<<fadeIn Name1 0.5>>
+<<wait 5>>
+<<fadeIn Name2 0.5>>
+<<wait 5>>
+<<fadeOut Title 0.5>>
+<<fadeOut CreatedBy 0.5>>
+<<fadeOut Name1 0.5>>
+<<fadeOut Name2 0.5>>
+<<wait 5>>
+[[Belfry Falls Behind]]
+===
+
+title: Belfry Falls Behind
+---
+<<move Belfry right 0.4>>
+<<wait 2>>
+<<move Belfry right 0.3>>
+<<wait 1>>
+<<stop Belfry>>
+<<wait 1>>
+<<stop Oakewood>>
+<<wait 1>>
+<<face Oakewood left>>
+<<wait 1>>
+Oakewood (angry): *sigh*
+<<face Oakewood right>>
+<<wait 0.5>>
+<<stop Henry>>
+Oakewood: Henry, stop for a moment.
+<<face Oakewood left>>
+<<wait 0.5>>
+<<face Henry left>>
+[[Belfry Complains]]
+===
+
+title: Belfry Complains
+---
+Oakewood: Belfry, we need to pick up the pace if we want to find a good campsite before nightfall.
+Belfry (tired): But we've been walking for daaaays! I'm soooo knackered...
+Oakewood: We're all knackered, Belfry.
+Henry (happy): I'm actually feeling alright!
+<<face Oakewood right>>
+Oakewood (angry): ...
+<<face Oakewood left>>
+Oakewood: Most of us are knackered, Belfry.
+<<face Henry right>>
+Oakewood: But even an old coyote like me can keep going when he needs to.
+<<moveFor Henry right 0.5 5>>
+Oakewood: A wee bat like you should be able to outpace me ten to one.
+Belfry (mad): I'm not THAT wee, Oakewood!
+Belfry (mad): I'm an adult, just like you and Henry!
+Oakewood: Definitely not just like me.
+[[Belfry Contemplates]]
+===
+
+title: Belfry Contemplates
+---
+<<hide>>
+<<move Oakewood right 0.5>>
+<<wait 0.5>>
+<<move Belfry right 0.5>>
+<<wait 2>>
+<<stop Belfry>>
+<<wait 1>>
+<<stop Oakewood>>
+<<wait 1>>
+<<face Oakewood left>>
+Belfry (sad): I wish we could just go home.
+Oakewood: We don't have a home to go back to. So we just need to keep looking.
+Belfry (happy): Maybe one of the other groups has found a good spot already! We could go back and wait for them!
+Oakewood: No. Everyone must work their hardest to find us all a new place to live. 
+Oakewood: What if everyone went back and waited for someone else to do the hard work?
+Oakewood: We'd all be out in the cold, just waiting.
+Belfry: Oh. That makes sense!
+Oakewood: So can you walk for a few more hours?
+[[Henry Finds A Campsite]]
+===
+
+title: Henry Finds A Campsite
+---
+<<moveFor Henry left 0.5 5>>
+Belfry (determined): Yeah! We don't want to leave everyone else in the cold, just waiting!
+Oakewood: Good girl. Now let's catch up with Henry. You can rest later.
+<<face Oakewood right>>
+Henry: Hey, I found a good spot to camp!
+Oakewood (angry): ...
+Oakewood: ... *sigh*
+Oakewood: Fine. Let's set up camp.
+Belfry (happy): Hooray! We did it!
+<<move Belfry right 0.5>>
+<<move Oakewood right 0.5>>
+<<move Henry right 0.5>>
+[[Scene Fade]]
+===
+
+title: Scene Fade
+---
+<<LoadChapter("Anustart", "-1.67", "-0.52", "0.2")>>
+<<wait scene>>
+<<reset Camera>>
+===

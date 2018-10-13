@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: abca5afbae35e394d8cf84aad86d536c
+    path: Assets/Scenes/Cinematic_Test.unity
+    guid: e65e742c44971814b91d1f6fcef2d83d
+  - enabled: 1
+    path: Assets/Scenes/Anustart.unity
+    guid: 7a2846c8b3184ce45b6fee110c621189
   - enabled: 1
     path: Assets/Scenes/Bel_Tent_Inside.unity
     guid: a3a1611bd21d8bd40945c01cd17eb914

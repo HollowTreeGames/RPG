@@ -1,7 +1,7 @@
 Command format:
 <<command object param1 param2 ...>>
 
-e.g. <<move Player up 2>>
+e.g. <<move Belfry up 2>>
 
 
 General commands:
@@ -10,22 +10,35 @@ show -- Show Dialogue UI. Automatically called when another dialogue line is dis
 hide -- Hide Dialogue UI.
 
 
-Player commands:
+Belfry commands:
+face <direction> -- Turns the player to face a particular direction. Direction can be "up", "down", "left", or "right". 
 move <direction> <speed> -- Moves player in <direction> at <speed>. Direction can be "up", "down", "left", or "right".
 stop -- Stops the player's movement.
 
 
 NPC commands:
-move <direction> <speed> -- Moves NPC in <direction> at <speed>. Direction can be "up", "down", "left", "right", or "player". "Player" faces NPC in the Player's general direction.
+face <direction> -- Turns the NPC to face a particular direction. Direction can be "up", "down", "left", "right", or "belfry". "Belfry" faces NPC in the Player's general direction.
+move <direction> <speed> -- Moves NPC in <direction> at <speed>. Direction can be "up", "down", "left", or "right". 
+moveFor <direction> <speed> -- Moves NPC in <direction> at <speed>, stopping them automatically after <seconds>.
 stop -- Stops the NPC's movement.
 
 
 Camera commands:
+place <x> <y> -- Places the camera at position <x>/<y>, relative to its parent.
 move <direction> <speed> -- Pans camera in <direction> at <speed>. Direction can be "up", "down", "left", or "right".
 stop -- Stops camera panning.
-reset -- Resets the camera to being centered on the Player.
+reset -- Locks the camera to the player and resets its position.
+free -- Unparents the camera the Player, letting it move freely.
+lock -- Parents the camera to the Player, so it follows the Player's movements.
+
+
+YarnTextFade
+fadeOut -- Fades the text to invisibility.
+fadeOut <fade rate> -- Fade Out at the given fade rate.
+fadeIn -- Fades the text into visibility.
+fadeIn <fade rate> -- Fade In at the given fade rate.
 
 
 Notes:
-* Player must be named "Player" and camera must be named "Camera". NPCs are called by their own name.
-* These are cinematic-only commands. Many other commands exist for Yarn to interface with the rest of the system, like Quests and Inventory. See DialogueRunner.AddCustomFunctions for a full list.
+* Player must be named "Belfry" and camera must be named "Camera". NPCs are called by their own name.
+* These are cinematic-only commands. Many other commands exist for Yarn to interface with the rest of the system, like Quests and Inventory. See DialogueRunner.AddCustomFunctions() for a full list.

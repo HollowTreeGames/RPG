@@ -97,6 +97,7 @@ namespace Yarn.Unity
         private QuestManager questManager;
         private GameState gameState;
         private InventoryManager inventoryManager;
+        private SceneLoader sceneLoader;
 
         private System.Random random;
 
@@ -119,6 +120,7 @@ namespace Yarn.Unity
             gameState = FindObjectOfType<GameState>();
             questManager = FindObjectOfType<QuestManager>();
             inventoryManager = FindObjectOfType<InventoryManager>();
+            sceneLoader = FindObjectOfType<SceneLoader>();
 
             // Set additional functions at runtime
             AddCustomFunctions();
@@ -437,7 +439,6 @@ namespace Yarn.Unity
         /// Add additional functions to the Dialogue object, mostly for quest handling
         private void AddCustomFunctions()
         {
-            Debug.Log("I am running custom functions");
             // Check State
             dialogue.library.RegisterFunction("IsUnavailable", 1, delegate (Value[] parameters) {
                 return questManager.FindQuest(parameters[0].AsString).IsUnavailable();
@@ -534,6 +535,39 @@ namespace Yarn.Unity
             dialogue.library.RegisterFunction("Log", 1, delegate (Value[] parameters) {
                 Debug.Log(parameters[0].AsString);
             });
+            dialogue.library.RegisterFunction("CinematicMode", 0, delegate (Value[] parameters) {
+                dialogueUI.cinematic_mode = true;
+            });
+
+            // LoadScene
+            dialogue.library.RegisterFunction("LoadScene", 3, delegate (Value[] parameters)
+            {
+                Debug.LogFormat("LoadScene({0}, {1}, {2})", parameters[0].AsString, parameters[1].AsString, 
+                    parameters[2].AsString);
+                sceneLoader.StartLoad(parameters[0].AsString, (float)parameters[1].AsNumber,
+                    (float)parameters[2].AsNumber);
+            });
+            dialogue.library.RegisterFunction("LoadScene", 4, delegate (Value[] parameters)
+            {
+                Debug.LogFormat("LoadScene({0}, {1}, {2}, {3})", parameters[0].AsString, parameters[1].AsString, 
+                    parameters[2].AsString, parameters[3].AsString);
+                sceneLoader.StartLoad(parameters[0].AsString, (float)parameters[1].AsNumber,
+                    (float)parameters[2].AsNumber, (float)parameters[3].AsNumber);
+            });
+            dialogue.library.RegisterFunction("LoadChapter", 3, delegate (Value[] parameters)
+            {
+                Debug.LogFormat("LoadChapter({0}, {1}, {2})", parameters[0].AsString, parameters[1].AsString,
+                    parameters[2].AsString);
+                sceneLoader.StartLoad(parameters[0].AsString, (float)parameters[1].AsNumber,
+                    (float)parameters[2].AsNumber, loadNewChapter: true);
+            });
+            dialogue.library.RegisterFunction("LoadChapter", 4, delegate (Value[] parameters)
+            {
+                Debug.LogFormat("LoadChapter({0}, {1}, {2}, {3})", parameters[0].AsString, parameters[1].AsString,
+                    parameters[2].AsString, parameters[3].AsString);
+                sceneLoader.StartLoad(parameters[0].AsString, (float)parameters[1].AsNumber,
+                    (float)parameters[2].AsNumber, (float)parameters[3].AsNumber, loadNewChapter: true);
+            });
         }
 
     }
@@ -559,6 +593,11 @@ namespace Yarn.Unity
     /// Scripts that can act as the UI for the conversation should subclass this
     public abstract class DialogueUIBehaviour : MonoBehaviour
     {
+        /// When true, ignores dialogue skips from user and doesn't pause 
+        /// at the end of lines.
+        /// Also sets skip to allow skipping whole cinematics (TBC)
+        public bool cinematic_mode;
+
         /// A conversation has started.
         public virtual IEnumerator DialogueStarted() {
             // Default implementation does nothing.

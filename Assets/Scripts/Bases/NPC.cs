@@ -294,7 +294,7 @@ public abstract class NPC : Talkable
     [Yarn.Unity.YarnCommand("face")]
     public void Face(string direction)
     {
-        if (direction.ToLower() == "player")
+        if (direction.ToLower() == "belfry")
         {
             TurnToPlayer(FindObjectOfType<Player>().transform.position);
             return;
@@ -324,6 +324,51 @@ public abstract class NPC : Talkable
 
         Debug.Log("Starting");
         StartWalking(Utils.ParseFacing(direction), fSpeed);
+    }
+
+    /// <summary>
+    /// Moves the NPC in a given direction, at a given speed. 
+    /// Stops after the given time. Asynchronous.
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <param name="speed"></param>
+    /// <param name="delay">Time in seconds before NPC stops moving</param>
+    [Yarn.Unity.YarnCommand("moveFor")]
+    public void MoveFor(string direction, string speed, string delay)
+    {
+        float fSpeed;
+        try
+        {
+            fSpeed = float.Parse(speed);
+        }
+        catch (System.FormatException)
+        {
+            Debug.LogErrorFormat("Invalid move speed: {0}", speed);
+            return;
+        }
+
+        float fDelay;
+        try
+        {
+            fDelay = float.Parse(delay);
+        }
+        catch (System.FormatException)
+        {
+            Debug.LogErrorFormat("Invalid stop delay: {0}", delay);
+            return;
+        }
+
+        Debug.Log("Starting");
+        StartWalking(Utils.ParseFacing(direction), fSpeed);
+        StopAllCoroutines();
+        StartCoroutine(StopAfterDelay(fDelay));
+    }
+
+    private IEnumerator StopAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        StopWalking();
+        yield break;
     }
 
     [Yarn.Unity.YarnCommand("stop")]
