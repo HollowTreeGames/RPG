@@ -39,6 +39,7 @@ public class InventoryManager : MonoBehaviour
 
     public bool SetInventory(Item item)
     {
+        Debug.Log(this.GetHashCode());
         if (itemInInventory != null)
         {
             return false;

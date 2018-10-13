@@ -17642,7 +17642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasShadow: 1
-  scriptToLoad: {fileID: 0}
+  scriptToLoad: {fileID: 4900000, guid: 313bcd779d8591b4390a3eb7dccdb44c, type: 3}
   moveSpeed: 0
   timeBetweenMove: 0
   timeToMove: 0
@@ -29275,7 +29275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasShadow: 1
-  scriptToLoad: {fileID: 0}
+  scriptToLoad: {fileID: 4900000, guid: 46943cf16c48bd24f9af38903c64da40, type: 3}
   moveSpeed: 0
   timeBetweenMove: 0
   timeToMove: 0
