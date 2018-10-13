@@ -9,13 +9,13 @@ using Enums;
 public class QuestManager : MonoBehaviour
 {
     private Quest[] questList = {};
-    
-    private static bool instanceExists = false;
 
     private QuestCanvas questCanvas;
     private Canvas canvas;
     private Text questText;
     private GameState gameState;
+
+    private static bool instanceExists = false;
 
     void Start()
     {
@@ -46,17 +46,7 @@ public class QuestManager : MonoBehaviour
 
     public void LoadQuestsByScene()
     {
-        switch (SceneManager.GetActiveScene().name)
-        {
-            case "Tutorial":
-                CopyQuestList(QuestLoader.tutorialQuestList);
-                break;
-            default:
-                Debug.LogError(Utils.Join("Active scene not found in quest list: ", 
-                    SceneManager.GetActiveScene().name));
-                break;
-        }
-
+        CopyQuestList(QuestLoader.GetQuestList(SceneManager.GetActiveScene().name));
     }
 
     public void CopyQuestList(Quest[] newQuestList)

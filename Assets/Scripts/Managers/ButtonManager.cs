@@ -7,9 +7,9 @@ using Enums;
 [System.Serializable]
 public class ButtonManager : MonoBehaviour
 {
-    public FadeCameraAndLoad fadeCamera;
     public GameState gameState;
     public SaveManager saveManager;
+    public SceneLoader sceneLoader;
 
     public void NewGame()
     {
@@ -26,6 +26,6 @@ public class ButtonManager : MonoBehaviour
 
     private void LoadScene()
     {
-        fadeCamera.StartLoad(gameState.currentScene, gameState.startPosition.x, gameState.startPosition.y);
+        sceneLoader.StartLoad(gameState.currentScene, gameState.startPosition.x, gameState.startPosition.y);
     }
 }

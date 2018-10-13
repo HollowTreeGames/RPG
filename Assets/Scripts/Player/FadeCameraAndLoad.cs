@@ -13,8 +13,7 @@ public class FadeCameraAndLoad : MonoBehaviour
     private string levelToLoad;
     private float startX;
     private float startY;
-
-    private GameState gameState;
+    
     private Player player;
     private Texture2D black;
 
@@ -26,10 +25,11 @@ public class FadeCameraAndLoad : MonoBehaviour
     private Vector2 panDirection = Vector2.zero;
     private Vector3 defaultPosition;
 
+    private static bool instanceExists = false;
+
     private void Start()
     {
         player = FindObjectOfType<Player>();
-        gameState = FindObjectOfType<GameState>();
 
         transform.parent = player.transform;
         defaultPosition = transform.localPosition;
@@ -39,6 +39,15 @@ public class FadeCameraAndLoad : MonoBehaviour
         black = new Texture2D(1, 1);
         black.SetPixel(0, 0, new Color(0, 0, 0, alpha));
         black.Apply();
+
+        if (instanceExists)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instanceExists = true;
+        DontDestroyOnLoad(gameObject);
     }
 
     void OnGUI()
@@ -49,14 +58,6 @@ public class FadeCameraAndLoad : MonoBehaviour
     private void Update()
     {
         Fade();
-        
-        if (alpha < 1 && loadScene)
-        {
-            LoadScene();
-            loadScene = false;
-            fadeOut = false;
-        }
-
         PanCamera();
     }
 
@@ -86,29 +87,31 @@ public class FadeCameraAndLoad : MonoBehaviour
         }
     }
 
-    public void StartLoad(string levelToLoad, float startX, float startY, float fadeRate = 0) {
-        this.levelToLoad = levelToLoad;
-        this.startX = startX;
-        this.startY = startY;
-        this.fadeRate = (fadeRate > 0) ? fadeRate : defaultFadeRate;
-        gameState.pause = true;
-        loadScene = true;
+    public bool IsFadedIn()
+    {
+        return alpha <= 0;
+    }
+
+    public bool IsFadedOut()
+    {
+        return alpha >= 1;
+    }
+
+    public bool IsFading()
+    {
+        return !IsFadedIn() && !IsFadedOut();
+    }
+
+    public void FadeOutInstant()
+    {
+        alpha = 1;
         fadeOut = true;
     }
 
-    private void LoadScene()
+    public void FadeInInstant()
     {
-        if (player != null)
-        {
-            player.enabled = false;
-            player.transform.position = new Vector2(startX, startY);
-        }
-        SceneManager.LoadScene(levelToLoad);
-        if (player != null)
-        {
-            player.enabled = true;
-        }
-        gameState.pause = false;
+        alpha = 0;
+        fadeOut = false;
     }
 
     public void FadeOut(float fadeRate = 0)

@@ -5,6 +5,17 @@ title: Cinematic Start
 <<move Henry right 0.5>>
 <<move Oakewood right 0.5>>
 <<move Belfry right 0.5>>
+<<fadeIn Camera 10>>
+[[Scene Fade]]
+===
+
+title: Original Cinematic Start
+---
+<<CinematicMode()>>
+<<place Camera 3 0.5>>
+<<move Henry right 0.5>>
+<<move Oakewood right 0.5>>
+<<move Belfry right 0.5>>
 <<wait 1>>
 <<fadeIn Camera 0.1>>
 <<wait 10>>
@@ -104,7 +115,11 @@ Belfry (happy): Hooray! We did it!
 <<move Belfry right 0.5>>
 <<move Oakewood right 0.5>>
 <<move Henry right 0.5>>
-<<fadeOut Camera 0.2>>
-<<wait 5>>
-<<LoadScene("Anustart", "-1.67", "-0.52")>>
+[[Scene Fade]]
+===
+
+title: Scene Fade
+---
+<<LoadChapter("Anustart", "-1.67", "-0.52", "0.2")>>
+<<wait scene>>
 ===

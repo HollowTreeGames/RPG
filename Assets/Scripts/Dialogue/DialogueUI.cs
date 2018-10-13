@@ -78,6 +78,8 @@ namespace Yarn.Unity {
 
         private string last_text;
 
+        private SceneLoader sceneLoader;
+
         private void Start()
         {
             if (instanceExists)
@@ -90,6 +92,8 @@ namespace Yarn.Unity {
             DontDestroyOnLoad(transform.gameObject);
 
             portraitImage = portraitPanel.GetComponent<Image>();
+
+            sceneLoader = FindObjectOfType<SceneLoader>();
         }
 
         void Awake ()
@@ -233,7 +237,18 @@ namespace Yarn.Unity {
         public override IEnumerator RunCommand(Yarn.Command command)
         {
             Debug.Log("Command: " + command.text);
-            // "Perform" the command
+            // Check for non-parameterized command strings
+            switch (command.text.ToLower())
+            {
+                case "wait scene":
+                    while (!sceneLoader.IsSceneUnloaded())
+                    {
+                        yield return new WaitForSeconds(0.1f);
+                    }
+                    yield break;
+            }
+
+            // Check for parameterized command strings
             var words = command.text.Split(' ');
             var commandText = words[0].ToLower();
             switch (commandText)
@@ -250,16 +265,16 @@ namespace Yarn.Unity {
                         break;
                     }
                     yield return new WaitForSeconds(fWait);
-                    break;
+                    yield break;
                 case "show":
                     ShowCanvas();
-                    break;
+                    yield break;
                 case "hide":
                     HideCanvas();
-                    break;
+                    yield break;
                 default:
                     Debug.LogError(Utils.Join("Unrecognized command:", commandText));
-                    break;
+                    yield break;
             }
 
             yield break;
