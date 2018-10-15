@@ -86,7 +86,14 @@ namespace MyDialogue
 
         public Sprite GetFace()
         {
-            return Resources.Load<Sprite>("Faces/" + name + face);
+            string path = string.Format("Faces/{0} - {1}", name, face);
+            Debug.Log(path);
+            Sprite sprite = Resources.Load<Sprite>(path);
+            if (sprite == null)
+            {
+                sprite = Resources.Load<Sprite>("Faces/OopsyWoopsy");
+            }
+            return sprite;
         }
 
         public override string ToString()
@@ -105,7 +112,7 @@ namespace MyDialogue
             Match m = re.Match(line.text);
             string face = m.Groups[3].Value;
             if (face.Equals(""))
-                face = "Default";
+                face = "Neutral";
             // Convert text to title case
             face = textInfo.ToTitleCase(face.Trim().ToLower());
 

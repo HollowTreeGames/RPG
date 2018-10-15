@@ -5,11 +5,11 @@ title: Cinematic Start
 <<move Henry right 0.5>>
 <<move Oakewood right 0.5>>
 <<move Belfry right 0.5>>
-<<fadeIn Camera 10>>
-[[Scene Fade]]
+<<fadeIn Camera 100>>
+[[Belfry Falls Behind]]
 ===
 
-title: Original Cinematic Start
+title: Credits
 ---
 <<CinematicMode()>>
 <<place Camera 3 0.5>>
@@ -47,11 +47,11 @@ title: Belfry Falls Behind
 <<wait 1>>
 <<face Oakewood left>>
 <<wait 1>>
-Oakewood (angry): *sigh*
+Oakewood (look left silent): *sigh*
 <<face Oakewood right>>
 <<wait 0.5>>
 <<stop Henry>>
-Oakewood: Henry, stop for a moment.
+Oakewood (look right): Henry, stop for a moment.
 <<face Oakewood left>>
 <<wait 0.5>>
 <<face Henry left>>
@@ -65,7 +65,7 @@ Belfry (tired): But we've been walking for daaaays! I'm soooo knackered...
 Oakewood: We're all knackered, Belfry.
 Henry (happy): I'm actually feeling alright!
 <<face Oakewood right>>
-Oakewood (angry): ...
+Oakewood (look right silent): ...
 <<face Oakewood left>>
 Oakewood: Most of us are knackered, Belfry.
 <<face Henry right>>
@@ -92,11 +92,11 @@ title: Belfry Contemplates
 <<face Oakewood left>>
 Belfry (sad): I wish we could just go home.
 Oakewood: We don't have a home to go back to. So we just need to keep looking.
-Belfry (happy): Maybe one of the other groups has found a good spot already! We could go back and wait for them!
+Belfry: Maybe one of the other groups has found a good spot already! We could go back and wait for them!
 Oakewood: No. Everyone must work their hardest to find us all a new place to live. 
 Oakewood: What if everyone went back and waited for someone else to do the hard work?
 Oakewood: We'd all be out in the cold, just waiting.
-Belfry: Oh. That makes sense!
+Belfry (happy): Oh. That makes sense!
 Oakewood: So can you walk for a few more hours?
 [[Henry Finds A Campsite]]
 ===
@@ -108,7 +108,7 @@ Belfry (determined): Yeah! We don't want to leave everyone else in the cold, jus
 Oakewood: Good girl. Now let's catch up with Henry. You can rest later.
 <<face Oakewood right>>
 Henry: Hey, I found a good spot to camp!
-Oakewood (angry): ...
+Oakewood (annoyed): ...
 Oakewood: ... *sigh*
 Oakewood: Fine. Let's set up camp.
 Belfry (happy): Hooray! We did it!

@@ -1,6 +1,0 @@
-title: Cinematic Start
----
-<move Henry right 1>
-<move Oakewood right 1>
-<move Belfry right 1>
-===
