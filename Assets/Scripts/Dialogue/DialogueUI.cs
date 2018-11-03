@@ -47,18 +47,17 @@ namespace Yarn.Unity {
         /** This object will be enabled when conversation starts, and 
          * disabled when it ends.
          */
-        public Canvas dialogueCanvas;
+        private Canvas dialogueCanvas;
 
         /// The UI element that displays lines
-        public Text lineText;
+        private Text lineText;
 
         /// The UI elements that display NPC name and portrait
-        public Text nameText;
-        public GameObject portraitPanel;
+        private Text nameText;
         private Image portraitImage;
 
         /// A UI element that appears after lines have finished appearing
-        public GameObject continuePrompt;
+        private GameObject continuePrompt;
 
         /// A delegate (ie a function-stored-in-a-variable) that
         /// we call to tell the dialogue system about what option
@@ -66,11 +65,11 @@ namespace Yarn.Unity {
         private Yarn.OptionChooser SetSelectedOption;
 
         /// The buttons that let the user choose an option
-        public List<Button> optionButtons;
+        private List<Button> optionButtons;
 
         /// Make it possible to temporarily disable the controls when
         /// dialogue is active and to restore them when dialogue ends
-        public RectTransform gameControlsContainer;
+        private RectTransform gameControlsContainer;
 
         public bool talkButtonPressed = false;
 
@@ -91,9 +90,15 @@ namespace Yarn.Unity {
             instanceExists = true;
             DontDestroyOnLoad(transform.gameObject);
 
-            portraitImage = portraitPanel.GetComponent<Image>();
+            dialogueCanvas = FindObjectOfType<DialogueCanvas>().GetComponent<Canvas>();
+            lineText = FindObjectOfType<DialogueText>().GetComponent<Text>();
+            nameText = FindObjectOfType<NameText>().GetComponent<Text>();
+            portraitImage = FindObjectOfType<PortraitPanel>().GetComponent<Image>();
+            continuePrompt = FindObjectOfType<ContinuePrompt>().gameObject;
 
             sceneLoader = FindObjectOfType<SceneLoader>();
+
+            HideCanvas();
         }
 
         void Awake ()
@@ -101,10 +106,15 @@ namespace Yarn.Unity {
             // Start by hiding the container, line and option buttons
             HideCanvas();
 
-            lineText.gameObject.SetActive (false);
+            if (lineText != null)
+                lineText.gameObject.SetActive (false);
 
-            foreach (var button in optionButtons) {
-                button.gameObject.SetActive (false);
+            if (optionButtons != null)
+            {
+                foreach (var button in optionButtons)
+                {
+                    button.gameObject.SetActive(false);
+                }
             }
 
             // Hide the continue prompt if it exists

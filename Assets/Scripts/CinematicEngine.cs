@@ -20,5 +20,5 @@ public class CinematicEngine : MonoBehaviour {
             cinematicStarted = true;
             dialogueRunner.StartDialogue("Cinematic Start");
         }
-	}
+    }
 }

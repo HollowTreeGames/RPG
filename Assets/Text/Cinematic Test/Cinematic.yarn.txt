@@ -1,12 +1,18 @@
 title: Cinematic Start
 ---
+[[Debug Start]]
+===
+
+title: Debug Start
+---
 <<CinematicMode()>>
 <<place Camera 3 0.5>>
 <<move Henry right 0.5>>
 <<move Oakewood right 0.5>>
 <<move Belfry right 0.5>>
 <<fadeIn Camera 100>>
-[[Belfry Falls Behind]]
+<<wait 1>>
+[[Scene Fade]]
 ===
 
 title: Credits

@@ -7,14 +7,14 @@ public class Textimporter : MonoBehaviour {
     public TextAsset textFile;
     public string[] textLines;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
-        if(textFile != null)
+        if (textFile != null)
         {
-            textLines = (textFile.text.Split('\n'));
+            textLines = textFile.text.Split('\n');
         }
 		
-	}
+    }
 	
 }

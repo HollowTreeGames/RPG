@@ -7,11 +7,11 @@ public class InventorySprite : MonoBehaviour {
     public Player player;
     private SpriteRenderer spriteRenderer;
     
-	void Start () {
+    void Start () {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 	
-	void OnGUI () {
+    void OnGUI () {
         int x = (int)(player.transform.position.y * -1000 + 1);
         spriteRenderer.sortingOrder = x;
     }

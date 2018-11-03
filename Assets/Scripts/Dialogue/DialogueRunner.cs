@@ -101,9 +101,20 @@ namespace Yarn.Unity
 
         private System.Random random;
 
+        private static bool instanceExists = false;
+
         /// Start the dialogue
         void Start ()
         {
+            if (instanceExists)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            instanceExists = true;
+            DontDestroyOnLoad(gameObject);
+
             // Ensure that we have our Implementation object
             if (dialogueUI == null) {
                 Debug.LogError ("Implementation was not set! Can't run the dialogue!");
