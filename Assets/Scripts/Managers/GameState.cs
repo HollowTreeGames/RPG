@@ -55,7 +55,7 @@ public class GameState : MonoBehaviour
     #region Singleton
     private static bool instanceExists = false;
 
-    void Start()
+    private void Awake()
     {
         if (instanceExists)
         {

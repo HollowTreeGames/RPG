@@ -5,8 +5,9 @@ using UnityEngine;
 public class QuestCanvas : MonoBehaviour {
 
     private static bool instanceExists = false;
-    
-    void Start () {
+
+    private void Awake()
+    {
         if (instanceExists)
         {
             Destroy(gameObject);

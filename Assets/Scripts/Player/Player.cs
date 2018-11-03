@@ -7,8 +7,6 @@ using Yarn.Unity;
 
 public class Player : SpriteParent
 {
-    private static bool instanceExists = false;
-
     public float walkSpeed;
     public float runSpeed;
     public float interactDistance = 1;
@@ -26,8 +24,9 @@ public class Player : SpriteParent
 
     public float lastX = 0, lastY = -1;
 
-    // Use this for initialization
-    protected override void Start()
+    private static bool instanceExists = false;
+
+    private void Awake()
     {
         if (instanceExists)
         {
@@ -36,8 +35,12 @@ public class Player : SpriteParent
         }
 
         instanceExists = true;
-        DontDestroyOnLoad(transform.gameObject);
+        DontDestroyOnLoad(gameObject);
+    }
 
+    // Use this for initialization
+    protected override void Start()
+    {
         base.Start();
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();

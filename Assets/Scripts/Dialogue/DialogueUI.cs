@@ -71,25 +71,14 @@ namespace Yarn.Unity {
         /// dialogue is active and to restore them when dialogue ends
         private RectTransform gameControlsContainer;
 
-        public bool talkButtonPressed = false;
-
-        private static bool instanceExists = false;
+        private SceneLoader sceneLoader;
 
         private string last_text;
 
-        private SceneLoader sceneLoader;
+        public bool talkButtonPressed = false;
 
         private void Start()
         {
-            if (instanceExists)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            instanceExists = true;
-            DontDestroyOnLoad(transform.gameObject);
-
             dialogueCanvas = FindObjectOfType<DialogueCanvas>().GetComponent<Canvas>();
             lineText = FindObjectOfType<DialogueText>().GetComponent<Text>();
             nameText = FindObjectOfType<NameText>().GetComponent<Text>();
@@ -98,16 +87,10 @@ namespace Yarn.Unity {
 
             sceneLoader = FindObjectOfType<SceneLoader>();
 
-            HideCanvas();
-        }
-
-        void Awake ()
-        {
             // Start by hiding the container, line and option buttons
             HideCanvas();
 
-            if (lineText != null)
-                lineText.gameObject.SetActive (false);
+            lineText.gameObject.SetActive(false);
 
             if (optionButtons != null)
             {
@@ -119,7 +102,7 @@ namespace Yarn.Unity {
 
             // Hide the continue prompt if it exists
             if (continuePrompt != null)
-                continuePrompt.SetActive (false);
+                continuePrompt.SetActive(false);
         }
 
         public void Update()

@@ -5,15 +5,14 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    private static bool instanceExists = false;
-
     private Item itemInInventory;
     public GameObject inventory;
     private SpriteRenderer inventoryRenderer;
     private Player player;
 
-    // Use this for initialization
-    protected void Start()
+    private static bool instanceExists = false;
+
+    private void Awake()
     {
         if (instanceExists)
         {
@@ -22,8 +21,12 @@ public class InventoryManager : MonoBehaviour
         }
 
         instanceExists = true;
-        DontDestroyOnLoad(transform.gameObject);
+        DontDestroyOnLoad(gameObject);
+    }
 
+    // Use this for initialization
+    protected void Start()
+    {
         inventoryRenderer = inventory.GetComponent<SpriteRenderer>();
         inventory.SetActive(false);
 

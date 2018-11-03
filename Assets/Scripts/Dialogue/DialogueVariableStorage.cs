@@ -58,9 +58,9 @@ public class DialogueVariableStorage : VariableStorageBehaviour
     public UnityEngine.UI.Text debugTextView;
 
     /// Reset to our default values when the game starts
-    void Awake ()
+    private void Awake()
     {
-        ResetToDefaults ();
+        ResetToDefaults();
     }
 
     /// Erase all variables and reset to default values

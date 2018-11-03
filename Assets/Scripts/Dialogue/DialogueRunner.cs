@@ -103,8 +103,7 @@ namespace Yarn.Unity
 
         private static bool instanceExists = false;
 
-        /// Start the dialogue
-        void Start ()
+        private void Awake()
         {
             if (instanceExists)
             {
@@ -114,16 +113,22 @@ namespace Yarn.Unity
 
             instanceExists = true;
             DontDestroyOnLoad(gameObject);
+        }
 
+        /// Start the dialogue
+        void Start ()
+        {
             // Ensure that we have our Implementation object
-            if (dialogueUI == null) {
-                Debug.LogError ("Implementation was not set! Can't run the dialogue!");
+            if (dialogueUI == null)
+            {
+                Debug.LogError("Implementation was not set! Can't run the dialogue!");
                 return;
             }
 
             // And that we have our variable storage object
-            if (variableStorage == null) {
-                Debug.LogError ("Variable storage was not set! Can't run the dialogue!");
+            if (variableStorage == null)
+            {
+                Debug.LogError("Variable storage was not set! Can't run the dialogue!");
                 return;
             }
 
@@ -140,7 +145,7 @@ namespace Yarn.Unity
             random = new System.Random();
 
             // Ensure that the variable storage has the right stuff in it
-            variableStorage.ResetToDefaults ();
+            variableStorage.ResetToDefaults();
 
             // Load all scripts
             if (sourceText != null) {

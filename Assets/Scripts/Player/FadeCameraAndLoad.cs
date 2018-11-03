@@ -27,6 +27,18 @@ public class FadeCameraAndLoad : MonoBehaviour
 
     private static bool instanceExists = false;
 
+    private void Awake()
+    {
+        if (instanceExists)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instanceExists = true;
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
         player = FindObjectOfType<Player>();
@@ -39,15 +51,6 @@ public class FadeCameraAndLoad : MonoBehaviour
         black = new Texture2D(1, 1);
         black.SetPixel(0, 0, new Color(0, 0, 0, alpha));
         black.Apply();
-
-        if (instanceExists)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        instanceExists = true;
-        DontDestroyOnLoad(gameObject);
     }
 
     void OnGUI()

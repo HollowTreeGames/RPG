@@ -25,15 +25,7 @@ public class QuestManager : MonoBehaviour
 
     private static bool instanceExists = false;
 
-    public QuestManager()
-    {
-        if (questList.Length == 0)
-        {
-            CopyQuestList(QuestLoader.GetQuestList(SceneManager.GetActiveScene().name));
-        }
-    }
-
-    void Start()
+    private void Awake()
     {
         if (instanceExists)
         {
@@ -43,11 +35,19 @@ public class QuestManager : MonoBehaviour
 
         instanceExists = true;
         DontDestroyOnLoad(gameObject);
+    }
 
+    void Start()
+    {
         questCanvas = FindObjectOfType<QuestCanvas>();
         canvas = questCanvas.GetComponent<Canvas>();
         questText = questCanvas.GetComponentInChildren<Text>();
         gameState = FindObjectOfType<GameState>();
+
+        if (questList.Length == 0)
+        {
+            CopyQuestList(QuestLoader.GetQuestList(SceneManager.GetActiveScene().name));
+        }
     }
 
     public Quest[] GetQuestList()
