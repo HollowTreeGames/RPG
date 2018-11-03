@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Yarn.Unity;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class SceneLoader : MonoBehaviour
     private FadeCameraAndLoad fadeCamera;
     private Player player;
     private QuestManager questManager;
+    private DialogueRunner dialogueRunner;
 
     private bool loadingNewScene;
     private bool sceneUnloaded;
@@ -22,7 +24,7 @@ public class SceneLoader : MonoBehaviour
 
     private static bool instanceExists = false;
 
-    void Start()
+    private void Awake()
     {
         if (instanceExists)
         {
@@ -32,11 +34,15 @@ public class SceneLoader : MonoBehaviour
 
         instanceExists = true;
         DontDestroyOnLoad(gameObject);
+    }
 
+    void Start()
+    {
         gameState = FindObjectOfType<GameState>();
         fadeCamera = FindObjectOfType<FadeCameraAndLoad>();
         player = FindObjectOfType<Player>();
         questManager = FindObjectOfType<QuestManager>();
+        dialogueRunner = FindObjectOfType<DialogueRunner>();
 
         SceneManager.sceneUnloaded += OnSceneUnloaded;
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -91,12 +97,15 @@ public class SceneLoader : MonoBehaviour
         sceneUnloaded = true;
         DisableAndMovePlayer();
         LoadQuests();
+        if (loadNewChapter)
+            dialogueRunner.dialogue.UnloadAll();
     }
 
     private void OnSceneLoaded(Scene current, LoadSceneMode mode)
     {
         sceneLoaded = true;
         EnablePlayer();
+
         fadeCamera.FadeIn(fadeRate);
         StopAllCoroutines();
         StartCoroutine(WaitForFadeIn());
@@ -109,8 +118,10 @@ public class SceneLoader : MonoBehaviour
 
     private void OnSceneFadedIn()
     {
+        // Scene done loading. Reset all flags.
         gameState.pause = false;
         loadingNewScene = false;
+        loadNewChapter = false;
     }
     #endregion
 
@@ -151,7 +162,6 @@ public class SceneLoader : MonoBehaviour
     {
         if (loadNewChapter)
             questManager.CopyQuestList(QuestLoader.GetQuestList(levelToLoad));
-        loadNewChapter = false;
     }
     #endregion
 }
