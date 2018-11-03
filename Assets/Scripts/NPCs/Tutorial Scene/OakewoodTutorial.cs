@@ -18,6 +18,7 @@ public class OakewoodTutorial : NPC {
     {
         base.Start();
         LoadQuests();
+        dialogueRunner.StartDialogue("Oakewood Intro");
     }
 
     public override void LoadQuests()

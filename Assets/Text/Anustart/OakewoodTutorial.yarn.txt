@@ -1,29 +1,23 @@
 title: Oakewood Start
 ---
-<<if IsActive("Oakewood Greeting")>>
+<<if not IsDone("Oakewood Greeting")>>
     [[Oakewood Greeting]]
 <<endif>>
 
-<<if IsDone("Oakewood Greeting")>>
+<<if IsActive("Oakewood Stretch Legs")>>
     [[Oakewood Stretch Legs]]
 <<endif>>
 
-<<if IsDone("Oakewood Stretch Legs")>>
+<<if IsActive("Oakewood Run")>>
     [[Oakewood Run]]
 <<endif>>
 
-<<if IsDone("Oakewood Run")>>
-	[[Oakewood Pick Up Rock]]
-<<endif>>
-
-<<if IsDone("Oakewood Pick Up Rock")>>
-	[[Oakewood Drop Rock]]
-<<endif>>
 ===
 
 
 title: Oakewood Greeting
 ---
+<<FinishQuest("Oakewood Greeting")>>
 Oakewood (Sad): It's about time you woke up.
 Belfry:			Can I help with anything?
 Oakewood (Sad): Absolutely not. I don't want another forest destroyed.
@@ -31,6 +25,7 @@ Belfry (Sad):   But I promise I'll be careful!
 Belfry (Sad):   Pleeease? I want to be better!
 Oakewood:       ...
 Oakewood:       Fine.
+<<SetAvailable("Oakewood Stretch Legs")>>
 ===
 
 
@@ -38,9 +33,9 @@ title: Oakewood Stretch Legs
 ---
 <<if IsAvailable("Oakewood Stretch Legs")>>
     [[Oakewood Stretch Legs Start]]
-<<elseif IsInProgress("Oakewood Stretch Legs")>>
+<<elseif $oakewood_walking_count < 4>>
     [[Oakewood Stretch Legs Reminder]]
-<<elseif GetFriendship() == 1>>
+<<else>>
 	[[Oakewood Stretch Legs Complete]]
 <<endif>>
 ===
@@ -51,6 +46,7 @@ Belfry:			  	Okay! Tell me what to do!
 Oakewood:		  	Erm.
 Oakewood (Happy): 	It's been a long journey, so...
 Oakewood:		  	Move around a bit. Shake out your body.
+<<set $oakewood_walking_count to 0>>
 <<StartQuest("Oakewood Stretch Legs")>>
 ===
 title: Oakewood Stretch Legs Reminder
@@ -65,17 +61,39 @@ Oakewood:			Yes, that was...
 Oakewood (Happy):	Good. Very good.
 Oakewood:			You've helped very much.
 Oakewood (Sad): 	Now leave me alone.
+<<SetAvailable("Oakewood Run")>>
 ===
 
-title: Oakewood Thanks
+title: Oakewood Run
 ---
-Oakewood (Sad):	  You have strange tastes in books.
-Oakewood (Happy): But...
-Oakewood:		  I appreciate the effort you put in.
-Oakewood:		  One day the creatures of the former town of Treehollow might forgive you.
-Oakewood (Sad):	  Just don't burn this new place down too.
+<<if IsAvailable("Oakewood Run")>>
+    [[Oakewood Run Start]]
+<<elseif $oakewood_running_count < 4>>
+    [[Oakewood Run Reminder]]
+<<else>>
+	[[Oakewood Run Complete]]
+<<endif>>
 ===
-
+title: Oakewood Run Start
+---
+Belfry:				I know you said leave you alone, but something about you makes me want to talk to you again.
+Belfry:				Can I do something else to help?
+Oakewood:			Urgh!
+Oakewood:			Just... do the same thing again, but faster.
+<<StartQuest("Oakewood Run")>>
+===
+title: Oakewood Run Reminder
+---
+Oakewood:			Pick up the pace!! Make sure you run far away from me!
+===
+title: Oakewood Run Complete
+---
+<<FinishQuest("Oakewood Run")>>
+Oakewood:			Well done. I had peace and quiet for a whole three seconds. I'm proud of you.
+Belfry (Happy):		Now what??
+Oakewood:			Go talk to Henry. I'm sure he has some other asinine task for you to do.
+<<SetAvailable("Henry Pick Up Rock")>>
+===
 
 title: Oakewood Cycle
 ---

@@ -12,6 +12,7 @@ title: Henry Start
     [[Henry Talk to Rock]]
 <<endif>>
 
+[[Henry Idle Chatter]]
 ===
 
 
@@ -135,4 +136,9 @@ Belfry (happy):     But the important thing is that you keep trying!
 Belfry (happy):     Thanks, Friend Rock! You've been a big help!
 Rock:               ...
 <<FinishQuest("Henry Talk to Rock")>>
+===
+
+title: Henry Idle Chatter
+---
+Henry: How are you feeling, Belfry? We walked a long ways.
 ===

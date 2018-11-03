@@ -234,7 +234,19 @@ namespace Yarn.Unity {
             switch (command.text.ToLower())
             {
                 case "wait scene":
+                    while (!sceneLoader.IsLoadingNewScene())
+                    {
+                        yield return new WaitForSeconds(0.1f);
+                    }
+                    yield break;
+                case "wait scene unloaded":
                     while (!sceneLoader.IsSceneUnloaded())
+                    {
+                        yield return new WaitForSeconds(0.1f);
+                    }
+                    yield break;
+                case "wait scene loaded":
+                    while (!sceneLoader.IsSceneLoaded())
                     {
                         yield return new WaitForSeconds(0.1f);
                     }
