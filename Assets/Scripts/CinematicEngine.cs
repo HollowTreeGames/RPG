@@ -5,20 +5,18 @@ using Yarn.Unity;
 
 public class CinematicEngine : MonoBehaviour {
 
-    bool cinematicStarted;
-    DialogueRunner dialogueRunner;
+    public TextAsset scriptToLoad;
 
-    private void Start()
+    private DialogueRunner dialogueRunner;
+
+    private void Awake()
     {
         dialogueRunner = FindObjectOfType<DialogueRunner>();
     }
 
     // Update is called once per frame
-    void FixedUpdate () {
-        if (!cinematicStarted)
-        {
-            cinematicStarted = true;
-            dialogueRunner.StartDialogue("Cinematic Start");
-        }
+    private void Start() {
+        dialogueRunner.AddScript(scriptToLoad);
+        dialogueRunner.StartDialogue("Cinematic Start");
     }
 }

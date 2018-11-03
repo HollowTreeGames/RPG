@@ -14,6 +14,7 @@ public class SaveManager : MonoBehaviour
         if (instanceExists)
         {
             Destroy(gameObject);
+            gameObject.SetActive(false);
             return;
         }
 

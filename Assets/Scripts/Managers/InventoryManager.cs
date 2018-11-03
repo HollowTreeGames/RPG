@@ -17,6 +17,7 @@ public class InventoryManager : MonoBehaviour
         if (instanceExists)
         {
             Destroy(gameObject);
+            gameObject.SetActive(false);
             return;
         }
 

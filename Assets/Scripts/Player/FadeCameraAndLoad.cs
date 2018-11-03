@@ -32,6 +32,7 @@ public class FadeCameraAndLoad : MonoBehaviour
         if (instanceExists)
         {
             Destroy(gameObject);
+            gameObject.SetActive(false);
             return;
         }
 

@@ -29,6 +29,7 @@ public class SceneLoader : MonoBehaviour
         if (instanceExists)
         {
             Destroy(gameObject);
+            gameObject.SetActive(false);
             return;
         }
 

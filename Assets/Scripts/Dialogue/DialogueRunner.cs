@@ -108,6 +108,7 @@ namespace Yarn.Unity
             if (instanceExists)
             {
                 Destroy(gameObject);
+                gameObject.SetActive(false);
                 return;
             }
 

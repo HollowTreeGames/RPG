@@ -123,19 +123,19 @@ Prefab:
     - target: {fileID: 114282618224298712, guid: efe09a00f1d74f346b71a093dc928869,
         type: 2}
       propertyPath: sourceText.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4188233877434414, guid: efe09a00f1d74f346b71a093dc928869, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.17032875
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4188233877434414, guid: efe09a00f1d74f346b71a093dc928869, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.20795734
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4188233877434414, guid: efe09a00f1d74f346b71a093dc928869, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.2219451
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4188233877434414, guid: efe09a00f1d74f346b71a093dc928869, type: 2}
       propertyPath: m_LocalRotation.x
@@ -517,6 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d161e6931cb2ea44dbf10ca0b71c3132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptToLoad: {fileID: 4900000, guid: f983331677037b643a6788cdc56535b4, type: 3}
 --- !u!4 &292546317
 Transform:
   m_ObjectHideFlags: 0

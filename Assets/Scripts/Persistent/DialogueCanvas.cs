@@ -10,6 +10,7 @@ public class DialogueCanvas : MonoBehaviour {
         if (instanceExists)
         {
             Destroy(gameObject);
+            gameObject.SetActive(false);
             return;
         }
 

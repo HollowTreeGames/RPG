@@ -31,6 +31,7 @@ public class Player : SpriteParent
         if (instanceExists)
         {
             Destroy(gameObject);
+            gameObject.SetActive(false);
             return;
         }
 

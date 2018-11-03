@@ -11,6 +11,7 @@ public class QuestCanvas : MonoBehaviour {
         if (instanceExists)
         {
             Destroy(gameObject);
+            gameObject.SetActive(false);
             return;
         }
 

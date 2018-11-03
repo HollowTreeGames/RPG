@@ -60,6 +60,7 @@ public class GameState : MonoBehaviour
         if (instanceExists)
         {
             Destroy(gameObject);
+            gameObject.SetActive(false);
             return;
         }
 
