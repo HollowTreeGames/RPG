@@ -65,15 +65,19 @@ public class Utils
         float x = 0, y = 0;
         switch (direction.ToLower())
         {
+            case "north":
             case "up":
                 y = 1;
                 break;
+            case "south":
             case "down":
                 y = -1;
                 break;
+            case "west":
             case "left":
                 x = -1;
                 break;
+            case "east":
             case "right":
                 x = 1;
                 break;
