@@ -5,32 +5,56 @@ title: Oakewood Start
 
 title: Oakewood Intro
 ---
+<<place Camera 1 0.5>>
+<<free Camera>>
+<<face Henry right>>
+<<face Oakewood right>>
+<<face Belfry right>>
 <<wait scene>>
-Henry: There's a stream up ahead, in the East. We can make camp beside it for the night. 
+Henry: There's a stream up ahead, in the East. We can make camp beside it for the night.
+<<face Henry down>>
+<<face Oakewood up>>
 Henry: We'll have fresh water and a clear place to sleep!
-Oakewood: Ah--
-Henry: Something wrong, Oakewood?
+<<face Oakewood down>>
+Oakewood (silent): Ah--
+Henry (concerned): Something wrong, Oakewood?
+<<face Oakewood up>>
 Oakewood: My joints are giving me guff, and that means a storm is coming. That stream is going to flood, I'm sure of it.
-Oakewood: We'll camp out farther up North, in the trees.
-Henry: Uh, I don't think that's a good idea... There are a lot of wild animals out here, and I've seen a few squirrels eyeing our food.
+Oakewood: We'll camp out to the south by the pond here, in the trees.
+Henry (concerned): Uh, I don't think that's a good idea... 
+Henry (concerned): There are a lot of wild animals out here, and I've seen a few squirrels eyeing our food.
 Oakewood: We can deal with a few squirrels. 
-Henry: It's not just squirrels! It's raccoons, and...
-<pause>
-<continue in same line> and bears too!
-Oakewood: Pah! Bears. You're crazy.
-Oakewood: And it's still better than our whole camp getting swept away in a flood.
-Henry: The stream won't flood! It might get a little high, but—
-Oakewood: Wild animals can't tie us up and hold us for ransom—
-Belfry: Oh no, guys!
-*Oakewood and Henry stop and look at Belfry.* 
-Belfry: The travel fatigue is getting to us! We're starting to turn on each other.
-*Oakewood and Henry look at each other.*
-Oakewood: ... it looks like we're not going to come to an easy agreement.
+Henry (concerned) <wait=1; nopause; nocleartext>: It's not just squirrels! It's raccoons, and... 
+Henry (concerned): and bears too!
+Oakewood (angry): Pah! Bears. You're crazy.
+Oakewood (angry): And it's still better than our whole camp getting swept away in a flood.
+Henry (angry): The stream won't flood! It might get a little high, but—
+Oakewood (angry): Wild animals can't tie us up and hold us for ransom—
+Belfry (scared): Oh no, guys!
+<<face Henry left>>
+<<face Oakewood left>>
+Belfry (scared): The travel fatigue is getting to us! We're starting to turn on each other.
+<<face Henry down>>
+<<face Oakewood up>>
+<<wait 1>>
+<<face Henry left>>
+<<face Oakewood left>>
+Oakewood (annoyed): ... it looks like we're not going to come to an easy agreement.
 Oakewood: Belfry, you must be the tiebreaker. If you're smart, and I know you are, then you'll pick the hill.
 Henry: Before you side with Oakewood, at LEAST check out the area by the stream! It's elevated! I'm sure it'll be just fine!
-Oakewood: Poppycock! Tell me I'm wrong about the hill, Belfry, I dare you.
-Belfry: Don't worry! I'm going to make a super informed decision!
-*Oakewood and Henry look at each other.*
+Oakewood (annoyed): Poppycock! Tell me I'm wrong about the hill, Belfry, I dare you.
+Belfry (determined): Don't worry! I'm going to make a super informed decision!
+<<move Belfry right 1>>
+<<wait 1>>
+<<face Henry down>>
+<<face Oakewood up>>
+<<wait 1>>
+<<face Henry right>>
+<<face Oakewood right>>
+<<wait 2>>
+<<stop Belfry>>
+<<face Henry down>>
+<<face Oakewood up>>
 Oakewood: We're doomed.
-Henry: I hate to say it, but... yeah...
+Henry (sad): I hate to say it, but... yeah...
 ===

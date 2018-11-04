@@ -48,7 +48,6 @@ namespace MyDialogue
 
     public class DLine
     {
-
         public string text;
         public string name;
         public string face;
@@ -101,6 +100,14 @@ namespace MyDialogue
             return string.Format("{0}(name={1}, face={2}, line={3})", this.GetType(), name, face.ToString(), text);
         }
 
+        /// <summary>
+        /// Example entries:
+        /// Henry: Test
+        /// Nora (Sad): Test Test
+        /// Nora (Happy) <nocleartext; wait=1.5>: Test.
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
         public static DLine FromYarnLine(Yarn.Line line)
         {
             float speed = 0.025f;

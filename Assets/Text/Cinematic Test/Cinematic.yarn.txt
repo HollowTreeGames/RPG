@@ -8,7 +8,7 @@ title: Debug Start
 <<CinematicMode()>>
 <<fadeIn Camera 100>>
 <<wait 0.5>>
-<<LoadChapter("Anustart", "-3.47", "-0.56", "0.2">>
+<<LoadChapter("Anustart", "-3.47", "-0.56", "0.2")>>
 <<wait scene unloaded>>
 <<reset Camera>>
 ===
