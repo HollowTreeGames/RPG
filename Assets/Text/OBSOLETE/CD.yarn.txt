@@ -1,0 +1,19 @@
+title: CD Default
+---
+Belfry:			Ooo, shiny!
+Belfry (Happy):	'America Online Installation CD.'
+Belfry:			The colors are so pretty on this...
+Belfry (Happy):	This seems cool!
+===
+
+
+title: CD Pick Up
+---
+Belfry (Happy): It's a shiny...circle...disk thingy!!
+===
+
+
+title: CD Hands Full
+---
+Belfry (Sad):	That looks delicate. I probably need both paws to hold it!
+===

@@ -1,0 +1,91 @@
+title: Parsley Start
+---
+<<if GetReputation() == 0>>
+	[[Parsley Initial]]
+<<endif>>
+
+<<if IsUnavailable("Parsley Find CD")>>
+	[[Parsley Friendly]]
+<<endif>>
+
+<<if IsActive("Parsley Find CD")>>
+    [[Parsley Find CD]]
+<<endif>>
+
+[[Parsley Thanks]]
+===
+
+
+title: Parsley Initial
+---
+Parsley:			Hmph.
+===
+
+
+title: Parsley Friendly
+---
+Parsley (Sad):		I guess you didn't MEAN to burn down the town...
+Parsley:			But don't think I'm ever loaning you anything ever again!
+Parsley:			Especially not a candle.
+===
+
+
+title: Parsley Find CD
+---
+<<if IsAvailable("Parsley Find CD")>>
+    [[Parsley Find CD Start]]
+<<elseif IsInProgress("Parsley Find CD")>>
+    <<if GetInventory() == "Herb Book" || GetInventory() == "Library Book">>
+        [[Parsley That Is A Book]]
+	<<elseif GetInventory() == "Dank Herb">>
+		[[Parsley That Is An Herb]]
+	<<elseif GetInventory() == "CD">>
+		[[Parsley Find CD Get]]
+	<<else>>
+        [[Parsley Find CD Reminder]]
+    <<endif>>
+<<endif>>
+===
+title: Parsley Find CD Start
+---
+Parsley:			Oh alright, alright!!
+Parsley:			I'll give you a chance to redeem yourself.
+Parsley (Happy):	Find the coolest possible thing you can. If it's cool enough, I will CONSIDER taking you off my shit list.
+Parsley:			Provisionally!!
+<<StartQuest("Parsley Find CD")>>
+===
+title: Parsley Find CD Get
+---
+<<ClearInventory()>>
+Parsley (Happy):	Whoa!!
+Parsley (Happy):	I've been looking for one of these!
+Parsley (Sad):		Hmm... it's no Nickelback, but I'll take it.
+Parsley (Happy):	Thanks, Bel! You're the best!
+<<FinishQuest("Parsley Find CD")>>
+===
+title: Parsley Find CD Reminder
+---
+Parsley (Happy):	Have you found the COOLEST THING EVER yet?
+Parsley (Happy):	Please be sure it is quantifiably the coolest thing you've ever set paw upon.
+===
+title: Parsley That Is A Book
+---
+Parsley:			I said bring the COOLEST possible thing.
+Parsley (Sad):		Books are cool, but this one is lame.
+<<DropItem()>>
+===
+title: Parsley That Is An Herb
+---
+Parsley:			That is literally marijuana.
+Parsley:			I'm ten.
+Parsley:			You're not supposed to give ten year olds marijuana.
+Parsley:			And anyway, cool kits don't do drugs!!
+<<DropItem()>>
+===
+title: Parsley Thanks
+---
+Parsley (Happy):	Have you heard these mad beats?
+Parsley (Happy):	They sound like nothing I've ever heard before!
+Parsley (Happy):	Here, listen!
+Belfry (Sad):		<You hear the sound of a modem trying to start up.>
+===

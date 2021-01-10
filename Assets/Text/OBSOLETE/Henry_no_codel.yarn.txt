@@ -1,0 +1,60 @@
+title: Start
+---
+Henry:          Hi! My name is Henry! I'm the sheriff!
+Belfry (happy): I know who you are, Henry! We lived in Treehollow together!
+Henry (happy):  Of course!
+Henry:          But it's my duty as sheriff to greet everyone!
+Henry:          Allow me to finish my introduction. Ahem.
+Henry (happy):  I like sniffing butts!
+Henry (sad):    Nora likes it when I don't wear pants, but I don't know why!
+Belfry (sad):   ...
+===
+
+
+title: HerbStart
+---
+Henry (Sad):    Nora has been really stressed by her work lately. You know what she needs?
+Belfry:         A nice back massage?
+Henry:          That's right! A little bit of kibbles and hits!
+Belfry (Sad):   ...
+Henry (Happy):  Would you please find me some nutritious nug to help Nora take the edge off?
+Belfry (Happy): Anything for you guys!
+===
+title: HerbReminder
+---
+Henry:          Have you found some leafs of the devil's lettuce?
+Belfry:         Working on it!
+===
+title: HerbGet
+---
+Henry (Happy):  Wow, thank you! Nora will be so happy to smoke this straight killer kush!
+===
+
+
+title: BookStart
+---
+Henry (Happy):  So I wanted to get Nora a special book...
+Henry:          You didn't hear this from me, but it's a book about...
+Henry (Sad):    WEED.
+Belfry (Sad):   ...ah.
+Henry:          Can you find one for me? She's hopeless at blazing 420 365 blaze it.
+Belfry (Happy): We can't have that, now can we? I'll look.
+===
+title: BookReminder
+---
+Henry:          Have you found that book yet?
+Henry:          Keep it on the down-low.
+Henry (Sad):    I'm a sheriff, you know.
+===
+title: BookGet
+---
+Henry (Happy):  Thank goodness! I was worried Nora would choke on a blunt without this.
+===
+
+
+title: Thanks
+---
+Henry:          Thanks again for the dank dire doobies and this mad awesome book!
+Henry (Sad):    Nora asked me to stop saying dank, but it's too much fun!
+Henry (Happy):  Dank dank dank dank dank dank dank dank dank dank dank dank dank dank dank dank dank dank dank dank dank!
+===

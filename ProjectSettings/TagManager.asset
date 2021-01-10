@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - NPC
+  - Portrait
+  - Tent
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,7 @@ TagManager:
   - BlockingLayer
   - Interactable
   - 
-  - 
+  - Lighting Effects
   - 
   - 
   - 
@@ -43,6 +46,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 2217525801
+    locked: 0
+  - name: Plants
+    uniqueID: 3881888265
     locked: 0
   - name: BlockingLayer
     uniqueID: 1315343397

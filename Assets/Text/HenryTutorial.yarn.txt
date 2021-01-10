@@ -1,0 +1,138 @@
+title: Henry Start
+---
+<<if IsActive("Henry Pick Up Rock")>>
+    [[Henry Pick Up Rock]]
+<<endif>>
+
+<<if IsActive("Henry Drop Rock")>>
+    [[Henry Drop Rock]]
+<<endif>>
+
+<<if IsActive("Henry Talk to Rock")>>
+    [[Henry Talk to Rock]]
+<<endif>>
+
+===
+
+
+title: Henry Pick Up Rock
+---
+<<if IsAvailable("Henry Pick Up Rock")>>
+    [[Henry Pick Up Rock Start]]
+<<elseif GetInventory() == "Friend Rock">>
+    [[Henry Pick Up Rock Complete]]
+<<else>>
+	[[Henry Pick Up Rock Reminder]]
+<<endif>>
+===
+title: Henry Pick Up Rock Start
+---
+Belfry (Happy):		Henry Henry Henry!
+Belfry (Happy):		How can I help?
+Henry:				What?
+Henry (Sad):		Ummm...
+Henry:				You know what, Belfry?
+Henry (Sad):		You should definitely...go...
+Henry (Happy):		...Pick up that rock!
+Henry (Sad):		And... bring it to me?
+<<StartQuest("Henry Pick Up Rock")>>
+===
+title: Henry Pick Up Rock Reminder
+---
+Henry:				Oh! Belfry!
+Henry (Sad):		Umm...
+Henry (Happy):		Did you find that rock yet??
+Henry:				(That's what I asked you to do, right?)
+===
+title: Henry Pick Up Rock Complete
+---
+<<FinishQuest("Henry Pick Up Rock")>>
+Henry (Happy):		Wow!
+Henry (Happy):		That sure is a rock!
+Henry:				Good job, Belfry!
+Belfry (Happy):		Thanks, Henry!
+Belfry:				What next?
+Henry (Sad):		...N...next?
+<<SetAvailable("Henry Drop Rock")>>
+===
+
+title: Henry Drop Rock
+---
+<<if IsAvailable("Henry Drop Rock")>>
+    [[Henry Drop Rock Start]]
+<<else>>
+    [[Henry Drop Rock Reminder]]
+<<endif>>
+===
+title: Henry Drop Rock Start
+---
+Henry (Sad):		Next...you should...
+Belfry (Happy):		Yes?
+Henry (Happy):		Drop the rock!
+Henry:				Yeah, drop the rock!
+Henry:				I think that's called...calisthenics?
+Belfry (Happy):		Okay!
+<<StartQuest("Henry Drop Rock")>>
+===
+title: Henry Drop Rock Reminder
+---
+Henry:				Drop it!
+Henry:				Nora tells me to "drop it" sometimes.
+Henry:				(I think she means my pants.)
+Henry:				(...but I don't wear any pants.)
+===
+title: Henry Drop Rock Complete
+---
+<<FinishQuest("Henry Drop Rock")>>
+Henry (Happy):		Yay! You dropped the rock!
+Henry (Sad):		But... that was kind of a hard drop...
+<<SetAvailable("Henry Talk to Rock")>>
+===
+
+title: Henry Talk to Rock
+---
+<<if IsAvailable("Henry Talk to Rock")>>
+    [[Henry Talk to Rock Start]]
+<<else>>
+    [[Henry Talk to Rock Reminder]]
+<<endif>>
+===
+title: Henry Talk to Rock Start
+---
+Henry (Sad):		That rock looks sad now.
+Belfry (Sad):		Does it?
+Henry (Sad):		Yes.
+Henry:				Maybe you should apologize to it.
+Belfry (Sad):		... to a rock?
+Henry:				You know that friends come from the unlikeliest of places!
+Belfry (Happy):		You're right, Henry. I'll talk to the rock.
+<<StartQuest("Henry Talk to Rock")>>
+===
+title: Henry Talk to Rock Reminder
+---
+Henry (Happy):		Make sure you play nice with that rock over there!
+===
+title: Henry Talk to Rock Complete
+---
+Belfry (Happy):		Hi, Friend Rock! I'm so sorry I dropped you so hard, are you okay?
+Rock:               ...
+Belfry (Sad):       ...
+Rock:               ...
+Belfry:             Well... that's good, then.
+Belfry:             So... how's it going? How's rock life?
+Belfry:             Swell? I'll bet it's swell.
+Rock:               ...
+Belfry:             You know, it's probably nice being a rock. No one to boss you around.
+Belfry:             Or tell you you're a screwup. 
+Belfry (sad):       Or remind you that you burned down the whole town...
+Rock:               ...
+Belfry (sad):       Yeah, that sounds like quite the life.
+Belfry (sad):       But I'm just trying my best to help! And now they act like they don't even want my help!
+Belfry (sad):       What should I do, Friend Rock? Should I just keep trying or give up?
+Rock:               ...
+Belfry (happy):     You know what, you're right! Everyone screws up every now and then...
+Belfry (happy):     But the important thing is that you keep trying!
+Belfry (happy):     Thanks, Friend Rock! You've been a big help!
+Rock:               ...
+<<FinishQuest("Henry Talk to Rock")>>
+===
