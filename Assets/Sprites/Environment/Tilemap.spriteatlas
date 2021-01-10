@@ -4,7 +4,8 @@
 SpriteAtlas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Tilemap
   m_EditorData:
     serializedVersion: 2
@@ -87,6 +88,7 @@ SpriteAtlas:
     - {fileID: 21300088, guid: e2ee6a430980df84d9a9a6fd65d520f7, type: 3}
     - {fileID: 21300090, guid: e2ee6a430980df84d9a9a6fd65d520f7, type: 3}
     - {fileID: 21300092, guid: e2ee6a430980df84d9a9a6fd65d520f7, type: 3}
+    totalSpriteSurfaceArea: 117500
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
