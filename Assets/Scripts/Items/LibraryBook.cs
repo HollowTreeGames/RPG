@@ -14,8 +14,8 @@ public class LibraryBook : Item
         base.Start();
         itemName = "Library Book";
 
-        questLibraryBook = questManager.FindQuest("Oakewood Library Book");
-        questFindCd = questManager.FindQuest("Parsley Find CD");
+        //questLibraryBook = questManager.FindQuest("Oakewood Library Book");
+        //questFindCd = questManager.FindQuest("Parsley Find CD");
 }
 
     protected override bool CheckForPickup()

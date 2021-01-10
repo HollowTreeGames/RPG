@@ -18,7 +18,7 @@ public class Parsley : NPC {
 
     public override void LoadQuests()
     {
-        questFindCd = questManager.FindQuest("Parsley Find CD");
+        //questFindCd = questManager.FindQuest("Parsley Find CD");
     }
 
     protected override bool IsQuestAvailable()

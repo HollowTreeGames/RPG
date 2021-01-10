@@ -21,9 +21,9 @@ public class Henry : NPC {
 
     public override void LoadQuests()
     {
-        questGreeting = questManager.FindQuest("Henry Greeting");
-        questDankHerb = questManager.FindQuest("Henry Dank Herb");
-        questDankBook = questManager.FindQuest("Henry Dank Book");
+        //questGreeting = questManager.FindQuest("Henry Greeting");
+        //questDankHerb = questManager.FindQuest("Henry Dank Herb");
+        //questDankBook = questManager.FindQuest("Henry Dank Book");
     }
 
     protected override void UpdateQuests()

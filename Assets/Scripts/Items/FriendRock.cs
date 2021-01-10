@@ -15,9 +15,9 @@ public class FriendRock : Item
         base.Start();
         itemName = "Friend Rock";
 
-        questPickUpRock = questManager.FindQuest("Henry Pick Up Rock");
-        questDropRock = questManager.FindQuest("Henry Drop Rock");
-        questTalkToRock = questManager.FindQuest("Henry Talk to Rock");
+        //questPickUpRock = questManager.FindQuest("Henry Pick Up Rock");
+        //questDropRock = questManager.FindQuest("Henry Drop Rock");
+        //questTalkToRock = questManager.FindQuest("Henry Talk to Rock");
     }
 
     protected override bool CheckForPickup()

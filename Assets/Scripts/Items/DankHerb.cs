@@ -15,9 +15,9 @@ public class DankHerb : Item
         base.Start();
         itemName = "Dank Herb";
 
-        questDankHerb = questManager.FindQuest("Henry Dank Herb");
-        questLibraryBook = questManager.FindQuest("Oakewood Library Book");
-        questFindCd = questManager.FindQuest("Parsley Find CD");
+        //questDankHerb = questManager.FindQuest("Henry Dank Herb");
+        //questLibraryBook = questManager.FindQuest("Oakewood Library Book");
+        //questFindCd = questManager.FindQuest("Parsley Find CD");
     }
 
     protected override bool CheckForPickup()

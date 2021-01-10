@@ -22,9 +22,9 @@ public class OakewoodTutorial : NPC {
 
     public override void LoadQuests()
     {
-        questOakewoodGreeting = questManager.FindQuest("Oakewood Greeting");
-        questOakewoodStretchLegs = questManager.FindQuest("Oakewood Stretch Legs");
-        questOakewoodRun = questManager.FindQuest("Oakewood Run");
+        //questOakewoodGreeting = questManager.FindQuest("Oakewood Greeting");
+        //questOakewoodStretchLegs = questManager.FindQuest("Oakewood Stretch Legs");
+        //questOakewoodRun = questManager.FindQuest("Oakewood Run");
     }
 
     protected override bool IsQuestAvailable()

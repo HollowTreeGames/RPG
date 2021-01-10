@@ -22,11 +22,11 @@ public class Oakewood : NPC {
 
     public override void LoadQuests()
     {
-        questOakewoodGreeting = questManager.FindQuest("Oakewood Greeting");
-        questOakewoodStretchLegs = questManager.FindQuest("Oakewood Stretch Legs");
-        questOakewoodRun = questManager.FindQuest("Oakewood Run");
-        questOakewoodPickUpRock = questManager.FindQuest("Oakewood Pick Up Rock");
-        questOakewoodDropRock = questManager.FindQuest("Oakewood Drop Rock");
+        //questOakewoodGreeting = questManager.FindQuest("Oakewood Greeting");
+        //questOakewoodStretchLegs = questManager.FindQuest("Oakewood Stretch Legs");
+        //questOakewoodRun = questManager.FindQuest("Oakewood Run");
+        //questOakewoodPickUpRock = questManager.FindQuest("Oakewood Pick Up Rock");
+        //questOakewoodDropRock = questManager.FindQuest("Oakewood Drop Rock");
     }
 
     protected override bool IsQuestAvailable()

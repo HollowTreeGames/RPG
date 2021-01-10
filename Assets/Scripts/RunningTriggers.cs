@@ -19,7 +19,7 @@ public class RunningTriggers : SpriteParent
         base.Start();
         questManager = FindObjectOfType<QuestManager>();
         dialogueVariableStorage = FindObjectOfType<DialogueVariableStorage>();
-        quest = questManager.FindQuest("Oakewood Run");
+        //quest = questManager.FindQuest("Oakewood Run");
         dialogueRunner = FindObjectOfType<DialogueRunner>();
         player = FindObjectOfType<Player>();
     }
@@ -27,16 +27,16 @@ public class RunningTriggers : SpriteParent
     // Update is called once per frame
     void Update()
     {
-        if (quest.IsInProgress() && !steppedOn)
-        {
-            spriteRenderer.enabled = true;
-        }
+        //if (quest.IsInProgress() && !steppedOn)
+        //{
+        //    spriteRenderer.enabled = true;
+        //}
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!quest.IsInProgress() || steppedOn)
-            return;
+        //if (!quest.IsInProgress() || steppedOn)
+        //    return;
         if (Input.GetButton("Fire1"))
         {
             steppedOn = true;
@@ -47,8 +47,8 @@ public class RunningTriggers : SpriteParent
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!quest.IsInProgress() || steppedOn)
-            return;
+        //if (!quest.IsInProgress() || steppedOn)
+        //    return;
         if (!Input.GetButton("Fire1"))
         {
             player.Stop();

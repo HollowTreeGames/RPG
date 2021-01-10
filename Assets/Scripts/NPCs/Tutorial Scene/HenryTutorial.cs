@@ -19,9 +19,9 @@ public class HenryTutorial : NPC
 
     public override void LoadQuests()
     {
-        questHenryPickUpRock = questManager.FindQuest("Henry Pick Up Rock");
-        questHenryDropRock = questManager.FindQuest("Henry Drop Rock");
-        questHenryTalkToRock = questManager.FindQuest("Henry Talk to Rock");
+        //questHenryPickUpRock = questManager.FindQuest("Henry Pick Up Rock");
+        //questHenryDropRock = questManager.FindQuest("Henry Drop Rock");
+        //questHenryTalkToRock = questManager.FindQuest("Henry Talk to Rock");
     }
 
     protected override bool IsQuestAvailable()
